@@ -814,8 +814,16 @@ class UnifiedDiagramPipeline:
                     nlp_results = cached_nlp
                     print(f"  ♻️  Using cached NLP outputs from {len(nlp_results)} tools")
                 else:
+                    # Log text complexity metrics
+                    text_length = len(problem_text)
+                    formula_chars = sum(1 for c in problem_text if c in 'μ₁₂₃₄₅₆₇₈₉₀×÷±√∫∑∏')
+                    special_chars = sum(1 for c in problem_text if not c.isalnum() and not c.isspace())
+                    print(f"  📊 Text Complexity: {text_length} chars, {formula_chars} formula chars, {special_chars} special chars")
+                    print()
+
                     # Run each NLP tool with error handling to prevent hangs
                     if 'openie' in self.nlp_tools:
+                        print(f"  🔄 OpenIE: Starting extraction...")
                         start_tool = time.time()
                         try:
                             openie_result = self.nlp_tools['openie'].extract(problem_text)
@@ -827,11 +835,13 @@ class UnifiedDiagramPipeline:
                                 'triples': [(t.subject, t.relation, t.object) for t in openie_result.triples],  # FIXED: Store ALL triples
                                 'raw_result': openie_result  # ADDED: Store full result object
                             }
-                            print(f"  ✅ OpenIE: Extracted {len(openie_result.triples)} triples")
+                            print(f"  ✅ OpenIE: Extracted {len(openie_result.triples)} triples in {elapsed:.0f}ms")
                         except Exception as e:
-                            print(f"  ⚠️  OpenIE: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  OpenIE: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'stanza' in self.nlp_tools:
+                        print(f"  🔄 Stanza: Starting NLP analysis...")
                         start_tool = time.time()
                         try:
                             stanza_result = self.nlp_tools['stanza'].analyze(problem_text)
@@ -846,11 +856,13 @@ class UnifiedDiagramPipeline:
                             }
                             entity_count = len(stanza_result.get('entities', []))
                             dep_count = len(stanza_result.get('dependencies', []))
-                            print(f"  ✅ Stanza: Found {entity_count} entities, {dep_count} dependencies")
+                            print(f"  ✅ Stanza: Found {entity_count} entities, {dep_count} dependencies in {elapsed:.0f}ms")
                         except Exception as e:
-                            print(f"  ⚠️  Stanza: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  Stanza: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'scibert' in self.nlp_tools:
+                        print(f"  🔄 SciBERT: Starting embedding generation...")
                         start_tool = time.time()
                         try:
                             scibert_result = self.nlp_tools['scibert'].embed(problem_text)
@@ -874,11 +886,13 @@ class UnifiedDiagramPipeline:
                                 'embedding_dim': embedding_dim,
                                 'embedding_sample': embedding_sample
                             }
-                            print("  ✅ SciBERT: Generated embeddings")
+                            print(f"  ✅ SciBERT: Generated embeddings (dim={embedding_dim}) in {elapsed:.0f}ms")
                         except Exception as e:
-                            print(f"  ⚠️  SciBERT: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  SciBERT: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'chemdataextractor' in self.nlp_tools:
+                        print(f"  🔄 ChemDataExtractor: Starting chemical entity extraction...")
                         start_tool = time.time()
                         try:
                             chem_result = self.nlp_tools['chemdataextractor'].parse(problem_text)
@@ -891,11 +905,14 @@ class UnifiedDiagramPipeline:
                                 'reactions': len(chem_result.reactions),
                                 'properties': list(chem_result.properties.keys())[:5]
                             }
-                            print(f"  ✅ ChemDataExtractor: Found {len(chem_result.formulas)} formulas, {len(chem_result.reactions)} reactions")
+                            print(f"  ✅ ChemDataExtractor: Found {len(chem_result.formulas)} formulas, {len(chem_result.reactions)} reactions in {elapsed:.0f}ms")
                         except Exception as e:
-                            print(f"  ⚠️  ChemDataExtractor: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  ChemDataExtractor: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'mathbert' in self.nlp_tools:
+                        print(f"  🔄 MathBERT: Starting mathematical expression extraction...")
+                        print(f"     ⏱️  Note: MathBERT can take 60-180+ seconds for complex text with formulas")
                         start_tool = time.time()
                         try:
                             math_result = self.nlp_tools['mathbert'].extract(problem_text)
@@ -908,11 +925,14 @@ class UnifiedDiagramPipeline:
                                 'expressions': len(math_result.expressions),
                                 'constants': dict(list(math_result.constants.items())[:5])
                             }
-                            print(f"  ✅ MathBERT: Found {len(math_result.variables)} variables, {len(math_result.expressions)} expressions")
+                            print(f"  ✅ MathBERT: Found {len(math_result.variables)} variables, {len(math_result.expressions)} expressions in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
                         except Exception as e:
-                            print(f"  ⚠️  MathBERT: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  MathBERT: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'amr' in self.nlp_tools:
+                        print(f"  🔄 AMR Parser: Starting Abstract Meaning Representation parsing...")
+                        print(f"     ⏱️  Note: AMR Parser can take 60-120+ seconds for complex dependency graphs")
                         start_tool = time.time()
                         try:
                             amr_result = self.nlp_tools['amr'].parse(problem_text)
@@ -925,11 +945,13 @@ class UnifiedDiagramPipeline:
                                 'entities': dict(list(amr_result.entities.items())[:5]),
                                 'relations': amr_result.relations[:5]
                             }
-                            print(f"  ✅ AMR: Extracted {len(amr_result.concepts)} concepts, {len(amr_result.relations)} relations")
+                            print(f"  ✅ AMR: Extracted {len(amr_result.concepts)} concepts, {len(amr_result.relations)} relations in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
                         except Exception as e:
-                            print(f"  ⚠️  AMR: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  AMR: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'dygie' in self.nlp_tools:
+                        print(f"  🔄 DyGIE++: Starting entity and relation extraction...")
                         start_tool = time.time()
                         try:
                             dygie_result = self.nlp_tools['dygie'].extract(problem_text)
@@ -942,12 +964,26 @@ class UnifiedDiagramPipeline:
                                 'relations': dygie_result.relations,  # FIXED: Store ALL relations
                                 'raw_result': dygie_result  # ADDED: Store full result object
                             }
-                            print(f"  ✅ DyGIE++: Extracted {len(dygie_result.entities)} entities, {len(dygie_result.relations)} relations")
+                            print(f"  ✅ DyGIE++: Extracted {len(dygie_result.entities)} entities, {len(dygie_result.relations)} relations in {elapsed:.0f}ms")
                         except Exception as e:
-                            print(f"  ⚠️  DyGIE++: Failed - {type(e).__name__}: {str(e)[:50]}")
+                            elapsed = (time.time() - start_tool) * 1000
+                            print(f"  ⚠️  DyGIE++: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     # Cache for future identical prompts
                     self._store_nlp_results_in_cache(nlp_cache_key, nlp_results)
+
+                    # Log summary of NLP enrichment with timing breakdown
+                    total_nlp_time = sum(result.get('runtime_ms', 0) for result in nlp_results.values())
+                    print()
+                    print(f"  📊 NLP Enrichment Summary:")
+                    print(f"     Total time: {total_nlp_time:.0f}ms ({total_nlp_time/1000:.1f}s)")
+                    print(f"     Tools executed: {len(nlp_results)}")
+                    if nlp_results:
+                        print(f"     Timing breakdown:")
+                        for tool_name, result in sorted(nlp_results.items(), key=lambda x: x[1].get('runtime_ms', 0), reverse=True):
+                            tool_time = result.get('runtime_ms', 0)
+                            percentage = (tool_time / total_nlp_time * 100) if total_nlp_time > 0 else 0
+                            print(f"       - {tool_name}: {tool_time:.0f}ms ({percentage:.1f}%)")
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
                 if self.logger:
