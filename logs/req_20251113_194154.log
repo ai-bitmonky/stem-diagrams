@@ -349,3 +349,34 @@
 2025-11-13 19:44:37 | INFO     | Full trace saved to: logs/req_20251113_194154.log
 2025-11-13 19:44:37 | INFO     | ================================================================================
 2025-11-13 19:44:37 | INFO     | Trace JSON saved to: logs/req_20251113_194154_trace.json
+2025-11-13 19:48:28 | INFO     | ================================================================================
+2025-11-13 19:48:28 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 19:48:28 | INFO     | ================================================================================
+2025-11-13 19:48:28 | INFO     | Request ID: req_20251113_194154
+2025-11-13 19:48:28 | INFO     | Problem Text Length: 366 characters
+2025-11-13 19:48:28 | INFO     | 
+2025-11-13 19:48:28 | INFO     | Problem Text:
+2025-11-13 19:48:28 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 19:48:28 | INFO     |   A potential difference of 300 V is applied to a series connection of two capacitors
+2025-11-13 19:48:28 | INFO     |   of capacitances C₁ = 2.00 μF and C₂ = 8.00 μF. The charged capacitors are then disconnected
+2025-11-13 19:48:28 | INFO     |   from the battery and from each other. They are then reconnected with plates of the same signs
+2025-11-13 19:48:28 | INFO     |   wired together (positive to positive, negative to negative). What is the charge on capacitor C₁?
+2025-11-13 19:48:28 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 19:48:28 | INFO     | 
+2025-11-13 19:48:28 | INFO     | Configuration:
+2025-11-13 19:48:28 | INFO     |   canvas_width: 1200
+2025-11-13 19:48:28 | INFO     |   canvas_height: 800
+2025-11-13 19:48:28 | INFO     |   validation_mode: standard
+2025-11-13 19:48:28 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'Model Orchestrator', 'Primitive Library (memory)', 'Domain Modules (5)', 'Ontology Validation', 'Z3 Optimization', 'Structural Validator', 'Request/Response Logging']
+2025-11-13 19:48:28 | INFO     | 
+2025-11-13 19:48:28 | INFO     | 
+2025-11-13 19:48:28 | INFO     | ================================================================================
+2025-11-13 19:48:28 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 19:48:28 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 19:48:28 | INFO     | ================================================================================
+2025-11-13 19:48:28 | INFO     | 
+2025-11-13 19:48:28 | INFO     | Phase Input:
+2025-11-13 19:48:28 | INFO     | ----------------------------------------
+2025-11-13 19:48:28 | INFO     | Summary: Problem text (366 chars)
+2025-11-13 19:48:28 | INFO     |   Type: str
+2025-11-13 19:48:28 | INFO     | ----------------------------------------

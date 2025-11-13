@@ -253,7 +253,8 @@ class DiagramValidator:
                 ))
 
         # Check for disconnected components (for circuits)
-        if scene.domain.value == "electronics":
+        domain = getattr(scene, 'domain', None)
+        if domain and hasattr(domain, 'value') and domain.value == "electronics":
             obj_dict = {obj.id: obj for obj in scene.objects}
             connected_objs = set()
             for rel in relationships:
@@ -338,10 +339,12 @@ class DiagramValidator:
         issues = []
 
         # Domain-specific validation
-        if scene.domain.value == "electronics":
-            issues.extend(self._validate_circuit_physics(scene))
-        elif scene.domain.value == "chemistry":
-            issues.extend(self._validate_chemistry_physics(scene))
+        domain = getattr(scene, 'domain', None)
+        if domain and hasattr(domain, 'value'):
+            if domain.value == "electronics":
+                issues.extend(self._validate_circuit_physics(scene))
+            elif domain.value == "chemistry":
+                issues.extend(self._validate_chemistry_physics(scene))
 
         return issues
 
