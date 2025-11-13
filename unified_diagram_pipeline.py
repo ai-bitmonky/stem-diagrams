@@ -215,6 +215,7 @@ class PipelineConfig:
     # Feature flags - NEW Advanced Features
     enable_property_graph: bool = True  # Phase 0: Property graph construction [MANDATORY]
     enable_nlp_enrichment: bool = True  # Phase 0.5: NLP tools (OpenIE, Stanza, etc.) [MANDATORY]
+    enable_nlp_warmup: bool = True  # Preload NLP models at startup to eliminate cold start delay
     enable_complexity_assessment: bool = True  # Phase 1: Complexity scoring [MANDATORY]
     enable_strategic_planning: bool = True  # Phase 2: Strategy selection [MANDATORY]
     enable_ontology_validation: bool = True  # Phase 3: Semantic validation
@@ -698,6 +699,81 @@ class UnifiedDiagramPipeline:
         if self.active_features:
             print(f"   Advanced Features: {', '.join(self.active_features)}", flush=True)
         print("=" * 80)
+        print()
+
+        # Warmup NLP models at startup to avoid cold start on first request
+        if self.nlp_tools and config.enable_nlp_warmup:
+            self._warmup_nlp_models()
+
+    def _warmup_nlp_models(self):
+        """
+        Warmup NLP models by running dummy inference to force lazy loading.
+        This eliminates the 160+ second cold start on first request.
+
+        Called during server startup if config.enable_nlp_warmup is True.
+        """
+        if not self.nlp_tools:
+            return
+
+        print()
+        print("=" * 80, flush=True)
+        print("⏳ WARMING UP NLP MODELS (First-time model loading ~2-3 minutes)", flush=True)
+        print("=" * 80, flush=True)
+        print()
+
+        dummy_text = "A simple circuit with a battery and resistor."
+        start_warmup = time.time()
+        warmup_times = {}
+
+        for tool_name, tool in self.nlp_tools.items():
+            try:
+                print(f"  🔄 Preloading {tool_name}...", flush=True)
+                start_tool = time.time()
+
+                # Force model loading by running inference with dummy text
+                if tool_name == 'openie' and hasattr(tool, 'extract'):
+                    tool.extract(dummy_text)
+                elif tool_name == 'stanza' and hasattr(tool, 'analyze'):
+                    tool.analyze(dummy_text)
+                elif tool_name == 'scibert' and hasattr(tool, 'embed'):
+                    tool.embed(dummy_text)
+                elif tool_name == 'chemdataextractor' and hasattr(tool, 'parse'):
+                    tool.parse(dummy_text)
+                elif tool_name == 'mathbert' and hasattr(tool, 'extract'):
+                    # MathBERT is the slowest - takes 160+ seconds on first load
+                    print(f"     ⏱️  MathBERT initialization takes 2-3 minutes (loading transformer weights)...", flush=True)
+                    tool.extract(dummy_text)
+                elif tool_name == 'amr' and hasattr(tool, 'parse'):
+                    # AMR can also be slow on first load
+                    print(f"     ⏱️  AMR Parser initialization may take 1-2 minutes...", flush=True)
+                    tool.parse(dummy_text)
+                elif tool_name == 'dygie' and hasattr(tool, 'extract'):
+                    tool.extract(dummy_text)
+                else:
+                    print(f"     ⚠️  Unknown tool interface for {tool_name}", flush=True)
+                    continue
+
+                elapsed = time.time() - start_tool
+                warmup_times[tool_name] = elapsed
+                print(f"  ✅ {tool_name} ready ({elapsed:.1f}s)", flush=True)
+
+            except Exception as e:
+                elapsed = time.time() - start_tool
+                warmup_times[tool_name] = elapsed
+                print(f"  ⚠️  {tool_name} warmup failed after {elapsed:.1f}s: {type(e).__name__}", flush=True)
+
+        total_elapsed = time.time() - start_warmup
+        print()
+        print("=" * 80, flush=True)
+        print(f"✅ NLP MODELS WARMED UP ({total_elapsed:.1f}s total)", flush=True)
+        print("=" * 80, flush=True)
+        print()
+        print("Warmup timing breakdown:", flush=True)
+        for tool_name, elapsed in sorted(warmup_times.items(), key=lambda x: x[1], reverse=True):
+            percentage = (elapsed / total_elapsed * 100) if total_elapsed > 0 else 0
+            print(f"  - {tool_name}: {elapsed:.1f}s ({percentage:.1f}%)", flush=True)
+        print()
+        print("=" * 80, flush=True)
         print()
 
         # Internal: simple per-request NLP cache helpers
