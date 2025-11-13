@@ -474,7 +474,8 @@ class UnifiedDiagramPipeline:
                     self.active_features.append("DyGIE++")
                     print("✓ Phase 0.5: DyGIE++ [ACTIVE]")
                 except Exception as e:
-                    print(f"⚠ Phase 0.5: DyGIE++ [FAILED] - {type(e).__name__}")
+                    # DyGIE++ is optional - silently skip if not available
+                    pass
 
             if 'scibert' in config.nlp_tools and SCIBERT_AVAILABLE:
                 try:
@@ -537,6 +538,29 @@ class UnifiedDiagramPipeline:
             self.model_orchestrator = ModelOrchestrator()
             self.active_features.append("Model Orchestrator")
             print("✓ Model Orchestrator [ACTIVE]")
+
+        # NEW: Primitive Library (Roadmap Layer 5) - MUST INITIALIZE BEFORE Domain Module Registry
+        self.primitive_library = None
+        try:
+            from core.primitive_library import PrimitiveLibrary
+            if self.config.enable_primitive_library:
+                self.primitive_library = PrimitiveLibrary(
+                    backend=self.config.primitive_library_backend,
+                    host=self.config.primitive_library_host.split(':')[0]
+                    if ':' in self.config.primitive_library_host else self.config.primitive_library_host,
+                    port=int(self.config.primitive_library_host.split(':')[1])
+                    if ':' in self.config.primitive_library_host else 19530
+                )
+                stats = self.primitive_library.get_stats()
+                self.active_features.append(f"Primitive Library ({stats['backend']})")
+                print(f"✓ Primitive Library: {stats['backend']} backend with {stats.get('total_primitives', 0)} primitives [ACTIVE]")
+            else:
+                self.primitive_library = PrimitiveLibrary(backend="memory")
+                stats = self.primitive_library.get_stats()
+                print(f"✓ Primitive Library: memory backend with {stats.get('total_primitives', 0)} primitives [ACTIVE]")
+        except Exception as exc:
+            print(f"⚠️  Primitive Library initialization failed: {exc}")
+            self.primitive_library = None
 
         # NEW: Domain Module Registry - Load domain-specific builders (SchemDraw, RDKit, etc.)
         self.domain_module_registry = None
@@ -653,29 +677,6 @@ class UnifiedDiagramPipeline:
             except Exception as exc:
                 print(f"⚠️  DeepSeek initialization failed: {exc}")
                 self.deepseek_client = None
-
-        # NEW: Primitive Library (Roadmap Layer 5)
-        self.primitive_library = None
-        try:
-            from core.primitive_library import PrimitiveLibrary
-            if self.config.enable_primitive_library:
-                self.primitive_library = PrimitiveLibrary(
-                    backend=self.config.primitive_library_backend,
-                    host=self.config.primitive_library_host.split(':')[0]
-                    if ':' in self.config.primitive_library_host else self.config.primitive_library_host,
-                    port=int(self.config.primitive_library_host.split(':')[1])
-                    if ':' in self.config.primitive_library_host else 19530
-                )
-                stats = self.primitive_library.get_stats()
-                self.active_features.append(f"Primitive Library ({stats['backend']})")
-                print(f"✓ Primitive Library: {stats['backend']} backend with {stats.get('total_primitives', 0)} primitives [ACTIVE]")
-            else:
-                self.primitive_library = PrimitiveLibrary(backend="memory")
-                stats = self.primitive_library.get_stats()
-                print(f"✓ Primitive Library: memory backend with {stats.get('total_primitives', 0)} built-in primitives [AUTO-ENABLED]")
-        except Exception as exc:
-            print(f"⚠️  Primitive Library initialization failed: {exc}")
-            self.primitive_library = None
 
         # Initialize logger if enabled
         if config.enable_logging:
