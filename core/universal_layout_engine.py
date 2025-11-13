@@ -386,9 +386,10 @@ class UniversalLayoutEngine:
                 # Find the surface this mass is on
                 surface = next((s for s in surfaces if any(r.get('subject') == mass.id and r.get('target') == s.id for r in spec.relationships)), None)
                 if surface and surface.position:
+                    surface_y = surface.position.get('y') or self.center[1]
                     mass.position = {
                         'x': self.center[0],
-                        'y': surface.position['y'] - mass.properties.get('height', 50) / 2
+                        'y': surface_y - mass.properties.get('height', 50) / 2
                     }
                 else:
                     # Default placement if no surface
@@ -433,7 +434,9 @@ class UniversalLayoutEngine:
                 parent = self._get_obj(scene, obj.properties.get('parent'))
                 if parent and parent.position:
                     distance = obj.properties.get('distance', 0)
-                    obj.position = {'x': parent.position['x'] + distance, 'y': parent.position['y']}
+                    parent_x = parent.position.get('x') or self.center[0]
+                    parent_y = parent.position.get('y') or self.center[1]
+                    obj.position = {'x': parent_x + distance, 'y': parent_y}
             elif obj.properties.get('is_object'):
                 # Place object to the left of the lens
                 obj.position = {'x': self.center[0] - 200, 'y': self.center[1] - 50}
@@ -730,11 +733,12 @@ class UniversalLayoutEngine:
                         try:
                             if isinstance(obj2.position, dict):
                                 if 'x' in obj2.position and 'y' in obj2.position:
-                                    obj2.position['x'] += dx
-                                    obj2.position['y'] += dy
+                                    # Handle None values
+                                    obj2.position['x'] = (obj2.position.get('x') or 0) + dx
+                                    obj2.position['y'] = (obj2.position.get('y') or 0) + dy
                             elif hasattr(obj2.position, 'x') and hasattr(obj2.position, 'y'):
-                                obj2.position.x += dx
-                                obj2.position.y += dy
+                                obj2.position.x = (obj2.position.x if obj2.position.x is not None else 0) + dx
+                                obj2.position.y = (obj2.position.y if obj2.position.y is not None else 0) + dy
                             max_displacement = max(max_displacement, abs(dx), abs(dy))
                         except (KeyError, AttributeError) as e:
                             # Skip if position format is incompatible
@@ -801,8 +805,11 @@ class UniversalLayoutEngine:
         grid_size = 10
         for obj in scene.objects:
             if obj.position and 'x' in obj.position and 'y' in obj.position:
-                obj.position['x'] = round(obj.position['x'] / grid_size) * grid_size
-                obj.position['y'] = round(obj.position['y'] / grid_size) * grid_size
+                # Handle None values
+                x = obj.position.get('x') or 0
+                y = obj.position.get('y') or 0
+                obj.position['x'] = round(x / grid_size) * grid_size
+                obj.position['y'] = round(y / grid_size) * grid_size
 
         # DISABLED: Minimum spacing enforcement breaks constraint-based layouts
         # For capacitors and other physics diagrams, objects are intentionally close
@@ -1113,12 +1120,13 @@ class UniversalLayoutEngine:
             top_obj = obj2 if obj2_y < obj3_y else obj3
             bottom_obj = obj3 if obj2_y < obj3_y else obj2
 
-            target_y = top_obj.position['y'] + top_obj.properties.get('height', 12)
+            top_obj_y = top_obj.position.get('y') or self.center[1]
+            target_y = top_obj_y + top_obj.properties.get('height', 12)
 
             # Preserve obj1's X position if it exists (for multi-region capacitors)
             # Otherwise use the plate's X position
             if obj1.position and obj1.position.get('x') is not None:
-                target_x = obj1.position['x']
+                target_x = obj1.position.get('x') or self.center[0]
             else:
                 target_x = top_obj.position.get('x', self.center[0])
 
@@ -1141,8 +1149,9 @@ class UniversalLayoutEngine:
             left_obj = obj2 if obj2_x < obj3_x else obj3
             right_obj = obj3 if obj2_x < obj3_x else obj2
 
-            target_x = left_obj.position['x'] + left_obj.properties.get('width', 40)
-            target_y = left_obj.position.get('y', self.center[1])
+            left_obj_x = left_obj.position.get('x') or self.center[0]
+            target_x = left_obj_x + left_obj.properties.get('width', 40)
+            target_y = left_obj.position.get('y') or self.center[1]
 
             if obj1.position:
                 old_x = obj1.position.get('x', 0)
