@@ -3,7 +3,7 @@
   "stages": [
     {
       "name": "NLP Enrichment",
-      "duration": 157.5703160762787,
+      "duration": 266.14907336235046,
       "output": {
         "tools_used": [
           "openie",
@@ -17,9 +17,9 @@
     },
     {
       "name": "Property Graph Construction",
-      "duration": 0.0035703182220458984,
+      "duration": 0.003421306610107422,
       "output": {
-        "request_id": "req_1763046053857_1",
+        "request_id": "req_1763046489083_1",
         "summary": {
           "node_count": 8,
           "edge_count": 8,
@@ -212,13 +212,13 @@
         ],
         "disk_persistence": {
           "status": "success",
-          "path": "output/property_graphs/req_1763046053857_1_property_graph.json"
+          "path": "output/property_graphs/req_1763046489083_1_property_graph.json"
         }
       }
     },
     {
       "name": "Diagram Planning",
-      "duration": 0.28713321685791016,
+      "duration": 0.322479248046875,
       "output": {
         "planning_mode": "property_graph_driven",
         "domain": "current_electricity",
@@ -232,7 +232,7 @@
     },
     {
       "name": "Scene Synthesis",
-      "duration": 0.08934783935546875,
+      "duration": 0.10668587684631348,
       "output": {
         "object_count": 7,
         "selected_strategy": "constraint_based",
@@ -247,7 +247,7 @@
     },
     {
       "name": "Structural Consistency",
-      "duration": 0.0003299713134765625,
+      "duration": 0.0007789134979248047,
       "output": {
         "missing_in_scene": [
           "battery and",
@@ -274,7 +274,7 @@
     },
     {
       "name": "Ontology Validation",
-      "duration": 0.03943610191345215,
+      "duration": 0.04481816291809082,
       "output": {
         "source": "property_graph",
         "input_stats": {
@@ -284,57 +284,57 @@
         "consistent": true,
         "errors": [],
         "warnings": [
-          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
-          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
           "Instance http://stem-diagrams.org/physics#Charge references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
-          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
-          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
           "Instance http://stem-diagrams.org/physics#NormalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
           "Instance http://stem-diagrams.org/stem#Entity references undefined class http://www.w3.org/2002/07/owl#Class",
-          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
           "Instance http://stem-diagrams.org/stem#Quantity references undefined class http://www.w3.org/2002/07/owl#Class",
           "Instance http://stem-diagrams.org/stem#relatedTo references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
-          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
           "Instance http://stem-diagrams.org/physics#GravitationalForce references undefined class http://www.w3.org/2002/07/owl#Class",
           "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
-          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
-          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
-          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
           "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
           "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
-          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
           "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
           "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
-          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
           "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
           "Use of undefined property http://www.w3.org/2000/01/rdf-schema#domain",
-          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
           "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
           "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
           "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
           "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
           "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
           "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
           "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
-          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
-          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
-          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
-          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
-          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
-          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata"
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel"
         ],
         "inferences": 0
       }
     },
     {
       "name": "Physics Validation",
-      "duration": 0.0005638599395751953,
+      "duration": 0.0005478858947753906,
       "output": {
         "errors": 1,
         "warnings": 12
@@ -342,7 +342,7 @@
     },
     {
       "name": "Domain Rule Validation",
-      "duration": 0.0004019737243652344,
+      "duration": 0.00038313865661621094,
       "output": {
         "domain": "current_electricity",
         "checks": [
@@ -365,7 +365,7 @@
     },
     {
       "name": "Layout Optimization",
-      "duration": 0.03928494453430176,
+      "duration": 0.04137015342712402,
       "output": {
         "object_count": 7,
         "z3_used": false,
@@ -380,12 +380,12 @@
     },
     {
       "name": "Label Placement",
-      "duration": 0.00035309791564941406,
+      "duration": 0.0007789134979248047,
       "output": {}
     },
     {
       "name": "Spatial Validation",
-      "duration": 0.0003769397735595703,
+      "duration": 0.0009291172027587891,
       "output": {
         "errors": 0,
         "warnings": 5,
@@ -394,7 +394,7 @@
     },
     {
       "name": "Rendering",
-      "duration": 0.0006191730499267578,
+      "duration": 0.0010669231414794922,
       "output": {
         "svg_size": 2762
       }
@@ -419,5 +419,5 @@
     "Structural Validator",
     "Request/Response Logging"
   ],
-  "request_id": "req_1763046053857_1"
+  "request_id": "req_1763046489083_1"
 }
