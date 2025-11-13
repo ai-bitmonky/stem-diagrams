@@ -566,7 +566,7 @@ class UnifiedDiagramPipeline:
         self.domain_module_registry = None
         if self.config.enable_domain_modules:  # FIXED: Use config directly instead of getattr with False default
             try:
-                print("⏳ Loading domain-specific builders (SchemDraw, PySketcher, RDKit, Cytoscape)...")
+                print("⏳ Loading domain-specific builders (SchemDraw, PySketcher, RDKit, Cytoscape)...", flush=True)
                 self.domain_module_registry = DomainModuleRegistry(
                     primitive_library=self.primitive_library,
                     auto_register=True  # Auto-load all available domain modules
@@ -613,7 +613,7 @@ class UnifiedDiagramPipeline:
         if self.config.enable_ai_validation and VLM_VALIDATOR_AVAILABLE:
             # Try to load BLIP-2 first (best option for local validation)
             try:
-                print("⏳ Initializing VLM Validator with BLIP-2...")
+                print("⏳ Initializing VLM Validator with BLIP-2...", flush=True)
                 self.vlm_validator = VLMValidator(config=VLMConfig(
                     provider=VLMProvider.BLIP2,
                     model_name="Salesforce/blip2-opt-2.7b",
@@ -625,7 +625,7 @@ class UnifiedDiagramPipeline:
                 # BLIP-2 failed, try GPT-4 Vision if API key available
                 if hasattr(self.config, 'api_key') and self.config.api_key:
                     try:
-                        print("⚠️  BLIP-2 failed, trying GPT-4 Vision...")
+                        print("⚠️  BLIP-2 failed, trying GPT-4 Vision...", flush=True)
                         self.vlm_validator = VLMValidator(config=VLMConfig(
                             provider=VLMProvider.GPT4_VISION,
                             model_name="gpt-4-vision-preview",
@@ -818,12 +818,12 @@ class UnifiedDiagramPipeline:
                     text_length = len(problem_text)
                     formula_chars = sum(1 for c in problem_text if c in 'μ₁₂₃₄₅₆₇₈₉₀×÷±√∫∑∏')
                     special_chars = sum(1 for c in problem_text if not c.isalnum() and not c.isspace())
-                    print(f"  📊 Text Complexity: {text_length} chars, {formula_chars} formula chars, {special_chars} special chars")
-                    print()
+                    print(f"  📊 Text Complexity: {text_length} chars, {formula_chars} formula chars, {special_chars} special chars", flush=True)
+                    print(flush=True)
 
                     # Run each NLP tool with error handling to prevent hangs
                     if 'openie' in self.nlp_tools:
-                        print(f"  🔄 OpenIE: Starting extraction...")
+                        print(f"  🔄 OpenIE: Starting extraction...", flush=True)
                         start_tool = time.time()
                         try:
                             openie_result = self.nlp_tools['openie'].extract(problem_text)
@@ -835,13 +835,13 @@ class UnifiedDiagramPipeline:
                                 'triples': [(t.subject, t.relation, t.object) for t in openie_result.triples],  # FIXED: Store ALL triples
                                 'raw_result': openie_result  # ADDED: Store full result object
                             }
-                            print(f"  ✅ OpenIE: Extracted {len(openie_result.triples)} triples in {elapsed:.0f}ms")
+                            print(f"  ✅ OpenIE: Extracted {len(openie_result.triples)} triples in {elapsed:.0f}ms", flush=True)
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
                             print(f"  ⚠️  OpenIE: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'stanza' in self.nlp_tools:
-                        print(f"  🔄 Stanza: Starting NLP analysis...")
+                        print(f"  🔄 Stanza: Starting NLP analysis...", flush=True)
                         start_tool = time.time()
                         try:
                             stanza_result = self.nlp_tools['stanza'].analyze(problem_text)
@@ -856,13 +856,13 @@ class UnifiedDiagramPipeline:
                             }
                             entity_count = len(stanza_result.get('entities', []))
                             dep_count = len(stanza_result.get('dependencies', []))
-                            print(f"  ✅ Stanza: Found {entity_count} entities, {dep_count} dependencies in {elapsed:.0f}ms")
+                            print(f"  ✅ Stanza: Found {entity_count} entities, {dep_count} dependencies in {elapsed:.0f}ms", flush=True)
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
                             print(f"  ⚠️  Stanza: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'scibert' in self.nlp_tools:
-                        print(f"  🔄 SciBERT: Starting embedding generation...")
+                        print(f"  🔄 SciBERT: Starting embedding generation...", flush=True)
                         start_tool = time.time()
                         try:
                             scibert_result = self.nlp_tools['scibert'].embed(problem_text)
@@ -886,13 +886,13 @@ class UnifiedDiagramPipeline:
                                 'embedding_dim': embedding_dim,
                                 'embedding_sample': embedding_sample
                             }
-                            print(f"  ✅ SciBERT: Generated embeddings (dim={embedding_dim}) in {elapsed:.0f}ms")
+                            print(f"  ✅ SciBERT: Generated embeddings (dim={embedding_dim}) in {elapsed:.0f}ms", flush=True)
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
                             print(f"  ⚠️  SciBERT: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'chemdataextractor' in self.nlp_tools:
-                        print(f"  🔄 ChemDataExtractor: Starting chemical entity extraction...")
+                        print(f"  🔄 ChemDataExtractor: Starting chemical entity extraction...", flush=True)
                         start_tool = time.time()
                         try:
                             chem_result = self.nlp_tools['chemdataextractor'].parse(problem_text)
@@ -905,14 +905,14 @@ class UnifiedDiagramPipeline:
                                 'reactions': len(chem_result.reactions),
                                 'properties': list(chem_result.properties.keys())[:5]
                             }
-                            print(f"  ✅ ChemDataExtractor: Found {len(chem_result.formulas)} formulas, {len(chem_result.reactions)} reactions in {elapsed:.0f}ms")
+                            print(f"  ✅ ChemDataExtractor: Found {len(chem_result.formulas)} formulas, {len(chem_result.reactions)} reactions in {elapsed:.0f}ms", flush=True)
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
                             print(f"  ⚠️  ChemDataExtractor: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'mathbert' in self.nlp_tools:
-                        print(f"  🔄 MathBERT: Starting mathematical expression extraction...")
-                        print(f"     ⏱️  Note: MathBERT can take 60-180+ seconds for complex text with formulas")
+                        print(f"  🔄 MathBERT: Starting mathematical expression extraction...", flush=True)
+                        print(f"     ⏱️  Note: MathBERT can take 60-180+ seconds for complex text with formulas", flush=True)
                         start_tool = time.time()
                         try:
                             math_result = self.nlp_tools['mathbert'].extract(problem_text)
@@ -931,8 +931,8 @@ class UnifiedDiagramPipeline:
                             print(f"  ⚠️  MathBERT: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'amr' in self.nlp_tools:
-                        print(f"  🔄 AMR Parser: Starting Abstract Meaning Representation parsing...")
-                        print(f"     ⏱️  Note: AMR Parser can take 60-120+ seconds for complex dependency graphs")
+                        print(f"  🔄 AMR Parser: Starting Abstract Meaning Representation parsing...", flush=True)
+                        print(f"     ⏱️  Note: AMR Parser can take 60-120+ seconds for complex dependency graphs", flush=True)
                         start_tool = time.time()
                         try:
                             amr_result = self.nlp_tools['amr'].parse(problem_text)
@@ -951,7 +951,7 @@ class UnifiedDiagramPipeline:
                             print(f"  ⚠️  AMR: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'dygie' in self.nlp_tools:
-                        print(f"  🔄 DyGIE++: Starting entity and relation extraction...")
+                        print(f"  🔄 DyGIE++: Starting entity and relation extraction...", flush=True)
                         start_tool = time.time()
                         try:
                             dygie_result = self.nlp_tools['dygie'].extract(problem_text)
@@ -964,7 +964,7 @@ class UnifiedDiagramPipeline:
                                 'relations': dygie_result.relations,  # FIXED: Store ALL relations
                                 'raw_result': dygie_result  # ADDED: Store full result object
                             }
-                            print(f"  ✅ DyGIE++: Extracted {len(dygie_result.entities)} entities, {len(dygie_result.relations)} relations in {elapsed:.0f}ms")
+                            print(f"  ✅ DyGIE++: Extracted {len(dygie_result.entities)} entities, {len(dygie_result.relations)} relations in {elapsed:.0f}ms", flush=True)
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
                             print(f"  ⚠️  DyGIE++: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
@@ -975,7 +975,7 @@ class UnifiedDiagramPipeline:
                     # Log summary of NLP enrichment with timing breakdown
                     total_nlp_time = sum(result.get('runtime_ms', 0) for result in nlp_results.values())
                     print()
-                    print(f"  📊 NLP Enrichment Summary:")
+                    print(f"  📊 NLP Enrichment Summary:", flush=True)
                     print(f"     Total time: {total_nlp_time:.0f}ms ({total_nlp_time/1000:.1f}s)")
                     print(f"     Tools executed: {len(nlp_results)}")
                     if nlp_results:
@@ -1474,7 +1474,7 @@ class UnifiedDiagramPipeline:
             llm_plan_result = None
             if self.llm_planner:
                 try:
-                    print(f"  LLM Planning: Generating diagram plan...")
+                    print(f"  LLM Planning: Generating diagram plan...", flush=True)
                     llm_plan = self.llm_planner.generate_plan(
                         description=problem_text,
                         domain=domain.value if domain else (diagram_plan.metadata.get('domain_hint') if diagram_plan else 'general'),
@@ -1491,7 +1491,7 @@ class UnifiedDiagramPipeline:
             # NEW: Query primitive library for relevant components
             retrieved_primitives = []
             if self.primitive_library and diagram_plan:
-                print(f"  🔍 Primitive Library: Searching for reusable components...")
+                print(f"  🔍 Primitive Library: Searching for reusable components...", flush=True)
 
                 # Search based on extracted entities
                 for entity in diagram_plan.extracted_entities[:10]:  # Top 10 entities
