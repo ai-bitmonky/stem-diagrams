@@ -88,15 +88,27 @@ class DiagramValidator:
         """Safely set x coordinate (dict or Position object)"""
         if isinstance(pos, dict):
             pos['x'] = value
-        else:
+        elif hasattr(pos, 'x'):
             pos.x = value
+        else:
+            # Fallback: try dict access
+            try:
+                pos['x'] = value
+            except (TypeError, KeyError):
+                pass  # Skip if neither dict nor object
 
     def _set_y(self, pos, value: float):
         """Safely set y coordinate (dict or Position object)"""
         if isinstance(pos, dict):
             pos['y'] = value
-        else:
+        elif hasattr(pos, 'y'):
             pos.y = value
+        else:
+            # Fallback: try dict access
+            try:
+                pos['y'] = value
+            except (TypeError, KeyError):
+                pass  # Skip if neither dict nor object
 
     # ========== Validation Methods ==========
 

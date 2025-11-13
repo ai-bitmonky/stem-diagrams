@@ -696,7 +696,7 @@ class UnifiedDiagramPipeline:
         print("=" * 80)
         print("✅ UNIFIED PIPELINE INITIALIZED")
         if self.active_features:
-            print(f"   Advanced Features: {', '.join(self.active_features)}")
+            logging.info(f"   Advanced Features: {', '.join(self.active_features)}")
         print("=" * 80)
         print()
 
@@ -813,7 +813,7 @@ class UnifiedDiagramPipeline:
 
                 if cached_nlp:
                     nlp_results = cached_nlp
-                    print(f"  ♻️  Using cached NLP outputs from {len(nlp_results)} tools")
+                    logging.info(f"  ♻️  Using cached NLP outputs from {len(nlp_results)} tools")
                 else:
                     # Log text complexity metrics
                     text_length = len(problem_text)
@@ -839,7 +839,7 @@ class UnifiedDiagramPipeline:
                             logging.info(f"  ✅ OpenIE: Extracted {len(openie_result.triples)} triples in {elapsed:.0f}ms")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  OpenIE: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  OpenIE: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'stanza' in self.nlp_tools:
                         logging.info("  🔄 Stanza: Starting NLP analysis...")
@@ -860,7 +860,7 @@ class UnifiedDiagramPipeline:
                             logging.info(f"  ✅ Stanza: Found {entity_count} entities, {dep_count} dependencies in {elapsed:.0f}ms")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  Stanza: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  Stanza: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'scibert' in self.nlp_tools:
                         logging.info("  🔄 SciBERT: Starting embedding generation...")
@@ -890,7 +890,7 @@ class UnifiedDiagramPipeline:
                             logging.info(f"  ✅ SciBERT: Generated embeddings (dim={embedding_dim}) in {elapsed:.0f}ms")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  SciBERT: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  SciBERT: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'chemdataextractor' in self.nlp_tools:
                         logging.info("  🔄 ChemDataExtractor: Starting chemical entity extraction...")
@@ -909,7 +909,7 @@ class UnifiedDiagramPipeline:
                             logging.info(f"  ✅ ChemDataExtractor: Found {len(chem_result.formulas)} formulas, {len(chem_result.reactions)} reactions in {elapsed:.0f}ms")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  ChemDataExtractor: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  ChemDataExtractor: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'mathbert' in self.nlp_tools:
                         logging.info("  🔄 MathBERT: Starting mathematical expression extraction...")
@@ -926,10 +926,10 @@ class UnifiedDiagramPipeline:
                                 'expressions': len(math_result.expressions),
                                 'constants': dict(list(math_result.constants.items())[:5])
                             }
-                            print(f"  ✅ MathBERT: Found {len(math_result.variables)} variables, {len(math_result.expressions)} expressions in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
+                            logging.info(f"  ✅ MathBERT: Found {len(math_result.variables)} variables, {len(math_result.expressions)} expressions in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  MathBERT: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  MathBERT: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'amr' in self.nlp_tools:
                         logging.info("  🔄 AMR Parser: Starting Abstract Meaning Representation parsing...")
@@ -946,10 +946,10 @@ class UnifiedDiagramPipeline:
                                 'entities': dict(list(amr_result.entities.items())[:5]),
                                 'relations': amr_result.relations[:5]
                             }
-                            print(f"  ✅ AMR: Extracted {len(amr_result.concepts)} concepts, {len(amr_result.relations)} relations in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
+                            logging.info(f"  ✅ AMR: Extracted {len(amr_result.concepts)} concepts, {len(amr_result.relations)} relations in {elapsed:.0f}ms ({elapsed/1000:.1f}s)")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  AMR: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  AMR: Failed after {elapsed:.0f}ms ({elapsed/1000:.1f}s) - {type(e).__name__}: {str(e)[:50]}")
 
                     if 'dygie' in self.nlp_tools:
                         logging.info("  🔄 DyGIE++: Starting entity and relation extraction...")
@@ -968,7 +968,7 @@ class UnifiedDiagramPipeline:
                             logging.info(f"  ✅ DyGIE++: Extracted {len(dygie_result.entities)} entities, {len(dygie_result.relations)} relations in {elapsed:.0f}ms")
                         except Exception as e:
                             elapsed = (time.time() - start_tool) * 1000
-                            print(f"  ⚠️  DyGIE++: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
+                            logging.warning(f"  ⚠️  DyGIE++: Failed after {elapsed:.0f}ms - {type(e).__name__}: {str(e)[:50]}")
 
                     # Cache for future identical prompts
                     self._store_nlp_results_in_cache(nlp_cache_key, nlp_results)
@@ -977,14 +977,14 @@ class UnifiedDiagramPipeline:
                     total_nlp_time = sum(result.get('runtime_ms', 0) for result in nlp_results.values())
                     print()
                     logging.info("  📊 NLP Enrichment Summary:")
-                    print(f"     Total time: {total_nlp_time:.0f}ms ({total_nlp_time/1000:.1f}s)")
-                    print(f"     Tools executed: {len(nlp_results)}")
+                    logging.info(f"     Total time: {total_nlp_time:.0f}ms ({total_nlp_time/1000:.1f}s)")
+                    logging.info(f"     Tools executed: {len(nlp_results)}")
                     if nlp_results:
-                        print(f"     Timing breakdown:")
+                        logging.info(f"     Timing breakdown:")
                         for tool_name, result in sorted(nlp_results.items(), key=lambda x: x[1].get('runtime_ms', 0), reverse=True):
                             tool_time = result.get('runtime_ms', 0)
                             percentage = (tool_time / total_nlp_time * 100) if total_nlp_time > 0 else 0
-                            print(f"       - {tool_name}: {tool_time:.0f}ms ({percentage:.1f}%)")
+                            logging.info(f"       - {tool_name}: {tool_time:.0f}ms ({percentage:.1f}%)")
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
                 if self.logger:
@@ -1245,19 +1245,19 @@ class UnifiedDiagramPipeline:
                     edge_type = edge.type.value if hasattr(edge.type, 'value') else str(edge.type)
                     edge_type_counts[edge_type] = edge_type_counts.get(edge_type, 0) + 1
 
-                print(f"  ✅ Built multi-source knowledge graph:")
-                print(f"     • Sources: {', '.join(sources_used) if sources_used else 'none'}")
-                print(f"     • Nodes: {len(all_nodes)} ({', '.join(f'{k}:{v}' for k, v in node_type_counts.items())})")
-                print(f"     • Edges: {len(all_edges)} ({', '.join(f'{k}:{v}' for k, v in edge_type_counts.items())})")
-                print(f"     • Connected components: {len(connected_components)}")
+                logging.info(f"  ✅ Built multi-source knowledge graph:")
+                logging.info(f"     • Sources: {', '.join(sources_used) if sources_used else 'none'}")
+                logging.info(f"     • Nodes: {len(all_nodes)} ({', '.join(f'{k}:{v}' for k, v in node_type_counts.items())})")
+                logging.info(f"     • Edges: {len(all_edges)} ({', '.join(f'{k}:{v}' for k, v in edge_type_counts.items())})")
+                logging.info(f"     • Connected components: {len(connected_components)}")
 
                 ontology_enrichment_summary = self._enrich_property_graph_with_ontologies(self.property_graph)
                 gap_summary = self._run_property_graph_gap_queries(self.property_graph)
 
                 if gap_summary.get('missing_units', {}).get('count'):
-                    print(f"     • ⚠ Quantities missing unit: {gap_summary['missing_units']['count']}")
+                    logging.info(f"     • ⚠ Quantities missing unit: {gap_summary['missing_units']['count']}")
                 if gap_summary.get('dielectric_missing_kappa', {}).get('count'):
-                    print(f"     • ⚠ Dielectrics missing κ: {gap_summary['dielectric_missing_kappa']['count']}")
+                    logging.info(f"     • ⚠ Dielectrics missing κ: {gap_summary['dielectric_missing_kappa']['count']}")
 
                 # ✅ FIX 3: Rich output (full graph structure, not just counts)
                 graph_output = {
@@ -1283,17 +1283,17 @@ class UnifiedDiagramPipeline:
 
                 disk_info = persistence_details.get('disk_persistence')
                 if disk_info and disk_info.get('status') == 'success':
-                    print(f"  💾 Graph snapshot: {disk_info['path']}")
+                    logging.info(f"  💾 Graph snapshot: {disk_info['path']}")
                 elif disk_info and disk_info.get('status') == 'error':
-                    print(f"  ⚠️  Disk persistence failed: {disk_info.get('error')}")
+                    logging.warning(f"  ⚠️  Disk persistence failed: {disk_info.get('error')}")
 
                 graphdb_info = persistence_details.get('graphdb_persistence')
                 if graphdb_info:
                     status = graphdb_info.get('status')
                     if status == 'success':
-                        print(f"  🗄  Graph DB sync: {graphdb_info.get('backend')} ({graphdb_info.get('nodes_synced')} nodes)")
+                        logging.info(f"  🗄  Graph DB sync: {graphdb_info.get('backend')} ({graphdb_info.get('nodes_synced')} nodes)")
                     else:
-                        print(f"  ⚠️  Graph DB sync skipped: {graphdb_info.get('reason', 'unknown reason')}")
+                        logging.warning(f"  ⚠️  Graph DB sync skipped: {graphdb_info.get('reason', 'unknown reason')}")
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
 
@@ -1331,22 +1331,22 @@ class UnifiedDiagramPipeline:
                     )
 
                     if 'error' not in enrichment_result:
-                        print(f"  ✅ DeepSeek enriched {len(enrichment_result.get('validated_entities', []))} entities")
+                        logging.info(f"  ✅ DeepSeek enriched {len(enrichment_result.get('validated_entities', []))} entities")
                         if enrichment_result.get('missing_entities'):
-                            print(f"  ℹ️  Identified {len(enrichment_result['missing_entities'])} missing entities")
+                            logging.info(f"  ℹ️  Identified {len(enrichment_result['missing_entities'])} missing entities")
                         if enrichment_result.get('corrections'):
-                            print(f"  ✏️  Made {len(enrichment_result['corrections'])} corrections")
+                            logging.info(f"  ✏️  Made {len(enrichment_result['corrections'])} corrections")
                         if enrichment_result.get('warnings'):
-                            print(f"  ⚠️  {len(enrichment_result['warnings'])} warnings")
+                            logging.warning(f"  ⚠️  {len(enrichment_result['warnings'])} warnings")
 
                         # Report cost
                         cost = enrichment_result.get('cost_usd', 0)
-                        print(f"  💰 API cost: ${cost:.4f}")
+                        logging.info(f"  💰 API cost: ${cost:.4f}")
                     else:
-                        print(f"  ⚠️  Enrichment failed: {enrichment_result['error']}")
+                        logging.warning(f"  ⚠️  Enrichment failed: {enrichment_result['error']}")
 
                 except Exception as e:
-                    print(f"  ⚠️  DeepSeek enrichment error: {type(e).__name__}: {str(e)[:100]}")
+                    logging.warning(f"  ⚠️  DeepSeek enrichment error: {type(e).__name__}: {str(e)[:100]}")
                     enrichment_result = {'error': str(e)}
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
@@ -1395,14 +1395,14 @@ class UnifiedDiagramPipeline:
 
                 complexity_score = diagram_plan.complexity_score
 
-                print(f"  ✅ Property Graph-Driven Planning Complete:")
-                print(f"     • Entities: {len(diagram_plan.extracted_entities)}")
-                print(f"     • Relations: {len(diagram_plan.extracted_relations)}")
-                print(f"     • Constraints: {len(diagram_plan.global_constraints)}")
-                print(f"     • Complexity: {complexity_score:.2f}")
-                print(f"     • Strategy: {diagram_plan.strategy.value}")
-                print(f"     • Solver: {diagram_plan.layout_hints.get('solver', 'heuristic')}")
-                print(f"     • Z3 Used: {diagram_plan.layout_hints.get('z3_used', False)}")
+                logging.info(f"  ✅ Property Graph-Driven Planning Complete:")
+                logging.info(f"     • Entities: {len(diagram_plan.extracted_entities)}")
+                logging.info(f"     • Relations: {len(diagram_plan.extracted_relations)}")
+                logging.info(f"     • Constraints: {len(diagram_plan.global_constraints)}")
+                logging.info(f"     • Complexity: {complexity_score:.2f}")
+                logging.info(f"     • Strategy: {diagram_plan.strategy.value}")
+                logging.info(f"     • Solver: {diagram_plan.layout_hints.get('solver', 'heuristic')}")
+                logging.info(f"     • Z3 Used: {diagram_plan.layout_hints.get('z3_used', False)}")
 
                 # Convert DiagramPlan to CanonicalProblemSpec (for backward compatibility)
                 specs = self._diagram_plan_to_canonical_spec(diagram_plan)
@@ -1429,9 +1429,9 @@ class UnifiedDiagramPipeline:
                 else:
                     complexity_score = 0.5  # Default medium complexity
 
-                print(f"  Domain: {domain.value}")
-                print(f"  Objects: {len(specs.objects)}")
-                print(f"  Constraints: {len(specs.constraints)}")
+                logging.info(f"  Domain: {domain.value}")
+                logging.info(f"  Objects: {len(specs.objects)}")
+                logging.info(f"  Constraints: {len(specs.constraints)}")
 
             print("└───────────────────────────────────────────────────────────────┘\n")
 
@@ -1469,13 +1469,13 @@ class UnifiedDiagramPipeline:
             if self.diagram_planner and complexity_score is not None:
                 strategy = self.diagram_planner.select_strategy(specs, complexity_score)
                 selected_strategy = strategy.value
-                print(f"  Selected Strategy: {selected_strategy}")
+                logging.info(f"  Selected Strategy: {selected_strategy}")
 
             # NEW: LLM-based Planning (if enabled)
             llm_plan_result = None
             if self.llm_planner:
                 try:
-                    print(f"  LLM Planning: Generating diagram plan...", flush=True)
+                    logging.info("  LLM Planning: Generating diagram plan...")
                     llm_plan = self.llm_planner.generate_plan(
                         description=problem_text,
                         domain=domain.value if domain else (diagram_plan.metadata.get('domain_hint') if diagram_plan else 'general'),
@@ -1484,15 +1484,15 @@ class UnifiedDiagramPipeline:
                     )
                     llm_plan_result = llm_plan.to_dict()
                     llm_plan_result['verifier'] = 'deepseek' if self.deepseek_client else ('api' if self.llm_planner.api_client else 'none')
-                    print(f"  LLM Plan: {len(llm_plan.entities)} entities, {len(llm_plan.relationships)} relationships")
+                    logging.info(f"  LLM Plan: {len(llm_plan.entities)} entities, {len(llm_plan.relationships)} relationships")
                 except Exception as e:
-                    print(f"  LLM Planning failed: {e}")
+                    logging.info(f"  LLM Planning failed: {e}")
                     llm_plan_result = {'error': str(e)}
 
             # NEW: Query primitive library for relevant components
             retrieved_primitives = []
             if self.primitive_library and diagram_plan:
-                print(f"  🔍 Primitive Library: Searching for reusable components...", flush=True)
+                logging.info("  🔍 Primitive Library: Searching for reusable components...")
 
                 # Search based on extracted entities
                 for entity in diagram_plan.extracted_entities[:10]:  # Top 10 entities
@@ -1512,9 +1512,9 @@ class UnifiedDiagramPipeline:
                         retrieved_primitives.extend(results[:1])  # Take top result
 
                 if retrieved_primitives:
-                    print(f"  ✅ Found {len(retrieved_primitives)} reusable primitive(s)")
+                    logging.info(f"  ✅ Found {len(retrieved_primitives)} reusable primitive(s)")
                 else:
-                    print(f"  ℹ️  No matching primitives found (will use procedural generation)")
+                    logging.info(f"  ℹ️  No matching primitives found (will use procedural generation)")
 
             # Pass NLP context, property graph, strategy, and primitives to scene builder
             scene = self.scene_builder.build(
@@ -1531,7 +1531,7 @@ class UnifiedDiagramPipeline:
             )
             if domain_module_outputs:
                 scene.metadata.setdefault('domain_modules', domain_module_outputs)
-            print(f"  Scene Objects: {len(scene.objects)}")
+            logging.info(f"  Scene Objects: {len(scene.objects)}")
             print("└───────────────────────────────────────────────────────────────┘\n")
             phase2_output = {
                 'object_count': len(scene.objects),
@@ -1567,12 +1567,12 @@ class UnifiedDiagramPipeline:
                 missing = len(structural_report['missing_in_scene'])
                 relation_gaps = len(structural_report['relation_gaps'])
                 print("┌─ PHASE 2.5: STRUCTURAL CONSISTENCY ──────────────────────────┐")
-                print(f"  Structural score: {structural_report['score']:.2f}")
-                print(f"  Missing in scene: {missing}")
+                logging.info(f"  Structural score: {structural_report['score']:.2f}")
+                logging.info(f"  Missing in scene: {missing}")
                 if missing:
-                    print(f"    IDs: {', '.join(structural_report['missing_in_scene'][:3])}")
+                    logging.info(f"    IDs: {', '.join(structural_report['missing_in_scene'][:3])}")
                 if relation_gaps:
-                    print(f"  Relation gaps: {relation_gaps}")
+                    logging.info(f"  Relation gaps: {relation_gaps}")
                 print("└───────────────────────────────────────────────────────────────┘\n")
                 if self.logger:
                     self.logger.log_phase_output(structural_report, "Structural comparison report")
@@ -1636,16 +1636,16 @@ class UnifiedDiagramPipeline:
                         'warnings': validation_result.warnings,
                         'inferences': len(validation_result.inferences)
                     }
-                    print(f"  Ontology Source: {ontology_source} ({ontology_input_stats.get('nodes', 0)} nodes)")
-                    print(f"  Ontology Consistent: {validation_result.is_valid}")
+                    logging.info(f"  Ontology Source: {ontology_source} ({ontology_input_stats.get('nodes', 0)} nodes)")
+                    logging.info(f"  Ontology Consistent: {validation_result.is_valid}")
                     if validation_result.errors:
-                        print(f"  ⚠ Errors: {len(validation_result.errors)}")
+                        logging.info(f"  ⚠ Errors: {len(validation_result.errors)}")
                     if validation_result.inferences:
-                        print(f"  ↪ Inferences: {len(validation_result.inferences)}")
+                        logging.info(f"  ↪ Inferences: {len(validation_result.inferences)}")
 
                 except ImportError as e:
-                    print(f"  ⚠️  RDFLib not available - skipping ontology validation")
-                    print(f"     Install with: pip install rdflib owlrl")
+                    logging.warning(f"  ⚠️  RDFLib not available - skipping ontology validation")
+                    logging.info(f"     Install with: pip install rdflib owlrl")
                     ontology_validation = {
                         'consistent': None,
                         'errors': [f'RDFLib not installed: {str(e)}'],
@@ -1701,15 +1701,15 @@ class UnifiedDiagramPipeline:
                 errors = domain_rule_report['errors']
                 warnings = domain_rule_report['warnings']
                 print("┌─ PHASE 4.5: DOMAIN RULE VALIDATION ─────────────────────────┐")
-                print(f"  Errors: {errors}, Warnings: {warnings}")
+                logging.info(f"  Errors: {errors}, Warnings: {warnings}")
                 if errors:
                     for entry in domain_rule_report['checks']:
                         if not entry['passed'] and entry['severity'] == 'error':
-                            print(f"    ❌ {entry['name']}: {entry['details']}")
+                            logging.info(f"    ❌ {entry['name']}: {entry['details']}")
                 if warnings:
                     for entry in domain_rule_report['checks']:
                         if not entry['passed'] and entry['severity'] == 'warning':
-                            print(f"    ⚠️  {entry['name']}: {entry['details']}")
+                            logging.info(f"    ⚠️  {entry['name']}: {entry['details']}")
                 print("└───────────────────────────────────────────────────────────────┘\n")
                 if self.logger:
                     self.logger.log_phase_output(domain_rule_report, "Domain rule evaluation")
@@ -1756,7 +1756,7 @@ class UnifiedDiagramPipeline:
                     orchestrator_meta = {'model': 'heuristic', 'error': str(e)}
                     orchestrated_model = ModelType.HEURISTIC
             if orchestrator_meta:
-                print(f"  Model Orchestrator Strategy: {orchestrated_model.value} (complexity {orchestrator_meta.get('complexity', 0):.2f})")
+                logging.info(f"  Model Orchestrator Strategy: {orchestrated_model.value} (complexity {orchestrator_meta.get('complexity', 0):.2f})")
 
             z3_used = False
             sympy_used = False
@@ -1783,11 +1783,11 @@ class UnifiedDiagramPipeline:
                     solver_notes.append('sympy' if sympy_success else 'sympy_failed')
 
             if pre_positions:
-                print(f"  ⚙️  Pre-layout solver positioned {pre_positions} objects ({', '.join(solver_notes)})")
+                logging.info(f"  ⚙️  Pre-layout solver positioned {pre_positions} objects ({', '.join(solver_notes)})")
 
             # Use standard layout engine for final positioning
             positioned_scene = self.layout_engine.solve(scene, specs)
-            print(f"  Positioned Objects: {len(positioned_scene.objects)}")
+            logging.info(f"  Positioned Objects: {len(positioned_scene.objects)}")
             print("└───────────────────────────────────────────────────────────────┘\n")
             phase5_output = {
                 'object_count': len(positioned_scene.objects),
@@ -1838,25 +1838,25 @@ class UnifiedDiagramPipeline:
                 self.progress.start_phase("Spatial Validation", 8)
             print("┌─ PHASE 5.6: SPATIAL VALIDATION ───────────────────────────────┐")
             spatial_report = self.spatial_validator.validate(positioned_scene)
-            print(f"  {spatial_report.summary()}")
+            logging.info(f"  {spatial_report.summary()}")
 
             if spatial_report.has_errors():
-                print(f"  ❌ Found {len(spatial_report.errors)} spatial errors:")
+                logging.error(f"  ❌ Found {len(spatial_report.errors)} spatial errors:")
                 for i, error in enumerate(spatial_report.errors[:3], 1):
-                    print(f"     {i}. {error}")
+                    logging.info(f"     {i}. {error}")
                 if len(spatial_report.errors) > 3:
-                    print(f"     ... and {len(spatial_report.errors) - 3} more")
+                    logging.info(f"     ... and {len(spatial_report.errors) - 3} more")
 
                 # In strict mode, fail on spatial errors
                 if self.config.validation_mode == 'strict':
                     raise Exception(f"Spatial validation failed: {spatial_report.errors}")
 
             if spatial_report.has_warnings():
-                print(f"  ⚠️  Found {len(spatial_report.warnings)} spatial warnings:")
+                logging.warning(f"  ⚠️  Found {len(spatial_report.warnings)} spatial warnings:")
                 for i, warning in enumerate(spatial_report.warnings[:2], 1):
-                    print(f"     {i}. {warning}")
+                    logging.info(f"     {i}. {warning}")
                 if len(spatial_report.warnings) > 2:
-                    print(f"     ... and {len(spatial_report.warnings) - 2} more")
+                    logging.info(f"     ... and {len(spatial_report.warnings) - 2} more")
 
             print("└───────────────────────────────────────────────────────────────┘\n")
             spatial_output = {
@@ -1898,8 +1898,8 @@ class UnifiedDiagramPipeline:
             })
 
             print("✅ UNIVERSAL RENDERER COMPLETE")
-            print(f"   SVG size: {len(svg):,} bytes")
-            print(f"   Domain: {domain.value if domain else 'unknown'}")
+            logging.info(f"   SVG size: {len(svg):,} bytes")
+            logging.info(f"   Domain: {domain.value if domain else 'unknown'}")
 
             # Phase 6.5: Validation Refinement Loop (NEW)
             run_validation_loop = any([
@@ -1931,9 +1931,9 @@ class UnifiedDiagramPipeline:
                     vlm_description = validation_results.get('vlm_description')
 
                     # Log refinement iterations
-                    print(f"  Refinement Iterations: {validation_results['refinement_iterations']}")
-                    print(f"  Overall Confidence: {validation_results['overall_confidence']:.2f}")
-                    print(f"  Issues Found: {len(validation_results['issues'])}")
+                    logging.info(f"  Refinement Iterations: {validation_results['refinement_iterations']}")
+                    logging.info(f"  Overall Confidence: {validation_results['overall_confidence']:.2f}")
+                    logging.info(f"  Issues Found: {len(validation_results['issues'])}")
 
                     refinement_output = {
                         'refinement_iterations': validation_results['refinement_iterations'],
@@ -1958,7 +1958,7 @@ class UnifiedDiagramPipeline:
                     })
 
                 except Exception as e:
-                    print(f"  ⚠️  Refinement skipped: {e}")
+                    logging.warning(f"  ⚠️  Refinement skipped: {e}")
                     print("└───────────────────────────────────────────────────────────────────┘\n")
                     if self.logger:
                         self.logger.log_phase_detail(f"Refinement error: {e}")
@@ -1991,13 +1991,13 @@ class UnifiedDiagramPipeline:
                         'critical_issues': [i for i in audit_result.issues if i.severity == 'CRITICAL'],
                         'suggestions': audit_result.suggestions[:3]  # Top 3
                     }
-                    print(f"  Overall Score: {audit_result.overall_score:.1f}/10")
-                    print(f"  Issues Found: {len(audit_result.issues)}")
+                    logging.info(f"  Overall Score: {audit_result.overall_score:.1f}/10")
+                    logging.info(f"  Issues Found: {len(audit_result.issues)}")
                     if audit_result.suggestions:
-                        print(f"  Suggestions: {len(audit_result.suggestions)}")
+                        logging.info(f"  Suggestions: {len(audit_result.suggestions)}")
 
                 except Exception as e:
-                    print(f"  Auditing skipped: {e}")
+                    logging.info(f"  Auditing skipped: {e}")
                     audit_report = {'error': str(e)}
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
@@ -2016,15 +2016,15 @@ class UnifiedDiagramPipeline:
             print("\n" + "="*80)
             print("✅ DIAGRAM GENERATION COMPLETE")
             print("="*80)
-            print(f"   Request ID: {request_id}")
-            print(f"   Domain: {domain.value if domain else 'unknown'}")
-            print(f"   SVG Size: {len(svg):,} bytes")
+            logging.info(f"   Request ID: {request_id}")
+            logging.info(f"   Domain: {domain.value if domain else 'unknown'}")
+            logging.info(f"   SVG Size: {len(svg):,} bytes")
             if complexity_score:
-                print(f"   Complexity: {complexity_score:.2f}")
+                logging.info(f"   Complexity: {complexity_score:.2f}")
             if selected_strategy:
-                print(f"   Strategy: {selected_strategy}")
+                logging.info(f"   Strategy: {selected_strategy}")
             if self.active_features:
-                print(f"   Advanced Features: {len(self.active_features)} active")
+                logging.info(f"   Advanced Features: {len(self.active_features)} active")
             print("="*80)
 
             # Log final response
