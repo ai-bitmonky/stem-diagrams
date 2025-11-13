@@ -70,12 +70,15 @@ class HealthResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Pipeline Factory (cached)
+# Pipeline Factory (EAGER initialization at startup, not lazy)
 # ---------------------------------------------------------------------------
 
+# Global pipeline instance - initialized at server startup
+_pipeline: Optional[UnifiedDiagramPipeline] = None
 
-@lru_cache(maxsize=1)
-def get_pipeline() -> UnifiedDiagramPipeline:
+
+def initialize_pipeline() -> UnifiedDiagramPipeline:
+    """Initialize pipeline at server startup with NLP model warmup"""
     LOGGER.info("Initializing UnifiedDiagramPipeline via FastAPI server…")
 
     api_key = os.environ.get("DEEPSEEK_API_KEY")
@@ -94,6 +97,7 @@ def get_pipeline() -> UnifiedDiagramPipeline:
         enable_ai_validation=False,
         enable_property_graph=True,
         enable_nlp_enrichment=True,
+        enable_nlp_warmup=True,  # CRITICAL: Enable warmup at startup
         nlp_tools=["openie", "stanza", "dygie", "scibert", "chemdataextractor", "mathbert", "amr"],
         enable_llm_planning=bool(api_key),
         llm_planner_api_model="deepseek-chat",
@@ -118,6 +122,13 @@ def get_pipeline() -> UnifiedDiagramPipeline:
     return pipeline
 
 
+def get_pipeline() -> UnifiedDiagramPipeline:
+    """Get the pre-initialized pipeline instance"""
+    if _pipeline is None:
+        raise RuntimeError("Pipeline not initialized - server startup may have failed")
+    return _pipeline
+
+
 # ---------------------------------------------------------------------------
 # FastAPI Application
 # ---------------------------------------------------------------------------
@@ -132,6 +143,15 @@ app.add_middleware(
 )
 
 START_TIME = time.time()
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize pipeline with NLP model warmup at server startup"""
+    global _pipeline
+    LOGGER.info("Server startup: Initializing pipeline with NLP warmup...")
+    _pipeline = initialize_pipeline()
+    LOGGER.info("Server startup complete: Pipeline ready for requests")
 
 
 @app.post("/api/generate", response_model=GenerateResponse)
