@@ -1,0 +1,45 @@
+{
+  "scene_type": "parallel_plate_capacitor",
+  "components": [
+    {
+      "type": "capacitor_plates",
+      "count": 2,
+      "configuration": "parallel"
+    }
+  ],
+  "spatial_layout": {
+    "orientation": "vertical",
+    "left_region": "dielectric_κ₁",
+    "right_top_region": "dielectric_κ₂",
+    "right_bottom_region": "dielectric_κ₃",
+    "plate_separation": "7.12 mm",
+    "plate_area": "10.5 cm²"
+  },
+  "annotations": [
+    {
+      "type": "dimension",
+      "text": "A = 10.5 cm²",
+      "position": "top"
+    },
+    {
+      "type": "dimension",
+      "text": "2d = 7.12 mm",
+      "position": "side"
+    },
+    {
+      "type": "label",
+      "text": "κ₁ = 21.0",
+      "position": "left"
+    },
+    {
+      "type": "label",
+      "text": "κ₂ = 42.0",
+      "position": "right_top"
+    },
+    {
+      "type": "label",
+      "text": "κ₃ = 58.0",
+      "position": "right_bottom"
+    }
+  ]
+}

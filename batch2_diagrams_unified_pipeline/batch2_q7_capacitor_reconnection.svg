@@ -1,0 +1,93 @@
+<svg width="1400" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  <text x="700" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Q7: Capacitor Reconnection (Series → Parallel)</text>
+
+  <!-- Initial Configuration (Series) -->
+  <text x="350" y="100" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">Initial: Series Connection</text>
+
+  <!-- Battery -->
+  <line x1="50" y1="200" x2="50" y2="280" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="65" y1="220" x2="65" y2="260" stroke="#2c3e50" stroke-width="6"/>
+  <text x="30" y="195" font-size="18" fill="#e74c3c">+</text>
+  <text x="30" y="295" font-size="18" fill="#3498db">−</text>
+  <text x="85" y="245" font-size="16" fill="#2c3e50">300 V</text>
+
+  <!-- C1 -->
+  <line x1="200" y1="180" x2="200" y2="280" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="240" y1="180" x2="240" y2="280" stroke="#2c3e50" stroke-width="4"/>
+  <text x="220" y="160" text-anchor="middle" font-size="18" font-weight="bold" fill="#3498db">C₁</text>
+  <text x="220" y="310" text-anchor="middle" font-size="14" fill="#7f8c8d">2.00 μF</text>
+
+  <!-- C2 -->
+  <line x1="380" y1="180" x2="380" y2="280" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="420" y1="180" x2="420" y2="280" stroke="#2c3e50" stroke-width="4"/>
+  <text x="400" y="160" text-anchor="middle" font-size="18" font-weight="bold" fill="#9b59b6">C₂</text>
+  <text x="400" y="310" text-anchor="middle" font-size="14" fill="#7f8c8d">8.00 μF</text>
+
+  <!-- Wiring -->
+  <line x1="65" y1="230" x2="200" y2="230" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="240" y1="230" x2="380" y2="230" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="420" y1="230" x2="500" y2="230" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="500" y1="230" x2="500" y2="350" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="500" y1="350" x2="50" y2="350" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="50" y1="350" x2="50" y2="280" stroke="#2c3e50" stroke-width="3"/>
+
+  <!-- Arrow down -->
+  <path d="M 700 250 L 700 400" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="720" y="330" font-size="16" fill="#e74c3c" font-weight="bold">Disconnect & Reconnect</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Final Configuration (Parallel) -->
+  <text x="350" y="470" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">Final: Parallel Connection</text>
+
+  <!-- C1 reconnected -->
+  <line x1="200" y1="520" x2="200" y2="620" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="240" y1="520" x2="240" y2="620" stroke="#2c3e50" stroke-width="4"/>
+  <text x="220" y="500" text-anchor="middle" font-size="18" font-weight="bold" fill="#3498db">C₁</text>
+  <text x="220" y="650" text-anchor="middle" font-size="14" fill="#7f8c8d">2.00 μF</text>
+  <text x="145" y="550" font-size="16" fill="#e74c3c">+</text>
+  <text x="145" y="610" font-size="16" fill="#3498db">−</text>
+
+  <!-- C2 reconnected -->
+  <line x1="380" y1="520" x2="380" y2="620" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="420" y1="520" x2="420" y2="620" stroke="#2c3e50" stroke-width="4"/>
+  <text x="400" y="500" text-anchor="middle" font-size="18" font-weight="bold" fill="#9b59b6">C₂</text>
+  <text x="400" y="650" text-anchor="middle" font-size="14" fill="#7f8c8d">8.00 μF</text>
+  <text x="325" y="550" font-size="16" fill="#e74c3c">+</text>
+  <text x="325" y="610" font-size="16" fill="#3498db">−</text>
+
+  <!-- Parallel wiring -->
+  <line x1="100" y1="530" x2="200" y2="530" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="200" y1="530" x2="380" y2="530" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="100" y1="610" x2="200" y2="610" stroke="#3498db" stroke-width="3"/>
+  <line x1="200" y1="610" x2="380" y2="610" stroke="#3498db" stroke-width="3"/>
+  <circle cx="200" cy="530" r="4" fill="#e74c3c"/>
+  <circle cx="200" cy="610" r="4" fill="#3498db"/>
+
+  <!-- Data box -->
+  <g transform="translate(800, 150)">
+    <rect x="0" y="0" width="500" height="400" fill="#fff" stroke="#3498db" stroke-width="2" rx="10"/>
+    <text x="20" y="35" font-size="18" font-weight="bold" fill="#16a085">Analysis:</text>
+
+    <text x="20" y="70" font-size="14" font-weight="bold" fill="#2c3e50">Initial (Series):</text>
+    <text x="30" y="95" font-size="13" fill="#7f8c8d">C_eq = C₁C₂/(C₁+C₂) = 1.6 μF</text>
+    <text x="30" y="115" font-size="13" fill="#7f8c8d">Q = C_eq × V = 480 μC (same on both)</text>
+    <text x="30" y="135" font-size="13" fill="#7f8c8d">V₁ = Q/C₁ = 240 V</text>
+    <text x="30" y="155" font-size="13" fill="#7f8c8d">V₂ = Q/C₂ = 60 V</text>
+
+    <text x="20" y="190" font-size="14" font-weight="bold" fill="#2c3e50">Final (Parallel, Same Polarity):</text>
+    <text x="30" y="215" font-size="13" fill="#7f8c8d">Q_total = 480 μC (conserved)</text>
+    <text x="30" y="235" font-size="13" fill="#7f8c8d">V_common = Q_total/(C₁+C₂)</text>
+    <text x="30" y="255" font-size="13" fill="#7f8c8d">V_common = 480/(2+8) = 48 V</text>
+    <text x="30" y="275" font-size="13" fill="#e74c3c" font-weight="bold">Q₁ = C₁ × V = 2 × 48 = 96 μC ✓</text>
+    <text x="30" y="295" font-size="13" fill="#7f8c8d">Q₂ = C₂ × V = 8 × 48 = 384 μC</text>
+
+    <text x="20" y="330" font-size="14" font-weight="bold" fill="#27ae60">Key: Charge Conservation</text>
+    <text x="30" y="355" font-size="13" fill="#7f8c8d">Q₁_initial + Q₂_initial = Q₁_final + Q₂_final</text>
+    <text x="30" y="375" font-size="13" fill="#7f8c8d">480 + 480 = 96 + 384 ✓</text>
+  </g>
+</svg>

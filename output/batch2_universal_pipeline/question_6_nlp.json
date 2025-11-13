@@ -1,0 +1,132 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "0.12",
+      "properties": {
+        "start": 46,
+        "end": 50,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "QUANTITY",
+      "text": "1.2 cm",
+      "properties": {
+        "start": 74,
+        "end": 80,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "120",
+      "properties": {
+        "start": 140,
+        "end": 143,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "QUANTITY",
+      "text": "4.0 mm",
+      "properties": {
+        "start": 203,
+        "end": 209,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "4.8",
+      "properties": {
+        "start": 238,
+        "end": 241,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12",
+      "target": "1.2 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12",
+      "target": "120",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "120",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "4.0 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "120",
+      "target": "4.0 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "120",
+      "target": "4.8",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4.0 mm",
+      "target": "4.8",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 5,
+    "num_relationships": 7,
+    "processing_time": 0.01566624641418457,
+    "sentence_count": 4,
+    "token_count": 74
+  }
+}

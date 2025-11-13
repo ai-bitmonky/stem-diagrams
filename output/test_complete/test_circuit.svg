@@ -1,0 +1,30 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+            <!-- Arrowhead marker -->
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="black"/>
+            </marker>
+            <!-- Field line marker -->
+            <marker id="field-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#0066cc"/>
+            </marker>
+        </defs>
+        
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="450" y="320" width="300" height="10" fill="#ff4444" fill-opacity="1.0" stroke="#d32f2f" stroke-width="2"/>
+<rect x="450" y="480" width="300" height="10" fill="#4444ff" fill-opacity="1.0" stroke="#1976d2" stroke-width="2"/>
+<line x1="0" y1="0.0" x2="0" y2="60.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="0" y1="0.0" x2="0" y2="60.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="0" y1="0.0" x2="0" y2="60.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="0" y1="0.0" x2="0" y2="60.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="0" y1="0.0" x2="0" y2="60.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="450" y="290" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Rectangle: plate_top</text>
+<text x="450" y="450" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Rectangle: plate_bottom</text>
+<text x="0" y="-30.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_0</text>
+<text x="0" y="-30.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_1</text>
+<text x="0" y="-30.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_2</text>
+<text x="0" y="-30.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_3</text>
+<text x="0" y="-30.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_4</text>
+<rect x="950" y="50" width="230" height="150" fill="white" stroke="black" stroke-width="1" opacity="0.9"/><text x="960" y="75" font-size="14" font-weight="bold">Legend</text><text x="960" y="100" font-size="12">Rectangle: plate_top: Rectangle</text><text x="960" y="120" font-size="12">Rectangle: plate_bottom: Rectangle</text><text x="960" y="140" font-size="12">Arrow: field_line_0: Arrow</text><text x="960" y="160" font-size="12">Arrow: field_line_1: Arrow</text><text x="960" y="180" font-size="12">Arrow: field_line_2: Arrow</text>
+</svg>

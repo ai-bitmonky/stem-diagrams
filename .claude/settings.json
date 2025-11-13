@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Bash(python3:*)",
+      "Bash(while read f)",
+      "Bash(do echo \"=== $f ===\" grep \"^from\\|^import\" \"$f\")"
+    ],
+    "deny": [
+      "Bash(rm -rf /:*)",
+      "Bash(rm -r /:*)",
+      "Bash(dd:*)",
+      "Bash(mkfs:*)",
+      "Bash(fdisk:*)",
+      "Bash(diskutil:*)",
+      "Bash(mount:*)",
+      "Bash(umount:*)",
+      "Bash(chown -R /:*)",
+      "Bash(chmod -R /:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(~/.ssh/**)"
+    ],
+    "ask": [
+      "Bash(sudo:*)"
+    ]
+  },
+  "sandbox": {
+    "autoAllowBashIfSandboxed": true,
+    "enabled": true
+  },
+  "defaultMode": "acceptEdits"
+}

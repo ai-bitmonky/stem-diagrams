@@ -1,0 +1,257 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "0.12",
+      "properties": {
+        "start": 46,
+        "end": 50,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "QUANTITY",
+      "text": "1.2 cm",
+      "properties": {
+        "start": 74,
+        "end": 80,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "120",
+      "properties": {
+        "start": 140,
+        "end": 143,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "QUANTITY",
+      "text": "4.0 mm",
+      "properties": {
+        "start": 203,
+        "end": 209,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "4.8",
+      "properties": {
+        "start": 238,
+        "end": 241,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "MEASUREMENT",
+      "text": "0.12 m",
+      "properties": {
+        "value": 0.12,
+        "unit": "m",
+        "start": 46,
+        "end": 52,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "MEASUREMENT",
+      "text": "1.2 cm",
+      "properties": {
+        "value": 1.2,
+        "unit": "cm",
+        "start": 74,
+        "end": 80,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "MEASUREMENT",
+      "text": "120 V",
+      "properties": {
+        "value": 120.0,
+        "unit": "V",
+        "start": 140,
+        "end": 145,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "MEASUREMENT",
+      "text": "4.0 m",
+      "properties": {
+        "value": 4.0,
+        "unit": "m",
+        "start": 203,
+        "end": 208,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12",
+      "target": "1.2 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12",
+      "target": "120",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "120",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "4.0 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "120",
+      "target": "4.0 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "120",
+      "target": "4.8",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4.0 mm",
+      "target": "4.8",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4.0 mm",
+      "target": "0.12 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4.8",
+      "target": "0.12 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4.8",
+      "target": "1.2 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12 m",
+      "target": "1.2 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.12 m",
+      "target": "120 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "120 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.2 cm",
+      "target": "4.0 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "120 V",
+      "target": "4.0 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 15,
+    "processing_time": 0.013659000396728516,
+    "sentence_count": 4,
+    "token_count": 70
+  },
+  "raw_text": "A parallel-plate capacitor has plates of area 0.12 m\u00b2 and a separation of 1.2 cm. A battery charges the plates to a potential difference of 120 V and is then disconnected. A dielectric slab of thickness 4.0 mm and dielectric constant \u03ba = 4.8 is then placed symmetrically between the plates. What is the magnitude of the electric field in the dielectric after insertion?"
+}

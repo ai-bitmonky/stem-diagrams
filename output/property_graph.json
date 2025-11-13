@@ -1,0 +1,128 @@
+{
+  "nodes": [
+    {
+      "id": "left half",
+      "type": "object",
+      "label": "left half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "dielectric \u03ba\u2081",
+      "type": "object",
+      "label": "dielectric \u03ba\u2081",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "0 and",
+      "type": "object",
+      "label": "0 and",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "\u03ba\u2083",
+      "type": "object",
+      "label": "\u03ba\u2083",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "12 mm",
+      "type": "object",
+      "label": "12 mm",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "configured as",
+      "type": "object",
+      "label": "configured as",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "filled with",
+      "type": "object",
+      "label": "filled with",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "right half",
+      "type": "object",
+      "label": "right half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "divided into",
+      "type": "object",
+      "label": "divided into",
+      "properties": {},
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "left half",
+      "target": "dielectric \u03ba\u2081",
+      "type": "related_to",
+      "label": "is filled on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "left half",
+      "target": "filled with",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "0 and",
+      "target": "\u03ba\u2083",
+      "type": "related_to",
+      "label": "bottom on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "12 mm",
+      "target": "configured as",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "right half",
+      "target": "divided into",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 9,
+    "edge_count": 5
+  }
+}

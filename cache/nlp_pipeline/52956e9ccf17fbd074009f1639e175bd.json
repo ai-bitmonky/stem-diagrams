@@ -1,0 +1,340 @@
+{
+  "domain": "physics",
+  "text": "A cylindrical plastic container of radius r = 0.20 m filled with conducting liquid to\nheight h = 10 cm. The exterior surface of the container acquires a negative charge density of\nmagnitude 2.0 \u03bcC/m\u00b2. The liquid is conducting. Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk? (b) What is the potential energy associated with\nthe negative charge? (c) Can a spark ignite the liquid?",
+  "entities": [
+    {
+      "id": "spacy_8_9",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 46,
+        "end": 50,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_19_21",
+      "type": "QUANTITY",
+      "label": "QUANTITY",
+      "text": "10 cm",
+      "properties": {
+        "start": 97,
+        "end": 102,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_36_37",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "2.0",
+      "properties": {
+        "start": 190,
+        "end": 193,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_52_53",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 255,
+        "end": 259,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_60_61",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "0.10",
+      "properties": {
+        "start": 281,
+        "end": 285,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_68_69",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "2.0",
+      "properties": {
+        "start": 316,
+        "end": 319,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_75_76",
+      "type": "PERSON",
+      "label": "PERSON",
+      "text": "Capacitance",
+      "properties": {
+        "start": 333,
+        "end": 344,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_84_85",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "35",
+      "properties": {
+        "start": 377,
+        "end": 379,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "physics_89",
+      "type": "PHYSICS_OBJECT",
+      "label": "Physics Object",
+      "text": "energy",
+      "properties": {
+        "start": 398,
+        "end": 404,
+        "confidence": 0.85,
+        "method": "keyword_match"
+      }
+    },
+    {
+      "id": "spacy_94_95",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "10",
+      "properties": {
+        "start": 423,
+        "end": 425,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "physics_124",
+      "type": "PHYSICS_OBJECT",
+      "label": "Physics Object",
+      "text": "energy",
+      "properties": {
+        "start": 543,
+        "end": 549,
+        "confidence": 0.85,
+        "method": "keyword_match"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "INSIDE",
+      "subject": "induced",
+      "target": "center",
+      "properties": {
+        "confidence": 0.75,
+        "method": "dependency_parse",
+        "preposition": "in"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_52_53",
+      "target": "spacy_60_61",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_60_61",
+      "target": "spacy_68_69",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_68_69",
+      "target": "spacy_75_76",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_75_76",
+      "target": "spacy_84_85",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_84_85",
+      "target": "physics_89",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "physics_89",
+      "target": "spacy_94_95",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Given: Container radius r = 0.20 m, Liquid height\nh = 0.10 m, Surface charge density \u03c3 = 2.0 \u00d7 10\u207b\u2076 C/m\u00b2, Capacitance of liquid's central portion\nC = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge\nis induced in the center of the liquid's bulk?"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "r",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "0.20 m"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10 cm"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "0.10 m",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "0.10 m"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03c3",
+      "target": "2.0",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "2.0"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "C",
+      "target": "35 pF",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "35 pF"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "E_min",
+      "target": "10 mJ",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10 mJ"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "r",
+      "target": "0.20 m filled with conducting liquid to\nheight h",
+      "properties": {
+        "equation": "r = 0.20 m filled with conducting liquid to\nheight h",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "r",
+      "target": "0.20 m",
+      "properties": {
+        "equation": "r = 0.20 m",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "h",
+      "target": "0.10 m",
+      "properties": {
+        "equation": "h = 0.10 m",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "C",
+      "target": "35 pF",
+      "properties": {
+        "equation": "C = 35 pF",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "E_min",
+      "target": "10 mJ. Determine",
+      "properties": {
+        "equation": "E_min = 10 mJ. Determine",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 11,
+    "num_relationships": 18,
+    "pipeline": "unified_nlp",
+    "extractors_used": [
+      "physics",
+      "electronics",
+      "geometry",
+      "chemistry",
+      "biology"
+    ],
+    "sentence_count": 7,
+    "token_count": 142
+  }
+}

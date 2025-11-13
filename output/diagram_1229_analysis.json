@@ -1,0 +1,38 @@
+{
+  "text": "A 5kg block rests on a horizontal surface",
+  "domain": "mechanics",
+  "domain_confidence": 1.0,
+  "entities": [
+    {
+      "text": "5kg",
+      "label": "QUANTITY",
+      "start": 2,
+      "end": 5,
+      "type": "QUANTITY",
+      "confidence": 0.85
+    }
+  ],
+  "quantities": [
+    {
+      "value": 5.0,
+      "unit": "kg",
+      "text": "5kg",
+      "type": "mass",
+      "start": 2,
+      "end": 5
+    }
+  ],
+  "metadata": {
+    "num_spacy_entities": 1,
+    "num_unit_quantities": 1,
+    "tools_used": [
+      "spacy",
+      "stem_unit_extractor",
+      "domain_classifier"
+    ],
+    "processing_time": 0.03018808364868164,
+    "nlp_mode": "enhanced"
+  },
+  "num_entities": 1,
+  "num_quantities": 1
+}

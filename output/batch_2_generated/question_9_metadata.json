@@ -1,0 +1,21 @@
+{
+  "question_id": 9,
+  "topic": "Capacitance - Variable Capacitor",
+  "success": true,
+  "complexity_score": 0.3833333333333333,
+  "selected_strategy": "constraint_based",
+  "ontology_validation": {
+    "consistent": null,
+    "errors": [
+      "RDFLib not installed: RDFLib not installed. Install with: pip install rdflib owlrl"
+    ],
+    "warnings": [
+      "Ontology validation skipped - RDFLib not available"
+    ]
+  },
+  "property_graph_nodes": 9,
+  "property_graph_edges": 5,
+  "nlp_tools_used": [
+    "openie"
+  ]
+}

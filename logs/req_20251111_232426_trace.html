@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Trace - req_20251111_232426</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .summary-card .label {
+            font-size: 0.85em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card .value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .summary-card.success .value {
+            color: #28a745;
+        }
+
+        .summary-card.error .value {
+            color: #dc3545;
+        }
+
+        .phases {
+            padding: 40px;
+        }
+
+        .phase {
+            margin-bottom: 30px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .phase:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-header:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #6941a0 100%);
+        }
+
+        .phase-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .phase-duration {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .phase-body {
+            padding: 20px;
+            background: white;
+        }
+
+        .phase-body.collapsed {
+            display: none;
+        }
+
+        .phase-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .info-box pre {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        .timeline {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .timeline h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .timeline-bar {
+            height: 60px;
+            background: #e9ecef;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-segment {
+            position: absolute;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-segment:hover {
+            filter: brightness(1.1);
+            z-index: 10;
+        }
+
+        .timeline-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        .legend-text {
+            font-size: 0.9em;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .footer {
+            padding: 20px 40px;
+            background: #f8f9fa;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .phase-info {
+                grid-template-columns: 1fr;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        function togglePhase(phaseId) {
+            const body = document.getElementById('phase-body-' + phaseId);
+            body.classList.toggle('collapsed');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Pipeline Execution Trace</h1>
+            <div class="subtitle">Request ID: req_20251111_232426</div>
+            <div class="subtitle">2025-11-11T23:24:26.913649</div>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card success">
+                <div class="label">Status</div>
+                <div class="value">✅ SUCCESS</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Total Duration</div>
+                <div class="value">8.69ms</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Phases Completed</div>
+                <div class="value">9</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Average Phase Duration</div>
+                <div class="value">0.97ms</div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <h2>⏱️ Execution Timeline</h2>
+            <div class="timeline-bar">
+
+                <div class="timeline-segment" style="left: 0%; width: 2.186421173762946%; background: #667eea;"
+                     title="Property Graph Construction: 0.19ms">
+                    Property Graph ...
+                </div>
+
+                <div class="timeline-segment" style="left: 2.186421173762946%; width: 67.89413118527044%; background: #764ba2;"
+                     title="Problem Understanding + Complexity: 5.90ms">
+                    Problem Underst...
+                </div>
+
+                <div class="timeline-segment" style="left: 70.08055235903339%; width: 3.79746835443038%; background: #f093fb;"
+                     title="Scene Synthesis + Strategic Planning: 0.33ms">
+                    Scene Synthesis...
+                </div>
+
+                <div class="timeline-segment" style="left: 73.87802071346377%; width: 2.9919447640966634%; background: #4facfe;"
+                     title="Physics Validation: 0.26ms">
+                    Physics Validat...
+                </div>
+
+                <div class="timeline-segment" style="left: 76.86996547756043%; width: 4.1426927502876865%; background: #43e97b;"
+                     title="Layout Optimization + Z3: 0.36ms">
+                    Layout Optimiza...
+                </div>
+
+                <div class="timeline-segment" style="left: 81.0126582278481%; width: 2.186421173762946%; background: #fa709a;"
+                     title="Intelligent Label Placement: 0.19ms">
+                    Intelligent Lab...
+                </div>
+
+                <div class="timeline-segment" style="left: 83.19907940161106%; width: 2.8768699654775607%; background: #fee140;"
+                     title="Spatial Validation: 0.25ms">
+                    Spatial Validat...
+                </div>
+
+                <div class="timeline-segment" style="left: 86.07594936708863%; width: 2.646720368239356%; background: #30cfd0;"
+                     title="Rendering: 0.23ms">
+                    Rendering
+                </div>
+
+                <div class="timeline-segment" style="left: 88.72266973532798%; width: 3.1070195627157657%; background: #667eea;"
+                     title="Validation Refinement: 0.27ms">
+                    Validation Refi...
+                </div>
+
+            </div>
+            <div class="timeline-legend">
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #667eea;"></div>
+                    <div class="legend-text">Property Graph Construction<br><small>0.19ms (2.2%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #764ba2;"></div>
+                    <div class="legend-text">Problem Understanding + Complexity<br><small>5.90ms (67.9%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f093fb;"></div>
+                    <div class="legend-text">Scene Synthesis + Strategic Planning<br><small>0.33ms (3.8%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4facfe;"></div>
+                    <div class="legend-text">Physics Validation<br><small>0.26ms (3.0%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #43e97b;"></div>
+                    <div class="legend-text">Layout Optimization + Z3<br><small>0.36ms (4.1%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fa709a;"></div>
+                    <div class="legend-text">Intelligent Label Placement<br><small>0.19ms (2.2%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fee140;"></div>
+                    <div class="legend-text">Spatial Validation<br><small>0.25ms (2.9%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #30cfd0;"></div>
+                    <div class="legend-text">Rendering<br><small>0.23ms (2.6%)</small></div>
+                </div>
+
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #667eea;"></div>
+                    <div class="legend-text">Validation Refinement<br><small>0.27ms (3.1%)</small></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="phases">
+            <h2>📋 Phase Details</h2>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(0)">
+                    <div>
+                        <div class="phase-title">Phase 1: Property Graph Construction</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Build knowledge graph from NLP results</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.19ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-0">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "nodes": 0,
+  "edges": 0
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(1)">
+                    <div>
+                        <div class="phase-title">Phase 2: Problem Understanding + Complexity</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Analyze problem and assess complexity</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">5.90ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-1">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>
+A parallel-plate capacitor has charge q and plate area A.
+The plates are separated by distance x.
+</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "domain": "electrostatics",
+  "object_count": 5,
+  "constraint_count": 0,
+  "complexity_score": 0.245
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(2)">
+                    <div>
+                        <div class="phase-title">Phase 3: Scene Synthesis + Strategic Planning</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Build scene graph and select strategy</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.33ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-2">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "CanonicalProblemSpec",
+  "_attributes": {
+    "domain": {
+      "_type": "PhysicsDomain",
+      "_attributes": {}
+    },
+    "problem_type": "capacitor_circuit",
+    "problem_text": "\nA parallel-plate capacitor has charge q and plate area A.\nThe plates are separated by distance x.\n",
+    "complexity_score": 1.0,
+    "objects": [
+      {
+        "id": "obj_0",
+        "type": "capacitor",
+        "name": "plate capacitor",
+        "properties": {},
+        "source": "pattern_match"
+      },
+      {
+        "id": "obj_1",
+        "type": "capacitor",
+        "name": "capacitor has",
+        "properties": {},
+        "source": "pattern_match"
+      },
+      {
+        "id": "obj_2",
+        "type": "capacitor",
+        "name": "parallel-plate capacitor",
+        "properties": {},
+        "source": "pattern_match"
+      },
+      {
+        "id": "obj_3",
+        "type": "capacitor",
+        "name": "Capacitor",
+        "properties": {},
+        "source": "generic_match"
+      },
+      {
+        "id": "obj_4",
+        "type": "plate",
+        "name": "Plate",
+        "properties": {},
+        "source": "generic_match"
+      }
+    ],
+    "relationships": [],
+    "environment": {},
+    "physics_context": {
+      "domain": "electrostatics",
+      "keywords_found": [
+        "charge",
+        "capacitor"
+      ],
+      "quantities_mentioned": []
+    },
+    "applicable_laws": [
+      "Coulomb's Law",
+      "Gauss's Law",
+      "Electric Potential"
+    ],
+    "constraints": [],
+    "geometry": {
+      "type": "unknown",
+      "dimensions": {},
+      "arrangement": "parallel"
+    },
+    "coordinate_system": "cartesian",
+    "subproblems": [],
+    "is_complete": true,
+    "missing_information": [],
+    "confidence": 0.7,
+    "reasoning_trace": [
+      {
+        "stage": "local_analysis",
+        "method": "spacy + rules",
+        "domain": "electrostatics",
+        "objects_found": 5,
+        "relationships_found": 0,
+        "confidence": 0.7
+      }
+    ]
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "object_count": 7,
+  "selected_strategy": "heuristic"
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(3)">
+                    <div>
+                        <div class="phase-title">Phase 5: Physics Validation</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Validate physics constraints and relationships</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.26ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-3">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "Scene",
+  "_attributes": {
+    "version": "1.0",
+    "metadata": {
+      "domain": "electrostatics",
+      "renderer": "capacitor"
+    },
+    "coord_system": {
+      "frame": "cartesian",
+      "origin": [
+        600,
+        400
+      ],
+      "scale": 100,
+      "extent": [
+        1200,
+        800
+      ],
+      "margins": [
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "objects": [
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_top",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "+Q"
+          },
+          "position": {
+            "x": 450,
+            "y": 315
+          },
+          "style": {
+            "fill": "#ff4444",
+            "stroke": "#d32f2f",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_bottom",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "-Q"
+          },
+          "position": {
+            "x": 450,
+            "y": 475
+          },
+          "style": {
+            "fill": "#4444ff",
+            "stroke": "#1976d2",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_0",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down"
+          },
+          "position": {
+            "x1": 480,
+            "y1": 345,
+            "x2": 480,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_1",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down"
+          },
+          "position": {
+            "x1": 540,
+            "y1": 345,
+            "x2": 540,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_2",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down"
+          },
+          "position": {
+            "x1": 600,
+            "y1": 345,
+            "x2": 600,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_3",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down"
+          },
+          "position": {
+            "x1": 660,
+            "y1": 345,
+            "x2": 660,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_4",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down"
+          },
+          "position": {
+            "x1": 720,
+            "y1": 345,
+            "x2": 720,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": 150,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom",
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      }
+    ],
+    "annotations": []
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "errors": 0,
+  "warnings": 12
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(4)">
+                    <div>
+                        <div class="phase-title">Phase 6: Layout Optimization + Z3</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Compute optimal object positions</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.36ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-4">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "Scene",
+  "_attributes": {
+    "version": "1.0",
+    "metadata": {
+      "domain": "electrostatics",
+      "renderer": "capacitor"
+    },
+    "coord_system": {
+      "frame": "cartesian",
+      "origin": [
+        600,
+        400
+      ],
+      "scale": 100,
+      "extent": [
+        1200,
+        800
+      ],
+      "margins": [
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "objects": [
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_top",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "+Q",
+            "label": "Rectangle: plate_top"
+          },
+          "position": {
+            "x": 450,
+            "y": 315
+          },
+          "style": {
+            "fill": "#ff4444",
+            "stroke": "#d32f2f",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_bottom",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "-Q",
+            "label": "Rectangle: plate_bottom"
+          },
+          "position": {
+            "x": 450,
+            "y": 475
+          },
+          "style": {
+            "fill": "#4444ff",
+            "stroke": "#1976d2",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_0",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_0"
+          },
+          "position": {
+            "x1": 480,
+            "y1": 345,
+            "x2": 480,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_1",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_1"
+          },
+          "position": {
+            "x1": 540,
+            "y1": 345,
+            "x2": 540,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_2",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_2"
+          },
+          "position": {
+            "x1": 600,
+            "y1": 345,
+            "x2": 600,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_3",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_3"
+          },
+          "position": {
+            "x1": 660,
+            "y1": 345,
+            "x2": 660,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_4",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_4"
+          },
+          "position": {
+            "x1": 720,
+            "y1": 345,
+            "x2": 720,
+            "y2": 465
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": 150,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom",
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      }
+    ],
+    "annotations": []
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "object_count": 7,
+  "z3_used": false
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(5)">
+                    <div>
+                        <div class="phase-title">Phase 7: Intelligent Label Placement</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Optimize label positions to avoid overlaps</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.19ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-5">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "Scene",
+  "_attributes": {
+    "version": "1.0",
+    "metadata": {
+      "domain": "electrostatics",
+      "renderer": "capacitor"
+    },
+    "coord_system": {
+      "frame": "cartesian",
+      "origin": [
+        600,
+        400
+      ],
+      "scale": 100,
+      "extent": [
+        1200,
+        800
+      ],
+      "margins": [
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "objects": [
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_top",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "+Q",
+            "label": "Rectangle: plate_top",
+            "label_position": {
+              "x": 450,
+              "y": 290
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 320,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#ff4444",
+            "stroke": "#d32f2f",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_bottom",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "-Q",
+            "label": "Rectangle: plate_bottom",
+            "label_position": {
+              "x": 450,
+              "y": 450
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 480,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#4444ff",
+            "stroke": "#1976d2",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_0",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_0",
+            "label_position": {
+              "x": 550,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 550,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_1",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_1",
+            "label_position": {
+              "x": 570,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 570,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_2",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_2",
+            "label_position": {
+              "x": 600,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 600,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_3",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_3",
+            "label_position": {
+              "x": 620,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_4",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_4",
+            "label_position": {
+              "x": 650,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 650,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": 150,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom",
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      }
+    ],
+    "annotations": []
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(6)">
+                    <div>
+                        <div class="phase-title">Phase 8: Spatial Validation</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Check for overlaps and positioning errors</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.25ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-6">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "Scene",
+  "_attributes": {
+    "version": "1.0",
+    "metadata": {
+      "domain": "electrostatics",
+      "renderer": "capacitor"
+    },
+    "coord_system": {
+      "frame": "cartesian",
+      "origin": [
+        600,
+        400
+      ],
+      "scale": 100,
+      "extent": [
+        1200,
+        800
+      ],
+      "margins": [
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "objects": [
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_top",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "+Q",
+            "label": "Rectangle: plate_top",
+            "label_position": {
+              "x": 450,
+              "y": 290
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 320,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#ff4444",
+            "stroke": "#d32f2f",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_bottom",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "-Q",
+            "label": "Rectangle: plate_bottom",
+            "label_position": {
+              "x": 450,
+              "y": 450
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 480,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#4444ff",
+            "stroke": "#1976d2",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_0",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_0",
+            "label_position": {
+              "x": 550,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 550,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_1",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_1",
+            "label_position": {
+              "x": 570,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 570,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_2",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_2",
+            "label_position": {
+              "x": 600,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 600,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_3",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_3",
+            "label_position": {
+              "x": 620,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_4",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_4",
+            "label_position": {
+              "x": 650,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 650,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": 150,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom",
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      }
+    ],
+    "annotations": []
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "errors": 0,
+  "warnings": 5,
+  "is_valid": true
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(7)">
+                    <div>
+                        <div class="phase-title">Phase 9: Rendering</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Generate SVG output</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.23ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-7">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "_type": "Scene",
+  "_attributes": {
+    "version": "1.0",
+    "metadata": {
+      "domain": "electrostatics",
+      "renderer": "capacitor"
+    },
+    "coord_system": {
+      "frame": "cartesian",
+      "origin": [
+        600,
+        400
+      ],
+      "scale": 100,
+      "extent": [
+        1200,
+        800
+      ],
+      "margins": [
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "objects": [
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_top",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "+Q",
+            "label": "Rectangle: plate_top",
+            "label_position": {
+              "x": 450,
+              "y": 290
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 320,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#ff4444",
+            "stroke": "#d32f2f",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "plate_bottom",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "width": 300,
+            "height": 10,
+            "charge": "-Q",
+            "label": "Rectangle: plate_bottom",
+            "label_position": {
+              "x": 450,
+              "y": 450
+            }
+          },
+          "position": {
+            "x": 450,
+            "y": 480,
+            "anchor": "top-left"
+          },
+          "style": {
+            "fill": "#4444ff",
+            "stroke": "#1976d2",
+            "stroke_width": 2
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_0",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_0",
+            "label_position": {
+              "x": 550,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 550,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_1",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_1",
+            "label_position": {
+              "x": 570,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 570,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_2",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_2",
+            "label_position": {
+              "x": 600,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 600,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_3",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_3",
+            "label_position": {
+              "x": 620,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      },
+      {
+        "_type": "SceneObject",
+        "_attributes": {
+          "id": "field_line_4",
+          "type": {
+            "_type": "PrimitiveType",
+            "_attributes": {}
+          },
+          "properties": {
+            "direction": "down",
+            "label": "Arrow: field_line_4",
+            "label_position": {
+              "x": 650,
+              "y": 370
+            }
+          },
+          "position": {
+            "x": 650,
+            "y": 400,
+            "length": 60,
+            "angle": 90
+          },
+          "style": {
+            "stroke": "#ff6600",
+            "stroke_width": 2,
+            "marker_end": "arrowhead"
+          },
+          "layer": {
+            "_type": "RenderLayer",
+            "_attributes": {}
+          }
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": 150,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      },
+      {
+        "_type": "Constraint",
+        "_attributes": {
+          "type": {
+            "_type": "ConstraintType",
+            "_attributes": {}
+          },
+          "objects": [
+            "plate_top",
+            "plate_bottom",
+            "field_line_0",
+            "field_line_1",
+            "field_line_2",
+            "field_line_3",
+            "field_line_4"
+          ],
+          "value": null,
+          "tolerance": 1e-06,
+          "properties": {}
+        }
+      }
+    ],
+    "annotations": []
+  }
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "svg_size": 2777
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase(8)">
+                    <div>
+                        <div class="phase-title">Phase 7: Validation Refinement</div>
+                        <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Iterative quality improvement</div>
+                    </div>
+                    <div>
+                        <span class="status-badge status-success">success</span>
+                        <span class="phase-duration">0.27ms</span>
+                    </div>
+                </div>
+                <div class="phase-body" id="phase-body-8">
+                    <div class="phase-info">
+                        <div class="info-box">
+                            <h4>📥 Input</h4>
+                            <pre>{
+  "svg_size": 2777
+}</pre>
+                        </div>
+                        <div class="info-box">
+                            <h4>📤 Output</h4>
+                            <pre>{
+  "refinement_iterations": 0,
+  "overall_confidence": 0.0,
+  "issue_count": 0,
+  "suggestions": 0
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Generated by Pipeline Logger • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        </div>
+    </div>
+</body>
+</html>

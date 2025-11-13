@@ -1,0 +1,582 @@
+{
+  "request_id": "req_20251112_112340",
+  "timestamp": "2025-11-12T11:23:40.732313",
+  "phases": [
+    {
+      "phase_number": 2,
+      "phase_name": "Problem Understanding + Complexity",
+      "description": "Analyze problem and assess complexity",
+      "start_time": 1762926820.732657,
+      "duration_ms": 6.23,
+      "input": "A block of mass 5 kg rests on a table. Draw a free body diagram.",
+      "output": {
+        "domain": "mechanics",
+        "object_count": 3,
+        "constraint_count": 0,
+        "complexity_score": 0.195
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762926820.738954,
+      "duration_ms": 0.41,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "dynamics",
+          "problem_text": "A block of mass 5 kg rests on a table. Draw a free body diagram.",
+          "complexity_score": 0.6000000000000001,
+          "objects": [
+            {
+              "id": "obj_0",
+              "type": "block",
+              "name": "A block",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_1",
+              "type": "block",
+              "name": "block of",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_2",
+              "type": "block",
+              "name": "Block",
+              "properties": {},
+              "source": "generic_match"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {
+            "domain": "mechanics",
+            "keywords_found": [
+              "mass"
+            ],
+            "quantities_mentioned": []
+          },
+          "applicable_laws": [
+            "Newton's Laws of Motion",
+            "Conservation of Energy",
+            "Conservation of Momentum"
+          ],
+          "constraints": [],
+          "geometry": {
+            "type": "unknown",
+            "dimensions": {},
+            "arrangement": "unknown"
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.6000000000000001,
+          "reasoning_trace": [
+            {
+              "stage": "local_analysis",
+              "method": "spacy + rules",
+              "domain": "mechanics",
+              "objects_found": 3,
+              "relationships_found": 0,
+              "confidence": 0.6000000000000001
+            }
+          ]
+        }
+      },
+      "output": {
+        "object_count": 12,
+        "selected_strategy": "heuristic"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Physics Validation",
+      "description": "Validate physics constraints and relationships",
+      "start_time": 1762926820.7394292,
+      "duration_ms": 0,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "mechanics"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "ground",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "orientation": "horizontal",
+                  "length": 250,
+                  "style": {
+                    "stroke": "#333333",
+                    "stroke_width": 3
+                  }
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "block1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "mass": 5.0,
+                  "width": 50,
+                  "height": 40,
+                  "label": "m1 = 5.0 kg",
+                  "style": {
+                    "fill": "#8899cc",
+                    "stroke": "#000000",
+                    "stroke_width": 2
+                  }
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_weight1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "m1g",
+                  "parent": "block1",
+                  "color": "#cc0000"
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "block2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "mass": 5.0,
+                  "width": 50,
+                  "height": 40,
+                  "label": "m2 = 5.0 kg",
+                  "style": {
+                    "fill": "#cc99cc",
+                    "stroke": "#000000",
+                    "stroke_width": 2
+                  }
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_weight2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "m2g",
+                  "parent": "block2",
+                  "color": "#cc0000"
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "block3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "mass": 5.0,
+                  "width": 50,
+                  "height": 40,
+                  "label": "m3 = 5.0 kg",
+                  "style": {
+                    "fill": "#8899cc",
+                    "stroke": "#000000",
+                    "stroke_width": 2
+                  }
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_weight3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "m3g",
+                  "parent": "block3",
+                  "color": "#cc0000"
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_applied",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "rightward",
+                  "magnitude": 150.0,
+                  "label": "F = 150.0N",
+                  "parent": "block1",
+                  "color": "#00cc00"
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_contact",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "rightward",
+                  "magnitude": 0,
+                  "label": "N\u2081\u2082",
+                  "parent": "block2",
+                  "color": "#0066cc",
+                  "contact_force": true
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_gravity_block1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "mg",
+                  "color": "#cc0000",
+                  "parent": "block1",
+                  "implicit": true
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_gravity_block2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "mg",
+                  "color": "#cc0000",
+                  "parent": "block2",
+                  "implicit": true
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "force_gravity_block3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "downward",
+                  "magnitude": 49.0,
+                  "label": "mg",
+                  "color": "#cc0000",
+                  "parent": "block3",
+                  "implicit": true
+                },
+                "position": null,
+                "style": null,
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "block1",
+                  "block2"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "block2",
+                  "block3"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "block1",
+                  "block2",
+                  "block3"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "block1",
+                  "block2",
+                  "block3"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "force_weight1",
+                  "force_weight2",
+                  "force_weight3",
+                  "force_applied",
+                  "force_contact",
+                  "force_gravity_block1",
+                  "force_gravity_block2",
+                  "force_gravity_block3"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "ground",
+                  "block1",
+                  "force_weight1",
+                  "block2",
+                  "force_weight2",
+                  "block3",
+                  "force_weight3",
+                  "force_applied",
+                  "force_contact",
+                  "force_gravity_block1",
+                  "force_gravity_block2",
+                  "force_gravity_block3"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "NameError",
+        "message": "name 'PrimitiveType' is not defined",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1078, in generate\n    report, scene = self.validator.validate(scene, specs)\n                    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py\", line 112, in validate\n    self._validate_semantic(scene, spec, report)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py\", line 205, in _validate_semantic\n    has_mass = any(obj.type == PrimitiveType.MASS for obj in scene.objects)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py\", line 205, in <genexpr>\n    has_mass = any(obj.type == PrimitiveType.MASS for obj in scene.objects)\n                               ^^^^^^^^^^^^^\nNameError: name 'PrimitiveType' is not defined\n"
+      }
+    }
+  ],
+  "total_duration_ms": 9.11,
+  "status": "error",
+  "error": "name 'PrimitiveType' is not defined",
+  "input": {
+    "problem_text": "A block of mass 5 kg rests on a table. Draw a free body diagram.",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "strict",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Z3 Optimization",
+        "LLM Auditor",
+        "Structural Validator",
+        "VLM Validator",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 64
+  }
+}

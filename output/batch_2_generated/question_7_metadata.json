@@ -1,0 +1,21 @@
+{
+  "question_id": 7,
+  "topic": "Capacitance - Charge Redistribution",
+  "success": true,
+  "complexity_score": 0.38833333333333336,
+  "selected_strategy": "constraint_based",
+  "ontology_validation": {
+    "consistent": null,
+    "errors": [
+      "RDFLib not installed: RDFLib not installed. Install with: pip install rdflib owlrl"
+    ],
+    "warnings": [
+      "Ontology validation skipped - RDFLib not available"
+    ]
+  },
+  "property_graph_nodes": 7,
+  "property_graph_edges": 5,
+  "nlp_tools_used": [
+    "openie"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "domain": "electronics",
+  "text": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF. The charged capacitors are then disconnected\nfrom the battery and from each other. They are then reconnected with plates of the same signs\nwired together (positive to positive, negative to negative). What is the charge on capacitor C\u2081?",
+  "entities": [
+    {
+      "id": "spacy_4_5",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "300",
+      "properties": {
+        "start": 26,
+        "end": 29,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_13_14",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 69,
+        "end": 72,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_18_19",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "C\u2081",
+      "properties": {
+        "start": 100,
+        "end": 102,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_20_21",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "2.00",
+      "properties": {
+        "start": 105,
+        "end": 109,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_23_24",
+      "type": "ORG",
+      "label": "ORG",
+      "text": "C\u2082",
+      "properties": {
+        "start": 117,
+        "end": 119,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_25_26",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "8.00",
+      "properties": {
+        "start": 122,
+        "end": 126,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "connected",
+      "type": "CONNECTION",
+      "label": "Connection",
+      "text": "connected",
+      "properties": {
+        "start": 166,
+        "end": 175,
+        "confidence": 0.9,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "id": "wired",
+      "type": "CONNECTION",
+      "label": "Connection",
+      "text": "wired",
+      "properties": {
+        "start": 270,
+        "end": 275,
+        "confidence": 0.9,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "id": "spacy_71_72",
+      "type": "PRODUCT",
+      "label": "PRODUCT",
+      "text": "C\u2081",
+      "properties": {
+        "start": 363,
+        "end": 365,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "ON",
+      "subject": "charge",
+      "target": "capacitor",
+      "properties": {
+        "confidence": 0.9,
+        "method": "pattern_match",
+        "description": "A is on B"
+      }
+    },
+    {
+      "type": "ON",
+      "subject": "charge",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.75,
+        "method": "dependency_parse",
+        "preposition": "on"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_4_5",
+      "target": "spacy_13_14",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_13_14",
+      "target": "spacy_18_19",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_18_19",
+      "target": "spacy_20_21",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_20_21",
+      "target": "spacy_23_24",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_23_24",
+      "target": "spacy_25_26",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF."
+      }
+    },
+    {
+      "type": "APPLIES_TO",
+      "subject": "V",
+      "target": "a",
+      "properties": {
+        "confidence": 0.85,
+        "method": "pattern_match",
+        "description": "A is applied to B"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "C\u2081",
+      "target": "2.00 \u03bcF",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "2.00 \u03bcF"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "C\u2082",
+      "target": "8.00 \u03bcF",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "8.00 \u03bcF"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "C\u2081",
+      "target": "2.00",
+      "properties": {
+        "equation": "C\u2081 = 2.00",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "C\u2082",
+      "target": "8.00",
+      "properties": {
+        "equation": "C\u2082 = 8.00",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 12,
+    "pipeline": "unified_nlp",
+    "extractors_used": [
+      "physics",
+      "electronics",
+      "geometry",
+      "chemistry",
+      "biology"
+    ],
+    "sentence_count": 4,
+    "token_count": 73
+  }
+}

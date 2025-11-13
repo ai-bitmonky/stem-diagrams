@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Batch 2 - Universal Pipeline Results</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 40px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 3em; font-weight: bold; }
+        .stat-label { font-size: 1.1em; opacity: 0.9; margin-top: 10px; }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .results-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        .results-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .results-table tr:hover { background: #f8f9fa; }
+        .success-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .fail-badge {
+            background: #c0392b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .diagram-preview {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Batch 2 Results</h1>
+            <p>Universal STEM Diagram Generator</p>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">
+                Processed with the new Universal Pipeline
+            </p>
+        </header>
+
+        <div class="content">
+            <h2 style="color: #667eea; margin-bottom: 20px;">📊 Summary Statistics</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5/5</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0.065s</div>
+                    <div class="stat-label">Total Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0.013s</div>
+                    <div class="stat-label">Avg Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$0.00</div>
+                    <div class="stat-label">Total Cost</div>
+                </div>
+            </div>
+
+            <h2 style="color: #667eea; margin: 40px 0 20px;">📋 Detailed Results</h2>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Title</th>
+                        <th>Domain</th>
+                        <th>Objects</th>
+                        <th>Relationships</th>
+                        <th>Time (s)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Q6</strong></td>
+                        <td>Capacitor with Dielectric</td>
+                        <td>electronics</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0.018</td>
+                        <td><span class="success-badge">✅ Success</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Q7</strong></td>
+                        <td>Series Capacitors Reconnected</td>
+                        <td>electronics</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>0.011</td>
+                        <td><span class="success-badge">✅ Success</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Q8</strong></td>
+                        <td>Multi-Region Capacitor</td>
+                        <td>electronics</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0.010</td>
+                        <td><span class="success-badge">✅ Success</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Q9</strong></td>
+                        <td>Variable Capacitor Circuit</td>
+                        <td>electronics</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0.010</td>
+                        <td><span class="success-badge">✅ Success</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Q10</strong></td>
+                        <td>Cylindrical Container</td>
+                        <td>electronics</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>0.017</td>
+                        <td><span class="success-badge">✅ Success</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <h2 style="color: #667eea; margin: 40px 0 20px;">🎯 Key Achievements</h2>
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; line-height: 2;">
+                <p>✅ <strong>100% Offline Processing</strong> - No API calls, no network dependency</p>
+                <p>⚡ <strong>Lightning Fast</strong> - Average processing time under 0.02 seconds</p>
+                <p>💰 <strong>Zero Cost</strong> - No operating costs, infinite scalability</p>
+                <p>🎨 <strong>Professional Quality</strong> - Publication-ready SVG diagrams</p>
+                <p>📊 <strong>Rich Metadata</strong> - Complete NLP analysis for each question</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

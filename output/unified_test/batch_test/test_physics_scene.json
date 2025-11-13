@@ -1,0 +1,85 @@
+{
+  "scene_id": "physics_17",
+  "domain": "physics",
+  "diagram_type": "free_body_diagram",
+  "title": "Physics Diagram",
+  "description": "A mass m = 5 kg rests on a horizontal surface with friction coefficient \u03bc = 0.3. A force F = 20 N is applied horizontally.",
+  "objects": [
+    {
+      "id": "mass_1",
+      "object_type": "mass",
+      "position": {
+        "x": 400.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 80,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#333333",
+        "fill_color": "#CCCCCC",
+        "stroke_width": 3.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "m",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "force_friction",
+      "object_type": "force_vector",
+      "position": {
+        "x": 400.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 0.0,
+        "height": 0.0,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#cc0000",
+        "fill_color": null,
+        "stroke_width": 2.5,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "F_f",
+      "properties": {
+        "dx": -79.99999988910398,
+        "dy": 0.004212287181512788
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [],
+  "constraints": [],
+  "annotations": [],
+  "canvas_width": 800.0,
+  "canvas_height": 600.0,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

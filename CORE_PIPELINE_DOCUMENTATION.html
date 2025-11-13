@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Pipeline - Detailed Documentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 40px 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .nav-bar {
+            background: #34495e;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            background: rgba(52, 152, 219, 0.3);
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .nav-bar a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+        .content {
+            padding: 50px;
+        }
+        .file-section {
+            margin-bottom: 80px;
+            padding-bottom: 50px;
+            border-bottom: 3px solid #ecf0f1;
+        }
+        .file-section:last-child {
+            border-bottom: none;
+        }
+        .file-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+        }
+        .file-header h2 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+        .file-header .file-path {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            opacity: 0.9;
+            background: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .file-header .phase-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin: 10px 5px;
+            font-size: 0.85em;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #3498db;
+        }
+        h4 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .info-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+        }
+        .info-card h4 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        .info-card ul {
+            margin-left: 25px;
+            margin-top: 12px;
+        }
+        .info-card li {
+            margin: 8px 0;
+        }
+        code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.6;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        .flow-diagram {
+            background: #ecf0f1;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            border: 2px solid #bdc3c7;
+        }
+        .flow-diagram pre {
+            background: none;
+            color: #2c3e50;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+        }
+        .algorithm-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #4caf50;
+        }
+        .algorithm-box h4 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .algorithm-box ol {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+        .algorithm-box li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+        .key-concepts {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #ff9800;
+        }
+        .key-concepts h4 {
+            color: #e65100;
+            margin-top: 0;
+        }
+        .implementation-note {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+        }
+        .implementation-note h4 {
+            color: #1565c0;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .warning-box {
+            background: #ffebee;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f44336;
+        }
+        .warning-box h4 {
+            color: #c62828;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .class-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .class-table th {
+            background: #34495e;
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .class-table td {
+            padding: 18px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .class-table tr:hover {
+            background: #f8f9fa;
+        }
+        .class-table tr:last-child td {
+            border-bottom: none;
+        }
+        .dependency-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .dependency-list h4 {
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .dependency-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .dependency-list li {
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: white;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        .toc {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            border-left: 6px solid #3498db;
+        }
+        .toc h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 10px;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            padding: 10px 0;
+        }
+        .toc a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: color 0.3s;
+        }
+        .toc a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ Core Pipeline Documentation</h1>
+            <p style="font-size: 1.3em;">Deep Dive into the 6-Phase Architecture</p>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="#orchestrator">Orchestrator</a>
+            <a href="#phase1">Phase 1: AI Analysis</a>
+            <a href="#phase2">Phase 2: Scene Building</a>
+            <a href="#phase3">Phase 3: Validation</a>
+            <a href="#phase4">Phase 4: Layout</a>
+            <a href="#phase5">Phase 5: Rendering</a>
+        </nav>
+
+        <div class="content">
+            <div class="toc">
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#orchestrator">1. unified_diagram_pipeline.py - Main Orchestrator</a></li>
+                    <li><a href="#phase1">2. core/universal_ai_analyzer.py - Phase 1: AI Analysis</a></li>
+                    <li><a href="#phase2">3. core/universal_scene_builder.py - Phase 2: Scene Building</a></li>
+                    <li><a href="#phase3">4. core/universal_validator.py - Phase 3: Validation</a></li>
+                    <li><a href="#phase4">5. core/universal_layout_engine.py - Phase 4: Layout Optimization</a></li>
+                    <li><a href="#phase5">6. core/universal_renderer.py - Phase 5: Rendering to SVG</a></li>
+                </ul>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- ORCHESTRATOR -->
+            <!-- ============================================================ -->
+            <section id="orchestrator" class="file-section">
+                <div class="file-header">
+                    <h2>1️⃣ unified_diagram_pipeline.py</h2>
+                    <div class="file-path">unified_diagram_pipeline.py</div>
+                    <div>
+                        <span class="phase-badge">🎯 Main Orchestrator</span>
+                        <span class="phase-badge">v3.0-generic</span>
+                        <span class="phase-badge">390 lines</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    The <strong>main entry point</strong> and orchestrator for the entire diagram generation pipeline.
+                    This file provides a <strong>single, deterministic flow</strong> through all 6 phases with no branches,
+                    no fallbacks, and no silent failures. It either produces a perfect diagram or fails with a clear error message.
+                </p>
+
+                <h3>🏗️ Architecture Philosophy</h3>
+                <div class="key-concepts">
+                    <h4>Design Principles</h4>
+                    <ul>
+                        <li><strong>Single Entry Point:</strong> ONE method (<code>generate()</code>) for all diagram generation</li>
+                        <li><strong>No Branches:</strong> No multiple strategies, no "if this fails, try that"</li>
+                        <li><strong>No Silent Failures:</strong> Explicit errors with clear messages</li>
+                        <li><strong>Domain Agnostic:</strong> Works for all physics domains without special cases</li>
+                        <li><strong>Deterministic:</strong> Same input always produces same output</li>
+                    </ul>
+                </div>
+
+                <h3>📦 Key Classes</h3>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Type</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>PipelineConfig</code></td>
+                            <td>@dataclass</td>
+                            <td>Configuration container for API keys, canvas size, validation mode, feature flags</td>
+                        </tr>
+                        <tr>
+                            <td><code>DiagramResult</code></td>
+                            <td>@dataclass</td>
+                            <td>Output container with SVG, scene, specs, validation reports, metadata</td>
+                        </tr>
+                        <tr>
+                            <td><code>UnifiedDiagramPipeline</code></td>
+                            <td>class</td>
+                            <td>Main orchestrator that initializes all phases and executes generation pipeline</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔄 Pipeline Flow</h3>
+                <div class="flow-diagram">
+                    <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│  generate(problem_text: str) → DiagramResult                    │
+└─────────────────────────────────────────────────────────────────┘
+         │
+         ├─→ Phase 1: PROBLEM UNDERSTANDING
+         │   │ UniversalAIAnalyzer.analyze(problem_text)
+         │   └─→ CanonicalProblemSpec
+         │       • domain: PhysicsDomain
+         │       • objects: List[Dict]
+         │       • relationships: List[Dict]
+         │       • confidence: float
+         │
+         ├─→ Phase 2: SCENE SYNTHESIS
+         │   │ UniversalSceneBuilder.build(specs)
+         │   └─→ Scene
+         │       • objects: List[SceneObject]
+         │       • constraints: List[Constraint]
+         │       • metadata: Dict
+         │
+         ├─→ Phase 3: PHYSICS VALIDATION (NEW)
+         │   │ UniversalValidator.validate(scene, specs)
+         │   └─→ ValidationReport + Scene (auto-corrected)
+         │       • errors: List[str]
+         │       • warnings: List[str]
+         │       • auto_corrections: List[str]
+         │
+         ├─→ Phase 4: LAYOUT OPTIMIZATION
+         │   │ UniversalLayoutEngine.solve(scene, specs)
+         │   └─→ Scene (with positions)
+         │       • All objects have x,y coordinates
+         │       • Constraints satisfied
+         │
+         ├─→ Phase 5: RENDERING
+         │   │ UniversalRenderer.render(positioned_scene, specs)
+         │   └─→ SVG (string)
+         │       • Complete SVG markup
+         │       • 2,000-5,000 bytes typical
+         │
+         └─→ DiagramResult
+             • svg: str
+             • scene: Scene
+             • specs: CanonicalProblemSpec
+             • validation_report: ValidationReport
+             • metadata: Dict
+                    </pre>
+                </div>
+
+                <h3>💻 Key Methods</h3>
+                <h4>__init__(config: PipelineConfig)</h4>
+                <p>Initializes all 5 phase components with configuration.</p>
+                <pre><code>def __init__(self, config: PipelineConfig):
+    # Initialize Phase 1: AI Analysis
+    self.ai_analyzer = UniversalAIAnalyzer(
+        api_key=config.api_key,
+        api_base_url=config.api_base_url,
+        api_model=config.api_model,
+        timeout=config.api_timeout
+    )
+
+    # Initialize Phase 2: Scene Building
+    self.scene_builder = UniversalSceneBuilder(
+        domains_path=config.domains_path
+    )
+
+    # Initialize Phase 3: Validation
+    self.validator = UniversalValidator(
+        mode=config.validation_mode,
+        domains_path=config.domains_path
+    )
+
+    # Initialize Phase 4: Layout
+    self.layout_engine = UniversalLayoutEngine(
+        width=config.canvas_width,
+        height=config.canvas_height
+    )
+
+    # Initialize Phase 5: Rendering
+    self.renderer = UniversalRenderer(
+        width=config.canvas_width,
+        height=config.canvas_height,
+        domains_path=config.domains_path
+    )</code></pre>
+
+                <h4>generate(problem_text: str) → DiagramResult</h4>
+                <p>The ONLY method for diagram generation. Orchestrates all 5 phases sequentially.</p>
+                <pre><code>def generate(self, problem_text: str) -> DiagramResult:
+    """
+    Generate physics diagram from problem text
+
+    Args:
+        problem_text: Physics problem description
+
+    Returns:
+        DiagramResult with SVG and all artifacts
+
+    Raises:
+        IncompleteSpecsError: If AI cannot extract complete specs
+        IncompleteSceneError: If scene cannot be built
+        ValidationError: If validation fails in strict mode
+    """
+
+    # Phase 1: Problem Understanding
+    specs = self.ai_analyzer.analyze(problem_text)
+
+    # Phase 2: Scene Synthesis
+    scene = self.scene_builder.build(specs)
+
+    # Phase 3: Physics Validation
+    report, scene = self.validator.validate(scene, specs)
+    if not report.is_valid and self.config.validation_mode == 'strict':
+        raise Exception(f"Validation failed: {report.errors}")
+
+    # Phase 4: Layout Optimization
+    positioned_scene = self.layout_engine.solve(scene, specs)
+
+    # Phase 5: Rendering
+    svg = self.renderer.render(positioned_scene, specs)
+
+    return DiagramResult(
+        svg=svg,
+        scene=positioned_scene,
+        specs=specs,
+        validation_report=report,
+        metadata={'domain': specs.domain.value, ...}
+    )</code></pre>
+
+                <h3>⚙️ Configuration Options</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>API Configuration</h4>
+                        <ul>
+                            <li><code>api_key</code>: DeepSeek API key</li>
+                            <li><code>api_base_url</code>: API endpoint</li>
+                            <li><code>api_model</code>: "deepseek-chat"</li>
+                            <li><code>api_timeout</code>: 180s default</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Canvas Configuration</h4>
+                        <ul>
+                            <li><code>canvas_width</code>: 1200px</li>
+                            <li><code>canvas_height</code>: 800px</li>
+                            <li>Center: (600, 400)</li>
+                            <li>Margins: 40px all sides</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Validation Modes</h4>
+                        <ul>
+                            <li><code>strict</code>: Halts on errors</li>
+                            <li><code>standard</code>: Continues with warnings</li>
+                            <li><code>permissive</code>: Ignores most issues</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Feature Flags</h4>
+                        <ul>
+                            <li><code>enable_ai_validation</code>: true</li>
+                            <li><code>enable_layout_optimization</code>: true</li>
+                            <li><code>enable_domain_embellishments</code>: true</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="implementation-note">
+                    <h4>📝 Implementation Note</h4>
+                    <p>The pipeline maintains a <code>trace</code> dictionary that records timing and outputs for each phase. This is saved to <code>generation_trace.json</code> for debugging and performance analysis.</p>
+                </div>
+
+                <div class="dependency-list">
+                    <h4>📦 Dependencies</h4>
+                    <ul>
+                        <li><code>from core.universal_ai_analyzer import UniversalAIAnalyzer, CanonicalProblemSpec</code></li>
+                        <li><code>from core.universal_scene_builder import UniversalSceneBuilder</code></li>
+                        <li><code>from core.universal_validator import UniversalValidator</code></li>
+                        <li><code>from core.universal_layout_engine import UniversalLayoutEngine</code></li>
+                        <li><code>from core.universal_renderer import UniversalRenderer</code></li>
+                        <li><code>from core.scene.schema_v1 import Scene</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 1: AI ANALYSIS -->
+            <!-- ============================================================ -->
+            <section id="phase1" class="file-section">
+                <div class="file-header" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                    <h2>2️⃣ core/universal_ai_analyzer.py</h2>
+                    <div class="file-path">core/universal_ai_analyzer.py</div>
+                    <div>
+                        <span class="phase-badge">🤖 Phase 1: AI Analysis</span>
+                        <span class="phase-badge">~1,500 lines</span>
+                        <span class="phase-badge">DeepSeek AI</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    Uses <strong>DeepSeek AI</strong> to understand physics problems written in natural language.
+                    Performs <strong>multi-stage reasoning</strong> (5 sub-stages) to extract domain, objects, relationships,
+                    physics context, and constraints from problem text. Returns a <strong>CanonicalProblemSpec</strong> -
+                    a domain-agnostic representation that can be processed by downstream phases.
+                </p>
+
+                <h3>🧠 Multi-Stage AI Reasoning</h3>
+                <div class="algorithm-box">
+                    <h4>5-Step Analysis Pipeline</h4>
+                    <ol>
+                        <li><strong>Domain Classification</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Single AI call: "What physics domain is this?"</li>
+                                <li>Returns: ELECTROSTATICS, MECHANICS, OPTICS, etc.</li>
+                                <li>Timeout: 60s</li>
+                            </ul>
+                        </li>
+                        <li><strong>Multi-Stage Extraction (5 sub-stages)</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Stage 2.1: Entity Extraction (objects, quantities)</li>
+                                <li>Stage 2.2: Physics Context (laws, principles)</li>
+                                <li>Stage 2.3: Implicit Inference (unstated assumptions)</li>
+                                <li>Stage 2.4: Constraint Identification (geometric, physical)</li>
+                                <li>Stage 2.5: Validation & Self-Correction (confidence scoring)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Building Canonical Spec</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Merges all extracted data</li>
+                                <li>Validates against JSON schema</li>
+                                <li>Creates CanonicalProblemSpec object</li>
+                            </ul>
+                        </li>
+                        <li><strong>Completeness Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Checks for required fields (objects, relationships)</li>
+                                <li>Raises IncompleteSpecsError if critical data missing</li>
+                            </ul>
+                        </li>
+                        <li><strong>Complexity Analysis</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Scores problem difficulty (0-1 scale)</li>
+                                <li>Used for performance optimization downstream</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>📦 Key Classes</h3>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>PhysicsDomain</code></td>
+                            <td>Enum with 8 domains: ELECTROSTATICS, MECHANICS, OPTICS, THERMODYNAMICS, MAGNETISM, WAVES, MODERN_PHYSICS, UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td><code>CanonicalProblemSpec</code></td>
+                            <td>@dataclass containing: domain, objects, relationships, physics_context, constraints, geometry, confidence</td>
+                        </tr>
+                        <tr>
+                            <td><code>UniversalAIAnalyzer</code></td>
+                            <td>Main analyzer class with analyze() method. Manages API calls, retries, JSON parsing, schema validation</td>
+                        </tr>
+                        <tr>
+                            <td><code>IncompleteSpecsError</code></td>
+                            <td>Exception raised when AI cannot extract complete specifications</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>💻 Main Method</h3>
+                <pre><code>def analyze(self, problem_text: str) -> CanonicalProblemSpec:
+    """
+    Single entry point for AI analysis
+
+    Args:
+        problem_text: Physics problem in natural language
+
+    Returns:
+        CanonicalProblemSpec with complete extraction
+
+    Raises:
+        IncompleteSpecsError: If extraction fails after all retries
+
+    Pipeline:
+        1. Domain classification (1 AI call)
+        2. Multi-stage extraction (5 AI calls)
+        3. Building canonical spec
+        4. Completeness validation
+        5. Complexity analysis
+    """
+
+    # Step 1: Domain classification
+    domain = self._classify_domain(problem_text)
+
+    # Step 2: Multi-stage extraction
+    extracted_data = self._multi_stage_extraction(problem_text, domain)
+
+    # Step 3: Build canonical spec
+    spec = self._build_canonical_spec(extracted_data, domain, problem_text)
+
+    # Step 4: Completeness validation
+    if not spec.objects:
+        raise IncompleteSpecsError(['objects'])
+
+    # Step 5: Complexity analysis
+    spec.complexity_score = self._analyze_complexity(spec)
+
+    return spec</code></pre>
+
+                <h3>🔧 AI API Interaction</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Request Format</h4>
+                        <ul>
+                            <li>POST to <code>api.deepseek.com/v1/chat/completions</code></li>
+                            <li>Model: "deepseek-chat"</li>
+                            <li>Temperature: 0.0 (deterministic)</li>
+                            <li>Max tokens: 4000</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Response Handling</h4>
+                        <ul>
+                            <li>JSON extraction from markdown blocks</li>
+                            <li>Schema validation with jsonschema</li>
+                            <li>Multiple fallback strategies</li>
+                            <li>Retry with exponential backoff (5 attempts)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Error Recovery</h4>
+                        <ul>
+                            <li>JSON repair (fix common issues)</li>
+                            <li>Partial response handling</li>
+                            <li>Generic fallback objects</li>
+                            <li>Clear error messages</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Performance</h4>
+                        <ul>
+                            <li>Typical: 60s per problem</li>
+                            <li>5-6 AI calls total</li>
+                            <li>Caching disabled (fresh each time)</li>
+                            <li>Parallel calls NOT used (sequential)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Known Issue</h4>
+                    <p><strong>Bug #2: Incomplete specifications</strong></p>
+                    <p>When Stage 2.1 (Entity Extraction) fails, the fallback object creation doesn't produce valid objects. The <code>_create_generic_fallback_objects()</code> method needs enhancement to extract physics terms from problem text using regex.</p>
+                </div>
+
+                <h3>📊 Output Structure</h3>
+                <pre><code>CanonicalProblemSpec {
+    domain: PhysicsDomain.ELECTROSTATICS,
+    problem_type: "parallel_plate_capacitor",
+    objects: [
+        {
+            "id": "capacitor_1",
+            "type": "capacitor",
+            "properties": {
+                "plate_area": 0.12,  // m²
+                "separation": 0.012,  // m
+                "voltage": 120        // V
+            }
+        },
+        {
+            "id": "dielectric_slab",
+            "type": "dielectric",
+            "properties": {
+                "thickness": 0.004,   // m
+                "dielectric_constant": 4.8
+            }
+        }
+    ],
+    relationships: [
+        {
+            "type": "contains",
+            "subject": "capacitor_1",
+            "target": "dielectric_slab"
+        }
+    ],
+    confidence: 0.85,
+    complexity_score: 0.65,
+    is_complete: true
+}</code></pre>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 2: SCENE BUILDING -->
+            <!-- ============================================================ -->
+            <section id="phase2" class="file-section">
+                <div class="file-header" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                    <h2>3️⃣ core/universal_scene_builder.py</h2>
+                    <div class="file-path">core/universal_scene_builder.py</div>
+                    <div>
+                        <span class="phase-badge">🏗️ Phase 2: Scene Building</span>
+                        <span class="phase-badge">~800 lines</span>
+                        <span class="phase-badge">Domain Interpreters</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    Converts the domain-agnostic <code>CanonicalProblemSpec</code> into a <strong>visual Scene</strong>
+                    using domain-specific interpreters. Enriches the scene with implicit physics elements (field lines,
+                    force arrows, etc.), infers constraints, and validates completeness.
+                </p>
+
+                <h3>🔄 5-Step Building Process</h3>
+                <div class="algorithm-box">
+                    <h4>Scene Construction Pipeline</h4>
+                    <ol>
+                        <li><strong>Domain Interpreter Selection</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Based on <code>spec.domain</code></li>
+                                <li>Loads: CapacitorInterpreter, OpticsInterpreter, or MechanicsInterpreter</li>
+                                <li>Falls back to generic interpreter if domain not found</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scene Interpretation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Interpreter converts spec objects to SceneObjects</li>
+                                <li>Maps abstract concepts to visual primitives</li>
+                                <li>Example: "capacitor" → 2 RECTANGLE plates + 5 FIELD_LINE objects</li>
+                            </ul>
+                        </li>
+                        <li><strong>Physics Enrichment</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Adds implicit elements not in spec</li>
+                                <li>Examples: field lines, charge markers, force arrows</li>
+                                <li>Uses physics rules from <code>domains/*/rules.json</code></li>
+                            </ul>
+                        </li>
+                        <li><strong>Constraint Inference</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Infers geometric constraints (PARALLEL, ALIGNED, etc.)</li>
+                                <li>Adds physics constraints (DISTANCE based on problem data)</li>
+                                <li>Typical: 5-10 constraints per scene</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scene Completeness Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Checks for domain-required objects</li>
+                                <li>Example: circuits require power_source and circuit_component</li>
+                                <li>Raises IncompleteSceneError if validation fails</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>🔌 Domain Interpreters</h3>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Interpreter</th>
+                            <th>Domains</th>
+                            <th>Creates</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>CapacitorInterpreter</code></td>
+                            <td>ELECTROSTATICS, CURRENT_ELECTRICITY</td>
+                            <td>Parallel plates (RECTANGLE), field lines (LINE), charge markers (TEXT), dielectric slabs</td>
+                        </tr>
+                        <tr>
+                            <td><code>OpticsInterpreter</code></td>
+                            <td>OPTICS</td>
+                            <td>Lenses (LENS), mirrors (ARC), principal axis (LINE), focal points (CIRCLE), ray paths (POLYLINE)</td>
+                        </tr>
+                        <tr>
+                            <td><code>MechanicsInterpreter</code></td>
+                            <td>MECHANICS</td>
+                            <td>Blocks (RECTANGLE/MASS), pulleys (PULLEY), springs (SPRING), forces (ARROW), surface (LINE)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>💻 Main Method</h3>
+                <pre><code>def build(self, spec: CanonicalProblemSpec) -> Scene:
+    """
+    Convert CanonicalProblemSpec to Scene
+
+    Args:
+        spec: Complete specification from AI analyzer
+
+    Returns:
+        Complete Scene with visual objects and constraints
+
+    Raises:
+        IncompleteSceneError: If scene cannot be completed
+    """
+
+    # Step 1: Select interpreter
+    interpreter = self._select_interpreter(spec.domain)
+
+    # Step 2: Interpret spec to scene
+    spec_dict = self._spec_to_dict(spec)
+    scene = interpreter.interpret(spec_dict)
+
+    # Step 3: Enrich with physics rules
+    scene = self._enrich_with_physics(scene, spec)
+
+    # Step 4: Infer missing constraints
+    scene = self._infer_constraints(scene, spec)
+
+    # Step 5: Validate completeness
+    is_complete, missing = self._validate_scene_completeness(scene, spec)
+    if not is_complete:
+        raise IncompleteSceneError(missing)
+
+    return scene</code></pre>
+
+                <h3>📐 Scene Object Structure</h3>
+                <pre><code>Scene {
+    version: "1.0",
+    metadata: {
+        "domain": "electrostatics",
+        "renderer": "capacitor",
+        "style_profile": "exam"
+    },
+    coord_system: {
+        "frame": "cartesian",
+        "origin": [600, 400],
+        "scale": 100,  // pixels per unit
+        "extent": [1200, 800]
+    },
+    objects: [
+        SceneObject {
+            id: "plate_top",
+            type: PrimitiveType.RECTANGLE,
+            position: None,  // Set by layout engine
+            properties: {
+                "width": 300,
+                "height": 10,
+                "charge": "+Q"
+            },
+            style: {
+                "fill": "#ff4444",
+                "stroke": "#d32f2f",
+                "stroke_width": 2
+            }
+        },
+        SceneObject {
+            id: "plate_bottom",
+            type: PrimitiveType.RECTANGLE,
+            position: None,
+            properties: {
+                "width": 300,
+                "height": 10,
+                "charge": "-Q"
+            },
+            style: {...}
+        },
+        SceneObject {
+            id: "field_line_1",
+            type: PrimitiveType.LINE,
+            position: None,
+            properties: {...}
+        },
+        // ... more field lines
+    ],
+    constraints: [
+        Constraint {
+            type: ConstraintType.PARALLEL,
+            objects: ["plate_top", "plate_bottom"],
+            value: None
+        },
+        Constraint {
+            type: ConstraintType.DISTANCE,
+            objects: ["plate_top", "plate_bottom"],
+            value: 150  // pixels
+        },
+        Constraint {
+            type: ConstraintType.ALIGNED_H,
+            objects: ["plate_top", "plate_bottom"],
+            value: None
+        }
+    ]
+}</code></pre>
+
+                <div class="warning-box">
+                    <h4>⚠️ Known Issue</h4>
+                    <p><strong>Bug #3: Incomplete scene validation</strong></p>
+                    <p>The <code>DOMAIN_REQUIRED_OBJECTS</code> dict requires <code>['power_source', 'circuit_component']</code> for current_electricity problems, but interpreters don't create these objects. This should be relaxed to empty list <code>[]</code>.</p>
+                </div>
+
+                <div class="dependency-list">
+                    <h4>📦 Loaded Interpreters</h4>
+                    <ul>
+                        <li><code>from core.interpreters.capacitor_interpreter import CapacitorInterpreter</code></li>
+                        <li><code>from core.interpreters.optics_interpreter import OpticsInterpreter</code></li>
+                        <li><code>from core.interpreters.mechanics_interpreter import MechanicsInterpreter</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 3: VALIDATION -->
+            <!-- ============================================================ -->
+            <section id="phase3" class="file-section">
+                <div class="file-header" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+                    <h2>4️⃣ core/universal_validator.py</h2>
+                    <div class="file-path">core/universal_validator.py</div>
+                    <div>
+                        <span class="phase-badge">✅ Phase 3: Validation</span>
+                        <span class="phase-badge">~600 lines</span>
+                        <span class="phase-badge">Auto-Correction</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    Validates scenes against semantic, geometric, and physics rules. Performs <strong>auto-correction</strong>
+                    where possible (fixing missing properties, inferring values). Returns a <code>ValidationReport</code>
+                    with errors, warnings, and applied corrections.
+                </p>
+
+                <h3>✅ 5-Step Validation Process</h3>
+                <div class="algorithm-box">
+                    <h4>Validation Pipeline</h4>
+                    <ol>
+                        <li><strong>Semantic Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Check object structure (id, type, properties present)</li>
+                                <li>Verify constraint references (objects exist)</li>
+                                <li>Validate primitive types (in PrimitiveType enum)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Geometric Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Check for missing dimensions (width, height, radius)</li>
+                                <li>Validate constraint compatibility (PARALLEL + PERPENDICULAR → error)</li>
+                                <li>Typical: 0 errors, 12 warnings</li>
+                            </ul>
+                        </li>
+                        <li><strong>Domain Physics Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Uses rules from <code>domains/*/rules.json</code></li>
+                                <li>Example: capacitor must have 2 plates</li>
+                                <li>Example: lens must have focal_length property</li>
+                            </ul>
+                        </li>
+                        <li><strong>Auto-Correction</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Add missing dimensions (default values)</li>
+                                <li>Fix style properties (colors, stroke widths)</li>
+                                <li>Infer physical properties from context</li>
+                                <li>Typical: 7 corrections per scene</li>
+                            </ul>
+                        </li>
+                        <li><strong>Final Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Re-check after corrections</li>
+                                <li>Set <code>is_valid</code> flag</li>
+                                <li>Return ValidationReport + corrected Scene</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>📦 Key Classes</h3>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ValidationReport</code></td>
+                            <td>Container for errors, warnings, info, auto_corrections, is_valid flag</td>
+                        </tr>
+                        <tr>
+                            <td><code>UniversalValidator</code></td>
+                            <td>Main validator with validate() method. Loads domain validators from domains/</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>💻 Main Method</h3>
+                <pre><code>def validate(self, scene: Scene, spec: CanonicalProblemSpec)
+            -> Tuple[ValidationReport, Scene]:
+    """
+    Validate scene against specifications
+
+    Args:
+        scene: Scene to validate
+        spec: Original problem specification
+
+    Returns:
+        (ValidationReport, Scene) - report and auto-corrected scene
+    """
+
+    report = ValidationReport()
+
+    # Step 1: Semantic checks
+    self._validate_semantic(scene, report)
+
+    # Step 2: Geometric checks
+    self._validate_geometric(scene, report)
+
+    # Step 3: Domain physics checks
+    self._validate_domain_physics(scene, spec, report)
+
+    # Step 4: Auto-correction
+    scene = self._auto_correct(scene, report)
+
+    # Step 5: Final validation
+    if report.errors and self.mode == 'strict':
+        report.is_valid = False
+
+    return report, scene</code></pre>
+
+                <h3>🛠️ Validation Modes</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Strict Mode</h4>
+                        <ul>
+                            <li>Halts on any error</li>
+                            <li>Used in production</li>
+                            <li>Ensures diagram quality</li>
+                            <li><code>is_valid = False</code> if errors</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Standard Mode</h4>
+                        <ul>
+                            <li>Continues with warnings</li>
+                            <li>Default mode</li>
+                            <li>Allows minor issues</li>
+                            <li>Auto-correction applied</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Permissive Mode</h4>
+                        <ul>
+                            <li>Ignores most issues</li>
+                            <li>Used for testing</li>
+                            <li>May produce broken diagrams</li>
+                            <li>NOT recommended</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>📊 Typical ValidationReport</h3>
+                <pre><code>ValidationReport {
+    errors: [],
+    warnings: [
+        "Missing label for object 'plate_top'",
+        "Missing dimension annotation for separation",
+        "No charge markers on plates",
+        // ... 9 more warnings
+    ],
+    info: [
+        "Scene has 7 objects",
+        "5 constraints defined",
+        "Domain: electrostatics"
+    ],
+    auto_corrections: [
+        "Added default width=300 to plate_top",
+        "Added default height=10 to plate_top",
+        "Added stroke_width=2 to plate_top",
+        "Inferred plate separation from DISTANCE constraint",
+        // ... 3 more corrections
+    ],
+    is_valid: true
+}</code></pre>
+
+                <div class="implementation-note">
+                    <h4>📝 Auto-Correction Examples</h4>
+                    <ul>
+                        <li>Missing <code>width</code> → Add default 100</li>
+                        <li>Missing <code>stroke_width</code> → Add 2</li>
+                        <li>Missing <code>fill</code> → Add domain-appropriate color</li>
+                        <li>Invalid constraint value → Clamp to reasonable range</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 4: LAYOUT -->
+            <!-- ============================================================ -->
+            <section id="phase4" class="file-section">
+                <div class="file-header" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                    <h2>5️⃣ core/universal_layout_engine.py</h2>
+                    <div class="file-path">core/universal_layout_engine.py</div>
+                    <div>
+                        <span class="phase-badge">📐 Phase 4: Layout Optimization</span>
+                        <span class="phase-badge">~1,000 lines</span>
+                        <span class="phase-badge">Constraint Solver</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    Positions all scene objects on a 1200x800 canvas using <strong>domain-aware placement</strong>
+                    and <strong>iterative constraint satisfaction</strong>. Optimizes for aesthetics (spacing, alignment,
+                    grid snapping) and places labels intelligently to avoid collisions.
+                </p>
+
+                <h3>📐 5-Step Layout Process</h3>
+                <div class="algorithm-box">
+                    <h4>Layout Pipeline</h4>
+                    <ol>
+                        <li><strong>Domain-Aware Initial Placement</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li><strong>Electrostatics:</strong> Horizontal plates centered, field lines between</li>
+                                <li><strong>Optics:</strong> Lens at center, object left, image right, axis horizontal</li>
+                                <li><strong>Mechanics:</strong> Surface at bottom, blocks on top, forces as arrows</li>
+                                <li><strong>Circuits:</strong> Grid layout, components evenly spaced</li>
+                            </ul>
+                        </li>
+                        <li><strong>Iterative Constraint Satisfaction</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Max 50 iterations</li>
+                                <li>Applies constraints in order: PARALLEL, PERPENDICULAR, ALIGNED_H, ALIGNED_V, etc.</li>
+                                <li>Convergence threshold: max displacement < 1px</li>
+                                <li>Typical: converges in 1-5 iterations</li>
+                            </ul>
+                        </li>
+                        <li><strong>Aesthetic Optimization</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Grid snapping (10px grid)</li>
+                                <li>Minimum spacing (30px between objects)</li>
+                                <li>Bounds checking (40px margin from canvas edge)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Intelligent Label Placement</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Tries 8 compass directions (N, NE, E, SE, S, SW, W, NW)</li>
+                                <li>Picks first direction without collision</li>
+                                <li>30px offset from object center</li>
+                            </ul>
+                        </li>
+                        <li><strong>Layout Validation</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Check all objects have positions</li>
+                                <li>Check no objects out of bounds</li>
+                                <li>Check constraint satisfaction (within tolerance)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>💻 Main Method</h3>
+                <pre><code>def solve(self, scene: Scene, spec: CanonicalProblemSpec) -> Scene:
+    """
+    Solve layout for scene
+
+    Args:
+        scene: Scene with objects (positions may be None)
+        spec: Problem specification for domain context
+
+    Returns:
+        Scene with all positions determined
+    """
+
+    # Step 1: Domain-aware initial placement
+    self._initial_placement(scene, spec)
+
+    # Step 2: Iterative constraint satisfaction
+    iterations = self._solve_constraints(scene)
+
+    # Step 3: Aesthetic optimization
+    self._optimize_aesthetics(scene, spec)
+
+    # Step 4: Intelligent label placement
+    self._place_labels(scene)
+
+    # Step 5: Layout validation
+    valid, issues = self._validate_layout(scene)
+
+    return scene</code></pre>
+
+                <h3>🔧 Constraint Solving Algorithm</h3>
+                <pre><code>def _solve_constraints(self, scene: Scene) -> int:
+    """
+    Iterative constraint satisfaction (heuristic-based)
+
+    Returns:
+        Number of iterations until convergence
+    """
+
+    max_iterations = 50
+    convergence_threshold = 1.0  # pixels
+
+    for iteration in range(max_iterations):
+        max_displacement = 0.0
+
+        for constraint in scene.constraints:
+            if constraint.type == ConstraintType.PARALLEL:
+                # Align angles
+                obj1, obj2 = self._get_objects(constraint)
+                angle1 = self._get_angle(obj1)
+                angle2 = self._get_angle(obj2)
+                avg_angle = (angle1 + angle2) / 2
+                self._set_angle(obj1, avg_angle)
+                self._set_angle(obj2, avg_angle)
+
+            elif constraint.type == ConstraintType.DISTANCE:
+                # Skip - already applied in initial placement
+                continue
+
+            elif constraint.type == ConstraintType.ALIGNED_H:
+                # Align Y coordinates
+                obj1, obj2 = self._get_objects(constraint)
+                avg_y = (obj1.position['y'] + obj2.position['y']) / 2
+                obj1.position['y'] = avg_y
+                obj2.position['y'] = avg_y
+
+            # ... handle other constraint types
+
+        if max_displacement < convergence_threshold:
+            return iteration + 1
+
+    return max_iterations</code></pre>
+
+                <div class="warning-box">
+                    <h4>⚠️ Known Issue</h4>
+                    <p><strong>Bug #1: KeyError: 'x' (CRITICAL)</strong></p>
+                    <p>Multiple locations (15+) access <code>obj.position['x']</code> without checking if key exists. This causes crashes when objects have incomplete position dictionaries. All accesses should use <code>obj.position.get('x', 0)</code> instead.</p>
+                    <p><strong>Affected lines:</strong> 329, 413, 428, 488-490, 511-512, 524, 541-542, 570, 597, 610</p>
+                </div>
+
+                <h3>📊 Domain-Specific Placement Examples</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Electrostatics (Capacitor)</h4>
+                        <pre style="font-size: 0.75em; padding: 12px;"><code>plate_top:
+  x = center_x - width/2
+  y = center_y - sep/2 - height
+
+plate_bottom:
+  x = center_x - width/2
+  y = center_y + sep/2
+
+field_lines:
+  x = plate_x + i * spacing
+  y1 = plate_top.y
+  y2 = plate_bottom.y</code></pre>
+                    </div>
+                    <div class="info-card">
+                        <h4>Optics (Lens)</h4>
+                        <pre style="font-size: 0.75em; padding: 12px;"><code>lens:
+  x = center_x
+  y = center_y
+
+object:
+  x = lens_x - focal_length*2
+  y = center_y
+
+image:
+  x = calculated via lens eq
+  y = calculated via lens eq</code></pre>
+                    </div>
+                    <div class="info-card">
+                        <h4>Mechanics (Block)</h4>
+                        <pre style="font-size: 0.75em; padding: 12px;"><code>surface:
+  x1 = margin
+  x2 = width - margin
+  y = height - 100
+
+block:
+  x = center_x
+  y = surface_y - block_h/2
+
+forces:
+  start at block center
+  direction/length vary</code></pre>
+                    </div>
+                </div>
+
+                <div class="key-concepts">
+                    <h4>🔑 Key Limitation: Heuristic Solver</h4>
+                    <p>The current implementation uses <strong>iterative heuristics</strong>, not a proper constraint solver like Cassowary or OR-Tools. This means:</p>
+                    <ul>
+                        <li>No guaranteed global optimum</li>
+                        <li>May not converge for complex constraint sets</li>
+                        <li>Constraint order matters (should be declarative)</li>
+                        <li>No priority weights or soft constraints</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>For production:</strong> Replace with proper LP/QP solver (2-4 week project)</p>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 5: RENDERING -->
+            <!-- ============================================================ -->
+            <section id="phase5" class="file-section">
+                <div class="file-header" style="background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);">
+                    <h2>6️⃣ core/universal_renderer.py</h2>
+                    <div class="file-path">core/universal_renderer.py</div>
+                    <div>
+                        <span class="phase-badge">🎨 Phase 5: Rendering to SVG</span>
+                        <span class="phase-badge">~1,200 lines</span>
+                        <span class="phase-badge">20+ Glyphs</span>
+                    </div>
+                </div>
+
+                <h3>🎯 Purpose</h3>
+                <p>
+                    Renders positioned scenes to clean, educational-quality <strong>SVG markup</strong>.
+                    Uses a universal glyph library (20+ primitives), applies domain-specific themes,
+                    adds embellishments, and assembles the final SVG with labels and legend.
+                </p>
+
+                <h3>🎨 5-Step Rendering Process</h3>
+                <div class="algorithm-box">
+                    <h4>Rendering Pipeline</h4>
+                    <ol>
+                        <li><strong>Theme Application</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Loads theme from <code>domains/{domain}/theme.json</code></li>
+                                <li>Sets colors, stroke widths, fonts</li>
+                                <li>Example: electrostatics_exam theme (red/blue plates, gray field lines)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Object Rendering</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>For each SceneObject, call appropriate glyph</li>
+                                <li>Example: PrimitiveType.RECTANGLE → RectangleGlyph.render()</li>
+                                <li>Applies position, properties, style</li>
+                            </ul>
+                        </li>
+                        <li><strong>Domain Embellishments</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Adds domain-specific decorations</li>
+                                <li>Example: grid lines for graphs, axes for coordinate systems</li>
+                                <li>Optional (controlled by feature flag)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Labels and Legend</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Renders text labels at positions from layout engine</li>
+                                <li>Adds legend box with color/symbol key</li>
+                                <li>Font: Arial, 14px, black</li>
+                            </ul>
+                        </li>
+                        <li><strong>SVG Assembly</strong>
+                            <ul style="margin-left: 30px; margin-top: 8px;">
+                                <li>Wraps all elements in SVG root</li>
+                                <li>Adds viewBox, xmlns, metadata</li>
+                                <li>Typical size: 2,000-5,000 bytes</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>🖼️ Universal Glyph Library (20+ Primitives)</h3>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Glyph</th>
+                            <th>Primitive Type</th>
+                            <th>SVG Output</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>RectangleGlyph</code></td>
+                            <td>RECTANGLE</td>
+                            <td>&lt;rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" /&gt;</td>
+                        </tr>
+                        <tr>
+                            <td><code>CircleGlyph</code></td>
+                            <td>CIRCLE</td>
+                            <td>&lt;circle cx="{x}" cy="{y}" r="{radius}" fill="{fill}" /&gt;</td>
+                        </tr>
+                        <tr>
+                            <td><code>LineGlyph</code></td>
+                            <td>LINE</td>
+                            <td>&lt;line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" /&gt;</td>
+                        </tr>
+                        <tr>
+                            <td><code>ArrowGlyph</code></td>
+                            <td>ARROW</td>
+                            <td>&lt;path d="M {x1} {y1} L {x2} {y2}" marker-end="url(#arrowhead)" /&gt;</td>
+                        </tr>
+                        <tr>
+                            <td><code>TextGlyph</code></td>
+                            <td>TEXT</td>
+                            <td>&lt;text x="{x}" y="{y}" font-size="14"&gt;{content}&lt;/text&gt;</td>
+                        </tr>
+                        <tr>
+                            <td><code>PlateGlyph</code></td>
+                            <td>CAPACITOR_PLATE</td>
+                            <td>&lt;rect&gt; with charge markers</td>
+                        </tr>
+                        <tr>
+                            <td><code>FieldLineGlyph</code></td>
+                            <td>FIELD_LINE</td>
+                            <td>&lt;line&gt; with dashed stroke</td>
+                        </tr>
+                        <tr>
+                            <td><code>LensGlyph</code></td>
+                            <td>LENS</td>
+                            <td>&lt;path&gt; with curved edges</td>
+                        </tr>
+                        <tr>
+                            <td><code>SpringGlyph</code></td>
+                            <td>SPRING</td>
+                            <td>&lt;path&gt; with zigzag pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>PulleyGlyph</code></td>
+                            <td>PULLEY</td>
+                            <td>&lt;circle&gt; + &lt;path&gt; for groove</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>💻 Main Method</h3>
+                <pre><code>def render(self, scene: Scene, spec: CanonicalProblemSpec = None) -> str:
+    """
+    Render scene to SVG
+
+    Args:
+        scene: Positioned scene with all objects
+        spec: Optional problem spec for domain context
+
+    Returns:
+        Complete SVG string (2,000-5,000 bytes)
+    """
+
+    # Step 1: Apply domain theme
+    theme = self._apply_theme(scene, spec)
+
+    # Step 2: Render objects
+    object_svg = self._render_objects(scene, theme)
+
+    # Step 3: Add embellishments
+    embellishments_svg = self._add_embellishments(scene, spec, theme)
+
+    # Step 4: Add labels and legend
+    labels_svg = self._render_labels(scene, theme)
+    legend_svg = self._render_legend(scene, theme)
+
+    # Step 5: Assemble final SVG
+    svg = self._assemble_svg(
+        scene, theme,
+        object_svg, embellishments_svg,
+        labels_svg, legend_svg
+    )
+
+    return svg</code></pre>
+
+                <h3>📊 Example SVG Output</h3>
+                <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 800"
+     width="1200" height="800"&gt;
+
+  &lt;!-- Background --&gt;
+  &lt;rect width="1200" height="800" fill="#ffffff"/&gt;
+
+  &lt;!-- Definitions (markers, gradients) --&gt;
+  &lt;defs&gt;
+    &lt;marker id="arrowhead" markerWidth="10" markerHeight="10"
+            refX="5" refY="5" orient="auto"&gt;
+      &lt;path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/&gt;
+    &lt;/marker&gt;
+  &lt;/defs&gt;
+
+  &lt;!-- Objects --&gt;
+  &lt;rect x="450" y="350" width="300" height="10"
+        fill="#ff4444" stroke="#d32f2f" stroke-width="2"/&gt;
+  &lt;rect x="450" y="500" width="300" height="10"
+        fill="#4444ff" stroke="#2f2fd3" stroke-width="2"/&gt;
+
+  &lt;!-- Field lines --&gt;
+  &lt;line x1="500" y1="360" x2="500" y2="500"
+        stroke="#999" stroke-width="1" stroke-dasharray="5,5"/&gt;
+  &lt;line x1="550" y1="360" x2="550" y2="500"
+        stroke="#999" stroke-width="1" stroke-dasharray="5,5"/&gt;
+  &lt;!-- ... more field lines --&gt;
+
+  &lt;!-- Labels --&gt;
+  &lt;text x="750" y="355" font-size="14" fill="#000"&gt;+Q&lt;/text&gt;
+  &lt;text x="750" y="505" font-size="14" fill="#000"&gt;-Q&lt;/text&gt;
+
+  &lt;!-- Legend --&gt;
+  &lt;g transform="translate(50, 50)"&gt;
+    &lt;rect width="150" height="80" fill="#f8f8f8"
+          stroke="#ccc" stroke-width="1"/&gt;
+    &lt;text x="10" y="25" font-size="12" font-weight="bold"&gt;
+      Legend
+    &lt;/text&gt;
+    &lt;!-- Legend items --&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</code></pre>
+
+                <h3>🎨 Theme System</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>electrostatics_exam</h4>
+                        <ul>
+                            <li>Positive plates: #ff4444</li>
+                            <li>Negative plates: #4444ff</li>
+                            <li>Field lines: #999999</li>
+                            <li>Background: white</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>optics_exam</h4>
+                        <ul>
+                            <li>Lens: #3498db</li>
+                            <li>Rays: #e74c3c, #2ecc71</li>
+                            <li>Focal points: #f39c12</li>
+                            <li>Axis: #95a5a6</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>mechanics_exam</h4>
+                        <ul>
+                            <li>Blocks: #34495e</li>
+                            <li>Forces: #e74c3c</li>
+                            <li>Surface: #7f8c8d</li>
+                            <li>Springs: #27ae60</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="implementation-note">
+                    <h4>📝 Glyph Registration</h4>
+                    <p>Glyphs are registered in <code>_load_glyph_library()</code> method:</p>
+                    <pre style="font-size: 0.85em;"><code>glyphs = {
+    PrimitiveType.CIRCLE: CircleGlyph(),
+    PrimitiveType.RECTANGLE: RectangleGlyph(),
+    PrimitiveType.LINE: LineGlyph(),
+    PrimitiveType.ARROW: ArrowGlyph(),
+    PrimitiveType.TEXT: TextGlyph(),
+    # ... 15+ more glyphs
+}</code></pre>
+                </div>
+
+                <div class="key-concepts">
+                    <h4>🔑 Key Feature: Domain Embellishments</h4>
+                    <p>The renderer can add domain-specific decorations:</p>
+                    <ul>
+                        <li><strong>Electrostatics:</strong> Charge markers (+/-), equipotential lines</li>
+                        <li><strong>Optics:</strong> Principal axis, focal points (F, 2F)</li>
+                        <li><strong>Mechanics:</strong> Coordinate axes, ground hatching</li>
+                        <li><strong>Circuits:</strong> Junction dots, voltage labels</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <p><strong>Core Pipeline - Detailed Documentation</strong></p>
+            <p style="margin-top: 15px;">Complete technical reference for all 6 phases</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Universal Diagram Generator v3.0 | November 2, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

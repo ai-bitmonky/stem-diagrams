@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Stage 2 Analysis Schema - Entity & Relationship Extraction",
+  "description": "Schema for multi-stage reasoning - Stage 2 focuses on extracting entities and relationships from the problem",
+  "type": "object",
+  "required": ["entities", "relationships", "domain"],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "enum": ["ELECTROSTATICS", "CURRENT_ELECTRICITY", "MECHANICS", "THERMODYNAMICS", "OPTICS", "MAGNETISM", "WAVES", "MODERN_PHYSICS", "CHEMISTRY", "BIOLOGY", "MATHEMATICS", "UNKNOWN"],
+      "description": "Primary domain of the problem"
+    },
+    "problem_type": {
+      "type": "string",
+      "description": "Specific type of problem (e.g., 'capacitor_circuit', 'free_body_diagram')"
+    },
+    "entities": {
+      "type": "array",
+      "description": "All entities extracted from the problem text",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "properties"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for this entity"
+          },
+          "type": {
+            "type": "string",
+            "description": "Entity type (e.g., 'capacitor', 'block', 'force')"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Entity properties (values, units, states)"
+          },
+          "text_span": {
+            "type": "object",
+            "description": "Location in original text",
+            "properties": {
+              "start": {"type": "integer"},
+              "end": {"type": "integer"},
+              "text": {"type": "string"}
+            }
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Extraction confidence"
+          },
+          "extraction_method": {
+            "type": "string",
+            "enum": ["spacy", "scibert", "regex", "llm", "manual"],
+            "description": "How this entity was extracted"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "description": "Relationships between entities",
+      "items": {
+        "type": "object",
+        "required": ["type", "subject", "target"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Relationship type (e.g., 'connected_to', 'acts_on', 'contains')"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject entity ID"
+          },
+          "target": {
+            "type": "string",
+            "description": "Target entity ID"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Relationship properties"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "quantities": {
+      "type": "array",
+      "description": "All physical quantities mentioned",
+      "items": {
+        "type": "object",
+        "required": ["value", "unit", "entity_id"],
+        "properties": {
+          "value": {"type": "number"},
+          "unit": {"type": "string"},
+          "entity_id": {"type": "string"},
+          "property_name": {"type": "string"},
+          "text": {"type": "string"}
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Constraints mentioned in the problem",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"type": "string"},
+          "entities": {"type": "array", "items": {"type": "string"}},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Processing metadata",
+      "properties": {
+        "processing_time": {"type": "number"},
+        "num_entities": {"type": "integer"},
+        "num_relationships": {"type": "integer"},
+        "extraction_tools": {"type": "array", "items": {"type": "string"}},
+        "confidence_avg": {"type": "number"}
+      }
+    }
+  }
+}

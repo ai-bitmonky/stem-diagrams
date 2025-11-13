@@ -1,0 +1,157 @@
+2025-11-13 14:55:30 | INFO     | ================================================================================
+2025-11-13 14:55:30 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 14:55:30 | INFO     | ================================================================================
+2025-11-13 14:55:30 | INFO     | Request ID: req_20251113_145530
+2025-11-13 14:55:30 | INFO     | Problem Text Length: 369 characters
+2025-11-13 14:55:30 | INFO     | 
+2025-11-13 14:55:30 | INFO     | Problem Text:
+2025-11-13 14:55:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 14:55:30 | INFO     |   Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]
+2025-11-13 14:55:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 14:55:30 | INFO     | 
+2025-11-13 14:55:30 | INFO     | Configuration:
+2025-11-13 14:55:30 | INFO     |   canvas_width: 1200
+2025-11-13 14:55:30 | INFO     |   canvas_height: 800
+2025-11-13 14:55:30 | INFO     |   validation_mode: standard
+2025-11-13 14:55:30 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'DeepSeek (Enrichment, Audit, Validation)', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-13 14:55:30 | INFO     | 
+2025-11-13 14:55:30 | INFO     | 
+2025-11-13 14:55:30 | INFO     | ================================================================================
+2025-11-13 14:55:30 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 14:55:30 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 14:55:30 | INFO     | ================================================================================
+2025-11-13 14:55:30 | INFO     | 
+2025-11-13 14:55:30 | INFO     | Phase Input:
+2025-11-13 14:55:30 | INFO     | ----------------------------------------
+2025-11-13 14:55:30 | INFO     | Summary: Problem text (369 chars)
+2025-11-13 14:55:30 | INFO     |   Type: str
+2025-11-13 14:55:30 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Output:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: Extracted data using 6 NLP tools
+2025-11-13 14:56:17 | INFO     |   openie: dict
+2025-11-13 14:56:17 | INFO     |   stanza: dict
+2025-11-13 14:56:17 | INFO     |   scibert: dict
+2025-11-13 14:56:17 | INFO     |   chemdataextractor: dict
+2025-11-13 14:56:17 | INFO     |   mathbert: dict
+2025-11-13 14:56:17 | INFO     |   amr: dict
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase completed: SUCCESS
+2025-11-13 14:56:17 | INFO     | Duration: 46847.16ms
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 14:56:17 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Input:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: NLP extraction results
+2025-11-13 14:56:17 | INFO     |   openie: dict
+2025-11-13 14:56:17 | INFO     |   stanza: dict
+2025-11-13 14:56:17 | INFO     |   scibert: dict
+2025-11-13 14:56:17 | INFO     |   chemdataextractor: dict
+2025-11-13 14:56:17 | INFO     |   mathbert: dict
+2025-11-13 14:56:17 | INFO     |   amr: dict
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Output:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: Built graph with 68 nodes from 5 sources
+2025-11-13 14:56:17 | INFO     |   request_id: req_1763025930608_1
+2025-11-13 14:56:17 | INFO     |   summary: dict
+2025-11-13 14:56:17 | INFO     |   node_types: dict
+2025-11-13 14:56:17 | INFO     |   edge_types: dict
+2025-11-13 14:56:17 | INFO     |   nodes: [10 items]
+2025-11-13 14:56:17 | INFO     |   edges: [10 items]
+2025-11-13 14:56:17 | INFO     |   ontology_tags: dict
+2025-11-13 14:56:17 | INFO     |   gap_analysis: dict
+2025-11-13 14:56:17 | INFO     |   disk_persistence: dict
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase completed: SUCCESS
+2025-11-13 14:56:17 | INFO     | Duration: 6.14ms
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | PHASE 1: DeepSeek Enrichment
+2025-11-13 14:56:17 | INFO     | Description: Validate and enrich entities with LLM
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Output:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: DeepSeek entity enrichment
+2025-11-13 14:56:17 | INFO     |   error: cannot access local variable 'json' where it is not associated with a value
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase completed: WARNING
+2025-11-13 14:56:17 | INFO     | Duration: 0.17ms
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-13 14:56:17 | INFO     | Description: Create diagram plan from property graph
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Input:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: Original request + Property graph
+2025-11-13 14:56:17 | INFO     |   Type: str
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Output:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-13 14:56:17 | INFO     |   planning_mode: property_graph_driven
+2025-11-13 14:56:17 | INFO     |   domain: current_electricity
+2025-11-13 14:56:17 | INFO     |   entity_count: 8
+2025-11-13 14:56:17 | INFO     |   relation_count: 2
+2025-11-13 14:56:17 | INFO     |   constraint_count: 36
+2025-11-13 14:56:17 | INFO     |   complexity_score: 0.36
+2025-11-13 14:56:17 | INFO     |   z3_used: False
+2025-11-13 14:56:17 | INFO     |   sympy_used: False
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase completed: SUCCESS
+2025-11-13 14:56:17 | INFO     | Duration: 2.16ms
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-13 14:56:17 | INFO     | Description: Build scene graph and select strategy
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Phase Input:
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | INFO     | Summary: Problem specs with 8 objects
+2025-11-13 14:56:17 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 14:56:17 | INFO     | ----------------------------------------
+2025-11-13 14:56:17 | ERROR    | 
+2025-11-13 14:56:17 | ERROR    | ================================================================================
+2025-11-13 14:56:17 | ERROR    | ERROR OCCURRED
+2025-11-13 14:56:17 | ERROR    | ================================================================================
+2025-11-13 14:56:17 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-13 14:56:17 | ERROR    | Error: AttributeError: 'PrimitiveLibrary' object has no attribute 'semantic_search'
+2025-11-13 14:56:17 | ERROR    | 
+2025-11-13 14:56:17 | ERROR    | Traceback:
+2025-11-13 14:56:17 | ERROR    |   Traceback (most recent call last):
+2025-11-13 14:56:17 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1466, in generate
+2025-11-13 14:56:17 | ERROR    |       results = self.primitive_library.semantic_search(
+2025-11-13 14:56:17 | ERROR    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-13 14:56:17 | ERROR    |   AttributeError: 'PrimitiveLibrary' object has no attribute 'semantic_search'
+2025-11-13 14:56:17 | ERROR    |   
+2025-11-13 14:56:17 | ERROR    | ================================================================================
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | RESPONSE
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | Status: FAILED
+2025-11-13 14:56:17 | INFO     | Total Duration: 46870.66ms
+2025-11-13 14:56:17 | ERROR    | Error: 'PrimitiveLibrary' object has no attribute 'semantic_search'
+2025-11-13 14:56:17 | INFO     | 
+2025-11-13 14:56:17 | INFO     | Full trace saved to: logs/req_20251113_145530.log
+2025-11-13 14:56:17 | INFO     | ================================================================================
+2025-11-13 14:56:17 | INFO     | Trace JSON saved to: logs/req_20251113_145530_trace.json

@@ -1,0 +1,165 @@
+================================================================================
+NLP STACK STATUS - Quick Summary
+================================================================================
+Date: November 12, 2025
+Issue: User identified that only OpenIE runs, not the full layered NLP stack
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+✅ USER'S CONCERN IS VALID
+   - Trace shows only OpenIE output (5 brittle triples)
+   - Roadmap requires: spaCy + Stanza + SciBERT + OpenIE + AMR + ontology
+   - Current execution: Only OpenIE
+
+✅ INFRASTRUCTURE EXISTS
+   - All 7 NLP tools implemented: OpenIE, Stanza, DyGIE++, SciBERT,
+     ChemDataExtractor, MathBERT, AMR
+   - Import guards: ✅ PRESENT
+   - Initialization logic: ✅ PRESENT
+   - Execution logic: ✅ PRESENT
+   - Trace logging: ✅ PRESENT
+
+⚠️  EXECUTION BLOCKED BY
+   1. NLP disabled in test config: enable_nlp_enrichment = False
+   2. Dependency issues for 3/7 tools:
+      - Stanza: Model download permission error
+      - SciBERT: Network/proxy blocking HuggingFace
+      - DyGIE++: AllenNLP not installed
+
+✅ 4/7 TOOLS WORK WITHOUT ADDITIONAL SETUP
+   - OpenIE: ✅ Relation extraction (working)
+   - ChemDataExtractor: ✅ Chemistry-specific (working)
+   - MathBERT: ✅ Math expressions (working)
+   - AMR Parser: ✅ Semantic parsing (working, but may hang)
+
+================================================================================
+ROOT CAUSES
+================================================================================
+
+1. TEST CONFIGURATION (test_all_features.py:25)
+   config.enable_nlp_enrichment = False  # ❌ NLP DISABLED!
+
+2. DEPENDENCY BLOCKERS
+   - Stanza: Cannot download models (permission error)
+   - SciBERT: Cannot reach HuggingFace (proxy 403)
+   - DyGIE++: AllenNLP not installed
+
+3. INCOMPLETE INTEGRATION
+   - spaCy used internally but not exposed in NLP phase output
+   - Ontology enrichment is separate phase, not in NLP output
+
+================================================================================
+WHAT THIS MEANS
+================================================================================
+
+The implementation is ARCHITECTURALLY SOUND:
+✅ Code infrastructure for all tools exists
+✅ Proper design with import guards and graceful fallbacks
+✅ Default config includes all 7 tools
+✅ 4 tools work without additional setup
+
+But OPERATIONALLY LIMITED:
+❌ NLP disabled by default in tests
+❌ 3 tools blocked by external factors
+❌ Only OpenIE produces output in actual traces
+
+================================================================================
+GAP: ROADMAP VS ACTUAL
+================================================================================
+
+ROADMAP EXPECTS:
+┌─────────────────────────────────────────────────────────────┐
+│ spaCy → Stanza → SciBERT → OpenIE → AMR → Ontology         │
+│   ↓        ↓         ↓         ↓       ↓        ↓           │
+│  POS    SciNER   Embeddings  Relations Semantic  Domain     │
+│  Tags   Entities  Vectors    Triples   Graphs   Knowledge   │
+└─────────────────────────────────────────────────────────────┘
+
+ACTUAL TRACE SHOWS:
+┌─────────────────────────────────────────────────────────────┐
+│ OpenIE only                                                 │
+│   ↓                                                          │
+│ 5 triples                                                   │
+└─────────────────────────────────────────────────────────────┘
+
+================================================================================
+IMMEDIATE ACTION ITEMS
+================================================================================
+
+1. ENABLE NLP IN TESTS
+   - Change enable_nlp_enrichment = True
+   - Use working tools: ['openie', 'chemdataextractor', 'mathbert']
+   - Document that Stanza/SciBERT/DyGIE++ need setup
+
+2. FIX DEPENDENCY ISSUES
+   - Stanza: Configure model directory or fix permissions
+   - SciBERT: Download models manually or fix proxy
+   - DyGIE++: Install AllenNLP (optional)
+
+3. UPDATE DOCUMENTATION
+   - Mark current status accurately (4/7 tools working)
+   - Remove "100% complete" claims
+   - Add setup instructions for blocked tools
+
+4. ADD EXPLICIT OUTPUTS
+   - Make spaCy output visible in trace
+   - Connect ontology enrichment to NLP phase
+   - Show all tool outputs in trace
+
+================================================================================
+DEMONSTRATION OF LAYERED STACK
+================================================================================
+
+To prove the NLP stack works beyond just OpenIE:
+
+TEST CONFIGURATION:
+```python
+config.enable_nlp_enrichment = True
+config.nlp_tools = [
+    'openie',            # Relation extraction
+    'chemdataextractor',  # Chemistry-specific
+    'mathbert'           # Math expressions
+    # Skip 'amr' - causes hang
+    # Skip 'stanza' - needs model download
+    # Skip 'scibert' - needs network access
+    # Skip 'dygie' - needs AllenNLP
+]
+```
+
+EXPECTED TRACE OUTPUT:
+```json
+{
+  "openie": { "triples": [...] },
+  "chemdataextractor": { "formulas": [...], "reactions": [...] },
+  "mathbert": { "variables": [...], "expressions": [...] }
+}
+```
+
+This would show 3 NLP tools running, not just OpenIE.
+
+================================================================================
+BOTTOM LINE
+================================================================================
+
+✅ INFRASTRUCTURE: COMPLETE for all 7 tools
+⚠️  EXECUTION: PARTIAL - only 4/7 tools work without setup
+❌ DEFAULT: DISABLED - enable_nlp_enrichment = False
+❌ TRACES: INCOMPLETE - only OpenIE output present
+
+The user's observation is ACCURATE: current traces show only OpenIE, not the
+full layered stack. This is due to:
+1. NLP disabled in test config (easily fixed)
+2. Dependency blockers for some tools (requires setup)
+3. Missing integration for spaCy direct output (needs enhancement)
+
+To claim "full NLP stack operational":
+- Enable NLP enrichment
+- Fix dependency issues for Stanza/SciBERT
+- Add spaCy direct output
+- Show all tool outputs in traces
+
+================================================================================
+DETAILED ANALYSIS: NLP_STACK_ANALYSIS.md
+================================================================================

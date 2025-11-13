@@ -1,0 +1,257 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "3.00",
+      "properties": {
+        "start": 43,
+        "end": 47,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "6.00",
+      "properties": {
+        "start": 123,
+        "end": 127,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "5.40",
+      "properties": {
+        "start": 404,
+        "end": 408,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "1.08",
+      "properties": {
+        "start": 423,
+        "end": 427,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "2.70",
+      "properties": {
+        "start": 442,
+        "end": 446,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "MEASUREMENT",
+      "text": "3.00 \u03bcF",
+      "properties": {
+        "value": 3.0,
+        "unit": "\u03bcF",
+        "start": 43,
+        "end": 50,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "MEASUREMENT",
+      "text": "5 J",
+      "properties": {
+        "value": 5.0,
+        "unit": "J",
+        "start": 414,
+        "end": 417,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "MEASUREMENT",
+      "text": "4 J",
+      "properties": {
+        "value": 4.0,
+        "unit": "J",
+        "start": 433,
+        "end": 436,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "MEASUREMENT",
+      "text": "5 J",
+      "properties": {
+        "value": 5.0,
+        "unit": "J",
+        "start": 452,
+        "end": 455,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00",
+      "target": "6.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00",
+      "target": "5.40",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "6.00",
+      "target": "5.40",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "6.00",
+      "target": "1.08",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5.40",
+      "target": "1.08",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5.40",
+      "target": "2.70",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.08",
+      "target": "2.70",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1.08",
+      "target": "3.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.70",
+      "target": "3.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.70",
+      "target": "5 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00 \u03bcF",
+      "target": "5 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00 \u03bcF",
+      "target": "4 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5 J",
+      "target": "4 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5 J",
+      "target": "5 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "4 J",
+      "target": "5 J",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 15,
+    "processing_time": 0.01793503761291504,
+    "sentence_count": 7,
+    "token_count": 115
+  },
+  "raw_text": "A parallel-plate capacitor has capacitance 3.00 \u03bcF. (a) How much energy is stored\nin the capacitor if it is connected to a 6.00-V battery? (b) If the battery is disconnected and the\ndistance between the charged plates doubled, what is the energy stored? (c) The battery is subsequently\nreattached to the capacitor, but the plate separation remains as in part (b). How much energy is stored?\n(Answer: (a) 5.40 \u00d7 10\u22125 J, (b) 1.08 \u00d7 10\u22124 J, (c) 2.70 \u00d7 10\u22125 J)"
+}

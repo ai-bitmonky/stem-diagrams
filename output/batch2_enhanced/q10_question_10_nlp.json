@@ -1,0 +1,35 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "4\u03c0\u03b5\u2080a",
+      "properties": {
+        "start": 316,
+        "end": 321,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "EQUALS",
+      "subject": "e",
+      "target": "4\u03c0\u03b5\u2080a",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 1,
+    "num_relationships": 1,
+    "processing_time": 0.008383035659790039,
+    "sentence_count": 2,
+    "token_count": 67
+  },
+  "raw_text": "A spherical capacitor consists of a spherical conducting shell of radius b and charge \u2212Q\nconcentric with a smaller conducting sphere of radius a and charge Q. (a) Find the capacitance of this device.\n(b) Show that as the radius b of the outer sphere approaches infinity, the capacitance approaches the value\na/k_e = 4\u03c0\u03b5\u2080a."
+}

@@ -1,0 +1,52 @@
+{
+  "batch": 2,
+  "total_questions": 5,
+  "successful": 5,
+  "failed": 0,
+  "results": [
+    {
+      "question_id": 6,
+      "success": true,
+      "svg_path": "output/batch_2_generated/question_6.svg",
+      "scene_path": "output/batch_2_generated/question_6_scene.json",
+      "metadata_path": "output/batch_2_generated/question_6_metadata.json"
+    },
+    {
+      "question_id": 7,
+      "success": true,
+      "svg_path": "output/batch_2_generated/question_7.svg",
+      "scene_path": "output/batch_2_generated/question_7_scene.json",
+      "metadata_path": "output/batch_2_generated/question_7_metadata.json"
+    },
+    {
+      "question_id": 8,
+      "success": true,
+      "svg_path": "output/batch_2_generated/question_8.svg",
+      "scene_path": "output/batch_2_generated/question_8_scene.json",
+      "metadata_path": "output/batch_2_generated/question_8_metadata.json"
+    },
+    {
+      "question_id": 9,
+      "success": true,
+      "svg_path": "output/batch_2_generated/question_9.svg",
+      "scene_path": "output/batch_2_generated/question_9_scene.json",
+      "metadata_path": "output/batch_2_generated/question_9_metadata.json"
+    },
+    {
+      "question_id": 10,
+      "success": true,
+      "svg_path": "output/batch_2_generated/question_10.svg",
+      "scene_path": "output/batch_2_generated/question_10_scene.json",
+      "metadata_path": "output/batch_2_generated/question_10_metadata.json"
+    }
+  ],
+  "pipeline": "unified_diagram_pipeline.py",
+  "features": {
+    "property_graph": true,
+    "nlp_enrichment": true,
+    "complexity_assessment": true,
+    "strategic_planning": true,
+    "ontology_validation": true,
+    "z3_optimization": true
+  }
+}

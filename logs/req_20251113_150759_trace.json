@@ -1,0 +1,635 @@
+{
+  "request_id": "req_20251113_150759",
+  "timestamp": "2025-11-13T15:07:59.137155",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1763026679.137451,
+      "duration_ms": 98.1,
+      "input": "A simple circuit with a battery and resistor",
+      "output": {
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 97.67007827758789,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            },
+            {
+              "text": "resistor",
+              "lemma": "resistor",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "simple",
+              "dependent_pos": "ADJ",
+              "relation": "amod",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "a",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            },
+            {
+              "head": "resistor",
+              "head_pos": "NOUN",
+              "dependent": "and",
+              "dependent_pos": "CCONJ",
+              "relation": "cc",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "resistor",
+              "dependent_pos": "NOUN",
+              "relation": "conj",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A simple circuit with a battery and resistor",
+            "sentences": [
+              {
+                "text": "A simple circuit with a battery and resistor",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "simple",
+                    "lemma": "simple",
+                    "pos": "ADJ",
+                    "xpos": "JJ",
+                    "feats": "Degree=Pos"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "a",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "and",
+                    "lemma": "and",
+                    "pos": "CCONJ",
+                    "xpos": "CC",
+                    "feats": null
+                  },
+                  {
+                    "text": "resistor",
+                    "lemma": "resistor",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "simple",
+                    "dependent_pos": "ADJ",
+                    "relation": "amod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "a",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "resistor",
+                    "head_pos": "NOUN",
+                    "dependent": "and",
+                    "dependent_pos": "CCONJ",
+                    "relation": "cc",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "resistor",
+                    "dependent_pos": "NOUN",
+                    "relation": "conj",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "simple",
+                "dependent_pos": "ADJ",
+                "relation": "amod",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "a",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              },
+              {
+                "head": "resistor",
+                "head_pos": "NOUN",
+                "dependent": "and",
+                "dependent_pos": "CCONJ",
+                "relation": "cc",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "resistor",
+                "dependent_pos": "NOUN",
+                "relation": "conj",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              },
+              {
+                "text": "resistor",
+                "lemma": "resistor",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              }
+            ],
+            "triples": []
+          }
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1763026679.235623,
+      "duration_ms": 0,
+      "input": {
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 97.67007827758789,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            },
+            {
+              "text": "resistor",
+              "lemma": "resistor",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with a battery and resistor"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "simple",
+              "dependent_pos": "ADJ",
+              "relation": "amod",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "a",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            },
+            {
+              "head": "resistor",
+              "head_pos": "NOUN",
+              "dependent": "and",
+              "dependent_pos": "CCONJ",
+              "relation": "cc",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "resistor",
+              "dependent_pos": "NOUN",
+              "relation": "conj",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A simple circuit with a battery and resistor",
+            "sentences": [
+              {
+                "text": "A simple circuit with a battery and resistor",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "simple",
+                    "lemma": "simple",
+                    "pos": "ADJ",
+                    "xpos": "JJ",
+                    "feats": "Degree=Pos"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "a",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "and",
+                    "lemma": "and",
+                    "pos": "CCONJ",
+                    "xpos": "CC",
+                    "feats": null
+                  },
+                  {
+                    "text": "resistor",
+                    "lemma": "resistor",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "simple",
+                    "dependent_pos": "ADJ",
+                    "relation": "amod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "a",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "resistor",
+                    "head_pos": "NOUN",
+                    "dependent": "and",
+                    "dependent_pos": "CCONJ",
+                    "relation": "cc",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "resistor",
+                    "dependent_pos": "NOUN",
+                    "relation": "conj",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "simple",
+                "dependent_pos": "ADJ",
+                "relation": "amod",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "a",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              },
+              {
+                "head": "resistor",
+                "head_pos": "NOUN",
+                "dependent": "and",
+                "dependent_pos": "CCONJ",
+                "relation": "cc",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "resistor",
+                "dependent_pos": "NOUN",
+                "relation": "conj",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              },
+              {
+                "text": "resistor",
+                "lemma": "resistor",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with a battery and resistor"
+              }
+            ],
+            "triples": []
+          }
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "BrokenPipeError",
+        "message": "[Errno 32] Broken pipe",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 970, in generate\n    self.progress.start_phase(\"Property Graph\", 1)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/pipeline_logger.py\", line 356, in start_phase\n    print(f\"\\n\ud83d\udd04 [{phase_number}/7] {phase_name}...\", end='', flush=True)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nBrokenPipeError: [Errno 32] Broken pipe\n"
+      }
+    }
+  ],
+  "total_duration_ms": 100.56,
+  "status": "error",
+  "error": "[Errno 32] Broken pipe",
+  "input": {
+    "problem_text": "A simple circuit with a battery and resistor",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "strict",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "Stanza",
+        "Diagram Planner",
+        "LLM Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "Z3 Optimization",
+        "LLM Auditor",
+        "Structural Validator",
+        "VLM Validator (BLIP-2)",
+        "Primitive Library (memory)",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 44
+  }
+}

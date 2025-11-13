@@ -1,0 +1,166 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "PRODUCT",
+      "text": "C\u2083",
+      "properties": {
+        "start": 68,
+        "end": 70,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "V\u2081",
+      "properties": {
+        "start": 110,
+        "end": 112,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "1",
+      "properties": {
+        "start": 130,
+        "end": 131,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "12.0",
+      "properties": {
+        "start": 212,
+        "end": 216,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "MEASUREMENT",
+      "text": "10 V",
+      "properties": {
+        "value": 10.0,
+        "unit": "V",
+        "start": 159,
+        "end": 163,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "MEASUREMENT",
+      "text": "12.0 \u03bcF",
+      "properties": {
+        "value": 12.0,
+        "unit": "\u03bcF",
+        "start": 212,
+        "end": 219,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2083",
+      "target": "V\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2083",
+      "target": "1",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "V\u2081",
+      "target": "1",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "V\u2081",
+      "target": "12.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1",
+      "target": "12.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "1",
+      "target": "10 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "12.0",
+      "target": "10 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "12.0",
+      "target": "12.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10 V",
+      "target": "12.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 6,
+    "num_relationships": 9,
+    "processing_time": 0.010639190673828125,
+    "sentence_count": 2,
+    "token_count": 86
+  },
+  "raw_text": "Capacitor 3 in the circuit is a variable capacitor (its capacitance C\u2083 can be varied). The electric potential V\u2081 across capacitor 1 approaches an asymptote of 10 V as C\u2083 \u2192 \u221e. The horizontal scale is set by C\u2083\u209b = 12.0 \u03bcF. Circuit Configuration: C\u2081 is in series with the parallel combination of C\u2082 and C\u2083. Determine: (a) The electric potential V across the battery, (b) The capacitance C\u2081, (c) The capacitance C\u2082"
+}

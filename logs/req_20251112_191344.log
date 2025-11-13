@@ -1,0 +1,106 @@
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | Request ID: req_20251112_191344
+2025-11-12 19:13:44 | INFO     | Problem Text Length: 99 characters
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Problem Text:
+2025-11-12 19:13:44 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:13:44 | INFO     |   Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.
+2025-11-12 19:13:44 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Configuration:
+2025-11-12 19:13:44 | INFO     |   canvas_width: 1200
+2025-11-12 19:13:44 | INFO     |   canvas_height: 800
+2025-11-12 19:13:44 | INFO     |   validation_mode: standard
+2025-11-12 19:13:44 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Diagram Planner', 'Model Orchestrator', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | PHASE 0: NLP Enrichment
+2025-11-12 19:13:44 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase Input:
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | Summary: Problem text (99 chars)
+2025-11-12 19:13:44 | INFO     |   Type: str
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase Output:
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | Summary: Extracted data using 1 NLP tools
+2025-11-12 19:13:44 | INFO     |   openie: dict
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:13:44 | INFO     | Duration: 0.66ms
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | PHASE 1: Property Graph Construction
+2025-11-12 19:13:44 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase Input:
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | Summary: NLP extraction results
+2025-11-12 19:13:44 | INFO     |   openie: dict
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase Output:
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | Summary: Built graph with 6 nodes from 1 sources
+2025-11-12 19:13:44 | INFO     |   summary: dict
+2025-11-12 19:13:44 | INFO     |   node_types: dict
+2025-11-12 19:13:44 | INFO     |   edge_types: dict
+2025-11-12 19:13:44 | INFO     |   nodes: [6 items]
+2025-11-12 19:13:44 | INFO     |   edges: [3 items]
+2025-11-12 19:13:44 | INFO     |   saved_to: output/test_complete/property_graph.json
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:13:44 | INFO     | Duration: 0.91ms
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-12 19:13:44 | INFO     | Description: Create diagram plan from property graph
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Phase Input:
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | INFO     | Summary: Original request + Property graph
+2025-11-12 19:13:44 | INFO     |   Type: str
+2025-11-12 19:13:44 | INFO     | ----------------------------------------
+2025-11-12 19:13:44 | ERROR    | 
+2025-11-12 19:13:44 | ERROR    | ================================================================================
+2025-11-12 19:13:44 | ERROR    | ERROR OCCURRED
+2025-11-12 19:13:44 | ERROR    | ================================================================================
+2025-11-12 19:13:44 | ERROR    | Context: {'domain': 'unknown', 'phase': 'generation'}
+2025-11-12 19:13:44 | ERROR    | Error: TypeError: CanonicalProblemSpec.__init__() got an unexpected keyword argument 'quantities'
+2025-11-12 19:13:44 | ERROR    | 
+2025-11-12 19:13:44 | ERROR    | Traceback:
+2025-11-12 19:13:44 | ERROR    |   Traceback (most recent call last):
+2025-11-12 19:13:44 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1081, in generate
+2025-11-12 19:13:44 | ERROR    |       specs = self._diagram_plan_to_canonical_spec(diagram_plan)
+2025-11-12 19:13:44 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1858, in _diagram_plan_to_canonical_spec
+2025-11-12 19:13:44 | ERROR    |       spec = CanonicalProblemSpec(
+2025-11-12 19:13:44 | ERROR    |           domain=domain,
+2025-11-12 19:13:44 | ERROR    |       ...<5 lines>...
+2025-11-12 19:13:44 | ERROR    |           geometry=None  # Not yet implemented
+2025-11-12 19:13:44 | ERROR    |       )
+2025-11-12 19:13:44 | ERROR    |   TypeError: CanonicalProblemSpec.__init__() got an unexpected keyword argument 'quantities'
+2025-11-12 19:13:44 | ERROR    |   
+2025-11-12 19:13:44 | ERROR    | ================================================================================
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | RESPONSE
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | Status: FAILED
+2025-11-12 19:13:44 | INFO     | Total Duration: 3.06ms
+2025-11-12 19:13:44 | ERROR    | Error: CanonicalProblemSpec.__init__() got an unexpected keyword argument 'quantities'
+2025-11-12 19:13:44 | INFO     | 
+2025-11-12 19:13:44 | INFO     | Full trace saved to: logs/req_20251112_191344.log
+2025-11-12 19:13:44 | INFO     | ================================================================================
+2025-11-12 19:13:44 | INFO     | Trace JSON saved to: logs/req_20251112_191344_trace.json

@@ -1,0 +1,103 @@
+{
+  "domain": "physics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "QUANTITY",
+      "text": "5 kg",
+      "properties": {
+        "start": 11,
+        "end": 15,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "0.3",
+      "properties": {
+        "start": 76,
+        "end": 79,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "PRODUCT",
+      "text": "F",
+      "properties": {
+        "start": 89,
+        "end": 90,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "20",
+      "properties": {
+        "start": 93,
+        "end": 95,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "5 kg",
+      "target": "0.3",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5 kg",
+      "target": "F",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.3",
+      "target": "F",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.3",
+      "target": "20",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "F",
+      "target": "20",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 4,
+    "num_relationships": 5,
+    "processing_time": 0.0044291019439697266,
+    "sentence_count": 2,
+    "token_count": 28
+  }
+}

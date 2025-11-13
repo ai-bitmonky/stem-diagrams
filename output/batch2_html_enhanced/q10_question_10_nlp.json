@@ -1,0 +1,462 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 192,
+        "end": 196,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "QUANTITY",
+      "text": "10 cm",
+      "properties": {
+        "start": 228,
+        "end": 233,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 263,
+        "end": 267,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "0.10",
+      "properties": {
+        "start": 289,
+        "end": 293,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "2.0",
+      "properties": {
+        "start": 324,
+        "end": 327,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "CARDINAL",
+      "text": "35",
+      "properties": {
+        "start": 379,
+        "end": 381,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "CARDINAL",
+      "text": "10",
+      "properties": {
+        "start": 425,
+        "end": 427,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "MEASUREMENT",
+      "text": "0.20 m",
+      "properties": {
+        "value": 0.2,
+        "unit": "m",
+        "start": 192,
+        "end": 198,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "MEASUREMENT",
+      "text": "10 cm",
+      "properties": {
+        "value": 10.0,
+        "unit": "cm",
+        "start": 228,
+        "end": 233,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_9",
+      "type": "MEASUREMENT",
+      "text": "0.20 m",
+      "properties": {
+        "value": 0.2,
+        "unit": "m",
+        "start": 263,
+        "end": 269,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_10",
+      "type": "MEASUREMENT",
+      "text": "0.10 m",
+      "properties": {
+        "value": 0.1,
+        "unit": "m",
+        "start": 289,
+        "end": 295,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_11",
+      "type": "MEASUREMENT",
+      "text": "2.0 \u03bcC",
+      "properties": {
+        "value": 2.0,
+        "unit": "\u03bcC",
+        "start": 324,
+        "end": 330,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_12",
+      "type": "MEASUREMENT",
+      "text": "35 pF",
+      "properties": {
+        "value": 35.0,
+        "unit": "pF",
+        "start": 379,
+        "end": 384,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_13",
+      "type": "MEASUREMENT",
+      "text": "10 m",
+      "properties": {
+        "value": 10.0,
+        "unit": "m",
+        "start": 425,
+        "end": 429,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20",
+      "target": "0.20",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10 cm",
+      "target": "0.20",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10 cm",
+      "target": "0.10",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20",
+      "target": "0.10",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20",
+      "target": "2.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.10",
+      "target": "2.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.10",
+      "target": "35",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.0",
+      "target": "35",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.0",
+      "target": "10",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "35",
+      "target": "10",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "35",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20 m",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20 m",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10 cm",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10 cm",
+      "target": "0.10 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20 m",
+      "target": "0.10 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.20 m",
+      "target": "2.0 \u03bcC",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.10 m",
+      "target": "2.0 \u03bcC",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.10 m",
+      "target": "35 pF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.0 \u03bcC",
+      "target": "35 pF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.0 \u03bcC",
+      "target": "10 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "35 pF",
+      "target": "10 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "r",
+      "target": "0",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "r",
+      "target": "0",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "0",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "C",
+      "target": "35 pF",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "n",
+      "target": "10 mJ",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 14,
+    "num_relationships": 31,
+    "processing_time": 0.018061161041259766,
+    "sentence_count": 5,
+    "token_count": 154
+  },
+  "raw_text": "As a safety engineer, you must evaluate the practice of storing flammable conducting liquids in nonconducting containers. The company uses a squat, cylindrical plastic container of radius r = 0.20 m and filling it to height h = 10 cm. Given: Container radius r = 0.20 m, Liquid height h = 0.10 m, Surface charge density \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance of liquid's central portion C = 35 pF, Minimum spark energy to ignite E_min = 10 mJ. Determine: (a) How much negative charge is induced in the center of the liquid's bulk? (b) What is the potential energy associated with the negative charge in that effective capacitor? (c) Can a spark from the central portion of the liquid ignite the liquid if the spark energy equals the stored potential energy?"
+}

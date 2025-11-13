@@ -1,0 +1,257 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "spacy_10_11",
+      "type": "CARDINAL",
+      "text": "10.5",
+      "properties": {
+        "start": 45,
+        "end": 49,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_15_16",
+      "type": "CARDINAL",
+      "text": "2d",
+      "properties": {
+        "start": 75,
+        "end": 77,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_17_19",
+      "type": "QUANTITY",
+      "text": "7.12 mm",
+      "properties": {
+        "start": 80,
+        "end": 87,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_26_27",
+      "type": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 123,
+        "end": 127,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_33_34",
+      "type": "CARDINAL",
+      "text": "21.0",
+      "properties": {
+        "start": 159,
+        "end": 163,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_37_38",
+      "type": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 175,
+        "end": 179,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_41_42",
+      "type": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 196,
+        "end": 199,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_48_49",
+      "type": "CARDINAL",
+      "text": "42.0",
+      "properties": {
+        "start": 224,
+        "end": 228,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_54_55",
+      "type": "CARDINAL",
+      "text": "58.0",
+      "properties": {
+        "start": 250,
+        "end": 254,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_10_11",
+      "target": "spacy_15_16",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_15_16",
+      "target": "spacy_17_19",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_17_19",
+      "target": "spacy_26_27",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_26_27",
+      "target": "spacy_33_34",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_37_38",
+      "target": "spacy_41_42",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_41_42",
+      "target": "spacy_48_49",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_48_49",
+      "target": "spacy_54_55",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0."
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "A",
+      "target": "10.5 cm\u00b2",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10.5 cm\u00b2"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "2d",
+      "target": "7.12 mm",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "7.12 mm"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03ba\u2081",
+      "target": "21.0. The",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "21.0. The"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03ba\u2082",
+      "target": "42.0 and",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "42.0 and"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03ba\u2083",
+      "target": "58.0. Calculate",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "58.0. Calculate"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "A",
+      "target": "10.5 cm",
+      "properties": {
+        "equation": "A = 10.5 cm",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "d",
+      "target": "7.12 mm is configured as follows",
+      "properties": {
+        "equation": "d = 7.12 mm is configured as follows",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 14,
+    "sentence_count": 3,
+    "token_count": 61
+  }
+}

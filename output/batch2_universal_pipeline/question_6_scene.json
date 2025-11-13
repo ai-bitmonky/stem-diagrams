@@ -1,0 +1,121 @@
+{
+  "scene_id": "circuit_4045",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Circuit Diagram",
+  "description": "A parallel-plate capacitor has plates of area 0.12 m\u00b2 and a separation of 1.2 cm.\nA battery charges the plates to a potential difference of 120 V and is then disconnected.\nA dielectric slab of thickne...",
+  "objects": [
+    {
+      "id": "V1",
+      "object_type": "battery",
+      "position": {
+        "x": 150,
+        "y": 300,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "10V",
+      "properties": {
+        "value": 10.0,
+        "unit": "V"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "R1",
+      "object_type": "resistor",
+      "position": {
+        "x": 400,
+        "y": 300,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 120,
+        "height": 30,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "100\u03a9",
+      "properties": {
+        "value": 100.0,
+        "unit": "\u03a9"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1",
+      "object_type": "capacitor",
+      "position": {
+        "x": 650,
+        "y": 300,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "10\u03bcF",
+      "properties": {
+        "value": 1e-05,
+        "unit": "\u03bcF"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [],
+  "constraints": [],
+  "annotations": [],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

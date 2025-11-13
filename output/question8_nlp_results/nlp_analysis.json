@@ -1,0 +1,268 @@
+{
+  "domain": "electronics",
+  "text": "\nA parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm\nis configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right\nhalf is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.\nCalculate the total capacitance.\n",
+  "entities": [
+    {
+      "id": "spacy_11_12",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "10.5",
+      "properties": {
+        "start": 46,
+        "end": 50,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_16_17",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "2d",
+      "properties": {
+        "start": 76,
+        "end": 78,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_18_20",
+      "type": "QUANTITY",
+      "label": "QUANTITY",
+      "text": "7.12 mm",
+      "properties": {
+        "start": 81,
+        "end": 88,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_28_29",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 124,
+        "end": 128,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_35_36",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "21.0",
+      "properties": {
+        "start": 160,
+        "end": 164,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_40_41",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 176,
+        "end": 180,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_44_45",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 197,
+        "end": 200,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_51_52",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "42.0",
+      "properties": {
+        "start": 225,
+        "end": 229,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_57_58",
+      "type": "CARDINAL",
+      "label": "CARDINAL",
+      "text": "58.0",
+      "properties": {
+        "start": 251,
+        "end": 255,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_11_12",
+      "target": "spacy_16_17",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "\nA parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm\nis configured as follows: The left half is filled with dielectric κ₁ = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_16_17",
+      "target": "spacy_18_20",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "\nA parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm\nis configured as follows: The left half is filled with dielectric κ₁ = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_18_20",
+      "target": "spacy_28_29",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "\nA parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm\nis configured as follows: The left half is filled with dielectric κ₁ = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_28_29",
+      "target": "spacy_35_36",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "\nA parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm\nis configured as follows: The left half is filled with dielectric κ₁ = 21.0."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_40_41",
+      "target": "spacy_44_45",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right\nhalf is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.\n"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_44_45",
+      "target": "spacy_51_52",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right\nhalf is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.\n"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_51_52",
+      "target": "spacy_57_58",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The right\nhalf is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.\n"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "A",
+      "target": "10.5 cm²",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10.5 cm²"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "2d",
+      "target": "7.12 mm",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "7.12 mm"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "κ₁",
+      "target": "21.0. The",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "21.0. The"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "κ₂",
+      "target": "42.0 and",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "42.0 and"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "κ₃",
+      "target": "58.0.\nCalculate",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "58.0.\nCalculate"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "A",
+      "target": "10.5 cm",
+      "properties": {
+        "equation": "A = 10.5 cm",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "d",
+      "target": "7.12 mm\nis configured as follows",
+      "properties": {
+        "equation": "d = 7.12 mm\nis configured as follows",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 14,
+    "pipeline": "simple_nlp",
+    "sentence_count": 3,
+    "token_count": 66
+  }
+}

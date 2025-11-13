@@ -1,0 +1,265 @@
+{
+  "request_id": "req_20251112_184329",
+  "timestamp": "2025-11-12T18:43:29.594936",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762953481.691624,
+      "duration_ms": 1.76,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762953481.693502,
+      "duration_ms": 1.91,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 9,
+          "edge_count": 5,
+          "connected_components": 4,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 9
+        },
+        "edge_types": {
+          "related_to": 5
+        },
+        "nodes": [
+          {
+            "id": "left half",
+            "type": "object",
+            "label": "left half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "dielectric \u03ba\u2081",
+            "type": "object",
+            "label": "dielectric \u03ba\u2081",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "0 and",
+            "type": "object",
+            "label": "0 and",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "\u03ba\u2083",
+            "type": "object",
+            "label": "\u03ba\u2083",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "12 mm",
+            "type": "object",
+            "label": "12 mm",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "configured as",
+            "type": "object",
+            "label": "configured as",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "filled with",
+            "type": "object",
+            "label": "filled with",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "right half",
+            "type": "object",
+            "label": "right half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "divided into",
+            "type": "object",
+            "label": "divided into",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "left half",
+            "target": "dielectric \u03ba\u2081",
+            "type": "related_to",
+            "label": "is filled on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "left half",
+            "target": "filled with",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "0 and",
+            "target": "\u03ba\u2083",
+            "type": "related_to",
+            "label": "bottom on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "12 mm",
+            "target": "configured as",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "right half",
+            "target": "divided into",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "saved_to": "output/property_graph.json"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1762953481.695512,
+      "duration_ms": 0,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "AttributeError",
+        "message": "type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1054, in generate\n    diagram_plan = None\n                ^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1783, in _diagram_plan_to_canonical_spec\n    'biology': biology_score,\n                       ^^^^^^\nAttributeError: type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'\n"
+      }
+    }
+  ],
+  "total_duration_ms": 272103.24,
+  "status": "error",
+  "error": "type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'",
+  "input": {
+    "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "Structural Validator",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 369
+  }
+}

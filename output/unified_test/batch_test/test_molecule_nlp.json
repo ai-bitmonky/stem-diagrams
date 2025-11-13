@@ -1,0 +1,74 @@
+{
+  "domain": "chemistry",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "one",
+      "properties": {
+        "start": 35,
+        "end": 38,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 61,
+        "end": 64,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "QUANTITY",
+      "text": "approximately 104.5 degrees",
+      "properties": {
+        "start": 99,
+        "end": 126,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "one",
+      "target": "two",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "one",
+      "target": "approximately 104.5 degrees",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "two",
+      "target": "approximately 104.5 degrees",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 3,
+    "num_relationships": 3,
+    "processing_time": 0.004294157028198242,
+    "sentence_count": 2,
+    "token_count": 25
+  }
+}

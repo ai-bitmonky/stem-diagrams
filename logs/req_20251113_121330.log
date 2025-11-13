@@ -1,0 +1,478 @@
+2025-11-13 12:13:30 | INFO     | ================================================================================
+2025-11-13 12:13:30 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 12:13:30 | INFO     | ================================================================================
+2025-11-13 12:13:30 | INFO     | Request ID: req_20251113_121330
+2025-11-13 12:13:30 | INFO     | Problem Text Length: 369 characters
+2025-11-13 12:13:30 | INFO     | 
+2025-11-13 12:13:30 | INFO     | Problem Text:
+2025-11-13 12:13:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 12:13:30 | INFO     |   Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]
+2025-11-13 12:13:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 12:13:30 | INFO     | 
+2025-11-13 12:13:30 | INFO     | Configuration:
+2025-11-13 12:13:30 | INFO     |   canvas_width: 1200
+2025-11-13 12:13:30 | INFO     |   canvas_height: 800
+2025-11-13 12:13:30 | INFO     |   validation_mode: standard
+2025-11-13 12:13:30 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'DeepSeek (Enrichment, Audit, Validation)', 'Request/Response Logging']
+2025-11-13 12:13:30 | INFO     | 
+2025-11-13 12:13:30 | INFO     | 
+2025-11-13 12:13:30 | INFO     | ================================================================================
+2025-11-13 12:13:30 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 12:13:30 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 12:13:30 | INFO     | ================================================================================
+2025-11-13 12:13:30 | INFO     | 
+2025-11-13 12:13:30 | INFO     | Phase Input:
+2025-11-13 12:13:30 | INFO     | ----------------------------------------
+2025-11-13 12:13:30 | INFO     | Summary: Problem text (369 chars)
+2025-11-13 12:13:30 | INFO     |   Type: str
+2025-11-13 12:13:30 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Extracted data using 5 NLP tools
+2025-11-13 12:14:12 | INFO     |   openie: dict
+2025-11-13 12:14:12 | INFO     |   scibert: dict
+2025-11-13 12:14:12 | INFO     |   chemdataextractor: dict
+2025-11-13 12:14:12 | INFO     |   mathbert: dict
+2025-11-13 12:14:12 | INFO     |   amr: dict
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 41429.75ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 12:14:12 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: NLP extraction results
+2025-11-13 12:14:12 | INFO     |   openie: dict
+2025-11-13 12:14:12 | INFO     |   scibert: dict
+2025-11-13 12:14:12 | INFO     |   chemdataextractor: dict
+2025-11-13 12:14:12 | INFO     |   mathbert: dict
+2025-11-13 12:14:12 | INFO     |   amr: dict
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Built graph with 22 nodes from 4 sources
+2025-11-13 12:14:12 | INFO     |   request_id: req_1763016210663_1
+2025-11-13 12:14:12 | INFO     |   summary: dict
+2025-11-13 12:14:12 | INFO     |   node_types: dict
+2025-11-13 12:14:12 | INFO     |   edge_types: dict
+2025-11-13 12:14:12 | INFO     |   nodes: [10 items]
+2025-11-13 12:14:12 | INFO     |   edges: [10 items]
+2025-11-13 12:14:12 | INFO     |   ontology_tags: dict
+2025-11-13 12:14:12 | INFO     |   gap_analysis: dict
+2025-11-13 12:14:12 | INFO     |   disk_persistence: dict
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 1.59ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 1: DeepSeek Enrichment
+2025-11-13 12:14:12 | INFO     | Description: Validate and enrich entities with LLM
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: DeepSeek entity enrichment
+2025-11-13 12:14:12 | INFO     |   error: cannot access local variable 'json' where it is not associated with a value
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: WARNING
+2025-11-13 12:14:12 | INFO     | Duration: 0.14ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-13 12:14:12 | INFO     | Description: Create diagram plan from property graph
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Original request + Property graph
+2025-11-13 12:14:12 | INFO     |   Type: str
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-13 12:14:12 | INFO     |   planning_mode: property_graph_driven
+2025-11-13 12:14:12 | INFO     |   domain: current_electricity
+2025-11-13 12:14:12 | INFO     |   entity_count: 1
+2025-11-13 12:14:12 | INFO     |   relation_count: 0
+2025-11-13 12:14:12 | INFO     |   constraint_count: 1
+2025-11-13 12:14:12 | INFO     |   complexity_score: 0.035
+2025-11-13 12:14:12 | INFO     |   z3_used: False
+2025-11-13 12:14:12 | INFO     |   sympy_used: False
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 0.46ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-13 12:14:12 | INFO     | Description: Build scene graph and select strategy
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Problem specs with 1 objects
+2025-11-13 12:14:12 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Scene with 12 objects
+2025-11-13 12:14:12 | INFO     |   object_count: 12
+2025-11-13 12:14:12 | INFO     |   selected_strategy: heuristic
+2025-11-13 12:14:12 | INFO     |   domain_modules: 0
+2025-11-13 12:14:12 | INFO     |   diagram_plan: dict
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 30.30ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 3: Structural Consistency
+2025-11-13 12:14:12 | INFO     | Description: Compare plan vs scene
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Diagram Plan
+2025-11-13 12:14:12 | INFO     |   entities: 1
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Structural comparison report
+2025-11-13 12:14:12 | INFO     |   missing_in_scene: [1 items]
+2025-11-13 12:14:12 | INFO     |   extra_scene_objects: [12 items]
+2025-11-13 12:14:12 | INFO     |   label_mismatches: [0 items]
+2025-11-13 12:14:12 | INFO     |   relation_gaps: [0 items]
+2025-11-13 12:14:12 | INFO     |   score: 0.0
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 0.23ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 4: Ontology Validation
+2025-11-13 12:14:12 | INFO     | Description: Validate semantic consistency
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Specs with 1 objects
+2025-11-13 12:14:12 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Output:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Consistent: True
+2025-11-13 12:14:12 | INFO     |   source: property_graph
+2025-11-13 12:14:12 | INFO     |   input_stats: dict
+2025-11-13 12:14:12 | INFO     |   consistent: True
+2025-11-13 12:14:12 | INFO     |   errors: [0 items]
+2025-11-13 12:14:12 | INFO     |   warnings: [86 items]
+2025-11-13 12:14:12 | INFO     |   inferences: 0
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:14:12 | INFO     | Duration: 39.71ms
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | PHASE 5: Physics Validation
+2025-11-13 12:14:12 | INFO     | Description: Validate physics constraints and relationships
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Phase Input:
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | INFO     | Summary: Scene with 12 objects
+2025-11-13 12:14:12 | INFO     |   Type: Scene
+2025-11-13 12:14:12 | INFO     | ----------------------------------------
+2025-11-13 12:14:12 | ERROR    | 
+2025-11-13 12:14:12 | ERROR    | ================================================================================
+2025-11-13 12:14:12 | ERROR    | ERROR OCCURRED
+2025-11-13 12:14:12 | ERROR    | ================================================================================
+2025-11-13 12:14:12 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-13 12:14:12 | ERROR    | Error: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:14:12 | ERROR    | 
+2025-11-13 12:14:12 | ERROR    | Traceback:
+2025-11-13 12:14:12 | ERROR    |   Traceback (most recent call last):
+2025-11-13 12:14:12 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1492, in generate
+2025-11-13 12:14:12 | ERROR    |       report, scene = self.validator.validate(scene, specs)
+2025-11-13 12:14:12 | ERROR    |                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-11-13 12:14:12 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 117, in validate
+2025-11-13 12:14:12 | ERROR    |       self._validate_geometric(scene, report)
+2025-11-13 12:14:12 | ERROR    |       ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+2025-11-13 12:14:12 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 221, in _validate_geometric
+2025-11-13 12:14:12 | ERROR    |       if self._objects_overlap(obj1, obj2):
+2025-11-13 12:14:12 | ERROR    |          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+2025-11-13 12:14:12 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 471, in _objects_overlap
+2025-11-13 12:14:12 | ERROR    |       return not (x1 + w1 < x2 or x2 + w2 < x1 or y1 + h1 < y2 or y2 + h2 < y1)
+2025-11-13 12:14:12 | ERROR    |                                                   ~~~^~~~
+2025-11-13 12:14:12 | ERROR    |   TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:14:12 | ERROR    |   
+2025-11-13 12:14:12 | ERROR    | ================================================================================
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | RESPONSE
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | Status: FAILED
+2025-11-13 12:14:12 | INFO     | Total Duration: 41506.24ms
+2025-11-13 12:14:12 | ERROR    | Error: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:14:12 | INFO     | 
+2025-11-13 12:14:12 | INFO     | Full trace saved to: logs/req_20251113_121330.log
+2025-11-13 12:14:12 | INFO     | ================================================================================
+2025-11-13 12:14:12 | INFO     | Trace JSON saved to: logs/req_20251113_121330_trace.json
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | Request ID: req_20251113_121330
+2025-11-13 12:17:38 | INFO     | Problem Text Length: 369 characters
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Problem Text:
+2025-11-13 12:17:38 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 12:17:38 | INFO     |   Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]
+2025-11-13 12:17:38 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Configuration:
+2025-11-13 12:17:38 | INFO     |   canvas_width: 1200
+2025-11-13 12:17:38 | INFO     |   canvas_height: 800
+2025-11-13 12:17:38 | INFO     |   validation_mode: standard
+2025-11-13 12:17:38 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'DeepSeek (Enrichment, Audit, Validation)', 'Request/Response Logging']
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 12:17:38 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Problem text (369 chars)
+2025-11-13 12:17:38 | INFO     |   Type: str
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Extracted data using 5 NLP tools
+2025-11-13 12:17:38 | INFO     |   openie: dict
+2025-11-13 12:17:38 | INFO     |   scibert: dict
+2025-11-13 12:17:38 | INFO     |   chemdataextractor: dict
+2025-11-13 12:17:38 | INFO     |   mathbert: dict
+2025-11-13 12:17:38 | INFO     |   amr: dict
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 0.68ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 12:17:38 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: NLP extraction results
+2025-11-13 12:17:38 | INFO     |   openie: dict
+2025-11-13 12:17:38 | INFO     |   scibert: dict
+2025-11-13 12:17:38 | INFO     |   chemdataextractor: dict
+2025-11-13 12:17:38 | INFO     |   mathbert: dict
+2025-11-13 12:17:38 | INFO     |   amr: dict
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Built graph with 22 nodes from 4 sources
+2025-11-13 12:17:38 | INFO     |   request_id: req_1763016458793_2
+2025-11-13 12:17:38 | INFO     |   summary: dict
+2025-11-13 12:17:38 | INFO     |   node_types: dict
+2025-11-13 12:17:38 | INFO     |   edge_types: dict
+2025-11-13 12:17:38 | INFO     |   nodes: [10 items]
+2025-11-13 12:17:38 | INFO     |   edges: [10 items]
+2025-11-13 12:17:38 | INFO     |   ontology_tags: dict
+2025-11-13 12:17:38 | INFO     |   gap_analysis: dict
+2025-11-13 12:17:38 | INFO     |   disk_persistence: dict
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 4.32ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 1: DeepSeek Enrichment
+2025-11-13 12:17:38 | INFO     | Description: Validate and enrich entities with LLM
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: DeepSeek entity enrichment
+2025-11-13 12:17:38 | INFO     |   error: cannot access local variable 'json' where it is not associated with a value
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: WARNING
+2025-11-13 12:17:38 | INFO     | Duration: 0.38ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-13 12:17:38 | INFO     | Description: Create diagram plan from property graph
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Original request + Property graph
+2025-11-13 12:17:38 | INFO     |   Type: str
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-13 12:17:38 | INFO     |   planning_mode: property_graph_driven
+2025-11-13 12:17:38 | INFO     |   domain: current_electricity
+2025-11-13 12:17:38 | INFO     |   entity_count: 1
+2025-11-13 12:17:38 | INFO     |   relation_count: 0
+2025-11-13 12:17:38 | INFO     |   constraint_count: 1
+2025-11-13 12:17:38 | INFO     |   complexity_score: 0.035
+2025-11-13 12:17:38 | INFO     |   z3_used: False
+2025-11-13 12:17:38 | INFO     |   sympy_used: False
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 0.98ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-13 12:17:38 | INFO     | Description: Build scene graph and select strategy
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Problem specs with 1 objects
+2025-11-13 12:17:38 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Scene with 12 objects
+2025-11-13 12:17:38 | INFO     |   object_count: 12
+2025-11-13 12:17:38 | INFO     |   selected_strategy: heuristic
+2025-11-13 12:17:38 | INFO     |   domain_modules: 0
+2025-11-13 12:17:38 | INFO     |   diagram_plan: dict
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 4.96ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 3: Structural Consistency
+2025-11-13 12:17:38 | INFO     | Description: Compare plan vs scene
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Diagram Plan
+2025-11-13 12:17:38 | INFO     |   entities: 1
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Structural comparison report
+2025-11-13 12:17:38 | INFO     |   missing_in_scene: [1 items]
+2025-11-13 12:17:38 | INFO     |   extra_scene_objects: [12 items]
+2025-11-13 12:17:38 | INFO     |   label_mismatches: [0 items]
+2025-11-13 12:17:38 | INFO     |   relation_gaps: [0 items]
+2025-11-13 12:17:38 | INFO     |   score: 0.0
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 0.22ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 4: Ontology Validation
+2025-11-13 12:17:38 | INFO     | Description: Validate semantic consistency
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Specs with 1 objects
+2025-11-13 12:17:38 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Output:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Consistent: True
+2025-11-13 12:17:38 | INFO     |   source: property_graph
+2025-11-13 12:17:38 | INFO     |   input_stats: dict
+2025-11-13 12:17:38 | INFO     |   consistent: True
+2025-11-13 12:17:38 | INFO     |   errors: [0 items]
+2025-11-13 12:17:38 | INFO     |   warnings: [86 items]
+2025-11-13 12:17:38 | INFO     |   inferences: 0
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase completed: SUCCESS
+2025-11-13 12:17:38 | INFO     | Duration: 34.91ms
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | PHASE 5: Physics Validation
+2025-11-13 12:17:38 | INFO     | Description: Validate physics constraints and relationships
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Phase Input:
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | INFO     | Summary: Scene with 12 objects
+2025-11-13 12:17:38 | INFO     |   Type: Scene
+2025-11-13 12:17:38 | INFO     | ----------------------------------------
+2025-11-13 12:17:38 | ERROR    | 
+2025-11-13 12:17:38 | ERROR    | ================================================================================
+2025-11-13 12:17:38 | ERROR    | ERROR OCCURRED
+2025-11-13 12:17:38 | ERROR    | ================================================================================
+2025-11-13 12:17:38 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-13 12:17:38 | ERROR    | Error: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:17:38 | ERROR    | 
+2025-11-13 12:17:38 | ERROR    | Traceback:
+2025-11-13 12:17:38 | ERROR    |   Traceback (most recent call last):
+2025-11-13 12:17:38 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1492, in generate
+2025-11-13 12:17:38 | ERROR    |       report, scene = self.validator.validate(scene, specs)
+2025-11-13 12:17:38 | ERROR    |                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-11-13 12:17:38 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 117, in validate
+2025-11-13 12:17:38 | ERROR    |       self._validate_geometric(scene, report)
+2025-11-13 12:17:38 | ERROR    |       ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+2025-11-13 12:17:38 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 221, in _validate_geometric
+2025-11-13 12:17:38 | ERROR    |       if self._objects_overlap(obj1, obj2):
+2025-11-13 12:17:38 | ERROR    |          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+2025-11-13 12:17:38 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 471, in _objects_overlap
+2025-11-13 12:17:38 | ERROR    |       return not (x1 + w1 < x2 or x2 + w2 < x1 or y1 + h1 < y2 or y2 + h2 < y1)
+2025-11-13 12:17:38 | ERROR    |                                                   ~~~^~~~
+2025-11-13 12:17:38 | ERROR    |   TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:17:38 | ERROR    |   
+2025-11-13 12:17:38 | ERROR    | ================================================================================
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | RESPONSE
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | Status: FAILED
+2025-11-13 12:17:38 | INFO     | Total Duration: 248179.99ms
+2025-11-13 12:17:38 | ERROR    | Error: unsupported operand type(s) for +: 'NoneType' and 'int'
+2025-11-13 12:17:38 | INFO     | 
+2025-11-13 12:17:38 | INFO     | Full trace saved to: logs/req_20251113_121330.log
+2025-11-13 12:17:38 | INFO     | ================================================================================
+2025-11-13 12:17:38 | INFO     | Trace JSON saved to: logs/req_20251113_121330_trace.json

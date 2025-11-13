@@ -1,0 +1,78 @@
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | Request ID: req_20251113_150759
+2025-11-13 15:07:59 | INFO     | Problem Text Length: 44 characters
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Problem Text:
+2025-11-13 15:07:59 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:07:59 | INFO     |   A simple circuit with a battery and resistor
+2025-11-13 15:07:59 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Configuration:
+2025-11-13 15:07:59 | INFO     |   canvas_width: 1200
+2025-11-13 15:07:59 | INFO     |   canvas_height: 800
+2025-11-13 15:07:59 | INFO     |   validation_mode: strict
+2025-11-13 15:07:59 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'Stanza', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator (BLIP-2)', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 15:07:59 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Phase Input:
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | INFO     | Summary: Problem text (44 chars)
+2025-11-13 15:07:59 | INFO     |   Type: str
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Phase Output:
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | INFO     | Summary: Extracted data using 1 NLP tools
+2025-11-13 15:07:59 | INFO     |   stanza: dict
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:07:59 | INFO     | Duration: 98.10ms
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 15:07:59 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Phase Input:
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | INFO     | Summary: NLP extraction results
+2025-11-13 15:07:59 | INFO     |   stanza: dict
+2025-11-13 15:07:59 | INFO     | ----------------------------------------
+2025-11-13 15:07:59 | ERROR    | 
+2025-11-13 15:07:59 | ERROR    | ================================================================================
+2025-11-13 15:07:59 | ERROR    | ERROR OCCURRED
+2025-11-13 15:07:59 | ERROR    | ================================================================================
+2025-11-13 15:07:59 | ERROR    | Context: {'domain': 'unknown', 'phase': 'generation'}
+2025-11-13 15:07:59 | ERROR    | Error: BrokenPipeError: [Errno 32] Broken pipe
+2025-11-13 15:07:59 | ERROR    | 
+2025-11-13 15:07:59 | ERROR    | Traceback:
+2025-11-13 15:07:59 | ERROR    |   Traceback (most recent call last):
+2025-11-13 15:07:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 970, in generate
+2025-11-13 15:07:59 | ERROR    |       self.progress.start_phase("Property Graph", 1)
+2025-11-13 15:07:59 | ERROR    |       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+2025-11-13 15:07:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/pipeline_logger.py", line 356, in start_phase
+2025-11-13 15:07:59 | ERROR    |       print(f"\n🔄 [{phase_number}/7] {phase_name}...", end='', flush=True)
+2025-11-13 15:07:59 | ERROR    |       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-13 15:07:59 | ERROR    |   BrokenPipeError: [Errno 32] Broken pipe
+2025-11-13 15:07:59 | ERROR    |   
+2025-11-13 15:07:59 | ERROR    | ================================================================================
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | RESPONSE
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | Status: FAILED
+2025-11-13 15:07:59 | INFO     | Total Duration: 100.56ms
+2025-11-13 15:07:59 | ERROR    | Error: [Errno 32] Broken pipe
+2025-11-13 15:07:59 | INFO     | 
+2025-11-13 15:07:59 | INFO     | Full trace saved to: logs/req_20251113_150759.log
+2025-11-13 15:07:59 | INFO     | ================================================================================
+2025-11-13 15:07:59 | INFO     | Trace JSON saved to: logs/req_20251113_150759_trace.json

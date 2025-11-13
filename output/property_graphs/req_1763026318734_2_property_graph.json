@@ -1,0 +1,1688 @@
+{
+  "nodes": [
+    {
+      "id": "left half",
+      "type": "object",
+      "label": "left half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "dielectric \u03ba\u2081",
+      "type": "object",
+      "label": "dielectric \u03ba\u2081",
+      "properties": {},
+      "metadata": {
+        "ontologies": [
+          {
+            "namespace": "physh",
+            "uri": "https://physh.aps.org/terms/dielectrics",
+            "label": "Dielectric Material"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0 and",
+      "type": "object",
+      "label": "0 and",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "\u03ba\u2083",
+      "type": "object",
+      "label": "\u03ba\u2083",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "12 mm",
+      "type": "object",
+      "label": "12 mm",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "configured as",
+      "type": "object",
+      "label": "configured as",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "filled with",
+      "type": "object",
+      "label": "filled with",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "right half",
+      "type": "object",
+      "label": "right half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "divided into",
+      "type": "object",
+      "label": "divided into",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "Question",
+      "type": "object",
+      "label": "Question",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "4:A",
+      "type": "object",
+      "label": "4:A",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "plate",
+      "type": "object",
+      "label": "plate",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "capacitor",
+      "type": "object",
+      "label": "capacitor",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza",
+        "ontologies": [
+          {
+            "namespace": "physh",
+            "uri": "https://physh.aps.org/terms/capacitors",
+            "label": "Capacitor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "area",
+      "type": "object",
+      "label": "area",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "A",
+      "type": "object",
+      "label": "A",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "cm\u00b2",
+      "type": "object",
+      "label": "cm\u00b2",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "separation",
+      "type": "object",
+      "label": "separation",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "2d",
+      "type": "object",
+      "label": "2d",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "mm",
+      "type": "object",
+      "label": "mm",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "half",
+      "type": "object",
+      "label": "half",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "\u03ba\u2081",
+      "type": "object",
+      "label": "\u03ba\u2081",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "regions",
+      "type": "object",
+      "label": "regions",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "top",
+      "type": "object",
+      "label": "top",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "\u03ba\u2082",
+      "type": "object",
+      "label": "\u03ba\u2082",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "bottom",
+      "type": "object",
+      "label": "bottom",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "capacitance",
+      "type": "object",
+      "label": "capacitance",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "uniform",
+      "type": "object",
+      "label": "uniform",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "quarter",
+      "type": "object",
+      "label": "quarter",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "parallel",
+      "type": "object",
+      "label": "parallel",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "-",
+      "type": "object",
+      "label": "-",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "configured",
+      "type": "object",
+      "label": "configured",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "of",
+      "type": "object",
+      "label": "of",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "=",
+      "type": "object",
+      "label": "=",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "10.5",
+      "type": "object",
+      "label": "10.5",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "and",
+      "type": "object",
+      "label": "and",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "7.12",
+      "type": "object",
+      "label": "7.12",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "is",
+      "type": "object",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "follows",
+      "type": "object",
+      "label": "follows",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "as",
+      "type": "object",
+      "label": "as",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": ":",
+      "type": "object",
+      "label": ":",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "The",
+      "type": "object",
+      "label": "The",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "left",
+      "type": "object",
+      "label": "left",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "filled",
+      "type": "object",
+      "label": "filled",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "with",
+      "type": "object",
+      "label": "with",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "dielectric",
+      "type": "object",
+      "label": "dielectric",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "ontologies": [
+          {
+            "namespace": "physh",
+            "uri": "https://physh.aps.org/terms/dielectrics",
+            "label": "Dielectric Material"
+          }
+        ]
+      }
+    },
+    {
+      "id": "21.0",
+      "type": "object",
+      "label": "21.0",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": ".",
+      "type": "object",
+      "label": ".",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "right",
+      "type": "object",
+      "label": "right",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "divided",
+      "type": "object",
+      "label": "divided",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "into",
+      "type": "object",
+      "label": "into",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "two",
+      "type": "object",
+      "label": "two",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "42.0",
+      "type": "object",
+      "label": "42.0",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "58.0",
+      "type": "object",
+      "label": "58.0",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "the",
+      "type": "object",
+      "label": "the",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "total",
+      "type": "object",
+      "label": "total",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "Calculate",
+      "type": "object",
+      "label": "Calculate",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "[",
+      "type": "object",
+      "label": "[",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "Left",
+      "type": "object",
+      "label": "Left",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": ";",
+      "type": "object",
+      "label": ";",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "Right",
+      "type": "object",
+      "label": "Right",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": ",",
+      "type": "object",
+      "label": ",",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "]",
+      "type": "object",
+      "label": "]",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "\u03ba",
+      "type": "parameter",
+      "label": "\u03ba",
+      "properties": {
+        "type": "variable"
+      },
+      "metadata": {
+        "source": "mathbert"
+      }
+    },
+    {
+      "id": "in",
+      "type": "concept",
+      "label": "in",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "quantity",
+      "type": "concept",
+      "label": "quantity",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "on",
+      "type": "concept",
+      "label": "on",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "at",
+      "type": "concept",
+      "label": "at",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "calculate",
+      "type": "concept",
+      "label": "calculate",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "left half",
+      "target": "dielectric \u03ba\u2081",
+      "type": "related_to",
+      "label": "is filled on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "left half",
+      "target": "filled with",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "0 and",
+      "target": "\u03ba\u2083",
+      "type": "related_to",
+      "label": "bottom on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2083",
+      "target": "=",
+      "type": "related_to",
+      "label": "nsubj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2083",
+      "target": "quarter",
+      "type": "related_to",
+      "label": "nummod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "12 mm",
+      "target": "configured as",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "right half",
+      "target": "divided into",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "Question",
+      "target": "4:A",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "4:A",
+      "target": "capacitor",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "plate",
+      "target": "capacitor",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "plate",
+      "target": "area",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "plate",
+      "target": "area",
+      "type": "related_to",
+      "label": "poss",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "plate",
+      "target": "separation",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitor",
+      "target": "configured",
+      "type": "related_to",
+      "label": "nsubj:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitor",
+      "target": "on",
+      "type": "related_to",
+      "label": "location",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitor",
+      "target": "at",
+      "type": "related_to",
+      "label": "location",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "area",
+      "target": "capacitor",
+      "type": "related_to",
+      "label": "nmod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "A",
+      "target": "=",
+      "type": "related_to",
+      "label": "nsubj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "cm\u00b2",
+      "target": "=",
+      "type": "related_to",
+      "label": "obj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "separation",
+      "target": "=",
+      "type": "related_to",
+      "label": "nsubj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "2d",
+      "target": "=",
+      "type": "related_to",
+      "label": "nsubj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "mm",
+      "target": "configured",
+      "type": "related_to",
+      "label": "nsubj:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "half",
+      "target": "filled",
+      "type": "related_to",
+      "label": "nsubj:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "half",
+      "target": "divided",
+      "type": "related_to",
+      "label": "nsubj:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "half",
+      "target": "Calculate",
+      "type": "related_to",
+      "label": "parataxis",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "half",
+      "target": "Calculate",
+      "type": "related_to",
+      "label": "parataxis",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2081",
+      "target": "filled",
+      "type": "related_to",
+      "label": "obl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2081",
+      "target": "half",
+      "type": "related_to",
+      "label": "appos",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "regions",
+      "target": "divided",
+      "type": "related_to",
+      "label": "obl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "top",
+      "target": "divided",
+      "type": "related_to",
+      "label": "obl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "top",
+      "target": "quarter",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2082",
+      "target": "=",
+      "type": "related_to",
+      "label": "obl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "\u03ba\u2082",
+      "target": "half",
+      "type": "related_to",
+      "label": "appos",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "bottom",
+      "target": "=",
+      "type": "related_to",
+      "label": "conj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "bottom",
+      "target": "quarter",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitance",
+      "target": "Calculate",
+      "type": "related_to",
+      "label": "obj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "uniform",
+      "target": "\u03ba\u2081",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "quarter",
+      "target": "\u03ba\u2082",
+      "type": "related_to",
+      "label": "compound",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "quarter",
+      "target": "\u03ba\u2082",
+      "type": "related_to",
+      "label": "appos",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "parallel",
+      "target": "plate",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "-",
+      "target": "parallel",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "-",
+      "target": "top",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "configured",
+      "target": "=",
+      "type": "related_to",
+      "label": "parataxis",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "of",
+      "target": "area",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "=",
+      "target": "configured",
+      "type": "related_to",
+      "label": "parataxis",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "=",
+      "target": "filled",
+      "type": "related_to",
+      "label": "parataxis",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "=",
+      "target": "divided",
+      "type": "related_to",
+      "label": "advcl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "=",
+      "target": "divided",
+      "type": "related_to",
+      "label": "advcl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "10.5",
+      "target": "cm\u00b2",
+      "type": "related_to",
+      "label": "nummod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "and",
+      "target": "separation",
+      "type": "related_to",
+      "label": "cc",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "and",
+      "target": "bottom",
+      "type": "related_to",
+      "label": "cc",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "7.12",
+      "target": "mm",
+      "type": "related_to",
+      "label": "nummod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "is",
+      "target": "configured",
+      "type": "related_to",
+      "label": "aux:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "is",
+      "target": "filled",
+      "type": "related_to",
+      "label": "aux:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "is",
+      "target": "divided",
+      "type": "related_to",
+      "label": "aux:pass",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "follows",
+      "target": "configured",
+      "type": "related_to",
+      "label": "advcl",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "as",
+      "target": "follows",
+      "type": "related_to",
+      "label": "mark",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ":",
+      "target": "configured",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ":",
+      "target": "\u03ba\u2081",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ":",
+      "target": "\u03ba\u2082",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "The",
+      "target": "half",
+      "type": "related_to",
+      "label": "det",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "The",
+      "target": "half",
+      "type": "related_to",
+      "label": "det",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "left",
+      "target": "half",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "with",
+      "target": "\u03ba\u2081",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "with",
+      "target": "\u03ba\u2082",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "with",
+      "target": "=",
+      "type": "related_to",
+      "label": "mark",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "dielectric",
+      "target": "\u03ba\u2081",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "21.0",
+      "target": "=",
+      "type": "related_to",
+      "label": "obj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ".",
+      "target": "filled",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ".",
+      "target": "divided",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ".",
+      "target": "Calculate",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "right",
+      "target": "half",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "into",
+      "target": "top",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "two",
+      "target": "regions",
+      "type": "related_to",
+      "label": "nummod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "42.0",
+      "target": "=",
+      "type": "related_to",
+      "label": "obj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "58.0",
+      "target": "=",
+      "type": "related_to",
+      "label": "obj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "the",
+      "target": "capacitance",
+      "type": "related_to",
+      "label": "det",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "total",
+      "target": "capacitance",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "[",
+      "target": "half",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "Left",
+      "target": "half",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ";",
+      "target": "half",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "Right",
+      "target": "half",
+      "type": "related_to",
+      "label": "advmod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": ",",
+      "target": "quarter",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "]",
+      "target": "half",
+      "type": "related_to",
+      "label": "punct",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "on",
+      "target": "plate",
+      "type": "related_to",
+      "label": "ARG1",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "at",
+      "target": "plate",
+      "type": "related_to",
+      "label": "ARG1",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 68,
+    "edge_count": 86
+  }
+}

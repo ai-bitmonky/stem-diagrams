@@ -1,0 +1,242 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "domain": "electrostatics",
+    "renderer": "capacitor"
+  },
+  "coord_system": {
+    "frame": "cartesian",
+    "origin": [
+      600,
+      400
+    ],
+    "scale": 100,
+    "extent": [
+      1200,
+      800
+    ],
+    "margins": [
+      40,
+      40,
+      40,
+      40
+    ]
+  },
+  "objects": [
+    {
+      "id": "plate_top",
+      "type": "rectangle",
+      "properties": {
+        "width": 300,
+        "height": 10,
+        "charge": "+Q",
+        "label": "Rectangle: plate_top",
+        "label_position": {
+          "x": 520,
+          "y": 370
+        }
+      },
+      "position": {
+        "x": 520,
+        "y": 400,
+        "width": 10,
+        "height": 100
+      },
+      "style": {
+        "fill": "#ff4444",
+        "stroke": "#d32f2f",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "plate_bottom",
+      "type": "rectangle",
+      "properties": {
+        "width": 300,
+        "height": 10,
+        "charge": "-Q",
+        "label": "Rectangle: plate_bottom",
+        "label_position": {
+          "x": 680,
+          "y": 370
+        }
+      },
+      "position": {
+        "x": 680,
+        "y": 400,
+        "width": 10,
+        "height": 100
+      },
+      "style": {
+        "fill": "#4444ff",
+        "stroke": "#1976d2",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "field_line_0",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_0",
+        "label_position": {
+          "x": 550,
+          "y": 370
+        }
+      },
+      "position": {
+        "x": 550,
+        "y": 400,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_1",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_1",
+        "label_position": {
+          "x": 575.0,
+          "y": 370.0
+        }
+      },
+      "position": {
+        "x": 575.0,
+        "y": 400.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_2",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_2",
+        "label_position": {
+          "x": 602.5,
+          "y": 370.0
+        }
+      },
+      "position": {
+        "x": 602.5,
+        "y": 400.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_3",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_3",
+        "label_position": {
+          "x": 626.25,
+          "y": 370.0
+        }
+      },
+      "position": {
+        "x": 626.25,
+        "y": 400.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_4",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_4",
+        "label_position": {
+          "x": 653.125,
+          "y": 370.0
+        }
+      },
+      "position": {
+        "x": 653.125,
+        "y": 400.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "type": "parallel",
+      "objects": [
+        "plate_top",
+        "plate_bottom"
+      ],
+      "value": null
+    },
+    {
+      "type": "distance",
+      "objects": [
+        "plate_top",
+        "plate_bottom"
+      ],
+      "value": 150
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "plate_top",
+        "plate_bottom"
+      ],
+      "value": null
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4"
+      ],
+      "value": null
+    },
+    {
+      "type": "no_overlap",
+      "objects": [
+        "plate_top",
+        "plate_bottom",
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4"
+      ],
+      "value": null
+    }
+  ]
+}

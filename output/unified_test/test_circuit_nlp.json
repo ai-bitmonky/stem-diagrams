@@ -1,0 +1,74 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "12V",
+      "properties": {
+        "start": 24,
+        "end": 27,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "100\u03a9",
+      "properties": {
+        "start": 37,
+        "end": 41,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "10\u03bcF",
+      "properties": {
+        "start": 56,
+        "end": 60,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "12V",
+      "target": "100\u03a9",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "12V",
+      "target": "10\u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "100\u03a9",
+      "target": "10\u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 3,
+    "num_relationships": 3,
+    "processing_time": 0.010849952697753906,
+    "sentence_count": 2,
+    "token_count": 23
+  }
+}

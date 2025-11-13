@@ -1,0 +1,12 @@
+{
+  "domain": "biology",
+  "entities": [],
+  "relationships": [],
+  "metadata": {
+    "num_entities": 0,
+    "num_relationships": 0,
+    "processing_time": 0.0036559104919433594,
+    "sentence_count": 2,
+    "token_count": 20
+  }
+}

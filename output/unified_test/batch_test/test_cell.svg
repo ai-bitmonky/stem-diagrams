@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" version="1.1">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="800" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" font-size="24" font-weight="bold" font-family="Arial" fill="#333333">Cell Diagram</text>
+  <g id="objects">
+    <g id="cell_membrane">
+      <rect x="480.0" y="380.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="500.0" y="405.0" text-anchor="middle" font-size="10">Cell</text>
+    </g>
+    <g id="nucleus">
+      <rect x="480.0" y="380.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="500.0" y="405.0" text-anchor="middle" font-size="10">Nucleus</text>
+    </g>
+    <g id="mitochondria">
+      <rect x="600.0" y="300.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="620.0" y="325.0" text-anchor="middle" font-size="10">Mitochondria</text>
+    </g>
+    <g id="ribosome">
+      <rect x="380.0" y="460.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="400.0" y="485.0" text-anchor="middle" font-size="10">Ribosome</text>
+    </g>
+  </g>
+  <g id="relationships"/>
+  <g id="annotations"/>
+</svg>

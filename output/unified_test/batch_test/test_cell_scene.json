@@ -1,0 +1,142 @@
+{
+  "scene_id": "bio_8371",
+  "domain": "biology",
+  "diagram_type": "cell_diagram",
+  "title": "Cell Diagram",
+  "description": "A cell with a nucleus, mitochondria, and ribosomes. The nucleus contains DNA and controls cellular functions.",
+  "objects": [
+    {
+      "id": "cell_membrane",
+      "object_type": "cell",
+      "position": {
+        "x": 500.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 0.0,
+        "height": 0.0,
+        "depth": 0.0,
+        "radius": 250
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#4ECDC4",
+        "fill_color": "#E8F8F5",
+        "stroke_width": 4.0,
+        "opacity": 0.3,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "Cell",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "nucleus",
+      "object_type": "organelle",
+      "position": {
+        "x": 500.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 0.0,
+        "height": 0.0,
+        "depth": 0.0,
+        "radius": 80
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#333333",
+        "fill_color": "#FF6B6B",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "Nucleus",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "mitochondria",
+      "object_type": "organelle",
+      "position": {
+        "x": 620.0,
+        "y": 320.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 0.0,
+        "height": 0.0,
+        "depth": 0.0,
+        "radius": 50
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#333333",
+        "fill_color": "#FFE66D",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "Mitochondria",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "ribosome",
+      "object_type": "organelle",
+      "position": {
+        "x": 400.0,
+        "y": 480.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 0.0,
+        "height": 0.0,
+        "depth": 0.0,
+        "radius": 20
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#333333",
+        "fill_color": "#4ECDC4",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "Ribosome",
+      "properties": {},
+      "metadata": {}
+    }
+  ],
+  "relationships": [],
+  "constraints": [],
+  "annotations": [],
+  "canvas_width": 1000,
+  "canvas_height": 800,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

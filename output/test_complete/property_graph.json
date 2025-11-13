@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "a simple",
+      "type": "object",
+      "label": "a simple",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "a 12V",
+      "type": "object",
+      "label": "a 12V",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "battery connected",
+      "type": "object",
+      "label": "battery connected",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "a 100",
+      "type": "object",
+      "label": "a 100",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "connected in",
+      "type": "object",
+      "label": "connected in",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "to a",
+      "type": "object",
+      "label": "to a",
+      "properties": {},
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "a simple",
+      "target": "a 12V",
+      "type": "related_to",
+      "label": "DC circuit on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "battery connected",
+      "target": "a 100",
+      "type": "related_to",
+      "label": "in series on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "connected in",
+      "target": "to a",
+      "type": "related_to",
+      "label": "series",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 6,
+    "edge_count": 3
+  }
+}

@@ -1,0 +1,5 @@
+# Flask API Server Requirements
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Existing pipeline requirements are already in requirements.txt

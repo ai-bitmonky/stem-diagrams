@@ -1,0 +1,105 @@
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | Request ID: req_20251112_111707
+2025-11-12 11:17:07 | INFO     | Problem Text Length: 69 characters
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Problem Text:
+2025-11-12 11:17:07 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:17:07 | INFO     |   A block of mass m sits on a table. A force F is applied horizontally.
+2025-11-12 11:17:07 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Configuration:
+2025-11-12 11:17:07 | INFO     |   canvas_width: 1200
+2025-11-12 11:17:07 | INFO     |   canvas_height: 800
+2025-11-12 11:17:07 | INFO     |   validation_mode: strict
+2025-11-12 11:17:07 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'Diagram Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Request/Response Logging']
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | PHASE 1: Property Graph Construction
+2025-11-12 11:17:07 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase Input:
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | Summary: NLP extraction results
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase Output:
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | Summary: Built graph with 0 nodes from 0 sources
+2025-11-12 11:17:07 | INFO     |   summary: dict
+2025-11-12 11:17:07 | INFO     |   node_types: dict
+2025-11-12 11:17:07 | INFO     |   edge_types: dict
+2025-11-12 11:17:07 | INFO     |   nodes: [0 items]
+2025-11-12 11:17:07 | INFO     |   edges: [0 items]
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:17:07 | INFO     | Duration: 0.41ms
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | PHASE 2: Problem Understanding + Complexity
+2025-11-12 11:17:07 | INFO     | Description: Analyze problem and assess complexity
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase Input:
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | Summary: Problem text
+2025-11-12 11:17:07 | INFO     |   Type: str
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase Output:
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | Summary: Domain: mechanics, Objects: 4
+2025-11-12 11:17:07 | INFO     |   domain: mechanics
+2025-11-12 11:17:07 | INFO     |   object_count: 4
+2025-11-12 11:17:07 | INFO     |   constraint_count: 0
+2025-11-12 11:17:07 | INFO     |   complexity_score: 0.21000000000000002
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:17:07 | INFO     | Duration: 6.15ms
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-12 11:17:07 | INFO     | Description: Build scene graph and select strategy
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Phase Input:
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | INFO     | Summary: Problem specs with 4 objects
+2025-11-12 11:17:07 | INFO     |   Type: CanonicalProblemSpec
+2025-11-12 11:17:07 | INFO     | ----------------------------------------
+2025-11-12 11:17:07 | ERROR    | 
+2025-11-12 11:17:07 | ERROR    | ================================================================================
+2025-11-12 11:17:07 | ERROR    | ERROR OCCURRED
+2025-11-12 11:17:07 | ERROR    | ================================================================================
+2025-11-12 11:17:07 | ERROR    | Context: {'domain': 'mechanics', 'phase': 'generation'}
+2025-11-12 11:17:07 | ERROR    | Error: BrokenPipeError: [Errno 32] Broken pipe
+2025-11-12 11:17:07 | ERROR    | 
+2025-11-12 11:17:07 | ERROR    | Traceback:
+2025-11-12 11:17:07 | ERROR    |   Traceback (most recent call last):
+2025-11-12 11:17:07 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 961, in generate
+2025-11-12 11:17:07 | ERROR    |       self.progress.start_phase("Scene Synthesis", 3)
+2025-11-12 11:17:07 | ERROR    |       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+2025-11-12 11:17:07 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/pipeline_logger.py", line 356, in start_phase
+2025-11-12 11:17:07 | ERROR    |       print(f"\n🔄 [{phase_number}/7] {phase_name}...", end='', flush=True)
+2025-11-12 11:17:07 | ERROR    |       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-12 11:17:07 | ERROR    |   BrokenPipeError: [Errno 32] Broken pipe
+2025-11-12 11:17:07 | ERROR    |   
+2025-11-12 11:17:07 | ERROR    | ================================================================================
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | RESPONSE
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | Status: FAILED
+2025-11-12 11:17:07 | INFO     | Total Duration: 8.54ms
+2025-11-12 11:17:07 | ERROR    | Error: [Errno 32] Broken pipe
+2025-11-12 11:17:07 | INFO     | 
+2025-11-12 11:17:07 | INFO     | Full trace saved to: logs/req_20251112_111707.log
+2025-11-12 11:17:07 | INFO     | ================================================================================
+2025-11-12 11:17:07 | INFO     | Trace JSON saved to: logs/req_20251112_111707_trace.json

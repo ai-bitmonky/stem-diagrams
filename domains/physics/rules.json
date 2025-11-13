@@ -1,0 +1,159 @@
+{
+  "domain": "physics",
+  "version": "1.0.0",
+  "description": "Physics domain validation rules and constraints",
+  "diagram_types": {
+    "free_body_diagram": {
+      "required_objects": ["body"],
+      "required_forces": ["gravity"],
+      "validation_rules": [
+        {
+          "rule_id": "fbd_001",
+          "name": "Gravity must point downward",
+          "description": "Gravity force must have angle of 270° (downward)",
+          "severity": "error",
+          "check": "force_direction",
+          "parameters": {
+            "force_name": "gravity",
+            "expected_angle": 270,
+            "tolerance": 5
+          }
+        },
+        {
+          "rule_id": "fbd_002",
+          "name": "Normal force perpendicular to surface",
+          "description": "Normal force must be perpendicular to contact surface",
+          "severity": "error",
+          "check": "force_perpendicular"
+        },
+        {
+          "rule_id": "fbd_003",
+          "name": "Force balance check",
+          "description": "Sum of forces should be near zero for equilibrium",
+          "severity": "warning",
+          "check": "force_balance",
+          "parameters": {
+            "tolerance": 0.1
+          }
+        },
+        {
+          "rule_id": "fbd_004",
+          "name": "Friction opposes motion",
+          "description": "Friction force must oppose direction of motion/applied force",
+          "severity": "error",
+          "check": "friction_direction"
+        },
+        {
+          "rule_id": "fbd_005",
+          "name": "Friction magnitude limit",
+          "description": "Friction force must not exceed μN (coefficient times normal force)",
+          "severity": "error",
+          "check": "friction_magnitude",
+          "parameters": {
+            "max_multiplier": 1.5
+          }
+        }
+      ],
+      "physics_constraints": {
+        "newton_laws": {
+          "first_law": "Object at rest or constant velocity => ΣF = 0",
+          "second_law": "ΣF = ma",
+          "third_law": "For every action, there is an equal and opposite reaction"
+        },
+        "force_relationships": {
+          "weight": "W = mg, where g = 9.8 m/s²",
+          "normal_horizontal": "N = W (for horizontal surface, no vertical forces)",
+          "normal_incline": "N = W·cos(θ) (for incline at angle θ)",
+          "friction_static": "f_s ≤ μ_s·N",
+          "friction_kinetic": "f_k = μ_k·N"
+        }
+      }
+    },
+    "incline_plane": {
+      "extends": "free_body_diagram",
+      "required_properties": ["angle"],
+      "validation_rules": [
+        {
+          "rule_id": "inc_001",
+          "name": "Incline angle range",
+          "description": "Incline angle must be between 0° and 90°",
+          "severity": "error",
+          "check": "angle_range",
+          "parameters": {
+            "min_angle": 0,
+            "max_angle": 90
+          }
+        },
+        {
+          "rule_id": "inc_002",
+          "name": "Coordinate system aligned",
+          "description": "Coordinate system should align with incline",
+          "severity": "warning",
+          "check": "coordinate_alignment"
+        }
+      ]
+    }
+  },
+  "object_constraints": {
+    "force_vector": {
+      "required_properties": ["magnitude", "angle"],
+      "property_constraints": {
+        "magnitude": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Force magnitude in Newtons"
+        },
+        "angle": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Force direction in degrees (0=right, 90=up)"
+        }
+      }
+    },
+    "mass": {
+      "required_properties": ["mass_value"],
+      "property_constraints": {
+        "mass_value": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true,
+          "description": "Mass in kilograms"
+        }
+      }
+    }
+  },
+  "unit_conversions": {
+    "mass": {
+      "g": 0.001,
+      "kg": 1.0,
+      "mg": 0.000001
+    },
+    "force": {
+      "N": 1.0,
+      "kN": 1000.0,
+      "dyne": 0.00001
+    },
+    "angle": {
+      "deg": 1.0,
+      "rad": 57.2958
+    }
+  },
+  "constants": {
+    "g": {
+      "value": 9.8,
+      "unit": "m/s²",
+      "description": "Acceleration due to gravity (Earth)"
+    },
+    "G": {
+      "value": 6.674e-11,
+      "unit": "N·m²/kg²",
+      "description": "Gravitational constant"
+    }
+  },
+  "validation_severity_levels": {
+    "error": "Diagram violates physics laws or fundamental constraints",
+    "warning": "Diagram may be incomplete or inconsistent",
+    "info": "Suggestion for improvement"
+  }
+}

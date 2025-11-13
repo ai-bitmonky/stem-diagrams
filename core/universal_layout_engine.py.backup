@@ -1,0 +1,718 @@
+"""
+Universal Layout Engine - Single Robust Pipeline Phase 4
+Merges LP solver + Scene solver + PhysicsPositionCalculator + aesthetic optimization
+Single deterministic layout algorithm
+"""
+
+import math
+from typing import Dict, List, Tuple, Optional
+from core.scene.schema_v1 import Scene, SceneObject, Constraint, ConstraintType, PrimitiveType
+from core.universal_ai_analyzer import CanonicalProblemSpec, PhysicsDomain
+
+
+class UniversalLayoutEngine:
+    """
+    Universal Layout Engine - Single robust implementation
+
+    Merges:
+    - constraint_solver.py (LP-based solver)
+    - core/solver/constraint_solver.py (Scene-based iterative solver)
+    - PhysicsPositionCalculator (physics-space positioning)
+
+    Single deterministic algorithm that:
+    1. Initializes smart positions based on domain
+    2. Applies constraint satisfaction
+    3. Optimizes for aesthetics
+    4. Places labels intelligently
+    """
+
+    def __init__(self, width: int = 1200, height: int = 800):
+        """
+        Initialize Universal Layout Engine
+
+        Args:
+            width: Canvas width in pixels
+            height: Canvas height in pixels
+        """
+        self.width = width
+        self.height = height
+        self.center = (width // 2, height // 2)
+        self.margin = 40
+
+        print(f"✅ UniversalLayoutEngine initialized")
+        print(f"   Canvas: {width}x{height}")
+        print(f"   Center: {self.center}")
+
+    def solve(self, scene: Scene, spec: CanonicalProblemSpec) -> Scene:
+        """
+        Solve layout for scene
+
+        Pipeline:
+        1. Domain-aware initial placement
+        2. Iterative constraint satisfaction (max 50 iterations)
+        3. Aesthetic optimization (spacing, alignment)
+        4. Intelligent label placement
+        5. Final validation
+
+        Args:
+            scene: Scene with objects and constraints (positions may be None)
+            spec: Problem specification for domain context
+
+        Returns:
+            Scene with all positions determined
+        """
+        print(f"\n{'='*80}")
+        print(f"📐 UNIVERSAL LAYOUT ENGINE - Phase 4")
+        print(f"{'='*80}\n")
+
+        # Step 1: Domain-aware initial placement
+        print("Step 1/5: Domain-Aware Initial Placement")
+        self._initial_placement(scene, spec)
+        print(f"   ✅ Positioned {len(scene.objects)} objects")
+
+        # Step 2: Iterative constraint satisfaction
+        print("\nStep 2/5: Constraint Satisfaction")
+        iterations = self._solve_constraints(scene)
+        print(f"   ✅ Converged in {iterations} iterations")
+
+        # Step 3: Aesthetic optimization
+        print("\nStep 3/5: Aesthetic Optimization")
+        self._optimize_aesthetics(scene, spec)
+        print(f"   ✅ Optimized spacing and alignment")
+
+        # Step 4: Intelligent label placement
+        print("\nStep 4/5: Intelligent Label Placement")
+        self._place_labels(scene)
+        print(f"   ✅ Placed labels with overlap avoidance")
+
+        # Step 5: Final validation
+        print("\nStep 5/5: Layout Validation")
+        valid, issues = self._validate_layout(scene)
+        if valid:
+            print(f"   ✅ Layout is valid")
+        else:
+            print(f"   ⚠️  Layout issues: {', '.join(issues)}")
+
+        print(f"\n{'='*80}")
+        print(f"✅ UNIVERSAL LAYOUT ENGINE COMPLETE")
+        print(f"{'='*80}\n")
+
+        return scene
+
+    def _initial_placement(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Step 1: Smart initial positioning based on domain"""
+
+        domain = spec.domain
+
+        if domain == PhysicsDomain.ELECTROSTATICS:
+            self._place_electrostatics(scene, spec)
+
+        elif domain == PhysicsDomain.CURRENT_ELECTRICITY:
+            self._place_circuit(scene, spec)
+
+        elif domain == PhysicsDomain.MECHANICS:
+            self._place_mechanics(scene, spec)
+
+        elif domain == PhysicsDomain.THERMODYNAMICS:
+            self._place_thermodynamics(scene, spec)
+
+        elif domain == PhysicsDomain.OPTICS:
+            self._place_optics(scene, spec)
+
+        else:
+            # Generic grid layout
+            self._place_generic_grid(scene)
+
+    def _place_electrostatics(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Place electrostatics objects (charges, field lines, capacitor plates)"""
+
+        # Check if this is a capacitor problem (plates present)
+        plates = [obj for obj in scene.objects if 'plate' in obj.id.lower()]
+        charges = [obj for obj in scene.objects if 'charge' in obj.type.value.lower()]
+        field_lines = [obj for obj in scene.objects if 'field' in obj.id.lower() or 'field' in obj.type.value.lower()]
+        dielectric = [obj for obj in scene.objects if 'dielectric' in obj.id.lower()]
+
+        if plates:
+            # Capacitor layout - vertical plates with horizontal separation
+            plate_separation = 150  # Default pixel separation (reasonable default)
+
+            # Debug: Print ALL constraints
+            print(f"   🔍 DEBUG: Found {len(scene.constraints)} total constraints")
+            for i, c in enumerate(scene.constraints):
+                print(f"      Constraint {i}: type={c.type}, value={getattr(c, 'value', 'N/A')}, objects={getattr(c, 'objects', 'N/A')}")
+
+            # Check DISTANCE constraints for explicit separation (USE FIRST ONE ONLY)
+            distance_applied = False
+            for constraint in scene.constraints:
+                if constraint.type == ConstraintType.DISTANCE and constraint.value and not distance_applied:
+                    # SAFETY CLAMP to prevent off-screen positioning (100-300px range)
+                    plate_separation = min(max(constraint.value, 100), 300)
+                    print(f"   ℹ️  Using FIRST DISTANCE constraint: {constraint.value}px → clamped to {plate_separation}px")
+                    distance_applied = True  # Only use the first constraint
+
+            if len(plates) == 2:
+                # Two parallel plates
+                plate1_x = self.center[0] - plate_separation / 2
+                plate2_x = self.center[0] + plate_separation / 2
+
+                plates[0].position = {
+                    'x': plate1_x,
+                    'y': self.center[1],
+                    'width': 10,
+                    'height': 100
+                }
+                plates[1].position = {
+                    'x': plate2_x,
+                    'y': self.center[1],
+                    'width': 10,
+                    'height': 100
+                }
+
+                print(f"   📍 Positioned plates: plate_top x={plate1_x:.1f}, plate_bottom x={plate2_x:.1f} (separation={plate_separation}px)")
+
+            # Place dielectric between plates
+            if dielectric and len(plates) == 2:
+                dielectric[0].position = {
+                    'x': self.center[0],
+                    'y': self.center[1],
+                    'width': plate_separation * 0.6,
+                    'height': 80
+                }
+
+            # Place field lines between plates (vertical arrows pointing down)
+            if field_lines:
+                num_lines = len(field_lines)
+                for i, field_line in enumerate(field_lines):
+                    # Distribute evenly between plates
+                    x_pos = self.center[0] - plate_separation/3 + (i * plate_separation * 0.66 / max(num_lines-1, 1))
+                    field_line.position = {
+                        'x': x_pos,
+                        'y': self.center[1],
+                        'length': 60,
+                        'angle': 90  # Pointing downward
+                    }
+
+        else:
+            # Standard charge layout
+            # Arrange charges in optimal pattern
+            if len(charges) == 1:
+                # Single charge at center
+                charges[0].position = {'x': self.center[0], 'y': self.center[1]}
+
+            elif len(charges) == 2:
+                # Two charges: horizontal line
+                spacing = min(self.width, self.height) * 0.4
+                charges[0].position = {'x': self.center[0] - spacing/2, 'y': self.center[1]}
+                charges[1].position = {'x': self.center[0] + spacing/2, 'y': self.center[1]}
+
+            else:
+                # Multiple charges: circle arrangement
+                radius = min(self.width, self.height) * 0.3
+                for i, charge in enumerate(charges):
+                    angle = 2 * math.pi * i / len(charges)
+                    charge.position = {
+                        'x': self.center[0] + radius * math.cos(angle),
+                        'y': self.center[1] + radius * math.sin(angle)
+                    }
+
+        # Place remaining objects at center
+        placed_ids = {obj.id for obj in plates + charges + field_lines + dielectric}
+        for obj in scene.objects:
+            if obj.id not in placed_ids and not obj.position:
+                obj.position = {'x': self.center[0], 'y': self.center[1]}
+
+    def _place_circuit(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Place circuit objects (battery, resistors, capacitors, wires)"""
+
+        components = [obj for obj in scene.objects if obj.type in [PrimitiveType.BATTERY_SYMBOL, PrimitiveType.RESISTOR_SYMBOL, PrimitiveType.CAPACITOR_SYMBOL]]
+        
+        # Simple rectangular layout
+        if not components: return
+
+        x = self.center[0] - 200
+        y = self.center[1] - 150
+        width = 400
+        height = 300
+
+        # Place components along the rectangle
+        if len(components) == 1:
+            components[0].position = {'x': self.center[0], 'y': y}
+        elif len(components) == 2:
+            components[0].position = {'x': x, 'y': self.center[1]}
+            components[1].position = {'x': x + width, 'y': self.center[1]}
+        elif len(components) == 3:
+            components[0].position = {'x': self.center[0], 'y': y}
+            components[1].position = {'x': x, 'y': self.center[1]}
+            components[2].position = {'x': x + width, 'y': self.center[1]}
+        else:
+            # Distribute components along the 4 sides
+            side_len = len(components) // 4
+            for i, comp in enumerate(components):
+                if i < side_len: # Top
+                    comp.position = {'x': x + (i + 1) * width / (side_len + 1), 'y': y}
+                elif i < 2 * side_len: # Right
+                    comp.position = {'x': x + width, 'y': y + (i - side_len + 1) * height / (side_len + 1)}
+                elif i < 3 * side_len: # Bottom
+                    comp.position = {'x': x + width - (i - 2 * side_len + 1) * width / (side_len + 1), 'y': y + height}
+                else: # Left
+                    comp.position = {'x': x, 'y': y + height - (i - 3 * side_len + 1) * height / (side_len + 1)}
+
+    def _place_mechanics(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Place mechanics objects (masses, forces, surfaces)"""
+
+        surfaces = [obj for obj in scene.objects if obj.type == PrimitiveType.LINE and 'surface' in obj.id]
+        masses = [obj for obj in scene.objects if obj.type == PrimitiveType.MASS]
+
+        # Place surfaces first
+        for i, surface in enumerate(surfaces):
+            if not surface.position:
+                surface.position = {
+                    'x': self.margin,
+                    'y': self.height - self.margin - 50 * (i + 1),
+                    'width': self.width - 2 * self.margin,
+                    'height': 5
+                }
+
+        # Place masses on surfaces
+        for mass in masses:
+            if not mass.position:
+                # Find the surface this mass is on
+                surface = next((s for s in surfaces if any(r.get('subject') == mass.id and r.get('target') == s.id for r in spec.relationships)), None)
+                if surface and surface.position:
+                    mass.position = {
+                        'x': self.center[0],
+                        'y': surface.position['y'] - mass.properties.get('height', 50) / 2
+                    }
+                else:
+                    # Default placement if no surface
+                    mass.position = {'x': self.center[0], 'y': self.center[1]}
+
+    def _place_thermodynamics(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Place thermodynamics objects (PV diagrams, gas states)"""
+
+        # For PV diagrams, use centered layout
+        for i, obj in enumerate(scene.objects):
+            if not obj.position:
+                obj.position = {
+                    'x': self.center[0],
+                    'y': self.center[1] + i * 50 - (len(scene.objects)-1) * 25
+                }
+
+    def _place_optics(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Place optics objects (lenses, mirrors, rays)"""
+
+        # Add principal axis if it doesn't exist
+        if not any(obj.type == PrimitiveType.LINE and obj.id == 'principal_axis' for obj in scene.objects):
+            scene.objects.append(SceneObject(
+                id='principal_axis',
+                type=PrimitiveType.LINE,
+                properties={
+                    'start': {'x': self.margin, 'y': self.center[1]},
+                    'end': {'x': self.width - self.margin, 'y': self.center[1]}
+                }
+            ))
+
+        # Place lens/mirror at the center
+        lens_or_mirror = next((obj for obj in scene.objects if obj.type in [PrimitiveType.LENS]), None)
+        if lens_or_mirror and not lens_or_mirror.position:
+            lens_or_mirror.position = {'x': self.center[0], 'y': self.center[1]}
+
+        # Place other objects relative to the lens/mirror
+        for obj in scene.objects:
+            if obj.position:
+                continue
+
+            if obj.type == PrimitiveType.FOCAL_POINT:
+                parent = self._get_obj(scene, obj.properties.get('parent'))
+                if parent and parent.position:
+                    distance = obj.properties.get('distance', 0)
+                    obj.position = {'x': parent.position['x'] + distance, 'y': parent.position['y']}
+            elif obj.properties.get('is_object'):
+                # Place object to the left of the lens
+                obj.position = {'x': self.center[0] - 200, 'y': self.center[1] - 50}
+            elif obj.properties.get('is_image'):
+                # Place image to the right of the lens
+                obj.position = {'x': self.center[0] + 200, 'y': self.center[1] + 50}
+            else:
+                # Generic placement for other objects
+                obj.position = {'x': self.center[0], 'y': self.center[1]}
+
+    def _place_generic_grid(self, scene: Scene):
+        """Generic grid layout for unknown domains"""
+
+        n = len(scene.objects)
+        cols = math.ceil(math.sqrt(n))
+
+        for i, obj in enumerate(scene.objects):
+            if not obj.position:
+                row = i // cols
+                col = i % cols
+                spacing_x = (self.width - 2 * self.margin) / (cols + 1)
+                spacing_y = (self.height - 2 * self.margin) / (cols + 1)
+
+                obj.position = {
+                    'x': self.margin + spacing_x * (col + 1),
+                    'y': self.margin + spacing_y * (row + 1)
+                }
+
+    def _solve_constraints(self, scene: Scene) -> int:
+        """Step 2: Iterative constraint satisfaction"""
+
+        max_iterations = 50
+        tolerance = 1e-3
+
+        for iteration in range(max_iterations):
+            converged = True
+
+            for constraint in scene.constraints:
+                moved = self._apply_constraint(scene, constraint)
+                if moved > tolerance:
+                    converged = False
+
+            if converged:
+                return iteration + 1
+
+        return max_iterations
+
+    def _apply_constraint(self, scene: Scene, constraint: Constraint) -> float:
+        """Apply single constraint, return max displacement"""
+
+        max_displacement = 0.0
+
+        if constraint.type == ConstraintType.ALIGNED_H:
+            # Guard against missing objects
+            objects = self._get_objects(scene, constraint.objects)
+            if not objects: return 0.0
+
+            # Align horizontally (same y)
+            if constraint.objects:
+                positions = [obj.position for obj in objects if obj.position]
+                if not positions: return 0.0
+                avg_y = sum(p.get('y', 0) for p in positions) / len(positions)
+
+                for oid in constraint.objects:
+                    obj = self._get_obj(scene, oid)
+                    old_y = obj.position.get('y', 0)
+                    obj.position['y'] = avg_y
+                    max_displacement = max(max_displacement, abs(avg_y - old_y))
+
+        elif constraint.type == ConstraintType.ALIGNED_V:
+            # Guard against missing objects
+            objects = self._get_objects(scene, constraint.objects)
+            if not objects: return 0.0
+
+            # Align vertically (same x)
+            if constraint.objects:
+                positions = [obj.position for obj in objects if obj.position]
+                if not positions: return 0.0
+                avg_x = sum(p.get('x', 0) for p in positions) / len(positions)
+
+                for oid in constraint.objects:
+                    obj = self._get_obj(scene, oid)
+                    old_x = obj.position.get('x', 0)
+                    obj.position['x'] = avg_x
+                    max_displacement = max(max_displacement, abs(avg_x - old_x))
+
+        elif constraint.type == ConstraintType.COINCIDENT:
+            # Make object centers coincide
+            objects = self._get_objects(scene, constraint.objects)
+            if not objects: return 0.0
+
+            positions = [obj.position for obj in objects if obj.position]
+            if not positions: return 0.0
+            avg_x = sum(p.get('x', 0) for p in positions) / len(positions)
+            avg_y = sum(p.get('y', 0) for p in positions) / len(positions)
+
+            for obj in objects:
+                if obj.position:
+                    obj.position['x'] = avg_x
+                    obj.position['y'] = avg_y
+
+        elif constraint.type == ConstraintType.DISTANCE:
+            # SKIP: Distance constraints already handled in Step 1 (domain-aware placement)
+            # Applying them here causes double-scaling issues (constraint value * scene scale)
+            print(f"      ⏭️  Skipping DISTANCE constraint (already applied in initial placement)")
+            return 0.0
+
+        # FIX: Implement missing constraints
+        elif constraint.type == ConstraintType.COLLINEAR:
+            objects = self._get_objects(scene, constraint.objects)
+            if len(objects) < 2: return 0.0
+            
+            # Simple horizontal or vertical alignment for now
+            positions = [obj.position for obj in objects if obj.position]
+            if not positions: return 0.0
+            
+            avg_y = sum(p.get('y', 0) for p in positions) / len(positions)
+            for obj in objects:
+                if obj.position:
+                    old_y = obj.position.get('y', 0)
+                    obj.position['y'] = avg_y
+                    max_displacement = max(max_displacement, abs(avg_y - old_y))
+
+        elif constraint.type == ConstraintType.PARALLEL:
+            # Make two objects parallel (same orientation angle)
+            if len(constraint.objects) >= 2:
+                objects = self._get_objects(scene, constraint.objects)
+                if len(objects) < 2: return 0.0
+
+                # For rectangles/plates: align their orientation (rotation angle)
+                # For lines: make them parallel
+                # Simple implementation: align their y-positions (horizontal parallel)
+                positions = [obj.position for obj in objects if obj.position]
+                if not positions: return 0.0
+
+                avg_y = sum(p.get('y', 0) for p in positions) / len(positions)
+
+                for obj in objects:
+                    if obj.position:
+                        old_y = obj.position.get('y', 0)
+                        obj.position['y'] = avg_y
+                        max_displacement = max(max_displacement, abs(avg_y - old_y))
+
+        elif constraint.type == ConstraintType.PERPENDICULAR:
+            # Make two objects perpendicular to each other
+            if len(constraint.objects) == 2:
+                objects = self._get_objects(scene, constraint.objects)
+                if len(objects) != 2: return 0.0
+                obj1, obj2 = objects
+                if not obj1.position or not obj2.position: return 0.0
+
+                # Simple implementation for perpendicular:
+                # If obj1 is horizontal (width > height), make obj2 vertical (center alignment)
+                # If obj1 is vertical, make obj2 horizontal
+
+                # For most physics diagrams: principal axis is horizontal, lens/mirror is vertical
+                # Ensure obj2 is centered on obj1's position
+                if obj1.position.get('x') and obj2.position.get('x'):
+                    old_x = obj2.position['x']
+                    obj2.position['x'] = obj1.position['x']
+                    max_displacement = max(max_displacement, abs(obj2.position['x'] - old_x))
+
+                    old_y = obj2.position['y']
+                    obj2.position['y'] = obj1.position['y']
+                    max_displacement = max(max_displacement, abs(obj2.position['y'] - old_y))
+
+        elif constraint.type == ConstraintType.SYMMETRIC:
+            if len(constraint.objects) == 2 and constraint.value:
+                obj1, obj2 = self._get_objects(scene, constraint.objects)
+                center_obj = self._get_obj(scene, str(constraint.value))
+
+                if not all([obj1, obj2, center_obj]) or not all([obj1.position, obj2.position, center_obj.position]):
+                    return 0.0
+
+                center_x = center_obj.position.get('x', self.center[0])
+                
+                # Make obj1 and obj2 equidistant from the center object's x-position
+                dist1 = center_x - obj1.position.get('x', 0)
+                dist2 = obj2.position.get('x', 0) - center_x
+                avg_dist = (dist1 + dist2) / 2
+
+                obj1.position['x'] = center_x - avg_dist
+                obj2.position['x'] = center_x + avg_dist
+
+        elif constraint.type == ConstraintType.NO_OVERLAP:
+            # Resolve overlaps by pushing apart
+            for i, oid1 in enumerate(constraint.objects):
+                for oid2 in constraint.objects[i+1:]:
+                    obj1 = self._get_obj(scene, oid1)
+                    obj2 = self._get_obj(scene, oid2)
+
+                    if self._check_overlap(obj1, obj2):
+                        # Push apart along shortest axis
+                        dx, dy = self._resolve_overlap(obj1, obj2)
+                        obj2.position['x'] += dx
+                        obj2.position['y'] += dy
+                        max_displacement = max(max_displacement, abs(dx), abs(dy))
+
+        elif constraint.type == ConstraintType.CONNECTED:
+            # Simple connection: pull objects closer.
+            # A full implementation would use graph-based layout for circuits.
+            if len(constraint.objects) == 2:
+                obj1, obj2 = self._get_objects(scene, constraint.objects)
+                if not all([obj1, obj2]) or not all([obj1.position, obj2.position]):
+                    return 0.0
+                
+                # For now, just reduce distance between them slightly if they are far apart
+                dist = self._distance(obj1, obj2)
+                target_dist = 50 # Target pixel distance for connected objects
+                if dist > target_dist:
+                    # Move obj2 towards obj1
+                    vec = (obj1.position['x'] - obj2.position['x'], obj1.position['y'] - obj2.position['y'])
+                    obj2.position['x'] += vec[0] * 0.1
+                    obj2.position['y'] += vec[1] * 0.1
+
+        return max_displacement
+
+    def _optimize_aesthetics(self, scene: Scene, spec: CanonicalProblemSpec):
+        """Step 3: Optimize for visual appeal"""
+
+        # Snap to grid for clean appearance
+        grid_size = 10
+        for obj in scene.objects:
+            if obj.position and 'x' in obj.position and 'y' in obj.position:
+                obj.position['x'] = round(obj.position['x'] / grid_size) * grid_size
+                obj.position['y'] = round(obj.position['y'] / grid_size) * grid_size
+
+        # Ensure minimum spacing
+        min_spacing = 30
+        for i, obj1 in enumerate(scene.objects):
+            for obj2 in scene.objects[i+1:]:
+                dist = self._distance(obj1, obj2)
+                if dist < min_spacing:
+                    # Push apart slightly
+                    x1, y1 = obj1.position.get('x', 0), obj1.position.get('y', 0)
+                    x2, y2 = obj2.position.get('x', 0), obj2.position.get('y', 0)
+
+                    if x1 != x2 or y1 != y2:
+                        angle = math.atan2(y2 - y1, x2 - x1)
+                        push = (min_spacing - dist) / 2
+                        obj2.position['x'] += push * math.cos(angle)
+                        obj2.position['y'] += push * math.sin(angle)
+
+    def _place_labels(self, scene: Scene):
+        """Step 4: Intelligent label placement"""
+
+        # For each object with a label, find best position (N, NE, E, SE, S, SW, W, NW)
+        for obj in scene.objects:
+            label = obj.properties.get('label')
+            if label and obj.position:
+                # Try 8 candidate positions
+                candidates = [
+                    ('N', 0, -30),
+                    ('NE', 20, -20),
+                    ('E', 30, 0),
+                    ('SE', 20, 20),
+                    ('S', 0, 30),
+                    ('SW', -20, 20),
+                    ('W', -30, 0),
+                    ('NW', -20, -20)
+                ]
+
+                # Find position with least overlap
+                best_pos = candidates[0]
+                min_overlap = float('inf')
+
+                for direction, dx, dy in candidates:
+                    label_x = obj.position['x'] + dx
+                    label_y = obj.position['y'] + dy
+
+                    # Check overlap with other objects
+                    overlap = self._count_label_overlaps(label_x, label_y, scene.objects, obj)
+
+                    if overlap < min_overlap:
+                        min_overlap = overlap
+                        best_pos = (direction, dx, dy)
+
+                # Store label position
+                _, dx, dy = best_pos
+                obj.properties['label_position'] = {
+                    'x': obj.position['x'] + dx,
+                    'y': obj.position['y'] + dy
+                }
+
+    def _validate_layout(self, scene: Scene) -> Tuple[bool, List[str]]:
+        """Step 5: Validate final layout"""
+
+        issues = []
+
+        # Check all objects have positions
+        for obj in scene.objects:
+            if not obj.position or 'x' not in obj.position or 'y' not in obj.position:
+                issues.append(f"Object {obj.id} missing position")
+
+        # Check within bounds
+        for obj in scene.objects:
+            if obj.position:
+                x = obj.position.get('x', 0)
+                y = obj.position.get('y', 0)
+
+                if x < self.margin or x > self.width - self.margin:
+                    issues.append(f"Object {obj.id} outside horizontal bounds")
+                if y < self.margin or y > self.height - self.margin:
+                    issues.append(f"Object {obj.id} outside vertical bounds")
+
+        return len(issues) == 0, issues
+
+    # Helper methods
+
+    def _get_obj(self, scene: Scene, obj_id: str) -> Optional[SceneObject]:
+        """Get object by ID"""
+        # FIX: Add guard for missing objects
+        if not obj_id:
+            return None
+        for obj in scene.objects:
+            if obj.id == obj_id:
+                return obj
+        return None
+
+    def _get_objects(self, scene: Scene, object_ids: List[str]) -> List[SceneObject]:
+        """Get multiple objects by a list of IDs, filtering out Nones."""
+        return [obj for obj_id in object_ids if (obj := self._get_obj(scene, obj_id)) is not None]
+
+
+    def _check_overlap(self, obj1: SceneObject, obj2: SceneObject) -> bool:
+        """Check if two objects overlap"""
+        if not obj1.position or not obj2.position:
+            return False
+
+        x1 = obj1.position.get('x', 0)
+        y1 = obj1.position.get('y', 0)
+        w1 = obj1.position.get('width', 20)
+        h1 = obj1.position.get('height', 20)
+
+        x2 = obj2.position.get('x', 0)
+        y2 = obj2.position.get('y', 0)
+        w2 = obj2.position.get('width', 20)
+        h2 = obj2.position.get('height', 20)
+
+        return not (x1 + w1 < x2 or x2 + w2 < x1 or y1 + h1 < y2 or y2 + h2 < y1)
+
+    def _resolve_overlap(self, obj1: SceneObject, obj2: SceneObject) -> Tuple[float, float]:
+        """Calculate displacement to resolve overlap"""
+        x1, y1 = obj1.position.get('x', 0), obj1.position.get('y', 0)
+        x2, y2 = obj2.position.get('x', 0), obj2.position.get('y', 0)
+
+        dx = x2 - x1
+        dy = y2 - y1
+
+        if abs(dx) > abs(dy):
+            # Push horizontally
+            return (20 if dx > 0 else -20, 0)
+        else:
+            # Push vertically
+            return (0, 20 if dy > 0 else -20)
+
+    def _distance(self, obj1: SceneObject, obj2: SceneObject) -> float:
+        """Calculate distance between object centers"""
+        if not obj1.position or not obj2.position:
+            return float('inf')
+
+        x1 = obj1.position.get('x', 0)
+        y1 = obj1.position.get('y', 0)
+        x2 = obj2.position.get('x', 0)
+        y2 = obj2.position.get('y', 0)
+
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+    def _count_label_overlaps(self, label_x: float, label_y: float,
+                             objects: List[SceneObject], exclude: SceneObject) -> int:
+        """Count overlaps for label at given position"""
+        overlap_count = 0
+        label_size = 30  # Approximate label size
+
+        for obj in objects:
+            if obj == exclude or not obj.position:
+                continue
+
+            obj_x = obj.position.get('x', 0)
+            obj_y = obj.position.get('y', 0)
+            obj_w = obj.position.get('width', 20)
+            obj_h = obj.position.get('height', 20)
+
+            # Check overlap
+            if not (label_x + label_size < obj_x or obj_x + obj_w < label_x or
+                   label_y + 15 < obj_y or obj_y + obj_h < label_y):
+                overlap_count += 1
+
+        return overlap_count

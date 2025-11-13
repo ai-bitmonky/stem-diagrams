@@ -1,0 +1,55 @@
+{
+  "scene_id": "circuit_4570",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Circuit Diagram",
+  "description": "Capacitor 3 in the circuit is a variable capacitor (its capacitance C\u2083 can be varied).\nThe electric potential V\u2081 across capacitor 1 versus C\u2083 shows that V\u2081 approaches an asymptote\nof 10 V as C\u2083 \u2192 \u221e. T...",
+  "objects": [
+    {
+      "id": "B1",
+      "object_type": "battery",
+      "position": {
+        "x": 150,
+        "y": 300,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "V\u2081",
+      "properties": {
+        "value": null,
+        "unit": "V"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [],
+  "constraints": [],
+  "annotations": [],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800.0" height="600.0" version="1.1">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800.0" height="600.0" fill="#FFFFFF"/>
+  <text x="400.0" y="40" text-anchor="middle" font-size="24" font-weight="bold" font-family="Arial" fill="#333333">Physics Diagram</text>
+  <g id="objects">
+    <g id="mass_1">
+      <rect x="380.0" y="280.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="400.0" y="305.0" text-anchor="middle" font-size="10">m</text>
+    </g>
+    <g id="force_friction">
+      <rect x="380.0" y="280.0" width="40" height="40" fill="#EEEEEE" stroke="#999999" stroke-width="2"/>
+      <text x="400.0" y="305.0" text-anchor="middle" font-size="10">F_f</text>
+    </g>
+  </g>
+  <g id="relationships"/>
+  <g id="annotations"/>
+</svg>

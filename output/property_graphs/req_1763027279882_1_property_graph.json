@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "circuit",
+      "type": "object",
+      "label": "circuit",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "battery",
+      "type": "object",
+      "label": "battery",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "resistor",
+      "type": "object",
+      "label": "resistor",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "A",
+      "type": "object",
+      "label": "A",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "simple",
+      "type": "object",
+      "label": "simple",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "with",
+      "type": "object",
+      "label": "with",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "and",
+      "type": "object",
+      "label": "and",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "battery",
+      "target": "circuit",
+      "type": "related_to",
+      "label": "nmod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "resistor",
+      "target": "battery",
+      "type": "related_to",
+      "label": "conj",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "A",
+      "target": "circuit",
+      "type": "related_to",
+      "label": "det",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "simple",
+      "target": "circuit",
+      "type": "related_to",
+      "label": "amod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "with",
+      "target": "battery",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "and",
+      "target": "resistor",
+      "type": "related_to",
+      "label": "cc",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 7,
+    "edge_count": 6
+  }
+}

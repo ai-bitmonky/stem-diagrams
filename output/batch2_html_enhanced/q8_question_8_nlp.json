@@ -1,0 +1,416 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "10.5",
+      "properties": {
+        "start": 45,
+        "end": 49,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "2d",
+      "properties": {
+        "start": 75,
+        "end": 77,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "QUANTITY",
+      "text": "7.12 mm",
+      "properties": {
+        "start": 80,
+        "end": 87,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 123,
+        "end": 127,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "21.0",
+      "properties": {
+        "start": 159,
+        "end": 163,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 175,
+        "end": 179,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 196,
+        "end": 199,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "CARDINAL",
+      "text": "42.0",
+      "properties": {
+        "start": 224,
+        "end": 228,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "CARDINAL",
+      "text": "58.0",
+      "properties": {
+        "start": 250,
+        "end": 254,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_9",
+      "type": "CARDINAL",
+      "text": "half",
+      "properties": {
+        "start": 295,
+        "end": 299,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_10",
+      "type": "CARDINAL",
+      "text": "quarter",
+      "properties": {
+        "start": 329,
+        "end": 336,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_11",
+      "type": "CARDINAL",
+      "text": "quarter",
+      "properties": {
+        "start": 348,
+        "end": 355,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_12",
+      "type": "MEASUREMENT",
+      "text": "10.5 cm",
+      "properties": {
+        "value": 10.5,
+        "unit": "cm",
+        "start": 45,
+        "end": 52,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_13",
+      "type": "MEASUREMENT",
+      "text": "7.12 m",
+      "properties": {
+        "value": 7.12,
+        "unit": "m",
+        "start": 80,
+        "end": 86,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "10.5",
+      "target": "2d",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10.5",
+      "target": "7.12 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2d",
+      "target": "7.12 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2d",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "7.12 mm",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "7.12 mm",
+      "target": "21.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "21.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "21.0",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "21.0",
+      "target": "two",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "two",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "42.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "two",
+      "target": "42.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "two",
+      "target": "58.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "42.0",
+      "target": "58.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "42.0",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "58.0",
+      "target": "half",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "58.0",
+      "target": "quarter",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "quarter",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "half",
+      "target": "quarter",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "quarter",
+      "target": "quarter",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "quarter",
+      "target": "10.5 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "quarter",
+      "target": "10.5 cm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "quarter",
+      "target": "7.12 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "10.5 cm",
+      "target": "7.12 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "A",
+      "target": "10",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "d",
+      "target": "7",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 14,
+    "num_relationships": 27,
+    "processing_time": 0.01018977165222168,
+    "sentence_count": 4,
+    "token_count": 79
+  },
+  "raw_text": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance. [Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]"
+}

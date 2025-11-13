@@ -1,0 +1,261 @@
+{
+  "scene_id": "capacitor_5253",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Capacitor Circuit",
+  "description": null,
+  "objects": [
+    {
+      "id": "V1",
+      "object_type": "battery",
+      "position": {
+        "x": 150.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "15.0 V",
+      "properties": {
+        "value": 15.0,
+        "unit": "V",
+        "component_type": "battery"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1",
+      "object_type": "capacitor",
+      "position": {
+        "x": 350.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "15.0 \u03bcF",
+      "properties": {
+        "value": 15.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2",
+      "object_type": "capacitor",
+      "position": {
+        "x": 550.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "3.00 \u03bcF",
+      "properties": {
+        "value": 3.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C3",
+      "object_type": "capacitor",
+      "position": {
+        "x": 750.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "6.00 \u03bcF",
+      "properties": {
+        "value": 6.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C4",
+      "object_type": "capacitor",
+      "position": {
+        "x": 950.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "20.0 \u03bcF",
+      "properties": {
+        "value": 20.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "wire_1",
+      "relation_type": "connected_to",
+      "source_id": "V1",
+      "target_id": "C1",
+      "properties": {
+        "connection_type": "default"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "wire_2",
+      "relation_type": "connected_to",
+      "source_id": "V1",
+      "target_id": "C2",
+      "properties": {
+        "connection_type": "default"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "wire_3",
+      "relation_type": "connected_to",
+      "source_id": "V1",
+      "target_id": "C3",
+      "properties": {
+        "connection_type": "default"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "wire_4",
+      "relation_type": "connected_to",
+      "source_id": "V1",
+      "target_id": "C4",
+      "properties": {
+        "connection_type": "default"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    }
+  ],
+  "constraints": [],
+  "annotations": [
+    {
+      "id": "eq_1",
+      "text": "b = 15",
+      "position": {
+        "x": 500.0,
+        "y": 100,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "equation",
+      "style": {
+        "color": "#333333",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    }
+  ],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

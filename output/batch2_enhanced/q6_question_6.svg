@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" version="1.1">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="600" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" font-size="24" font-weight="bold" font-family="Arial" fill="#333333">Capacitor Circuit</text>
+  <g id="objects">
+    <g id="capacitor_500.0_200">
+      <line x1="492.0" y1="170.0" x2="492.0" y2="230.0" stroke="#000000" stroke-width="2"/>
+      <line x1="508.0" y1="170.0" x2="508.0" y2="230.0" stroke="#000000" stroke-width="2"/>
+      <line x1="460.0" y1="200" x2="492.0" y2="200" stroke="#000000" stroke-width="2.0"/>
+      <line x1="508.0" y1="200" x2="540.0" y2="200" stroke="#000000" stroke-width="2.0"/>
+      <text x="500.0" y="160.0" text-anchor="middle" font-size="14" font-family="Arial">3.00 μF</text>
+    </g>
+  </g>
+  <g id="relationships"/>
+  <g id="annotations">
+    <text x="500.0" y="50" font-size="16" font-family="Arial" fill="#667eea">Parallel Configuration</text>
+  </g>
+</svg>

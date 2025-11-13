@@ -1,0 +1,166 @@
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | Request ID: req_20251112_114459
+2025-11-12 11:44:59 | INFO     | Problem Text Length: 64 characters
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Problem Text:
+2025-11-12 11:44:59 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:44:59 | INFO     |   A block of mass 5 kg rests on a table. Draw a free body diagram.
+2025-11-12 11:44:59 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Configuration:
+2025-11-12 11:44:59 | INFO     |   canvas_width: 1200
+2025-11-12 11:44:59 | INFO     |   canvas_height: 800
+2025-11-12 11:44:59 | INFO     |   validation_mode: strict
+2025-11-12 11:44:59 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Diagram Planner', 'Model Orchestrator', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Request/Response Logging']
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 2: Problem Understanding + Complexity
+2025-11-12 11:44:59 | INFO     | Description: Analyze problem and assess complexity
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Problem text
+2025-11-12 11:44:59 | INFO     |   Type: str
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Output:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Domain: mechanics, Objects: 3
+2025-11-12 11:44:59 | INFO     |   domain: mechanics
+2025-11-12 11:44:59 | INFO     |   object_count: 3
+2025-11-12 11:44:59 | INFO     |   constraint_count: 0
+2025-11-12 11:44:59 | INFO     |   complexity_score: 0.195
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:44:59 | INFO     | Duration: 5.62ms
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-12 11:44:59 | INFO     | Description: Build scene graph and select strategy
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Problem specs with 3 objects
+2025-11-12 11:44:59 | INFO     |   Type: CanonicalProblemSpec
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Output:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Scene with 12 objects
+2025-11-12 11:44:59 | INFO     |   object_count: 12
+2025-11-12 11:44:59 | INFO     |   selected_strategy: symbolic_physics
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:44:59 | INFO     | Duration: 0.32ms
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 5: Physics Validation
+2025-11-12 11:44:59 | INFO     | Description: Validate physics constraints and relationships
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Scene with 12 objects
+2025-11-12 11:44:59 | INFO     |   Type: Scene
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Output:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Errors: 0, Warnings: 0
+2025-11-12 11:44:59 | INFO     |   errors: 0
+2025-11-12 11:44:59 | INFO     |   warnings: 0
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:44:59 | INFO     | Duration: 0.28ms
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 6: Layout Optimization + Z3
+2025-11-12 11:44:59 | INFO     | Description: Compute optimal object positions
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Scene with 12 unpositioned objects
+2025-11-12 11:44:59 | INFO     |   Type: Scene
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     |   Attempting Z3 layout optimization
+2025-11-12 11:44:59 | INFO     |   Plan has 4 constraints
+2025-11-12 11:44:59 | INFO     |   Z3 failed: name 'PrimitiveType' is not defined
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Output:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Positioned 12 objects
+2025-11-12 11:44:59 | INFO     |   object_count: 12
+2025-11-12 11:44:59 | INFO     |   z3_used: False
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:44:59 | INFO     | Duration: 1.94ms
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 7: Intelligent Label Placement
+2025-11-12 11:44:59 | INFO     | Description: Optimize label positions to avoid overlaps
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Positioned scene
+2025-11-12 11:44:59 | INFO     |   Type: Scene
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Output:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Labels placed
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:44:59 | INFO     | Duration: 0.22ms
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | PHASE 8: Spatial Validation
+2025-11-12 11:44:59 | INFO     | Description: Check for overlaps and positioning errors
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Phase Input:
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | INFO     | Summary: Final positioned scene
+2025-11-12 11:44:59 | INFO     |   Type: Scene
+2025-11-12 11:44:59 | INFO     | ----------------------------------------
+2025-11-12 11:44:59 | ERROR    | 
+2025-11-12 11:44:59 | ERROR    | ================================================================================
+2025-11-12 11:44:59 | ERROR    | ERROR OCCURRED
+2025-11-12 11:44:59 | ERROR    | ================================================================================
+2025-11-12 11:44:59 | ERROR    | Context: {'domain': 'mechanics', 'phase': 'generation'}
+2025-11-12 11:44:59 | ERROR    | Error: Exception: Spatial validation failed: ["Object 'ground' has no position assigned", "Object 'force_weight1' has no position assigned", "Object 'force_weight2' has no position assigned", "Object 'force_weight3' has no position assigned", "Object 'force_applied' has no position assigned", "Object 'force_contact' has no position assigned", "Object 'force_gravity_block1' has no position assigned", "Object 'force_gravity_block2' has no position assigned", "Object 'force_gravity_block3' has no position assigned"]
+2025-11-12 11:44:59 | ERROR    | 
+2025-11-12 11:44:59 | ERROR    | Traceback:
+2025-11-12 11:44:59 | ERROR    |   Traceback (most recent call last):
+2025-11-12 11:44:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1235, in generate
+2025-11-12 11:44:59 | ERROR    |       raise Exception(f"Spatial validation failed: {spatial_report.errors}")
+2025-11-12 11:44:59 | ERROR    |   Exception: Spatial validation failed: ["Object 'ground' has no position assigned", "Object 'force_weight1' has no position assigned", "Object 'force_weight2' has no position assigned", "Object 'force_weight3' has no position assigned", "Object 'force_applied' has no position assigned", "Object 'force_contact' has no position assigned", "Object 'force_gravity_block1' has no position assigned", "Object 'force_gravity_block2' has no position assigned", "Object 'force_gravity_block3' has no position assigned"]
+2025-11-12 11:44:59 | ERROR    |   
+2025-11-12 11:44:59 | ERROR    | ================================================================================
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | RESPONSE
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | Status: FAILED
+2025-11-12 11:44:59 | INFO     | Total Duration: 10.01ms
+2025-11-12 11:44:59 | ERROR    | Error: Spatial validation failed: ["Object 'ground' has no position assigned", "Object 'force_weight1' has no position assigned", "Object 'force_weight2' has no position assigned", "Object 'force_weight3' has no position assigned", "Object 'force_applied' has no position assigned", "Object 'force_contact' has no position assigned", "Object 'force_gravity_block1' has no position assigned", "Object 'force_gravity_block2' has no position assigned", "Object 'force_gravity_block3' has no position assigned"]
+2025-11-12 11:44:59 | INFO     | 
+2025-11-12 11:44:59 | INFO     | Full trace saved to: logs/req_20251112_114459.log
+2025-11-12 11:44:59 | INFO     | ================================================================================
+2025-11-12 11:44:59 | INFO     | Trace JSON saved to: logs/req_20251112_114459_trace.json

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewbox="0 0 2000 1400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="1400" width="2000"></rect>
+<defs>
+<marker id="arrowRed" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e74c3c"></path>
+</marker>
+<marker id="arrowBlue" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#3498db"></path>
+</marker>
+<marker id="arrowGreen" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#27ae60"></path>
+</marker>
+<marker id="arrowPurple" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#9b59b6"></path>
+</marker>
+<marker id="arrowOrange" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Title -->
+<text fill="#2c3e50" font-size="42" font-weight="bold" text-anchor="middle" x="1000" y="50">Question 2: Problem 26 (Modified):Capacitor 3 in the circuit shown below is a va...</text>
+<!-- Main Diagram Area -->
+<g id="main-diagram">
+<!-- Battery -->
+<line stroke="#2c3e50" stroke-width="4" x1="200" x2="200" y1="560" y2="640"></line>
+<line stroke="#2c3e50" stroke-width="6" x1="215" x2="215" y1="580" y2="620"></line>
+<text fill="#2c3e50" font-size="26" x="170" y="550">+</text>
+<text fill="#2c3e50" font-size="26" x="170" y="665">−</text>
+<!-- Capacitor 1 -->
+<line stroke="#2c3e50" stroke-width="4" x1="370" x2="370" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="430" x2="430" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="400" y="530">C_1</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="400" y="700">C_1</text>
+<!-- Capacitor 2 -->
+<line stroke="#2c3e50" stroke-width="4" x1="620" x2="620" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="680" x2="680" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="650" y="530">C_2</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="650" y="700">C_2</text>
+<line stroke="#2c3e50" stroke-width="3" x1="430" x2="620" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="215" x2="370" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="680" x2="750" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="750" y1="600" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="200" y1="800" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="200" x2="200" y1="800" y2="640"></line>
+<text fill="#e74c3c" font-size="28" font-weight="bold" x="250" y="600">. V</text>
+</g>
+<!-- Given Information -->
+<g id="given-info">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="250">Given Information:</text>
+<text fill="#34495e" font-size="26" x="1020" y="300">• V = . V</text>
+</g>
+<!-- Legend -->
+<g id="legend">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="500">Legend:</text>
+<text fill="#34495e" font-size="26" x="1020" y="550">• Capacitor plates shown as parallel lines</text>
+<text fill="#34495e" font-size="26" x="1020" y="590">• +q and −q represent charge on plates</text>
+<text fill="#34495e" font-size="26" x="1020" y="630">• Battery symbol: thick line is positive terminal</text>
+</g>
+</svg>

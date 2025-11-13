@@ -1,0 +1,3628 @@
+{
+  "request_id": "req_20251112_215636",
+  "timestamp": "2025-11-12T21:56:36.877159",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762964817.466017,
+      "duration_ms": 2.47,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762964817.468637,
+      "duration_ms": 3.58,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 9,
+          "edge_count": 5,
+          "connected_components": 4,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 9
+        },
+        "edge_types": {
+          "related_to": 5
+        },
+        "nodes": [
+          {
+            "id": "left half",
+            "type": "object",
+            "label": "left half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "dielectric \u03ba\u2081",
+            "type": "object",
+            "label": "dielectric \u03ba\u2081",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "0 and",
+            "type": "object",
+            "label": "0 and",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "\u03ba\u2083",
+            "type": "object",
+            "label": "\u03ba\u2083",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "12 mm",
+            "type": "object",
+            "label": "12 mm",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "configured as",
+            "type": "object",
+            "label": "configured as",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "filled with",
+            "type": "object",
+            "label": "filled with",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "right half",
+            "type": "object",
+            "label": "right half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "divided into",
+            "type": "object",
+            "label": "divided into",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "left half",
+            "target": "dielectric \u03ba\u2081",
+            "type": "related_to",
+            "label": "is filled on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "left half",
+            "target": "filled with",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "0 and",
+            "target": "\u03ba\u2083",
+            "type": "related_to",
+            "label": "bottom on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "12 mm",
+            "target": "configured as",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "right half",
+            "target": "divided into",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "saved_to": "output/property_graph.json"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "DeepSeek Enrichment",
+      "description": "Validate and enrich entities with LLM",
+      "start_time": 1762964817.472558,
+      "duration_ms": 0.42,
+      "input": {},
+      "output": {
+        "error": "cannot access local variable 'json' where it is not associated with a value"
+      },
+      "logs": [],
+      "status": "warning"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1762964817.473158,
+      "duration_ms": 1.52,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "planning_mode": "property_graph_driven",
+        "domain": "current_electricity",
+        "entity_count": 1,
+        "relation_count": 0,
+        "constraint_count": 1,
+        "complexity_score": 0.035,
+        "z3_used": false,
+        "sympy_used": false
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762964817.474735,
+      "duration_ms": 766.79,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 0.035,
+          "objects": [
+            {
+              "id": "filled with",
+              "type": "object",
+              "label": "filled with",
+              "properties": {},
+              "primitive_hint": "filled_with"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "bounds",
+              "objects": [
+                "filled with"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {},
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.035,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "filled with"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "filled with": [
+                    100,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 1,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 0,
+                    "types": []
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 1,
+                    "types": [
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 1,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 1
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+                "domain_hint": "electronics"
+              },
+              "extracted_entities": [
+                {
+                  "id": "filled with",
+                  "type": "object",
+                  "label": "filled with",
+                  "properties": {},
+                  "primitive_hint": "filled_with",
+                  "source": "unknown"
+                }
+              ],
+              "extracted_relations": [],
+              "style_hints": {
+                "filled with": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "object_count": 12,
+        "selected_strategy": "heuristic"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Ontology Validation",
+      "description": "Validate semantic consistency",
+      "start_time": 1762964818.241858,
+      "duration_ms": 35.56,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 0.035,
+          "objects": [
+            {
+              "id": "filled with",
+              "type": "object",
+              "label": "filled with",
+              "properties": {},
+              "primitive_hint": "filled_with"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "bounds",
+              "objects": [
+                "filled with"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {},
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.035,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "filled with"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "filled with": [
+                    100,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 1,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 0,
+                    "types": []
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 1,
+                    "types": [
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 1,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 1
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+                "domain_hint": "electronics"
+              },
+              "extracted_entities": [
+                {
+                  "id": "filled with",
+                  "type": "object",
+                  "label": "filled with",
+                  "properties": {},
+                  "primitive_hint": "filled_with",
+                  "source": "unknown"
+                }
+              ],
+              "extracted_relations": [],
+              "style_hints": {
+                "filled with": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "consistent": true,
+        "errors": [],
+        "warnings": [
+          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Quantity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#relatedTo references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Charge references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#NormalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/stem#Entity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#GravitationalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/ontology/filled with references undefined class http://stem-diagrams.org/ontology/physics:Object",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#domain"
+        ]
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Physics Validation",
+      "description": "Validate physics constraints and relationships",
+      "start_time": 1762964818.277476,
+      "duration_ms": 0.44,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "+Q"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "-Q"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 180,
+                  "kappa": 21.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BBDEFB",
+                  "fill_opacity": 0.6,
+                  "stroke": "#1976D2",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 42.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#C5E1A5",
+                  "fill_opacity": 0.6,
+                  "stroke": "#689F38",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 58.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#FFCCBC",
+                  "fill_opacity": 0.6,
+                  "stroke": "#E64A19",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2081 = 21.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_left"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#0D47A1",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2082 = 42.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#33691E",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2083 = 58.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BF360C",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_vertical",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {},
+                "position": {
+                  "x": 600,
+                  "y": 310,
+                  "x1": 600,
+                  "y1": 310,
+                  "x2": 600,
+                  "y2": 490
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_horizontal",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {},
+                "position": {
+                  "x": 600,
+                  "y": 400,
+                  "x1": 600,
+                  "y1": 400,
+                  "x2": 800,
+                  "y2": 400
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Left Half",
+                  "font_size": 14
+                },
+                "position": {
+                  "x": 500,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_right",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Right Half",
+                  "font_size": 14
+                },
+                "position": {
+                  "x": 700,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 180,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_bottom",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "dielectric_right_top"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": 0,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "boundary_vertical",
+                  "boundary_horizontal"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom",
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "boundary_vertical",
+                  "boundary_horizontal",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "errors": 1,
+        "warnings": 1
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Layout Optimization + Z3",
+      "description": "Compute optimal object positions",
+      "start_time": 1762964818.2779698,
+      "duration_ms": 0,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 180,
+                  "kappa": 21.0,
+                  "label": "Rectangle: dielectric_left"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BBDEFB",
+                  "fill_opacity": 0.6,
+                  "stroke": "#1976D2",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 42.0,
+                  "label": "Rectangle: dielectric_right_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#C5E1A5",
+                  "fill_opacity": 0.6,
+                  "stroke": "#689F38",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 58.0,
+                  "label": "Rectangle: dielectric_right_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#FFCCBC",
+                  "fill_opacity": 0.6,
+                  "stroke": "#E64A19",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2081 = 21.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_left",
+                  "label": "Text: label_k1"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#0D47A1",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2082 = 42.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_top",
+                  "label": "Text: label_k2"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#33691E",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2083 = 58.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_bottom",
+                  "label": "Text: label_k3"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BF360C",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_vertical",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "label": "Line: boundary_vertical"
+                },
+                "position": {
+                  "x": 600,
+                  "y": 310,
+                  "x1": 600,
+                  "y1": 310,
+                  "x2": 600,
+                  "y2": 490
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_horizontal",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "label": "Line: boundary_horizontal"
+                },
+                "position": {
+                  "x": 600,
+                  "y": 400,
+                  "x1": 600,
+                  "y1": 400,
+                  "x2": 800,
+                  "y2": 400
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Left Half",
+                  "font_size": 14,
+                  "label": "Text: region_left"
+                },
+                "position": {
+                  "x": 500,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_right",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Right Half",
+                  "font_size": 14,
+                  "label": "Text: region_right"
+                },
+                "position": {
+                  "x": 700,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 180,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_bottom",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "dielectric_right_top"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": 0,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "boundary_vertical",
+                  "boundary_horizontal"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom",
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "boundary_vertical",
+                  "boundary_horizontal",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "AttributeError",
+        "message": "'NoneType' object has no attribute 'get'",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1343, in generate\n    positioned_scene = self.layout_engine.solve(scene, specs)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 84, in solve\n    iterations = self._solve_constraints(scene)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 384, in _solve_constraints\n    moved = self._apply_constraint(scene, constraint)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 427, in _apply_constraint\n    old_y = obj.position.get('y', 0)\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'get'\n"
+      }
+    },
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762965537.087429,
+      "duration_ms": 0.7,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762965537.088212,
+      "duration_ms": 1.65,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 9,
+          "edge_count": 5,
+          "connected_components": 4,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 9
+        },
+        "edge_types": {
+          "related_to": 5
+        },
+        "nodes": [
+          {
+            "id": "left half",
+            "type": "object",
+            "label": "left half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "dielectric \u03ba\u2081",
+            "type": "object",
+            "label": "dielectric \u03ba\u2081",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "0 and",
+            "type": "object",
+            "label": "0 and",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "\u03ba\u2083",
+            "type": "object",
+            "label": "\u03ba\u2083",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "12 mm",
+            "type": "object",
+            "label": "12 mm",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "configured as",
+            "type": "object",
+            "label": "configured as",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "filled with",
+            "type": "object",
+            "label": "filled with",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "right half",
+            "type": "object",
+            "label": "right half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "divided into",
+            "type": "object",
+            "label": "divided into",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "left half",
+            "target": "dielectric \u03ba\u2081",
+            "type": "related_to",
+            "label": "is filled on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "left half",
+            "target": "filled with",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "0 and",
+            "target": "\u03ba\u2083",
+            "type": "related_to",
+            "label": "bottom on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "12 mm",
+            "target": "configured as",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "right half",
+            "target": "divided into",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "saved_to": "output/property_graph.json"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "DeepSeek Enrichment",
+      "description": "Validate and enrich entities with LLM",
+      "start_time": 1762965537.089932,
+      "duration_ms": 0.57,
+      "input": {},
+      "output": {
+        "error": "cannot access local variable 'json' where it is not associated with a value"
+      },
+      "logs": [],
+      "status": "warning"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1762965537.0907462,
+      "duration_ms": 0.71,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "planning_mode": "property_graph_driven",
+        "domain": "current_electricity",
+        "entity_count": 1,
+        "relation_count": 0,
+        "constraint_count": 1,
+        "complexity_score": 0.035,
+        "z3_used": false,
+        "sympy_used": false
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762965537.0915031,
+      "duration_ms": 243.12,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 0.035,
+          "objects": [
+            {
+              "id": "filled with",
+              "type": "object",
+              "label": "filled with",
+              "properties": {},
+              "primitive_hint": "filled_with"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "bounds",
+              "objects": [
+                "filled with"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {},
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.035,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "filled with"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "filled with": [
+                    100,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 1,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 0,
+                    "types": []
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 1,
+                    "types": [
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 1,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 1
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+                "domain_hint": "electronics"
+              },
+              "extracted_entities": [
+                {
+                  "id": "filled with",
+                  "type": "object",
+                  "label": "filled with",
+                  "properties": {},
+                  "primitive_hint": "filled_with",
+                  "source": "unknown"
+                }
+              ],
+              "extracted_relations": [],
+              "style_hints": {
+                "filled with": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "object_count": 12,
+        "selected_strategy": "heuristic"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Ontology Validation",
+      "description": "Validate semantic consistency",
+      "start_time": 1762965537.334914,
+      "duration_ms": 36.9,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 0.035,
+          "objects": [
+            {
+              "id": "filled with",
+              "type": "object",
+              "label": "filled with",
+              "properties": {},
+              "primitive_hint": "filled_with"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "bounds",
+              "objects": [
+                "filled with"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {},
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.035,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "filled with"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "filled with": [
+                    100,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 1,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 0,
+                    "types": []
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 1,
+                    "types": [
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 1,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 1
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+                "domain_hint": "electronics"
+              },
+              "extracted_entities": [
+                {
+                  "id": "filled with",
+                  "type": "object",
+                  "label": "filled with",
+                  "properties": {},
+                  "primitive_hint": "filled_with",
+                  "source": "unknown"
+                }
+              ],
+              "extracted_relations": [],
+              "style_hints": {
+                "filled with": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "consistent": true,
+        "errors": [],
+        "warnings": [
+          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Quantity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#relatedTo references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Charge references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#NormalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/stem#Entity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#GravitationalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/ontology/filled with references undefined class http://stem-diagrams.org/ontology/physics:Object",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#domain"
+        ]
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Physics Validation",
+      "description": "Validate physics constraints and relationships",
+      "start_time": 1762965537.371858,
+      "duration_ms": 0.38,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "+Q"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "-Q"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 180,
+                  "kappa": 21.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BBDEFB",
+                  "fill_opacity": 0.6,
+                  "stroke": "#1976D2",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 42.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#C5E1A5",
+                  "fill_opacity": 0.6,
+                  "stroke": "#689F38",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 58.0
+                },
+                "position": null,
+                "style": {
+                  "fill": "#FFCCBC",
+                  "fill_opacity": 0.6,
+                  "stroke": "#E64A19",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2081 = 21.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_left"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#0D47A1",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2082 = 42.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#33691E",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2083 = 58.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BF360C",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_vertical",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {},
+                "position": {
+                  "x": 600,
+                  "y": 310,
+                  "x1": 600,
+                  "y1": 310,
+                  "x2": 600,
+                  "y2": 490
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_horizontal",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {},
+                "position": {
+                  "x": 600,
+                  "y": 400,
+                  "x1": 600,
+                  "y1": 400,
+                  "x2": 800,
+                  "y2": 400
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Left Half",
+                  "font_size": 14
+                },
+                "position": {
+                  "x": 500,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_right",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Right Half",
+                  "font_size": 14
+                },
+                "position": {
+                  "x": 700,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 180,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_bottom",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "dielectric_right_top"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": 0,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "boundary_vertical",
+                  "boundary_horizontal"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom",
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "boundary_vertical",
+                  "boundary_horizontal",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "errors": 1,
+        "warnings": 1
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Layout Optimization + Z3",
+      "description": "Compute optimal object positions",
+      "start_time": 1762965537.372277,
+      "duration_ms": 0,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 400,
+                  "height": 12,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 180,
+                  "kappa": 21.0,
+                  "label": "Rectangle: dielectric_left"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BBDEFB",
+                  "fill_opacity": 0.6,
+                  "stroke": "#1976D2",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 42.0,
+                  "label": "Rectangle: dielectric_right_top"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#C5E1A5",
+                  "fill_opacity": 0.6,
+                  "stroke": "#689F38",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "dielectric_right_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 200,
+                  "height": 90,
+                  "kappa": 58.0,
+                  "label": "Rectangle: dielectric_right_bottom"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#FFCCBC",
+                  "fill_opacity": 0.6,
+                  "stroke": "#E64A19",
+                  "stroke_width": 1
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2081 = 21.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_left",
+                  "label": "Text: label_k1"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#0D47A1",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2082 = 42.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_top",
+                  "label": "Text: label_k2"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#33691E",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "label_k3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "\u03ba\u2083 = 58.0",
+                  "font_size": 16,
+                  "font_weight": "bold",
+                  "target_object": "dielectric_right_bottom",
+                  "label": "Text: label_k3"
+                },
+                "position": null,
+                "style": {
+                  "fill": "#BF360C",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_vertical",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "label": "Line: boundary_vertical"
+                },
+                "position": {
+                  "x": 600,
+                  "y": 310,
+                  "x1": 600,
+                  "y1": 310,
+                  "x2": 600,
+                  "y2": 490
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "boundary_horizontal",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "label": "Line: boundary_horizontal"
+                },
+                "position": {
+                  "x": 600,
+                  "y": 400,
+                  "x1": 600,
+                  "y1": 400,
+                  "x2": 800,
+                  "y2": 400
+                },
+                "style": {
+                  "stroke": "#000",
+                  "stroke_width": 2,
+                  "stroke_dasharray": "5,5"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_left",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Left Half",
+                  "font_size": 14,
+                  "label": "Text: region_left"
+                },
+                "position": {
+                  "x": 500,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "region_right",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "text": "Right Half",
+                  "font_size": 14,
+                  "label": "Text: region_right"
+                },
+                "position": {
+                  "x": 700,
+                  "y": 270
+                },
+                "style": {
+                  "fill": "#555",
+                  "font_family": "Arial",
+                  "text_anchor": "middle"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 180,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_bottom",
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_left",
+                  "dielectric_right_top"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": 0,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "boundary_vertical",
+                  "boundary_horizontal"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "dielectric_left",
+                  "dielectric_right_top",
+                  "dielectric_right_bottom",
+                  "label_k1",
+                  "label_k2",
+                  "label_k3",
+                  "boundary_vertical",
+                  "boundary_horizontal",
+                  "region_left",
+                  "region_right"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "AttributeError",
+        "message": "'NoneType' object has no attribute 'get'",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1343, in generate\n    positioned_scene = self.layout_engine.solve(scene, specs)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 84, in solve\n    scene: Scene with objects and constraints (positions may be None)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 384, in _solve_constraints\n    spacing_y = (self.height - 2 * self.margin) / (cols + 1)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py\", line 427, in _apply_constraint\nAttributeError: 'NoneType' object has no attribute 'get'\n"
+      }
+    }
+  ],
+  "total_duration_ms": 740498.84,
+  "status": "error",
+  "error": "'NoneType' object has no attribute 'get'",
+  "input": {
+    "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Diagram Planner",
+        "LLM Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "LLM Auditor",
+        "Structural Validator",
+        "DeepSeek (Enrichment, Audit, Validation)",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 369
+  }
+}

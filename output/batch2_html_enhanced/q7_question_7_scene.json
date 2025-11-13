@@ -1,0 +1,976 @@
+{
+  "scene_id": "capacitor_7835",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Capacitor Circuit",
+  "description": null,
+  "objects": [
+    {
+      "id": "C1_left_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 127.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "negative",
+        "capacitor_id": "C1"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_right_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 170.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "positive",
+        "capacitor_id": "C1"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_label",
+      "object_type": "label",
+      "position": {
+        "x": 150,
+        "y": 405.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 100,
+        "height": 20,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "2.00 \u03bcF",
+      "properties": {
+        "value": 2.0,
+        "unit": "\u03bcF"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_left_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 427.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "negative",
+        "capacitor_id": "C2"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_right_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 470.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "positive",
+        "capacitor_id": "C2"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_neg_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 415.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_neg_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 415.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_neg_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 415.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_neg_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 415.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_neg_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 415.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_pos_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 485.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_pos_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 485.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_pos_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 485.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_pos_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 485.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_pos_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 485.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2_label",
+      "object_type": "label",
+      "position": {
+        "x": 450,
+        "y": 405.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 100,
+        "height": 20,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "8.00 \u03bcF",
+      "properties": {
+        "value": 8.0,
+        "unit": "\u03bcF"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "battery",
+      "object_type": "battery",
+      "position": {
+        "x": 100,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "300 V",
+      "properties": {
+        "value": 300.0,
+        "unit": "V"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "C1_plates_rel",
+      "relation_type": "acts_on",
+      "source_id": "C1_left_plate",
+      "target_id": "C1_right_plate",
+      "properties": {
+        "relationship": "opposite_charges",
+        "gap": 40
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "C2_plates_rel",
+      "relation_type": "acts_on",
+      "source_id": "C2_left_plate",
+      "target_id": "C2_right_plate",
+      "properties": {
+        "relationship": "opposite_charges",
+        "gap": 40
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "series_conn_0",
+      "relation_type": "connected_to",
+      "source_id": "C1_right_plate",
+      "target_id": "C2_left_plate",
+      "properties": {
+        "connection_type": "series"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    }
+  ],
+  "constraints": [],
+  "annotations": [
+    {
+      "id": "config_title",
+      "text": "Series Capacitor Configuration (2 capacitors)",
+      "position": {
+        "x": 500.0,
+        "y": 40,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "title",
+      "style": {
+        "color": "#2c3e50",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 20,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    },
+    {
+      "id": "voltage_label",
+      "text": "V = 300 V",
+      "position": {
+        "x": 50,
+        "y": 80,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "label",
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    }
+  ],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

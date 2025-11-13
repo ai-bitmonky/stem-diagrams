@@ -1,0 +1,549 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "domain": "electrostatics",
+    "renderer": "capacitor"
+  },
+  "coord_system": {
+    "frame": "cartesian",
+    "origin": [
+      600,
+      400
+    ],
+    "scale": 100,
+    "extent": [
+      1200,
+      800
+    ],
+    "margins": [
+      40,
+      40,
+      40,
+      40
+    ]
+  },
+  "objects": [
+    {
+      "id": "battery",
+      "type": "rectangle",
+      "properties": {
+        "width": 30,
+        "height": 80,
+        "voltage": "V",
+        "label": "Rectangle: battery",
+        "label_position": {
+          "x": 150,
+          "y": 80
+        }
+      },
+      "position": {
+        "x": 150,
+        "y": 110
+      },
+      "style": {
+        "fill": "#555",
+        "stroke": "#333",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "capacitor_1",
+      "type": "rectangle",
+      "properties": {
+        "capacitance": "C\u2081",
+        "width": 40,
+        "height": 80,
+        "label": "Rectangle: capacitor_1",
+        "label_position": {
+          "x": 380,
+          "y": 110
+        }
+      },
+      "position": {
+        "x": 350,
+        "y": 110
+      },
+      "style": {
+        "fill": "none",
+        "stroke": "#2c3e50",
+        "stroke_width": 4
+      }
+    },
+    {
+      "id": "capacitor_2",
+      "type": "rectangle",
+      "properties": {
+        "capacitance": "C\u2082",
+        "width": 40,
+        "height": 80,
+        "label": "Rectangle: capacitor_2",
+        "label_position": {
+          "x": 350.0,
+          "y": 55.0
+        }
+      },
+      "position": {
+        "x": 350.0,
+        "y": 85.0
+      },
+      "style": {
+        "fill": "none",
+        "stroke": "#2c3e50",
+        "stroke_width": 4
+      }
+    },
+    {
+      "id": "capacitor_3",
+      "type": "rectangle",
+      "properties": {
+        "capacitance": "C\u2083 (variable)",
+        "width": 40,
+        "height": 80,
+        "label": "Rectangle: capacitor_3",
+        "label_position": {
+          "x": 650,
+          "y": 80
+        }
+      },
+      "position": {
+        "x": 650,
+        "y": 110
+      },
+      "style": {
+        "fill": "none",
+        "stroke": "#e65100",
+        "stroke_width": 5
+      }
+    },
+    {
+      "id": "variable_arrow",
+      "type": "arrow",
+      "properties": {
+        "bidirectional": true,
+        "label": "Arrow: variable_arrow",
+        "label_position": {
+          "x": 640,
+          "y": 430
+        }
+      },
+      "position": {
+        "x": 640,
+        "y": 460,
+        "x1": 640,
+        "y1": 460,
+        "x2": 700,
+        "y2": 460,
+        "double_headed": true
+      },
+      "style": {
+        "stroke": "#e65100",
+        "stroke_width": 2,
+        "marker_start": "arrowhead",
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "variable_label",
+      "type": "text",
+      "properties": {
+        "text": "Variable",
+        "font_size": 12,
+        "font_weight": "bold",
+        "label": "Text: variable_label",
+        "label_position": {
+          "x": 670,
+          "y": 460
+        }
+      },
+      "position": {
+        "x": 670,
+        "y": 490
+      },
+      "style": {
+        "fill": "#e65100",
+        "font_family": "Arial",
+        "text_anchor": "middle"
+      }
+    },
+    {
+      "id": "wire1",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire1",
+        "label_position": {
+          "x": 180,
+          "y": -380
+        }
+      },
+      "position": {
+        "x": 180,
+        "y": -350,
+        "x1": 180,
+        "y1": 400,
+        "x2": 300,
+        "y2": 400
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire2",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire2",
+        "label_position": {
+          "x": 330,
+          "y": -350
+        }
+      },
+      "position": {
+        "x": 300,
+        "y": -350,
+        "x1": 300,
+        "y1": 400,
+        "x2": 300,
+        "y2": 260
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire3",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire3",
+        "label_position": {
+          "x": 330.0,
+          "y": -375.0
+        }
+      },
+      "position": {
+        "x": 300.0,
+        "y": -375.0,
+        "x1": 300,
+        "y1": 260,
+        "x2": 350,
+        "y2": 260
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire4",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire4",
+        "label_position": {
+          "x": 330.0,
+          "y": -397.5
+        }
+      },
+      "position": {
+        "x": 300.0,
+        "y": -397.5,
+        "x1": 300,
+        "y1": 400,
+        "x2": 300,
+        "y2": 520
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire5",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire5",
+        "label_position": {
+          "x": 300.0,
+          "y": -448.75
+        }
+      },
+      "position": {
+        "x": 300.0,
+        "y": -418.75,
+        "x1": 300,
+        "y1": 520,
+        "x2": 350,
+        "y2": 520
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire6",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire6",
+        "label_position": {
+          "x": 420,
+          "y": -350
+        }
+      },
+      "position": {
+        "x": 390,
+        "y": -350,
+        "x1": 390,
+        "y1": 260,
+        "x2": 500,
+        "y2": 260
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire7",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire7",
+        "label_position": {
+          "x": 390.0,
+          "y": -405.0
+        }
+      },
+      "position": {
+        "x": 390.0,
+        "y": -375.0,
+        "x1": 390,
+        "y1": 520,
+        "x2": 500,
+        "y2": 520
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire8",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire8",
+        "label_position": {
+          "x": 530,
+          "y": -350
+        }
+      },
+      "position": {
+        "x": 500,
+        "y": -350,
+        "x1": 500,
+        "y1": 260,
+        "x2": 500,
+        "y2": 400
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire9",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire9",
+        "label_position": {
+          "x": 530.0,
+          "y": -375.0
+        }
+      },
+      "position": {
+        "x": 500.0,
+        "y": -375.0,
+        "x1": 500,
+        "y1": 520,
+        "x2": 500,
+        "y2": 400
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire10",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire10",
+        "label_position": {
+          "x": 500.0,
+          "y": -427.5
+        }
+      },
+      "position": {
+        "x": 500.0,
+        "y": -397.5,
+        "x1": 500,
+        "y1": 400,
+        "x2": 650,
+        "y2": 400
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire11",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire11",
+        "label_position": {
+          "x": 690,
+          "y": -380
+        }
+      },
+      "position": {
+        "x": 690,
+        "y": -350,
+        "x1": 690,
+        "y1": 400,
+        "x2": 850,
+        "y2": 400
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire12",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire12",
+        "label_position": {
+          "x": 880,
+          "y": -350
+        }
+      },
+      "position": {
+        "x": 850,
+        "y": -350,
+        "x1": 850,
+        "y1": 400,
+        "x2": 850,
+        "y2": 600
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire13",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire13",
+        "label_position": {
+          "x": 850.0,
+          "y": -405.0
+        }
+      },
+      "position": {
+        "x": 850.0,
+        "y": -375.0,
+        "x1": 850,
+        "y1": 600,
+        "x2": 150,
+        "y2": 600
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "wire14",
+      "type": "line",
+      "properties": {
+        "label": "Line: wire14",
+        "label_position": {
+          "x": 150,
+          "y": -380
+        }
+      },
+      "position": {
+        "x": 150,
+        "y": -350,
+        "x1": 150,
+        "y1": 600,
+        "x2": 150,
+        "y2": 440
+      },
+      "style": {
+        "stroke": "#2c3e50",
+        "stroke_width": 3
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "type": "aligned_h",
+      "objects": [
+        "battery",
+        "capacitor_1",
+        "capacitor_2",
+        "capacitor_3"
+      ],
+      "value": null
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "wire1",
+        "wire2",
+        "wire3",
+        "wire4",
+        "wire5",
+        "wire6",
+        "wire7",
+        "wire8",
+        "wire9",
+        "wire10",
+        "wire11",
+        "wire12",
+        "wire13",
+        "wire14"
+      ],
+      "value": null
+    },
+    {
+      "type": "no_overlap",
+      "objects": [
+        "battery",
+        "capacitor_1",
+        "capacitor_2",
+        "capacitor_3",
+        "variable_arrow",
+        "variable_label",
+        "wire1",
+        "wire2",
+        "wire3",
+        "wire4",
+        "wire5",
+        "wire6",
+        "wire7",
+        "wire8",
+        "wire9",
+        "wire10",
+        "wire11",
+        "wire12",
+        "wire13",
+        "wire14"
+      ],
+      "value": null
+    }
+  ]
+}

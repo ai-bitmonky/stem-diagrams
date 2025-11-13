@@ -1,0 +1,28 @@
+2025-11-12 11:09:54 | INFO     | ================================================================================
+2025-11-12 11:09:54 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 11:09:54 | INFO     | ================================================================================
+2025-11-12 11:09:54 | INFO     | Request ID: req_20251112_110954
+2025-11-12 11:09:54 | INFO     | Problem Text Length: 79 characters
+2025-11-12 11:09:54 | INFO     | 
+2025-11-12 11:09:54 | INFO     | Problem Text:
+2025-11-12 11:09:54 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:09:54 | INFO     |   A block of mass m on a frictionless surface has a force F applied horizontally.
+2025-11-12 11:09:54 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:09:54 | INFO     | 
+2025-11-12 11:09:54 | INFO     | Configuration:
+2025-11-12 11:09:54 | INFO     |   canvas_width: 1200
+2025-11-12 11:09:54 | INFO     |   canvas_height: 800
+2025-11-12 11:09:54 | INFO     |   validation_mode: strict
+2025-11-12 11:09:54 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Request/Response Logging']
+2025-11-12 11:09:54 | INFO     | 
+2025-11-12 11:09:54 | INFO     | 
+2025-11-12 11:09:54 | INFO     | ================================================================================
+2025-11-12 11:09:54 | INFO     | PHASE 0: NLP Enrichment
+2025-11-12 11:09:54 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-12 11:09:54 | INFO     | ================================================================================
+2025-11-12 11:09:54 | INFO     | 
+2025-11-12 11:09:54 | INFO     | Phase Input:
+2025-11-12 11:09:54 | INFO     | ----------------------------------------
+2025-11-12 11:09:54 | INFO     | Summary: Problem text (79 chars)
+2025-11-12 11:09:54 | INFO     |   Type: str
+2025-11-12 11:09:54 | INFO     | ----------------------------------------

@@ -1,0 +1,323 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "domain": "electrostatics",
+    "renderer": "capacitor"
+  },
+  "coord_system": {
+    "frame": "cartesian",
+    "origin": [
+      600,
+      400
+    ],
+    "scale": 100,
+    "extent": [
+      1200,
+      800
+    ],
+    "margins": [
+      40,
+      40,
+      40,
+      40
+    ]
+  },
+  "objects": [
+    {
+      "id": "plate_top",
+      "type": "rectangle",
+      "properties": {
+        "width": 300,
+        "height": 10,
+        "charge": "+Q",
+        "label": "+Q",
+        "label_position": {
+          "x": 540,
+          "y": 420
+        }
+      },
+      "position": {
+        "x": 520,
+        "y": 400,
+        "width": 10,
+        "height": 100
+      },
+      "style": {
+        "fill": "#ff4444",
+        "stroke": "#d32f2f",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "plate_bottom",
+      "type": "rectangle",
+      "properties": {
+        "width": 300,
+        "height": 10,
+        "charge": "-Q",
+        "label": "-Q",
+        "label_position": {
+          "x": 710,
+          "y": 400
+        }
+      },
+      "position": {
+        "x": 680,
+        "y": 400,
+        "width": 10,
+        "height": 100
+      },
+      "style": {
+        "fill": "#4444ff",
+        "stroke": "#1976d2",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "dielectric",
+      "type": "rectangle",
+      "properties": {
+        "width": 260,
+        "height": 40.0,
+        "kappa": 4.0,
+        "label": "Rectangle: dielectric",
+        "label_position": {
+          "x": 600,
+          "y": 380
+        }
+      },
+      "position": {
+        "x": 580,
+        "y": 400,
+        "width": 90.0,
+        "height": 80
+      },
+      "style": {
+        "fill": "#E3F2FD",
+        "fill_opacity": 0.8,
+        "stroke": "#42a5f5",
+        "stroke_width": 3
+      }
+    },
+    {
+      "id": "field_line_0",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_0",
+        "label_position": {
+          "x": 550,
+          "y": 340
+        }
+      },
+      "position": {
+        "x": 550,
+        "y": 370,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_1",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_1",
+        "label_position": {
+          "x": 575.0,
+          "y": 340.0
+        }
+      },
+      "position": {
+        "x": 575.0,
+        "y": 370.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_2",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_2",
+        "label_position": {
+          "x": 640,
+          "y": 340
+        }
+      },
+      "position": {
+        "x": 640,
+        "y": 370,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_3",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_3",
+        "label_position": {
+          "x": 665.0,
+          "y": 340.0
+        }
+      },
+      "position": {
+        "x": 665.0,
+        "y": 370.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_4",
+      "type": "arrow",
+      "properties": {
+        "direction": "down",
+        "label": "Arrow: field_line_4",
+        "label_position": {
+          "x": 692.5,
+          "y": 340.0
+        }
+      },
+      "position": {
+        "x": 692.5,
+        "y": 370.0,
+        "length": 60,
+        "angle": 90
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "separation_arrow",
+      "type": "arrow",
+      "properties": {
+        "bidirectional": true,
+        "label": "Arrow: separation_arrow",
+        "label_position": {
+          "x": 400,
+          "y": 340
+        }
+      },
+      "position": {
+        "x": 400,
+        "y": 370,
+        "x1": 400,
+        "y1": 325,
+        "x2": 400,
+        "y2": 475,
+        "double_headed": true
+      },
+      "style": {
+        "stroke": "#555",
+        "stroke_width": 2,
+        "marker_start": "arrowhead",
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "kappa_label",
+      "type": "text",
+      "properties": {
+        "text": "\u03ba = 4.0",
+        "font_size": 14,
+        "font_weight": "bold",
+        "label": "Text: kappa_label",
+        "label_position": {
+          "x": 600,
+          "y": 500
+        }
+      },
+      "position": {
+        "x": 600,
+        "y": 530
+      },
+      "style": {
+        "fill": "#1565c0",
+        "font_family": "Arial",
+        "text_anchor": "middle"
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "type": "parallel",
+      "objects": [
+        "plate_top",
+        "plate_bottom"
+      ],
+      "value": null
+    },
+    {
+      "type": "distance",
+      "objects": [
+        "plate_top",
+        "plate_bottom"
+      ],
+      "value": 150
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "plate_top",
+        "plate_bottom",
+        "dielectric"
+      ],
+      "value": null
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4",
+        "separation_arrow"
+      ],
+      "value": null
+    },
+    {
+      "type": "no_overlap",
+      "objects": [
+        "plate_top",
+        "plate_bottom",
+        "dielectric",
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4",
+        "separation_arrow",
+        "kappa_label"
+      ],
+      "value": null
+    }
+  ]
+}

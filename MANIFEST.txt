@@ -1,0 +1,69 @@
+# Universal Diagram Generator Pipeline - File Manifest
+
+## Core Pipeline Files (6-Phase Architecture)
+- unified_diagram_pipeline.py          Main pipeline orchestrator
+- core/universal_ai_analyzer.py        Phase 1: AI Analysis
+- core/universal_scene_builder.py      Phase 2: Scene Building
+- core/universal_validator.py          Phase 3: Validation
+- core/universal_layout_engine.py      Phase 4: Layout Optimization
+- core/universal_renderer.py           Phase 5: Rendering to SVG
+
+## Schema & Data Models
+- core/scene/schema_v1.py              Scene object data model, PrimitiveType enum
+- canonical_problem_spec_schema.json   JSON schema for AI responses
+
+## Domain Interpreters
+- core/interpreters/capacitor_interpreter.py    Electrostatics interpreter
+- core/interpreters/optics_interpreter.py       Optics interpreter
+- core/interpreters/mechanics_interpreter.py    Mechanics interpreter
+
+## Generation Scripts
+- generate_batch2_with_ai.py           Batch 2 generation with full AI analysis
+
+## Documentation
+- COMPREHENSIVE_FINAL_REPORT.md        Complete session report with all fixes
+- BATCH2_ERROR_ANALYSIS.md             Detailed error analysis with traces
+- FINAL_STATUS_REPORT.md               Status report with quick fixes
+- README.md                            Project overview
+
+## Output Files
+- batch2_full_ai_analysis.html         Generated HTML with SVG diagrams (25KB)
+- batch2_ALL_6_FIXES_APPLIED.log       Complete generation log
+
+## Input Data
+- batch_2_questions.html               JEE Physics problems (batch 2)
+
+## Backup Files (showing fixes)
+- core/universal_layout_engine.py.backup       Before KeyError fix
+- core/universal_scene_builder.py.backup       Before circuit validation fix
+
+## Fixes Applied During Session (7 total)
+1. DISTANCE constraint skip (universal_layout_engine.py:431-435)
+2. Schema validation relaxation (canonical_problem_spec_schema.json:5)
+3. Method signature fix (universal_ai_analyzer.py:431)
+4. PrimitiveType.TEXT added (schema_v1.py:39-41)
+5. TextGlyph implementation (universal_renderer.py:670-687, 141)
+6. LABEL → TEXT replacement (capacitor_interpreter.py)
+7. Partial Layout Engine KeyError fix (universal_layout_engine.py:553)
+
+## Architecture Overview
+- 6-Phase Pipeline: AI Analysis → Scene Building → Validation → Layout → Rendering → Result
+- Domain-agnostic core with domain-specific interpreters
+- Scene objects use PrimitiveType enum for universal rendering
+- Constraint-based layout with heuristic solver
+
+## Known Limitations
+- No Cassowary/OR-Tools constraint solver (heuristic-based)
+- Minimal label/arrow collision avoidance (no bounding-box routing)
+- No ODE field line integration (templated patterns only)
+- No orthogonal circuit routing (no Manhattan/A* routing)
+
+## Success Rate
+- Current: 20% (1 of 5 diagrams)
+- With 3 remaining fixes: 80-100% expected
+
+## File Sizes
+- Total Pipeline Code: ~15,000 lines
+- Documentation: ~25,000 lines
+- Generated HTML: 25KB
+- Generation Log: 39KB

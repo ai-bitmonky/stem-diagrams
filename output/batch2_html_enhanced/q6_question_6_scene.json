@@ -1,0 +1,613 @@
+{
+  "scene_id": "capacitor_2083",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Capacitor Circuit",
+  "description": null,
+  "objects": [
+    {
+      "id": "C1_left_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 127.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "negative",
+        "capacitor_id": "C1"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_right_plate",
+      "object_type": "rectangle",
+      "position": {
+        "x": 170.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 3,
+        "height": 150,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": "#2c3e50",
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "",
+      "properties": {
+        "plate": "positive",
+        "capacitor_id": "C1"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_dielectric",
+      "object_type": "rectangle",
+      "position": {
+        "x": 150,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 24.0,
+        "height": 120.0,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#3498db",
+        "fill_color": "#e3f2fd",
+        "stroke_width": 1.0,
+        "opacity": 0.6,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "\u03ba",
+      "properties": {
+        "material": "dielectric",
+        "capacitor_id": "C1"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_neg_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 115.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "\u2212",
+      "properties": {
+        "charge_type": "negative"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_0",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_1",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 275.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_2",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_3",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 325.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_pos_charge_4",
+      "object_type": "label",
+      "position": {
+        "x": 185.0,
+        "y": 350.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 10,
+        "height": 10,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#2980b9",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 18,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "+",
+      "properties": {
+        "charge_type": "positive"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1_label",
+      "object_type": "label",
+      "position": {
+        "x": 150,
+        "y": 405.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 100,
+        "height": 20,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "label": "C1",
+      "properties": {
+        "value": 1e-05,
+        "unit": "\u03bcF"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "battery",
+      "object_type": "battery",
+      "position": {
+        "x": 100,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "120 V",
+      "properties": {
+        "value": 120.0,
+        "unit": "V"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "C1_plates_rel",
+      "relation_type": "acts_on",
+      "source_id": "C1_left_plate",
+      "target_id": "C1_right_plate",
+      "properties": {
+        "relationship": "opposite_charges",
+        "gap": 40
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    }
+  ],
+  "constraints": [],
+  "annotations": [
+    {
+      "id": "config_title",
+      "text": "Parallel Capacitor Configuration (1 capacitors)",
+      "position": {
+        "x": 500.0,
+        "y": 40,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "title",
+      "style": {
+        "color": "#2c3e50",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 20,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    },
+    {
+      "id": "voltage_label",
+      "text": "V = 120 V",
+      "position": {
+        "x": 50,
+        "y": 80,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "label",
+      "style": {
+        "color": "#e74c3c",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    },
+    {
+      "id": "area_label",
+      "text": "Plate Area: 0.12 m\u00b2",
+      "position": {
+        "x": 850,
+        "y": 120,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "parameter",
+      "style": {
+        "color": "#16a085",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "properties": {}
+    },
+    {
+      "id": "separation_label",
+      "text": "Plate Separation: 1.2 cm",
+      "position": {
+        "x": 850,
+        "y": 150,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "parameter",
+      "style": {
+        "color": "#16a085",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "properties": {}
+    }
+  ],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

@@ -1,0 +1,134 @@
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | Request ID: req_20251112_191946
+2025-11-12 19:19:46 | INFO     | Problem Text Length: 99 characters
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Problem Text:
+2025-11-12 19:19:46 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:19:46 | INFO     |   Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.
+2025-11-12 19:19:46 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Configuration:
+2025-11-12 19:19:46 | INFO     |   canvas_width: 1200
+2025-11-12 19:19:46 | INFO     |   canvas_height: 800
+2025-11-12 19:19:46 | INFO     |   validation_mode: standard
+2025-11-12 19:19:46 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Diagram Planner', 'Model Orchestrator', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | PHASE 0: NLP Enrichment
+2025-11-12 19:19:46 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Input:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Problem text (99 chars)
+2025-11-12 19:19:46 | INFO     |   Type: str
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Output:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Extracted data using 1 NLP tools
+2025-11-12 19:19:46 | INFO     |   openie: dict
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:19:46 | INFO     | Duration: 0.90ms
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | PHASE 1: Property Graph Construction
+2025-11-12 19:19:46 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Input:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: NLP extraction results
+2025-11-12 19:19:46 | INFO     |   openie: dict
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Output:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Built graph with 6 nodes from 1 sources
+2025-11-12 19:19:46 | INFO     |   summary: dict
+2025-11-12 19:19:46 | INFO     |   node_types: dict
+2025-11-12 19:19:46 | INFO     |   edge_types: dict
+2025-11-12 19:19:46 | INFO     |   nodes: [6 items]
+2025-11-12 19:19:46 | INFO     |   edges: [3 items]
+2025-11-12 19:19:46 | INFO     |   saved_to: output/test_complete/property_graph.json
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:19:46 | INFO     | Duration: 1.60ms
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-12 19:19:46 | INFO     | Description: Create diagram plan from property graph
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Input:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Original request + Property graph
+2025-11-12 19:19:46 | INFO     |   Type: str
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Output:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-12 19:19:46 | INFO     |   planning_mode: property_graph_driven
+2025-11-12 19:19:46 | INFO     |   domain: current_electricity
+2025-11-12 19:19:46 | INFO     |   entity_count: 1
+2025-11-12 19:19:46 | INFO     |   relation_count: 0
+2025-11-12 19:19:46 | INFO     |   constraint_count: 1
+2025-11-12 19:19:46 | INFO     |   complexity_score: 0.035
+2025-11-12 19:19:46 | INFO     |   z3_used: False
+2025-11-12 19:19:46 | INFO     |   sympy_used: False
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:19:46 | INFO     | Duration: 0.71ms
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-12 19:19:46 | INFO     | Description: Build scene graph and select strategy
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Phase Input:
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | INFO     | Summary: Problem specs with 1 objects
+2025-11-12 19:19:46 | INFO     |   Type: CanonicalProblemSpec
+2025-11-12 19:19:46 | INFO     | ----------------------------------------
+2025-11-12 19:19:46 | ERROR    | 
+2025-11-12 19:19:46 | ERROR    | ================================================================================
+2025-11-12 19:19:46 | ERROR    | ERROR OCCURRED
+2025-11-12 19:19:46 | ERROR    | ================================================================================
+2025-11-12 19:19:46 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-12 19:19:46 | ERROR    | Error: IncompleteSceneError: Incomplete scene. Missing: power_source, circuit_component
+2025-11-12 19:19:46 | ERROR    | 
+2025-11-12 19:19:46 | ERROR    | Traceback:
+2025-11-12 19:19:46 | ERROR    |   Traceback (most recent call last):
+2025-11-12 19:19:46 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1155, in generate
+2025-11-12 19:19:46 | ERROR    |       scene = self.scene_builder.build(
+2025-11-12 19:19:46 | ERROR    |           specs,
+2025-11-12 19:19:46 | ERROR    |       ...<6 lines>...
+2025-11-12 19:19:46 | ERROR    |           strategy=selected_strategy if self.diagram_planner else "DIRECT"
+2025-11-12 19:19:46 | ERROR    |       )
+2025-11-12 19:19:46 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py", line 128, in build
+2025-11-12 19:19:46 | ERROR    |       raise IncompleteSceneError(missing)
+2025-11-12 19:19:46 | ERROR    |   core.universal_scene_builder.IncompleteSceneError: Incomplete scene. Missing: power_source, circuit_component
+2025-11-12 19:19:46 | ERROR    |   
+2025-11-12 19:19:46 | ERROR    | ================================================================================
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | RESPONSE
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | Status: FAILED
+2025-11-12 19:19:46 | INFO     | Total Duration: 6.74ms
+2025-11-12 19:19:46 | ERROR    | Error: Incomplete scene. Missing: power_source, circuit_component
+2025-11-12 19:19:46 | INFO     | 
+2025-11-12 19:19:46 | INFO     | Full trace saved to: logs/req_20251112_191946.log
+2025-11-12 19:19:46 | INFO     | ================================================================================
+2025-11-12 19:19:46 | INFO     | Trace JSON saved to: logs/req_20251112_191946_trace.json

@@ -1,0 +1,162 @@
+{
+  "request_id": "req_20251112_111707",
+  "timestamp": "2025-11-12T11:17:07.469737",
+  "phases": [
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762926427.470077,
+      "duration_ms": 0.41,
+      "input": {},
+      "output": {
+        "summary": {
+          "node_count": 0,
+          "edge_count": 0,
+          "connected_components": 0,
+          "sources_used": []
+        },
+        "node_types": {},
+        "edge_types": {},
+        "nodes": [],
+        "edges": []
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Problem Understanding + Complexity",
+      "description": "Analyze problem and assess complexity",
+      "start_time": 1762926427.470537,
+      "duration_ms": 6.15,
+      "input": "A block of mass m sits on a table. A force F is applied horizontally.",
+      "output": {
+        "domain": "mechanics",
+        "object_count": 4,
+        "constraint_count": 0,
+        "complexity_score": 0.21000000000000002
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762926427.4767392,
+      "duration_ms": 0,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "dynamics",
+          "problem_text": "A block of mass m sits on a table. A force F is applied horizontally.",
+          "complexity_score": 0.8,
+          "objects": [
+            {
+              "id": "obj_0",
+              "type": "unknown",
+              "name": "F",
+              "properties": {},
+              "source": "spacy_ner"
+            },
+            {
+              "id": "obj_1",
+              "type": "block",
+              "name": "A block",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_2",
+              "type": "block",
+              "name": "block of",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_3",
+              "type": "block",
+              "name": "Block",
+              "properties": {},
+              "source": "generic_match"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {
+            "domain": "mechanics",
+            "keywords_found": [
+              "force",
+              "mass"
+            ],
+            "quantities_mentioned": []
+          },
+          "applicable_laws": [
+            "Newton's Laws of Motion",
+            "Conservation of Energy",
+            "Conservation of Momentum"
+          ],
+          "constraints": [],
+          "geometry": {
+            "type": "unknown",
+            "dimensions": {},
+            "arrangement": "parallel"
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.7,
+          "reasoning_trace": [
+            {
+              "stage": "local_analysis",
+              "method": "spacy + rules",
+              "domain": "mechanics",
+              "objects_found": 4,
+              "relationships_found": 0,
+              "confidence": 0.7
+            }
+          ]
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "BrokenPipeError",
+        "message": "[Errno 32] Broken pipe",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 961, in generate\n    self.progress.start_phase(\"Scene Synthesis\", 3)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/pipeline_logger.py\", line 356, in start_phase\n    print(f\"\\n\ud83d\udd04 [{phase_number}/7] {phase_name}...\", end='', flush=True)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nBrokenPipeError: [Errno 32] Broken pipe\n"
+      }
+    }
+  ],
+  "total_duration_ms": 8.54,
+  "status": "error",
+  "error": "[Errno 32] Broken pipe",
+  "input": {
+    "problem_text": "A block of mass m sits on a table. A force F is applied horizontally.",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "strict",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "Z3 Optimization",
+        "LLM Auditor",
+        "Structural Validator",
+        "VLM Validator",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 69
+  }
+}

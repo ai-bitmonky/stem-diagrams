@@ -1,0 +1,950 @@
+================================================================================
+BATCH 2 GENERATION WITH FULL AI ANALYSIS
+NO BYPASSES - Complete Unified Pipeline v2.0
+================================================================================
+================================================================================
+🚀 UNIFIED DIAGRAM PIPELINE v3.0 (Generic)
+================================================================================
+
+Initializing pipeline phases...
+
+✅ UniversalAIAnalyzer initialized
+   Model: deepseek-chat
+   Timeout: 60s per stage (total: up to 300s)
+   Retries: 5
+   Permissive mode: False
+   ✅ Loaded interpreters: CapacitorInterpreter (electrostatics & circuits), OpticsInterpreter, MechanicsInterpreter
+✅ UniversalSceneBuilder initialized
+   Loaded 8 domain interpreters
+   Domains: electrostatics, current_electricity, optics, mechanics, thermodynamics, magnetism, waves, modern_physics
+✅ UniversalValidator initialized
+   Mode: standard
+   Loaded 0 domain validators
+✅ UniversalLayoutEngine initialized
+   Canvas: 1200x800
+   Center: (600, 400)
+   ✅ Loaded existing glyph library
+✅ UniversalRenderer initialized
+   Canvas: 1200x800
+   Glyphs: 20 primitives
+   Themes: 1 domains
+
+================================================================================
+✅ UNIFIED PIPELINE INITIALIZED
+================================================================================
+
+
+================================================================================
+Processing Question 6: Capacitance (HARD)
+================================================================================
+
+🚀 Using FULL UNIFIED PIPELINE for Question 6
+   NO BYPASSES - Complete AI analysis → Scene building → Layout → Render
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   UNIFIED DIAGRAM GENERATION - V3.0 (GENERIC)                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PHASE 1: PROBLEM UNDERSTANDING ─────────────────────────────────┐
+
+================================================================================
+🧠 UNIVERSAL AI ANALYSIS - Phase 1
+================================================================================
+
+Step 1/5: Domain Classification
+   ✅ Domain: electrostatics
+
+Step 2/5: Multi-Stage Extraction (5 sub-stages)
+   Stage 2.1: Entity Extraction
+      ⚠️  JSON schema validation error: ['plate_1', 'plate_2'] is not of type 'string'
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      🔧 JSON parsing failed - creating generic fallback objects
+      ✅ Created 9 fallback objects
+      ✅ 9 objects extracted
+   Stage 2.2: Physics Context
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Context: unknown
+   Stage 2.3: Implicit Inference
+      ⚠️  JSON schema validation error: 'subject' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Enriched with implicit information
+   Stage 2.4: Constraint Identification
+      ✅ 0 constraints identified
+   Stage 2.5: Validation & Self-Correction
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Validated (confidence: 0.70)
+   ✅ Extracted: 0 objects, 0 relationships
+
+Step 3/5: Building Canonical Spec
+
+--- Extracted Data ---
+{
+  "objects": [],
+  "relationships": [],
+  "environment": {},
+  "context": {},
+  "constraints": [],
+  "confidence": 0.7,
+  "reasoning_trace": []
+}
+--------------------
+
+
+Step 4/5: Completeness Validation
+   ⚠️  Incomplete: Missing objects
+
+❌ ERROR: Incomplete specifications. Missing: objects
+   Traceback: Traceback (most recent call last):
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/generate_batch2_with_ai.py", line 150, in generate_with_full_ai
+    result = pipeline.generate(problem['text'])
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/unified_diagram_pipeline.py", line 241, in generate
+    specs = self.ai_analyzer.analyze(problem_text)
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/core/universal_ai_analyzer.py", line 193, in analyze
+    raise IncompleteSpecsE
+
+================================================================================
+Processing Question 7: Capacitance (HARD)
+================================================================================
+
+🚀 Using FULL UNIFIED PIPELINE for Question 7
+   NO BYPASSES - Complete AI analysis → Scene building → Layout → Render
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   UNIFIED DIAGRAM GENERATION - V3.0 (GENERIC)                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PHASE 1: PROBLEM UNDERSTANDING ─────────────────────────────────┐
+
+================================================================================
+🧠 UNIVERSAL AI ANALYSIS - Phase 1
+================================================================================
+
+Step 1/5: Domain Classification
+   ✅ Domain: electrostatics
+
+Step 2/5: Multi-Stage Extraction (5 sub-stages)
+   Stage 2.1: Entity Extraction
+      Retry 1/5 after 2s...
+      Retry 2/5 after 4s...
+      Retry 3/5 after 8s...
+      Retry 4/5 after 10s...
+      Retry 5/5 after 10s...
+
+❌ ERROR: HTTPSConnectionPool(host='api.deepseek.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x108458410>: Failed to resolve 'api.deepseek.com' ([Errno 8] nodename nor servname provided, or not known)"))
+   Traceback: Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(h
+
+================================================================================
+Processing Question 8: Capacitance (MEDIUM)
+================================================================================
+
+🚀 Using FULL UNIFIED PIPELINE for Question 8
+   NO BYPASSES - Complete AI analysis → Scene building → Layout → Render
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   UNIFIED DIAGRAM GENERATION - V3.0 (GENERIC)                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PHASE 1: PROBLEM UNDERSTANDING ─────────────────────────────────┐
+
+================================================================================
+🧠 UNIVERSAL AI ANALYSIS - Phase 1
+================================================================================
+
+Step 1/5: Domain Classification
+      Retry 1/5 after 2s...
+      Retry 2/5 after 4s...
+   ✅ Domain: electrostatics
+
+Step 2/5: Multi-Stage Extraction (5 sub-stages)
+   Stage 2.1: Entity Extraction
+      ✅ 8 objects extracted
+   Stage 2.2: Physics Context
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Context: unknown
+   Stage 2.3: Implicit Inference
+      ✅ Enriched with implicit information
+   Stage 2.4: Constraint Identification
+      ✅ 0 constraints identified
+   Stage 2.5: Validation & Self-Correction
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Validated (confidence: 0.70)
+   ✅ Extracted: 5 objects, 8 relationships
+
+Step 3/5: Building Canonical Spec
+
+--- Extracted Data ---
+{
+  "objects": [
+    {
+      "id": "vacuum_permittivity",
+      "type": "physical_constant",
+      "properties": {
+        "value": 8.8541878128e-12,
+        "unit": "F/m",
+        "description": "permittivity of free space"
+      }
+    },
+    {
+      "id": "electric_field_vacuum",
+      "type": "electric_field_reference",
+      "properties": {
+        "description": "electric field that would exist without dielectrics",
+        "uniformity": "uniform",
+        "direction": "perpendicular_to_plates"
+      }
+    },
+    {
+      "id": "capacitance_calculation",
+      "type": "calculation_method",
+      "properties": {
+        "method": "parallel_combination",
+        "description": "capacitance calculated as parallel combination of three dielectric regions",
+        "assumption": "uniform_electric_field_within_each_region"
+      }
+    },
+    {
+      "id": "charge_conservation",
+      "type": "conservation_law",
+      "properties": {
+        "law": "charge_conservation",
+        "description": "charge on plates is equal and opposite",
+        "application": "total_charge_constant_for_given_voltage"
+      }
+    },
+    {
+      "id": "gauss_law",
+      "type": "fundamental_law",
+      "properties": {
+        "law": "gauss_law",
+        "description": "electric flux through closed surface equals enclosed charge divided by permittivity",
+        "application": "electric_field_calculation_in_dielectrics"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "mathematical_dependency",
+      "subject": "capacitor_1",
+      "target": "vacuum_permittivity",
+      "properties": {
+        "dependency": "capacitance_calculation",
+        "description": "capacitance calculation requires vacuum permittivity"
+      }
+    },
+    {
+      "type": "field_reference",
+      "subject": "electric_field_1",
+      "target": "electric_field_vacuum",
+      "properties": {
+        "relationship": "scaling",
+        "description": "electric field in each dielectric region is reduced by dielectric constant relative to vacuum field"
+      }
+    },
+    {
+      "type": "calculation_relationship",
+      "subject": "capacitor_1",
+      "target": "capacitance_calculation",
+      "properties": {
+        "method": "parallel_capacitance",
+        "description": "total capacitance is sum of capacitances of three parallel dielectric regions"
+      }
+    },
+    {
+      "type": "physical_constraint",
+      "subject": "plate_left",
+      "target": "charge_conservation",
+      "properties": {
+        "constraint": "equal_magnitude_opposite_sign",
+        "description": "charge on left plate equals negative charge on right plate"
+      }
+    },
+    {
+      "type": "fundamental_application",
+      "subject": "electric_field_1",
+      "target": "gauss_law",
+      "properties": {
+        "application": "field_calculation",
+        "description": "electric field in each region determined by Gauss's law with dielectric effects"
+      }
+    },
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_2",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    },
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_3",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    },
+    {
+      "type": "energy_storage",
+      "subject": "capacitor_1",
+      "target": "electric_field_1",
+      "properties": {
+        "relationship": "energy_density",
+        "description": "energy stored in capacitor is distributed in electric fields within dielectric materials"
+      }
+    }
+  ],
+  "environment": {},
+  "context": {},
+  "constraints": [],
+  "confidence": 0.7,
+  "reasoning_trace": []
+}
+--------------------
+
+
+Step 4/5: Completeness Validation
+   ✅ Complete (confidence: 0.70)
+
+Step 5/5: Complexity Analysis
+   Complexity: 0.50
+   ✅ Manageable complexity - no decomposition needed
+
+================================================================================
+✅ UNIVERSAL AI ANALYSIS COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 2: SCENE SYNTHESIS ────────────────────────────────────────┐
+
+================================================================================
+🏗️  UNIVERSAL SCENE BUILDING - Phase 2
+================================================================================
+
+Step 1/5: Domain Interpreter Selection
+   ✅ Selected: electrostatics interpreter
+
+Step 2/5: Scene Interpretation
+   📋 Converted spec dict keys: ['domain', 'problem_type', 'problem_text', 'complexity_score', 'objects', 'relationships', 'environment', 'physics_context', 'applicable_laws', 'constraints']
+   📝 Problem text available: True
+   🔌 CapacitorInterpreter: Processing 5 objects
+   ✅ Created 7 scene objects, 2 constraints
+   ✅ Generated: 7 objects, 2 constraints
+
+Step 3/5: Physics Enrichment
+   ✅ Enriched: 7 objects (added implicit elements)
+
+Step 4/5: Constraint Inference
+   ✅ Inferred: 5 total constraints
+
+Step 5/5: Scene Completeness Validation
+   ✅ Complete scene validated
+
+================================================================================
+✅ UNIVERSAL SCENE BUILDING COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 4: PHYSICS VALIDATION ─────────────────────────────────────┐
+
+================================================================================
+✅ UNIVERSAL VALIDATION - Phase 3
+================================================================================
+
+Step 1/5: Semantic Validation
+   ✅ Semantic: 0 errors, 0 warnings
+
+Step 2/5: Geometric Validation
+   ✅ Geometric: 0 errors, 12 warnings
+
+Step 3/5: Domain-Specific Physics Validation
+   ✅ Physics: 0 errors, 12 warnings
+
+Step 4/5: Auto-Correction
+   ✅ Applied 7 auto-corrections
+
+Step 5/5: Final Validation
+   ✅ Scene is VALID
+
+================================================================================
+✅ UNIVERSAL VALIDATION PASSED
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 5: LAYOUT OPTIMIZATION ────────────────────────────────────┐
+
+================================================================================
+📐 UNIVERSAL LAYOUT ENGINE - Phase 4
+================================================================================
+
+Step 1/5: Domain-Aware Initial Placement
+   🔍 DEBUG: Found 5 total constraints
+      Constraint 0: type=ConstraintType.PARALLEL, value=None, objects=['plate_top', 'plate_bottom']
+      Constraint 1: type=ConstraintType.DISTANCE, value=150, objects=['plate_top', 'plate_bottom']
+      Constraint 2: type=ConstraintType.ALIGNED_H, value=None, objects=['plate_top', 'plate_bottom']
+      Constraint 3: type=ConstraintType.ALIGNED_H, value=None, objects=['field_line_0', 'field_line_1', 'field_line_2', 'field_line_3', 'field_line_4']
+      Constraint 4: type=ConstraintType.NO_OVERLAP, value=None, objects=['plate_top', 'plate_bottom', 'field_line_0', 'field_line_1', 'field_line_2', 'field_line_3', 'field_line_4']
+   ℹ️  Using FIRST DISTANCE constraint: 150px → clamped to 150px
+   📍 Positioned plates: plate_top x=525.0, plate_bottom x=675.0 (separation=150px)
+   ✅ Positioned 7 objects
+
+Step 2/5: Constraint Satisfaction
+      ⏭️  Skipping DISTANCE constraint (already applied in initial placement)
+   ✅ Converged in 1 iterations
+
+Step 3/5: Aesthetic Optimization
+   ✅ Optimized spacing and alignment
+
+Step 4/5: Intelligent Label Placement
+   ✅ Placed labels with overlap avoidance
+
+Step 5/5: Layout Validation
+   ✅ Layout is valid
+
+================================================================================
+✅ UNIVERSAL LAYOUT ENGINE COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 6: RENDERING ──────────────────────────────────────────────┐
+
+================================================================================
+🎨 UNIVERSAL RENDERER - Phase 5
+================================================================================
+
+Step 1/5: Theme Application
+   ✅ Applied: electrostatics_exam theme
+
+Step 2/5: Object Rendering
+   ✅ Rendered 7 objects
+
+Step 3/5: Domain Embellishments
+   ✅ Added domain-specific elements
+
+Step 4/5: Labels and Legend
+   ✅ Added labels and legend
+
+Step 5/5: SVG Assembly
+   ✅ Generated 2834 bytes of SVG
+
+================================================================================
+✅ UNIVERSAL RENDERER COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+✅ UNIVERSAL RENDERER COMPLETE
+   SVG size: 2,834 bytes
+   Domain: electrostatics
+
+✅ SUCCESS: Full AI pipeline completed in 121532ms
+   Domain: electrostatics
+   Objects: 7
+   SVG: 2,834 bytes
+   Confidence: 0.70
+
+================================================================================
+Processing Question 9: Capacitance (MEDIUM)
+================================================================================
+
+🚀 Using FULL UNIFIED PIPELINE for Question 9
+   NO BYPASSES - Complete AI analysis → Scene building → Layout → Render
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   UNIFIED DIAGRAM GENERATION - V3.0 (GENERIC)                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PHASE 1: PROBLEM UNDERSTANDING ─────────────────────────────────┐
+
+================================================================================
+🧠 UNIVERSAL AI ANALYSIS - Phase 1
+================================================================================
+
+Step 1/5: Domain Classification
+   ✅ Domain: current_electricity
+
+Step 2/5: Multi-Stage Extraction (5 sub-stages)
+   Stage 2.1: Entity Extraction
+      ✅ 6 objects extracted
+   Stage 2.2: Physics Context
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Context: unknown
+   Stage 2.3: Implicit Inference
+      ✅ Enriched with implicit information
+   Stage 2.4: Constraint Identification
+      ✅ 1 constraints identified
+   Stage 2.5: Validation & Self-Correction
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Validated (confidence: 0.70)
+   ✅ Extracted: 3 objects, 5 relationships
+
+Step 3/5: Building Canonical Spec
+
+--- Extracted Data ---
+{
+  "objects": [
+    {
+      "id": "parallel_combination",
+      "type": "capacitor_network",
+      "properties": {
+        "equivalent_capacitance": "C_parallel = C\u2082 + C\u2083",
+        "description": "parallel combination of C\u2082 and C\u2083"
+      }
+    },
+    {
+      "id": "charge_distribution",
+      "type": "electrical_property",
+      "properties": {
+        "description": "charge distribution in the circuit",
+        "series_charge": "Q\u2081 = Q_parallel",
+        "parallel_charge": "Q_parallel = Q\u2082 + Q\u2083"
+      }
+    },
+    {
+      "id": "voltage_constraint",
+      "type": "circuit_constraint",
+      "properties": {
+        "description": "battery voltage is constant and equals sum of voltages across series elements",
+        "equation": "V = V\u2081 + V_parallel"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "voltage_division",
+      "subject": "capacitor_1",
+      "target": "parallel_combination",
+      "properties": {
+        "description": "voltage divides between C\u2081 and the parallel combination according to their capacitances",
+        "equation": "V\u2081/V_parallel = (C\u2082 + C\u2083)/C\u2081"
+      }
+    },
+    {
+      "type": "charge_conservation",
+      "subject": "circuit",
+      "target": "battery",
+      "properties": {
+        "description": "total charge supplied by battery equals charge on series capacitor",
+        "equation": "Q_total = Q\u2081 = C_eq \u00d7 V"
+      }
+    },
+    {
+      "type": "asymptotic_constraint",
+      "subject": "battery",
+      "target": "measurement_data",
+      "properties": {
+        "description": "when C\u2083 \u2192 \u221e, the parallel combination dominates and V\u2081 approaches battery voltage",
+        "implication": "V = 10 V (from asymptotic behavior)"
+      }
+    },
+    {
+      "type": "capacitance_relationship",
+      "subject": "capacitor_1",
+      "target": "capacitor_2",
+      "properties": {
+        "description": "the relationship between C\u2081 and C\u2082 can be determined from the asymptotic behavior",
+        "constraint": "when C\u2083 \u2192 \u221e, V\u2081 \u2192 V \u00d7 C\u2082/(C\u2081 + C\u2082) = 10 V"
+      }
+    },
+    {
+      "type": "measurement_implication",
+      "subject": "measurement_data",
+      "target": "unknown_quantities",
+      "properties": {
+        "description": "the V\u2081 vs C\u2083 measurement data provides constraints to solve for unknown capacitances",
+        "method": "curve fitting or boundary condition analysis"
+      }
+    }
+  ],
+  "environment": {},
+  "context": {},
+  "constraints": [
+    {
+      "type": "physics",
+      "constraint": "kirchhoff",
+      "laws": [
+        "KCL",
+        "KVL"
+      ]
+    }
+  ],
+  "confidence": 0.7,
+  "reasoning_trace": []
+}
+--------------------
+
+
+Step 4/5: Completeness Validation
+   ✅ Complete (confidence: 0.70)
+
+Step 5/5: Complexity Analysis
+   Complexity: 0.60
+   ✅ Manageable complexity - no decomposition needed
+
+================================================================================
+✅ UNIVERSAL AI ANALYSIS COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 2: SCENE SYNTHESIS ────────────────────────────────────────┐
+
+================================================================================
+🏗️  UNIVERSAL SCENE BUILDING - Phase 2
+================================================================================
+
+Step 1/5: Domain Interpreter Selection
+   ✅ Selected: current_electricity interpreter
+
+Step 2/5: Scene Interpretation
+   📋 Converted spec dict keys: ['domain', 'problem_type', 'problem_text', 'complexity_score', 'objects', 'relationships', 'environment', 'physics_context', 'applicable_laws', 'constraints']
+   📝 Problem text available: True
+   🔌 CapacitorInterpreter: Processing 3 objects
+   ✅ Created 7 scene objects, 2 constraints
+   ✅ Generated: 7 objects, 2 constraints
+
+Step 3/5: Physics Enrichment
+   ✅ Enriched: 7 objects (added implicit elements)
+
+Step 4/5: Constraint Inference
+   ✅ Inferred: 5 total constraints
+
+Step 5/5: Scene Completeness Validation
+   ❌ Incomplete scene: Missing power_source, circuit_component
+
+❌ ERROR: Incomplete scene. Missing: power_source, circuit_component
+   Traceback: Traceback (most recent call last):
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/generate_batch2_with_ai.py", line 150, in generate_with_full_ai
+    result = pipeline.generate(problem['text'])
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/unified_diagram_pipeline.py", line 256, in generate
+    scene = self.scene_builder.build(specs)
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/core/universal_scene_builder.py", line 104, in build
+    raise IncompleteSceneError(mi
+
+================================================================================
+Processing Question 10: Capacitance (HARD)
+================================================================================
+
+🚀 Using FULL UNIFIED PIPELINE for Question 10
+   NO BYPASSES - Complete AI analysis → Scene building → Layout → Render
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   UNIFIED DIAGRAM GENERATION - V3.0 (GENERIC)                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ PHASE 1: PROBLEM UNDERSTANDING ─────────────────────────────────┐
+
+================================================================================
+🧠 UNIVERSAL AI ANALYSIS - Phase 1
+================================================================================
+
+Step 1/5: Domain Classification
+   ✅ Domain: electrostatics
+
+Step 2/5: Multi-Stage Extraction (5 sub-stages)
+   Stage 2.1: Entity Extraction
+      ✅ 5 objects extracted
+   Stage 2.2: Physics Context
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Context: unknown
+   Stage 2.3: Implicit Inference
+      ✅ Enriched with implicit information
+   Stage 2.4: Constraint Identification
+      ✅ 0 constraints identified
+   Stage 2.5: Validation & Self-Correction
+      ⚠️  JSON schema validation error: 'objects' is a required property
+      🔧 Attempting to fix and re-validate...
+      ⚠️  JSON repair strategy 1 failed
+      ❌ All JSON recovery strategies failed
+      ✅ Validated (confidence: 0.70)
+   ✅ Extracted: 4 objects, 7 relationships
+
+Step 3/5: Building Canonical Spec
+
+--- Extracted Data ---
+{
+  "objects": [
+    {
+      "id": "air_medium",
+      "type": "dielectric_medium",
+      "properties": {
+        "material": "air",
+        "dielectric_constant": 1.0,
+        "breakdown_strength": 3000000,
+        "breakdown_strength_units": "V/m",
+        "purpose": "surrounding_medium_for_electrostatic_interactions"
+      }
+    },
+    {
+      "id": "ground_reference",
+      "type": "electrical_reference",
+      "properties": {
+        "potential": 0,
+        "potential_units": "V",
+        "role": "reference_potential_for_capacitance_calculation"
+      }
+    },
+    {
+      "id": "induced_positive_charge",
+      "type": "charge_distribution",
+      "properties": {
+        "location": "liquid_surface_near_container",
+        "charge_polarity": "positive",
+        "magnitude": 2.513e-07,
+        "magnitude_units": "C",
+        "distribution": "surface_layer",
+        "mechanism": "electrostatic_induction"
+      }
+    },
+    {
+      "id": "electrostatic_field",
+      "type": "electric_field",
+      "properties": {
+        "source": "charged_exterior_surface",
+        "direction": "radial_outward_from_container",
+        "strength": "non-uniform",
+        "effect": "charge_separation_in_liquid"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "surrounds",
+      "subject": "air_medium",
+      "target": "container",
+      "properties": {
+        "role": "dielectric_medium",
+        "affects": "capacitance_and_breakdown"
+      }
+    },
+    {
+      "type": "provides_reference",
+      "subject": "ground_reference",
+      "target": "central_liquid_portion",
+      "properties": {
+        "purpose": "capacitance_definition",
+        "reference_point": "zero_potential"
+      }
+    },
+    {
+      "type": "induces",
+      "subject": "exterior_surface",
+      "target": "induced_positive_charge",
+      "properties": {
+        "mechanism": "electrostatic_induction",
+        "charge_conservation": "total_induced_charge_equals_exterior_charge_magnitude",
+        "polarity": "opposite_to_inducing_charge"
+      }
+    },
+    {
+      "type": "generates",
+      "subject": "exterior_surface",
+      "target": "electrostatic_field",
+      "properties": {
+        "field_distribution": "cylindrical_symmetry",
+        "field_strength": "decreases_with_distance"
+      }
+    },
+    {
+      "type": "separates_charges",
+      "subject": "electrostatic_field",
+      "target": "liquid",
+      "properties": {
+        "mechanism": "polarization_of_conductor",
+        "result": "negative_charge_central_portion_positive_charge_surface"
+      }
+    },
+    {
+      "type": "energy_storage",
+      "subject": "central_liquid_portion",
+      "target": "spark_ignition_system",
+      "properties": {
+        "relationship": "stored_energy_compared_to_ignition_threshold",
+        "calculation_basis": "E = \u00bdCV\u00b2"
+      }
+    },
+    {
+      "type": "charge_conservation",
+      "subject": "system",
+      "target": "system",
+      "properties": {
+        "principle": "total_charge_conservation",
+        "manifestation": "exterior_negative_charge_balanced_by_induced_positive_charge"
+      }
+    }
+  ],
+  "environment": {},
+  "context": {},
+  "constraints": [],
+  "confidence": 0.7,
+  "reasoning_trace": []
+}
+--------------------
+
+
+Step 4/5: Completeness Validation
+   ✅ Complete (confidence: 0.70)
+
+Step 5/5: Complexity Analysis
+   Complexity: 0.50
+   ✅ Manageable complexity - no decomposition needed
+
+================================================================================
+✅ UNIVERSAL AI ANALYSIS COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 2: SCENE SYNTHESIS ────────────────────────────────────────┐
+
+================================================================================
+🏗️  UNIVERSAL SCENE BUILDING - Phase 2
+================================================================================
+
+Step 1/5: Domain Interpreter Selection
+   ✅ Selected: electrostatics interpreter
+
+Step 2/5: Scene Interpretation
+   📋 Converted spec dict keys: ['domain', 'problem_type', 'problem_text', 'complexity_score', 'objects', 'relationships', 'environment', 'physics_context', 'applicable_laws', 'constraints']
+   📝 Problem text available: True
+   🔌 CapacitorInterpreter: Processing 4 objects
+   ✅ Created 11 scene objects, 2 constraints
+   ✅ Generated: 11 objects, 2 constraints
+
+Step 3/5: Physics Enrichment
+   ✅ Enriched: 11 objects (added implicit elements)
+
+Step 4/5: Constraint Inference
+   ✅ Inferred: 6 total constraints
+
+Step 5/5: Scene Completeness Validation
+   ✅ Complete scene validated
+
+================================================================================
+✅ UNIVERSAL SCENE BUILDING COMPLETE
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 4: PHYSICS VALIDATION ─────────────────────────────────────┐
+
+================================================================================
+✅ UNIVERSAL VALIDATION - Phase 3
+================================================================================
+
+Step 1/5: Semantic Validation
+   ✅ Semantic: 0 errors, 0 warnings
+
+Step 2/5: Geometric Validation
+   ✅ Geometric: 0 errors, 18 warnings
+
+Step 3/5: Domain-Specific Physics Validation
+   ✅ Physics: 0 errors, 18 warnings
+
+Step 4/5: Auto-Correction
+   ✅ Applied 9 auto-corrections
+
+Step 5/5: Final Validation
+   ✅ Scene is VALID
+
+================================================================================
+✅ UNIVERSAL VALIDATION PASSED
+================================================================================
+
+└───────────────────────────────────────────────────────────────────┘
+
+┌─ PHASE 5: LAYOUT OPTIMIZATION ────────────────────────────────────┐
+
+================================================================================
+📐 UNIVERSAL LAYOUT ENGINE - Phase 4
+================================================================================
+
+Step 1/5: Domain-Aware Initial Placement
+   🔍 DEBUG: Found 6 total constraints
+      Constraint 0: type=ConstraintType.PARALLEL, value=None, objects=['plate_top', 'plate_bottom']
+      Constraint 1: type=ConstraintType.DISTANCE, value=150, objects=['plate_top', 'plate_bottom']
+      Constraint 2: type=ConstraintType.ALIGNED_H, value=None, objects=['plate_top', 'plate_bottom', 'dielectric']
+      Constraint 3: type=ConstraintType.ALIGNED_H, value=None, objects=['field_line_0', 'field_line_1', 'field_line_2', 'field_line_3', 'field_line_4', 'separation_arrow']
+      Constraint 4: type=ConstraintType.ALIGNED_H, value=None, objects=['kappa_label', 'thickness_label']
+      Constraint 5: type=ConstraintType.NO_OVERLAP, value=None, objects=['plate_top', 'plate_bottom', 'dielectric', 'field_line_0', 'field_line_1', 'field_line_2', 'field_line_3', 'field_line_4', 'separation_arrow', 'kappa_label', 'thickness_label']
+   ℹ️  Using FIRST DISTANCE constraint: 150px → clamped to 150px
+   📍 Positioned plates: plate_top x=525.0, plate_bottom x=675.0 (separation=150px)
+   ✅ Positioned 11 objects
+
+Step 2/5: Constraint Satisfaction
+      ⏭️  Skipping DISTANCE constraint (already applied in initial placement)
+      ⏭️  Skipping DISTANCE constraint (already applied in initial placement)
+   ✅ Converged in 2 iterations
+
+Step 3/5: Aesthetic Optimization
+
+❌ ERROR: 'x'
+   Traceback: Traceback (most recent call last):
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/generate_batch2_with_ai.py", line 150, in generate_with_full_ai
+    result = pipeline.generate(problem['text'])
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/unified_diagram_pipeline.py", line 283, in generate
+    positioned_scene = self.layout_engine.solve(scene, specs)
+  File "/Users/Pramod/projects/STEM-AI/diagram-generator/core/universal_layout_engine.py", line 80, in solve
+    self._optimi
+
+================================================================================
+GENERATION COMPLETE
+================================================================================
+Output: batch2_full_ai_analysis.html
+Size: 25,699 bytes
+Success: 1/5
+
+file:///Users/Pramod/projects/STEM-AI/diagram-generator/batch2_full_ai_analysis.html

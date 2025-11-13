@@ -1,0 +1,182 @@
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | Request ID: req_20251112_192730
+2025-11-12 19:27:30 | INFO     | Problem Text Length: 99 characters
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Problem Text:
+2025-11-12 19:27:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:27:30 | INFO     |   Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.
+2025-11-12 19:27:30 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Configuration:
+2025-11-12 19:27:30 | INFO     |   canvas_width: 1200
+2025-11-12 19:27:30 | INFO     |   canvas_height: 800
+2025-11-12 19:27:30 | INFO     |   validation_mode: standard
+2025-11-12 19:27:30 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Diagram Planner', 'Model Orchestrator', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 0: NLP Enrichment
+2025-11-12 19:27:30 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Problem text (99 chars)
+2025-11-12 19:27:30 | INFO     |   Type: str
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Output:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Extracted data using 1 NLP tools
+2025-11-12 19:27:30 | INFO     |   openie: dict
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:27:30 | INFO     | Duration: 0.88ms
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 1: Property Graph Construction
+2025-11-12 19:27:30 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: NLP extraction results
+2025-11-12 19:27:30 | INFO     |   openie: dict
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Output:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Built graph with 6 nodes from 1 sources
+2025-11-12 19:27:30 | INFO     |   summary: dict
+2025-11-12 19:27:30 | INFO     |   node_types: dict
+2025-11-12 19:27:30 | INFO     |   edge_types: dict
+2025-11-12 19:27:30 | INFO     |   nodes: [6 items]
+2025-11-12 19:27:30 | INFO     |   edges: [3 items]
+2025-11-12 19:27:30 | INFO     |   saved_to: output/test_complete/property_graph.json
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:27:30 | INFO     | Duration: 1.51ms
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-12 19:27:30 | INFO     | Description: Create diagram plan from property graph
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Original request + Property graph
+2025-11-12 19:27:30 | INFO     |   Type: str
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Output:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-12 19:27:30 | INFO     |   planning_mode: property_graph_driven
+2025-11-12 19:27:30 | INFO     |   domain: current_electricity
+2025-11-12 19:27:30 | INFO     |   entity_count: 1
+2025-11-12 19:27:30 | INFO     |   relation_count: 0
+2025-11-12 19:27:30 | INFO     |   constraint_count: 1
+2025-11-12 19:27:30 | INFO     |   complexity_score: 0.035
+2025-11-12 19:27:30 | INFO     |   z3_used: False
+2025-11-12 19:27:30 | INFO     |   sympy_used: False
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:27:30 | INFO     | Duration: 0.54ms
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-12 19:27:30 | INFO     | Description: Build scene graph and select strategy
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Problem specs with 1 objects
+2025-11-12 19:27:30 | INFO     |   Type: CanonicalProblemSpec
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Output:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Scene with 7 objects
+2025-11-12 19:27:30 | INFO     |   object_count: 7
+2025-11-12 19:27:30 | INFO     |   selected_strategy: heuristic
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:27:30 | INFO     | Duration: 0.62ms
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 5: Physics Validation
+2025-11-12 19:27:30 | INFO     | Description: Validate physics constraints and relationships
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Scene with 7 objects
+2025-11-12 19:27:30 | INFO     |   Type: Scene
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Output:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Errors: 1, Warnings: 12
+2025-11-12 19:27:30 | INFO     |   errors: 1
+2025-11-12 19:27:30 | INFO     |   warnings: 12
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase completed: SUCCESS
+2025-11-12 19:27:30 | INFO     | Duration: 0.46ms
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | PHASE 6: Layout Optimization + Z3
+2025-11-12 19:27:30 | INFO     | Description: Compute optimal object positions
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Phase Input:
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     | Summary: Scene with 7 unpositioned objects
+2025-11-12 19:27:30 | INFO     |   Type: Scene
+2025-11-12 19:27:30 | INFO     | ----------------------------------------
+2025-11-12 19:27:30 | INFO     |   Attempting Z3 layout optimization
+2025-11-12 19:27:30 | INFO     |   Plan has 1 constraints
+2025-11-12 19:27:30 | INFO     |   Z3 successfully positioned 1 objects
+2025-11-12 19:27:30 | ERROR    | 
+2025-11-12 19:27:30 | ERROR    | ================================================================================
+2025-11-12 19:27:30 | ERROR    | ERROR OCCURRED
+2025-11-12 19:27:30 | ERROR    | ================================================================================
+2025-11-12 19:27:30 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-12 19:27:30 | ERROR    | Error: AttributeError: 'dict' object has no attribute 'x'
+2025-11-12 19:27:30 | ERROR    | 
+2025-11-12 19:27:30 | ERROR    | Traceback:
+2025-11-12 19:27:30 | ERROR    |   Traceback (most recent call last):
+2025-11-12 19:27:30 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1343, in generate
+2025-11-12 19:27:30 | ERROR    |       positioned_scene = self.layout_engine.solve(scene, specs)
+2025-11-12 19:27:30 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py", line 75, in solve
+2025-11-12 19:27:30 | ERROR    |       iterations = self._solve_constraints(scene)
+2025-11-12 19:27:30 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py", line 375, in _solve_constraints
+2025-11-12 19:27:30 | ERROR    |       moved = self._apply_constraint(scene, constraint)
+2025-11-12 19:27:30 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_layout_engine.py", line 549, in _apply_constraint
+2025-11-12 19:27:30 | ERROR    |       obj2.position.x += dx
+2025-11-12 19:27:30 | ERROR    |       ^^^^^^^^^^^^^^^
+2025-11-12 19:27:30 | ERROR    |   AttributeError: 'dict' object has no attribute 'x'
+2025-11-12 19:27:30 | ERROR    |   
+2025-11-12 19:27:30 | ERROR    | ================================================================================
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | RESPONSE
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | Status: FAILED
+2025-11-12 19:27:30 | INFO     | Total Duration: 12.45ms
+2025-11-12 19:27:30 | ERROR    | Error: 'dict' object has no attribute 'x'
+2025-11-12 19:27:30 | INFO     | 
+2025-11-12 19:27:30 | INFO     | Full trace saved to: logs/req_20251112_192730.log
+2025-11-12 19:27:30 | INFO     | ================================================================================
+2025-11-12 19:27:30 | INFO     | Trace JSON saved to: logs/req_20251112_192730_trace.json

@@ -1,0 +1,336 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Universal Scene Graph Schema",
+  "description": "JSON schema for validating universal scene representations for STEM diagrams",
+  "type": "object",
+  "required": ["scene_id", "domain", "diagram_type", "objects"],
+  "properties": {
+    "scene_id": {
+      "type": "string",
+      "description": "Unique identifier for the scene"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "physics",
+        "chemistry",
+        "biology",
+        "mathematics",
+        "electronics",
+        "mechanics",
+        "thermodynamics",
+        "optics",
+        "geometry",
+        "circuits",
+        "organic_chemistry",
+        "cell_biology",
+        "anatomy",
+        "graphs",
+        "statistics"
+      ],
+      "description": "STEM domain of the diagram"
+    },
+    "diagram_type": {
+      "type": "string",
+      "enum": [
+        "free_body_diagram",
+        "circuit_diagram",
+        "ray_diagram",
+        "field_diagram",
+        "energy_diagram",
+        "wave_diagram",
+        "molecular_structure",
+        "lewis_structure",
+        "reaction_mechanism",
+        "phase_diagram",
+        "orbital_diagram",
+        "cell_diagram",
+        "dna_structure",
+        "metabolic_pathway",
+        "anatomical_diagram",
+        "ecosystem_diagram",
+        "function_graph",
+        "geometric_figure",
+        "vector_diagram",
+        "probability_tree",
+        "statistical_chart",
+        "schematic",
+        "conceptual",
+        "process_flow"
+      ],
+      "description": "Specific type of diagram"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title for the diagram"
+    },
+    "canvas_width": {
+      "type": "number",
+      "minimum": 0,
+      "default": 800,
+      "description": "Canvas width in pixels"
+    },
+    "canvas_height": {
+      "type": "number",
+      "minimum": 0,
+      "default": 600,
+      "description": "Canvas height in pixels"
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/SceneObject"
+      },
+      "description": "Array of scene objects"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Relationship"
+      },
+      "description": "Relationships between objects"
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Annotation"
+      },
+      "description": "Text annotations and labels"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata"
+    }
+  },
+  "definitions": {
+    "SceneObject": {
+      "type": "object",
+      "required": ["id", "object_type", "position"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique object identifier"
+        },
+        "object_type": {
+          "type": "string",
+          "enum": [
+            "point",
+            "line",
+            "curve",
+            "circle",
+            "ellipse",
+            "rectangle",
+            "polygon",
+            "mass",
+            "spring",
+            "pulley",
+            "incline",
+            "force_vector",
+            "resistor",
+            "capacitor",
+            "inductor",
+            "battery",
+            "wire",
+            "switch",
+            "diode",
+            "atom",
+            "bond",
+            "molecule",
+            "orbital",
+            "electron",
+            "cell",
+            "organelle",
+            "protein",
+            "dna_strand",
+            "membrane",
+            "axis",
+            "graph_point",
+            "curve_plot",
+            "vector",
+            "angle",
+            "label",
+            "annotation",
+            "container",
+            "group"
+          ],
+          "description": "Type of object"
+        },
+        "position": {
+          "$ref": "#/definitions/Position"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/Dimensions"
+        },
+        "rotation": {
+          "type": "number",
+          "description": "Rotation in degrees"
+        },
+        "label": {
+          "type": "string",
+          "description": "Object label"
+        },
+        "properties": {
+          "type": "object",
+          "description": "Domain-specific properties"
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        }
+      }
+    },
+    "Position": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "X coordinate"
+        },
+        "y": {
+          "type": "number",
+          "description": "Y coordinate"
+        },
+        "z": {
+          "type": "number",
+          "default": 0,
+          "description": "Z coordinate (for 3D)"
+        }
+      }
+    },
+    "Dimensions": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "depth": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    },
+    "Style": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "default": "#000000",
+          "description": "Stroke/outline color"
+        },
+        "fill_color": {
+          "type": ["string", "null"],
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Fill color"
+        },
+        "stroke_width": {
+          "type": "number",
+          "minimum": 0,
+          "default": 2
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1
+        },
+        "dashed": {
+          "type": "boolean",
+          "default": false
+        },
+        "dash_pattern": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "number"
+          }
+        },
+        "font_size": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 14
+        },
+        "font_family": {
+          "type": "string",
+          "default": "Arial"
+        },
+        "font_weight": {
+          "type": "string",
+          "enum": ["normal", "bold"],
+          "default": "normal"
+        }
+      }
+    },
+    "Relationship": {
+      "type": "object",
+      "required": ["from_id", "to_id", "relation_type"],
+      "properties": {
+        "from_id": {
+          "type": "string",
+          "description": "Source object ID"
+        },
+        "to_id": {
+          "type": "string",
+          "description": "Target object ID"
+        },
+        "relation_type": {
+          "type": "string",
+          "enum": [
+            "connected_to",
+            "contains",
+            "part_of",
+            "acts_on",
+            "bonded_to",
+            "adjacent_to",
+            "parallel_to",
+            "perpendicular_to",
+            "equal_to",
+            "proportional_to",
+            "aligned_with",
+            "flows_to",
+            "reacts_with",
+            "positioned_at"
+          ]
+        },
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "Annotation": {
+      "type": "object",
+      "required": ["id", "text", "position"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/Position"
+        },
+        "annotation_type": {
+          "type": "string",
+          "enum": ["title", "label", "equation", "note", "dimension"]
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        }
+      }
+    }
+  }
+}

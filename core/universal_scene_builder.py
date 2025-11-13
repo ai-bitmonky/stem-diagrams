@@ -620,7 +620,7 @@ class UniversalSceneBuilder:
             # Query graph for spatial relationships
             try:
                 from core.property_graph import EdgeType
-                spatial_edges = property_graph.find_edges_by_type(EdgeType.SPATIAL)
+                spatial_edges = property_graph.get_edges(edge_type=EdgeType.SPATIAL)
                 for edge in spatial_edges:
                     # Convert graph edges to scene constraints
                     source_obj = [o for o in scene.objects if o.id == edge.source]

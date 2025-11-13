@@ -1,0 +1,321 @@
+{
+  "nodes": [
+    {
+      "id": "left half",
+      "type": "object",
+      "label": "left half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "dielectric \u03ba\u2081",
+      "type": "object",
+      "label": "dielectric \u03ba\u2081",
+      "properties": {},
+      "metadata": {
+        "ontologies": [
+          {
+            "namespace": "physh",
+            "uri": "https://physh.aps.org/terms/dielectrics",
+            "label": "Dielectric Material"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0 and",
+      "type": "object",
+      "label": "0 and",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "\u03ba\u2083",
+      "type": "object",
+      "label": "\u03ba\u2083",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "12 mm",
+      "type": "object",
+      "label": "12 mm",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "configured as",
+      "type": "object",
+      "label": "configured as",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "filled with",
+      "type": "object",
+      "label": "filled with",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "right half",
+      "type": "object",
+      "label": "right half",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "divided into",
+      "type": "object",
+      "label": "divided into",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "\u03ba\u2082",
+      "type": "parameter",
+      "label": "\u03ba\u2082",
+      "properties": {
+        "type": "variable"
+      },
+      "metadata": {
+        "source": "mathbert"
+      }
+    },
+    {
+      "id": "\u03ba",
+      "type": "parameter",
+      "label": "\u03ba",
+      "properties": {
+        "type": "variable"
+      },
+      "metadata": {
+        "source": "mathbert"
+      }
+    },
+    {
+      "id": "\u03ba\u2081",
+      "type": "parameter",
+      "label": "\u03ba\u2081",
+      "properties": {
+        "type": "variable"
+      },
+      "metadata": {
+        "source": "mathbert"
+      }
+    },
+    {
+      "id": "plate",
+      "type": "concept",
+      "label": "plate",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "capacitor",
+      "type": "concept",
+      "label": "capacitor",
+      "properties": {},
+      "metadata": {
+        "source": "amr",
+        "ontologies": [
+          {
+            "namespace": "physh",
+            "uri": "https://physh.aps.org/terms/capacitors",
+            "label": "Capacitor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "in",
+      "type": "concept",
+      "label": "in",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "is",
+      "type": "concept",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "calculate",
+      "type": "concept",
+      "label": "calculate",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "at",
+      "type": "concept",
+      "label": "at",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "capacitance",
+      "type": "concept",
+      "label": "capacitance",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "area",
+      "type": "concept",
+      "label": "area",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "quantity",
+      "type": "concept",
+      "label": "quantity",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    },
+    {
+      "id": "on",
+      "type": "concept",
+      "label": "on",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "left half",
+      "target": "dielectric \u03ba\u2081",
+      "type": "related_to",
+      "label": "is filled on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "left half",
+      "target": "filled with",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "0 and",
+      "target": "\u03ba\u2083",
+      "type": "related_to",
+      "label": "bottom on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "12 mm",
+      "target": "configured as",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "right half",
+      "target": "divided into",
+      "type": "related_to",
+      "label": "is",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "plate",
+      "target": "area",
+      "type": "related_to",
+      "label": "poss",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitor",
+      "target": "at",
+      "type": "related_to",
+      "label": "location",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "capacitor",
+      "target": "on",
+      "type": "related_to",
+      "label": "location",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "at",
+      "target": "plate",
+      "type": "related_to",
+      "label": "ARG1",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "on",
+      "target": "plate",
+      "type": "related_to",
+      "label": "ARG1",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 22,
+    "edge_count": 10
+  }
+}

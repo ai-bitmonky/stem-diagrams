@@ -1,0 +1,108 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "QUANTITY",
+      "text": "0.500 mm",
+      "properties": {
+        "start": 240,
+        "end": 248,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "QUANTITY",
+      "text": "5.00 mm",
+      "properties": {
+        "start": 266,
+        "end": 273,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "MEASUREMENT",
+      "text": "0.500 m",
+      "properties": {
+        "value": 0.5,
+        "unit": "m",
+        "start": 240,
+        "end": 247,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "MEASUREMENT",
+      "text": "5.00 m",
+      "properties": {
+        "value": 5.0,
+        "unit": "m",
+        "start": 266,
+        "end": 272,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "0.500 mm",
+      "target": "5.00 mm",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.500 mm",
+      "target": "0.500 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5.00 mm",
+      "target": "0.500 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "5.00 mm",
+      "target": "5.00 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "0.500 m",
+      "target": "5.00 m",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 4,
+    "num_relationships": 5,
+    "processing_time": 0.008468866348266602,
+    "sentence_count": 3,
+    "token_count": 65
+  },
+  "raw_text": "A cylindrical capacitor has radii a and b (where b > a). (a) Show that the capacitance\nper unit length is given by C/\u2113 = 2\u03c0\u03b5\u2080/ln(b/a). (b) Use this result to find the capacitance per unit length\nof a cylindrical capacitor with inner radius 0.500 mm and outer radius 5.00 mm."
+}

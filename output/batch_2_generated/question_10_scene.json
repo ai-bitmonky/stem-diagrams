@@ -1,0 +1,369 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "domain": "electrostatics",
+    "renderer": "capacitor"
+  },
+  "coord_system": {
+    "frame": "cartesian",
+    "origin": [
+      600,
+      400
+    ],
+    "scale": 100,
+    "extent": [
+      1200,
+      800
+    ],
+    "margins": [
+      40,
+      40,
+      40,
+      40
+    ]
+  },
+  "objects": [
+    {
+      "id": "outer_cylinder",
+      "type": "circle",
+      "properties": {
+        "radius": 120,
+        "charge": "-Q",
+        "label": "Circle: outer_cylinder",
+        "label_position": {
+          "x": 630,
+          "y": -90
+        }
+      },
+      "position": {
+        "x": 600,
+        "y": -90,
+        "cx": 600,
+        "cy": 400
+      },
+      "style": {
+        "fill": "none",
+        "stroke": "#4444ff",
+        "stroke_width": 4
+      }
+    },
+    {
+      "id": "inner_cylinder",
+      "type": "circle",
+      "properties": {
+        "radius": 60,
+        "charge": "+Q",
+        "label": "Circle: inner_cylinder",
+        "label_position": {
+          "x": 620.0,
+          "y": -135.0
+        }
+      },
+      "position": {
+        "x": 600.0,
+        "y": -115.0,
+        "cx": 600,
+        "cy": 400
+      },
+      "style": {
+        "fill": "none",
+        "stroke": "#ff4444",
+        "stroke_width": 4
+      }
+    },
+    {
+      "id": "field_line_0",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_0",
+        "label_position": {
+          "x": 660,
+          "y": -160
+        }
+      },
+      "position": {
+        "x": 660,
+        "y": -130,
+        "x1": 660.0,
+        "y1": 400.0,
+        "x2": 720.0,
+        "y2": 400.0
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_1",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_1",
+        "label_position": {
+          "x": 622.0,
+          "y": -101.5
+        }
+      },
+      "position": {
+        "x": 622.0,
+        "y": -131.5,
+        "x1": 642.4264068711929,
+        "y1": 442.42640687119285,
+        "x2": 684.8528137423857,
+        "y2": 484.8528137423857
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_2",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_2",
+        "label_position": {
+          "x": 596.528542681434,
+          "y": -108.44676108688162
+        }
+      },
+      "position": {
+        "x": 596.528542681434,
+        "y": -138.44676108688162,
+        "x1": 600.0,
+        "y1": 460.0,
+        "x2": 600.0,
+        "y2": 520.0
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_3",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_3",
+        "label_position": {
+          "x": 560,
+          "y": -100
+        }
+      },
+      "position": {
+        "x": 560,
+        "y": -130,
+        "x1": 557.5735931288071,
+        "y1": 442.42640687119285,
+        "x2": 515.1471862576143,
+        "y2": 484.8528137423857
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_4",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_4",
+        "label_position": {
+          "x": 520,
+          "y": -160
+        }
+      },
+      "position": {
+        "x": 520,
+        "y": -130,
+        "x1": 540.0,
+        "y1": 400.0,
+        "x2": 480.0,
+        "y2": 400.0
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_5",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_5",
+        "label_position": {
+          "x": 560.0,
+          "y": -185.0
+        }
+      },
+      "position": {
+        "x": 560.0,
+        "y": -155.0,
+        "x1": 557.5735931288071,
+        "y1": 357.57359312880715,
+        "x2": 515.1471862576143,
+        "y2": 315.1471862576143
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_6",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_6",
+        "label_position": {
+          "x": 621.6640561441097,
+          "y": -178.97702590553
+        }
+      },
+      "position": {
+        "x": 601.6640561441097,
+        "y": -158.97702590553,
+        "x1": 600.0,
+        "y1": 340.0,
+        "x2": 600.0,
+        "y2": 280.0
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "field_line_7",
+      "type": "arrow",
+      "properties": {
+        "direction": "radial",
+        "label": "Arrow: field_line_7",
+        "label_position": {
+          "x": 625.6169519928314,
+          "y": -185.1788662538818
+        }
+      },
+      "position": {
+        "x": 625.6169519928314,
+        "y": -155.1788662538818,
+        "x1": 642.4264068711929,
+        "y1": 357.57359312880715,
+        "x2": 684.8528137423857,
+        "y2": 315.1471862576143
+      },
+      "style": {
+        "stroke": "#ff6600",
+        "stroke_width": 2,
+        "marker_end": "arrowhead"
+      }
+    },
+    {
+      "id": "inner_label",
+      "type": "text",
+      "properties": {
+        "text": "Inner: +Q",
+        "font_size": 14,
+        "label": "Text: inner_label",
+        "label_position": {
+          "x": 630,
+          "y": -200
+        }
+      },
+      "position": {
+        "x": 600,
+        "y": -200
+      },
+      "style": {
+        "fill": "#ff4444",
+        "font_family": "Arial",
+        "text_anchor": "middle"
+      }
+    },
+    {
+      "id": "outer_label",
+      "type": "text",
+      "properties": {
+        "text": "Outer: -Q",
+        "font_size": 14,
+        "label": "Text: outer_label",
+        "label_position": {
+          "x": 600.0,
+          "y": -255.0
+        }
+      },
+      "position": {
+        "x": 600.0,
+        "y": -225.0
+      },
+      "style": {
+        "fill": "#4444ff",
+        "font_family": "Arial",
+        "text_anchor": "middle"
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "type": "aligned_h",
+      "objects": [
+        "outer_cylinder",
+        "inner_cylinder"
+      ],
+      "value": null
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4",
+        "field_line_5",
+        "field_line_6",
+        "field_line_7"
+      ],
+      "value": null
+    },
+    {
+      "type": "aligned_h",
+      "objects": [
+        "inner_label",
+        "outer_label"
+      ],
+      "value": null
+    },
+    {
+      "type": "no_overlap",
+      "objects": [
+        "outer_cylinder",
+        "inner_cylinder",
+        "field_line_0",
+        "field_line_1",
+        "field_line_2",
+        "field_line_3",
+        "field_line_4",
+        "field_line_5",
+        "field_line_6",
+        "field_line_7",
+        "inner_label",
+        "outer_label"
+      ],
+      "value": null
+    }
+  ]
+}

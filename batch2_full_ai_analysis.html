@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Batch 2 - Full AI Analysis (No Bypasses)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        header h1 { font-size: 2.5em; margin-bottom: 15px; }
+        .ai-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 1.1em;
+        }
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            overflow-x: auto;
+        }
+        .nav-tab {
+            padding: 20px 30px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+            transition: all 0.3s;
+        }
+        .nav-tab:hover { background: rgba(102, 126, 234, 0.1); }
+        .nav-tab.active { background: #667eea; color: white; }
+        .tab-content { display: none; padding: 40px; }
+        .tab-content.active { display: block; }
+        .problem-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .problem-title {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .problem-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-wrap;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        .diagram-container h3 { color: #667eea; margin-bottom: 20px; }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-value { font-size: 2.5em; font-weight: bold; }
+        .stat-label { font-size: 0.9em; opacity: 0.9; }
+        .trace-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .trace-section h3 { color: #667eea; margin-bottom: 25px; }
+        .trace-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .trace-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        .trace-phase {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        .trace-phase::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .phase-icon { font-size: 1.5em; }
+        .phase-name { font-size: 1.2em; font-weight: 600; color: #2c3e50; flex: 1; }
+        .phase-duration {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        .phase-details { padding-left: 20px; }
+        .trace-item { margin-bottom: 15px; }
+        .trace-item strong { color: #667eea; display: block; margin-bottom: 8px; }
+        .trace-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .trace-steps { list-style: none; padding: 0; }
+        .trace-steps li {
+            padding: 8px 12px;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border-left: 3px solid #27ae60;
+        }
+        .trace-steps li::before {
+            content: '▸';
+            color: #27ae60;
+            margin-right: 10px;
+        }
+        .error-box {
+            background: #ffebee;
+            border-left: 5px solid #c62828;
+            padding: 20px;
+            border-radius: 5px;
+            color: #c62828;
+            margin: 20px 0;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Batch 2 - Full AI Analysis</h1>
+            <p>Complete Unified Pipeline v2.0 - NO Bypasses!</p>
+            <div class="ai-badge">
+                ⚡ DeepSeek AI Analysis → Scene Building → Layout → Render
+            </div>
+        </header>
+        <div class="nav-tabs">
+<button class="nav-tab active" onclick="showTab(0)">Q6</button>
+<button class="nav-tab " onclick="showTab(1)">Q7</button>
+<button class="nav-tab " onclick="showTab(2)">Q8</button>
+<button class="nav-tab " onclick="showTab(3)">Q9</button>
+<button class="nav-tab " onclick="showTab(4)">Q10</button>
+</div>
+        <div class="tab-content active" id="tab-0">
+            <div class="problem-card">
+                <div class="problem-title">Question 6 - Capacitance (HARD)</div>
+                <div class="problem-text">A parallel-plate capacitor has plates of area 0.12 m² and a separation of 1.2 cm.
+A battery charges the plates to a potential difference of 120 V and is then disconnected.
+A dielectric slab of thickness 4.0 mm and dielectric constant κ = 4.8 is then placed
+symmetrically between the plates. What is the magnitude of the electric field in the
+dielectric after insertion?</div>
+            </div>
+
+            <div class="error-box">
+                <strong>❌ Generation Failed</strong><br>
+                Incomplete specifications. Missing: objects
+            </div>
+
+    <div class="trace-section">
+        <h3>🔍 Complete AI-Driven Pipeline Trace - Question 6</h3>
+        <div class="trace-timeline">
+    
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">❌</span>
+                    <span class="phase-name">Error in Pipeline</span>
+                    <span class="phase-duration">0.0ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>❌ Error:</strong>
+                        <pre class="trace-code">Incomplete specifications. Missing: objects</pre>
+                    </div>
+            </div></div></div></div></div>
+
+        <div class="tab-content " id="tab-1">
+            <div class="problem-card">
+                <div class="problem-title">Question 7 - Capacitance (HARD)</div>
+                <div class="problem-text">A potential difference of 300 V is applied to a series connection of two capacitors
+of capacitances C₁ = 2.00 μF and C₂ = 8.00 μF. The charged capacitors are then disconnected
+from the battery and from each other. They are then reconnected with plates of the same signs
+wired together (positive to positive, negative to negative). What is the charge on capacitor C₁?</div>
+            </div>
+
+            <div class="error-box">
+                <strong>❌ Generation Failed</strong><br>
+                HTTPSConnectionPool(host='api.deepseek.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x108458410>: Failed to resolve 'api.deepseek.com' ([Errno 8] nodename nor servname provided, or not known)"))
+            </div>
+
+    <div class="trace-section">
+        <h3>🔍 Complete AI-Driven Pipeline Trace - Question 7</h3>
+        <div class="trace-timeline">
+    
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">❌</span>
+                    <span class="phase-name">Error in Pipeline</span>
+                    <span class="phase-duration">0.0ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>❌ Error:</strong>
+                        <pre class="trace-code">HTTPSConnectionPool(host='api.deepseek.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x108458410>: Failed to resolve 'api.deepseek.com' ([Errno 8] nodename nor servname provided, or not known)"))</pre>
+                    </div>
+            </div></div></div></div></div>
+
+        <div class="tab-content " id="tab-2">
+            <div class="problem-card">
+                <div class="problem-title">Question 8 - Capacitance (MEDIUM)</div>
+                <div class="problem-text">A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation
+2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0.
+The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.
+Calculate the total capacitance.</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">AI-Extracted Objects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Pipeline Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">121532ms</div>
+                    <div class="stat-label">Total Duration</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2,834</div>
+                    <div class="stat-label">SVG Bytes</div>
+                </div>
+            </div>
+            <div class="diagram-container">
+                <h3>📊 AI-Generated Diagram</h3>
+                <svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+            <!-- Arrowhead marker -->
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="black"/>
+            </marker>
+            <!-- Field line marker -->
+            <marker id="field-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#0066cc"/>
+            </marker>
+        </defs>
+        
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="520" y="400" width="10" height="100" fill="#ff4444" fill-opacity="1.0" stroke="#d32f2f" stroke-width="2"/>
+<rect x="680" y="400" width="10" height="100" fill="#4444ff" fill-opacity="1.0" stroke="#1976d2" stroke-width="2"/>
+<line x1="550" y1="400" x2="550" y2="460" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="575.0" y1="400.0" x2="575.0" y2="460.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="602.5" y1="400.0" x2="602.5" y2="460.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="626.25" y1="400.0" x2="626.25" y2="460.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<line x1="653.125" y1="400.0" x2="653.125" y2="460.0" stroke="#cc0000" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="520" y="370" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Rectangle: plate_top</text>
+<text x="680" y="370" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Rectangle: plate_bottom</text>
+<text x="550" y="370" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_0</text>
+<text x="575.0" y="370.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_1</text>
+<text x="602.5" y="370.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_2</text>
+<text x="626.25" y="370.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_3</text>
+<text x="653.125" y="370.0" font-size="14" font-weight="normal" fill="#000000" text-anchor="middle">Arrow: field_line_4</text>
+<rect x="950" y="50" width="230" height="150" fill="white" stroke="black" stroke-width="1" opacity="0.9"/><text x="960" y="75" font-size="14" font-weight="bold">Legend</text><text x="960" y="100" font-size="12">Rectangle: plate_top: Rectangle</text><text x="960" y="120" font-size="12">Rectangle: plate_bottom: Rectangle</text><text x="960" y="140" font-size="12">Arrow: field_line_0: Arrow</text><text x="960" y="160" font-size="12">Arrow: field_line_1: Arrow</text><text x="960" y="180" font-size="12">Arrow: field_line_2: Arrow</text>
+</svg>
+            </div>
+
+    <div class="trace-section">
+        <h3>🔍 Complete AI-Driven Pipeline Trace - Question 8</h3>
+        <div class="trace-timeline">
+    
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">✅</span>
+                    <span class="phase-name">Phase 1: AI Analysis (FULL - DeepSeek)</span>
+                    <span class="phase-duration">36459.6ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>📥 Input:</strong>
+                        <pre class="trace-code">{
+  "problem_text": "A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation\n2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0.\nThe right half is divided into two ",
+  "using_ai": true,
+  "no_bypass": true
+}...</pre>
+                    </div>
+            <div class="trace-item"><strong>⚙️ Processing:</strong><ul class="trace-steps"><li>Domain classification using AI</li><li>Multi-stage entity extraction (5 stages)</li><li>Extracted 5 objects</li><li>Identified 8 relationships</li><li>Domain: electrostatics</li><li>Confidence: 0.70</li></ul></div>
+                    <div class="trace-item">
+                        <strong>📤 Output:</strong>
+                        <pre class="trace-code">{
+  "domain": "electrostatics",
+  "problem_type": "unknown",
+  "objects": 5,
+  "relationships": 8,
+  "confidence": 0.7,
+  "complexity_score": 0.5
+}</pre>
+                    </div>
+            </div></div>
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">✅</span>
+                    <span class="phase-name">Phase 2: Scene Building (AI-Driven)</span>
+                    <span class="phase-duration">24306.4ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>📥 Input:</strong>
+                        <pre class="trace-code">{
+  "specs": {
+    "domain": "electrostatics",
+    "objects": 5
+  }
+}...</pre>
+                    </div>
+            <div class="trace-item"><strong>⚙️ Processing:</strong><ul class="trace-steps"><li>Selected electrostatics interpreter</li><li>Built scene with 7 objects</li><li>Enriched with physics rules</li><li>Inferred constraints</li><li>Validated completeness</li></ul></div>
+                    <div class="trace-item">
+                        <strong>📤 Output:</strong>
+                        <pre class="trace-code">{
+  "scene_objects": 7,
+  "constraints": 5,
+  "domain": "electrostatics"
+}</pre>
+                    </div>
+            </div></div>
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">✅</span>
+                    <span class="phase-name">Phase 3: Validation</span>
+                    <span class="phase-duration">12153.2ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>📥 Input:</strong>
+                        <pre class="trace-code">{
+  "scene_objects": 7
+}...</pre>
+                    </div>
+            <div class="trace-item"><strong>⚙️ Processing:</strong><ul class="trace-steps"><li>Semantic validation</li><li>Geometric validation</li><li>Physics validation</li><li>Errors: 0</li><li>Warnings: 12</li></ul></div>
+                    <div class="trace-item">
+                        <strong>📤 Output:</strong>
+                        <pre class="trace-code">{
+  "is_valid": true,
+  "errors": [],
+  "warnings": [
+    "Objects field_line_0 and field_line_1 overlap",
+    "Objects field_line_0 and field_line_2 overlap",
+    "Objects field_line_0 and field_line_3 overlap",
+    "Objects field_line_0 and field_line_4 overlap",
+    "Objects field_line_1 and field_line_2 overlap",
+    "Objects field_line_1 and field_line_3 overlap",
+    "Objects field_line_1 and field_line_4 overlap",
+    "Objects field_line_2 and field_line_3 overlap",
+    "Objects field_line_2 and field_line_4 overlap",
+    "Objects field_line_3 and field_line_4 overlap",
+    "Distance constraint between plate_top and plate_bottom not satisfied.",
+    "Horizontal alignment constraint not satisfied for objects ['plate_top', 'plate_bottom']"
+  ],
+  "auto_corrections": [
+    "Added missing label for object plate_top",
+    "Added missing label for object plate_bottom",
+    "Added missing label for object field_line_0",
+    "Added missing label for object field_line_1",
+    "Added miss...</pre>
+                    </div>
+            </div></div>
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">✅</span>
+                    <span class="phase-name">Phase 4: Layout Engine</span>
+                    <span class="phase-duration">24306.4ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>📥 Input:</strong>
+                        <pre class="trace-code">{
+  "scene_objects": 7
+}...</pre>
+                    </div>
+            <div class="trace-item"><strong>⚙️ Processing:</strong><ul class="trace-steps"><li>Domain-aware placement (electrostatics)</li><li>Constraint satisfaction (iterative)</li><li>Aesthetic optimization</li><li>Label placement</li></ul></div>
+                    <div class="trace-item">
+                        <strong>📤 Output:</strong>
+                        <pre class="trace-code">{
+  "positioned_objects": 7,
+  "sample_positions": {
+    "plate_top": {
+      "x": 520,
+      "y": 400
+    },
+    "plate_bottom": {
+      "x": 680,
+      "y": 400
+    },
+    "field_line_0": {
+      "x": 550,
+      "y": 400
+    }
+  }
+}</pre>
+                    </div>
+            </div></div>
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">✅</span>
+                    <span class="phase-name">Phase 5: Renderer</span>
+                    <span class="phase-duration">24306.4ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>📥 Input:</strong>
+                        <pre class="trace-code">{
+  "positioned_objects": 7
+}...</pre>
+                    </div>
+            <div class="trace-item"><strong>⚙️ Processing:</strong><ul class="trace-steps"><li>Applied electrostatics_exam theme</li><li>Rendered 7 objects</li><li>Added domain embellishments</li><li>Generated labels and legend</li><li>Assembled final SVG</li></ul></div>
+                    <div class="trace-item">
+                        <strong>📤 Output:</strong>
+                        <pre class="trace-code">{
+  "svg_bytes": 2834,
+  "ai_driven": true,
+  "no_manual_bypass": true
+}</pre>
+                    </div>
+            </div></div></div></div></div>
+
+        <div class="tab-content " id="tab-3">
+            <div class="problem-card">
+                <div class="problem-title">Question 9 - Capacitance (MEDIUM)</div>
+                <div class="problem-text">Capacitor 3 in a circuit is a variable capacitor (its capacitance C₃ can be varied).
+The electric potential V₁ across capacitor 1 versus C₃ shows that V₁ approaches an asymptote
+of 10 V as C₃ → ∞. The horizontal scale is set by C₃ₛ = 12.0 μF. C₁ is in series with the
+parallel combination of C₂ and C₃. Determine the electric potential V across the battery
+and the capacitances C₁ and C₂.</div>
+            </div>
+
+            <div class="error-box">
+                <strong>❌ Generation Failed</strong><br>
+                Incomplete scene. Missing: power_source, circuit_component
+            </div>
+
+    <div class="trace-section">
+        <h3>🔍 Complete AI-Driven Pipeline Trace - Question 9</h3>
+        <div class="trace-timeline">
+    
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">❌</span>
+                    <span class="phase-name">Error in Pipeline</span>
+                    <span class="phase-duration">0.0ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>❌ Error:</strong>
+                        <pre class="trace-code">Incomplete scene. Missing: power_source, circuit_component</pre>
+                    </div>
+            </div></div></div></div></div>
+
+        <div class="tab-content " id="tab-4">
+            <div class="problem-card">
+                <div class="problem-title">Question 10 - Capacitance (HARD)</div>
+                <div class="problem-text">A squat, cylindrical plastic container of radius r = 0.20 m is filled with
+conducting liquid to height h = 10 cm. The exterior surface of the container commonly
+acquires a negative charge density of magnitude 2.0 μC/m² (approximately uniform).
+The capacitance of liquid's central portion is C = 35 pF. Minimum spark energy to
+ignite is E_min = 10 mJ. Determine: (a) How much negative charge is induced in the
+center of the liquid's bulk? (b) What is the potential energy associated with the
+negative charge in that effective capacitor?</div>
+            </div>
+
+            <div class="error-box">
+                <strong>❌ Generation Failed</strong><br>
+                'x'
+            </div>
+
+    <div class="trace-section">
+        <h3>🔍 Complete AI-Driven Pipeline Trace - Question 10</h3>
+        <div class="trace-timeline">
+    
+            <div class="trace-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">❌</span>
+                    <span class="phase-name">Error in Pipeline</span>
+                    <span class="phase-duration">0.0ms</span>
+                </div>
+                <div class="phase-details">
+        
+                    <div class="trace-item">
+                        <strong>❌ Error:</strong>
+                        <pre class="trace-code">'x'</pre>
+                    </div>
+            </div></div></div></div></div>
+
+        <footer>
+            <p><strong>🧠 100% AI-Driven Pipeline</strong></p>
+            <p>Generated: 2025-11-02 16:14:10</p>
+            <p style="margin-top: 10px;">Unified Diagram Pipeline v2.0 - DeepSeek AI</p>
+        </footer>
+    </div>
+    <script>
+        function showTab(i) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + i).classList.add('active');
+            document.querySelectorAll('.nav-tab')[i].classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

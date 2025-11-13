@@ -1,0 +1,31 @@
+{"label": "PHYSICS_OBJECT", "pattern": "capacitor"}
+{"label": "PHYSICS_OBJECT", "pattern": "resistor"}
+{"label": "PHYSICS_OBJECT", "pattern": "inductor"}
+{"label": "PHYSICS_OBJECT", "pattern": "battery"}
+{"label": "PHYSICS_OBJECT", "pattern": "lens"}
+{"label": "PHYSICS_OBJECT", "pattern": "mirror"}
+{"label": "PHYSICS_OBJECT", "pattern": "prism"}
+{"label": "PHYSICS_OBJECT", "pattern": "spring"}
+{"label": "PHYSICS_OBJECT", "pattern": "pulley"}
+{"label": "PHYSICS_OBJECT", "pattern": "incline"}
+{"label": "PHYSICS_OBJECT", "pattern": "plate"}
+{"label": "PHYSICS_OBJECT", "pattern": "conductor"}
+{"label": "PHYSICS_OBJECT", "pattern": "solenoid"}
+{"label": "PHYSICS_OBJECT", "pattern": [{"LOWER": "parallel"}, {"LOWER": "plate"}, {"LOWER": "capacitor"}]}
+{"label": "PHYSICS_OBJECT", "pattern": [{"LOWER": "series"}, {"LOWER": "circuit"}]}
+{"label": "MATERIAL", "pattern": "dielectric"}
+{"label": "MATERIAL", "pattern": "conductor"}
+{"label": "MATERIAL", "pattern": "insulator"}
+{"label": "MATERIAL", "pattern": "glass"}
+{"label": "MATERIAL", "pattern": "air"}
+{"label": "MATERIAL", "pattern": "vacuum"}
+{"label": "MATERIAL", "pattern": "metal"}
+{"label": "CONSTRAINT", "pattern": "parallel"}
+{"label": "CONSTRAINT", "pattern": "series"}
+{"label": "CONSTRAINT", "pattern": "equilibrium"}
+{"label": "CONSTRAINT", "pattern": "frictionless"}
+{"label": "CONSTRAINT", "pattern": [{"LOWER": "at"}, {"LOWER": "rest"}]}
+{"label": "PHYSICAL_CONSTANT", "pattern": [{"LOWER": "speed"}, {"LOWER": "of"}, {"LOWER": "light"}]}
+{"label": "PHYSICAL_CONSTANT", "pattern": [{"LOWER": "gravitational"}, {"LOWER": "constant"}]}
+{"label": "PHYSICAL_CONSTANT", "pattern": [{"LOWER": "permittivity"}]}
+{"label": "PHYSICAL_CONSTANT", "pattern": [{"LOWER": "permeability"}]}

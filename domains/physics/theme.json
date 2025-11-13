@@ -1,0 +1,245 @@
+{
+  "domain": "physics",
+  "version": "1.0.0",
+  "description": "Visual theme and styling for physics diagrams",
+  "styles": {
+    "exam": {
+      "name": "Exam/Textbook Style",
+      "description": "Clean, high-contrast style suitable for exams and textbooks",
+      "canvas": {
+        "background": "#ffffff",
+        "width": 800,
+        "height": 600
+      },
+      "force_vectors": {
+        "gravity": {
+          "color": "#e74c3c",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#e74c3c"
+        },
+        "normal": {
+          "color": "#3498db",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#3498db"
+        },
+        "friction": {
+          "color": "#f39c12",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#f39c12"
+        },
+        "tension": {
+          "color": "#9b59b6",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#9b59b6"
+        },
+        "applied": {
+          "color": "#2ecc71",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#2ecc71"
+        },
+        "spring": {
+          "color": "#1abc9c",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#1abc9c"
+        },
+        "default": {
+          "color": "#34495e",
+          "stroke_width": 3,
+          "arrow_head_size": 10,
+          "label_color": "#34495e"
+        }
+      },
+      "objects": {
+        "mass": {
+          "fill_color": "#ecf0f1",
+          "stroke_color": "#34495e",
+          "stroke_width": 2,
+          "label_font_size": 14,
+          "label_font_weight": "bold"
+        },
+        "surface": {
+          "stroke_color": "#34495e",
+          "stroke_width": 3,
+          "dashed": false
+        },
+        "incline": {
+          "stroke_color": "#34495e",
+          "stroke_width": 3,
+          "fill_pattern": "hatch",
+          "hatch_spacing": 10
+        },
+        "pulley": {
+          "fill_color": "#bdc3c7",
+          "stroke_color": "#34495e",
+          "stroke_width": 2
+        },
+        "spring": {
+          "stroke_color": "#34495e",
+          "stroke_width": 2,
+          "coil_count": 8
+        }
+      },
+      "coordinate_system": {
+        "axis_color": "#2c3e50",
+        "axis_stroke_width": 2,
+        "arrow_head_size": 8,
+        "label_font_size": 12,
+        "label_color": "#2c3e50"
+      },
+      "annotations": {
+        "title": {
+          "font_size": 18,
+          "font_weight": "bold",
+          "color": "#2c3e50",
+          "position": "top_center"
+        },
+        "label": {
+          "font_size": 12,
+          "font_weight": "normal",
+          "color": "#34495e"
+        },
+        "equation": {
+          "font_size": 14,
+          "font_weight": "normal",
+          "color": "#2c3e50",
+          "math_font": "STIX"
+        }
+      }
+    },
+    "dark": {
+      "name": "Dark Mode",
+      "description": "Dark theme for presentations and screen display",
+      "canvas": {
+        "background": "#1a1a1a",
+        "width": 800,
+        "height": 600
+      },
+      "force_vectors": {
+        "gravity": {
+          "color": "#ff6b6b",
+          "stroke_width": 3
+        },
+        "normal": {
+          "color": "#4ecdc4",
+          "stroke_width": 3
+        },
+        "friction": {
+          "color": "#ffe66d",
+          "stroke_width": 3
+        },
+        "tension": {
+          "color": "#c39bd3",
+          "stroke_width": 3
+        },
+        "applied": {
+          "color": "#6fdc8c",
+          "stroke_width": 3
+        },
+        "default": {
+          "color": "#e0e0e0",
+          "stroke_width": 3
+        }
+      },
+      "objects": {
+        "mass": {
+          "fill_color": "#2c2c2c",
+          "stroke_color": "#e0e0e0",
+          "stroke_width": 2
+        },
+        "surface": {
+          "stroke_color": "#e0e0e0",
+          "stroke_width": 3
+        }
+      },
+      "coordinate_system": {
+        "axis_color": "#b0b0b0",
+        "axis_stroke_width": 2,
+        "label_color": "#b0b0b0"
+      },
+      "annotations": {
+        "title": {
+          "color": "#ffffff",
+          "font_size": 18,
+          "font_weight": "bold"
+        },
+        "label": {
+          "color": "#e0e0e0",
+          "font_size": 12
+        }
+      }
+    },
+    "colorblind_friendly": {
+      "name": "Colorblind Friendly",
+      "description": "Uses shapes and patterns in addition to color",
+      "canvas": {
+        "background": "#ffffff",
+        "width": 800,
+        "height": 600
+      },
+      "force_vectors": {
+        "gravity": {
+          "color": "#000000",
+          "stroke_width": 4,
+          "dash_pattern": null,
+          "marker": "circle"
+        },
+        "normal": {
+          "color": "#0173b2",
+          "stroke_width": 3,
+          "dash_pattern": null,
+          "marker": "square"
+        },
+        "friction": {
+          "color": "#de8f05",
+          "stroke_width": 3,
+          "dash_pattern": [5, 5],
+          "marker": "triangle"
+        },
+        "tension": {
+          "color": "#cc78bc",
+          "stroke_width": 3,
+          "dash_pattern": null,
+          "marker": "diamond"
+        },
+        "applied": {
+          "color": "#029e73",
+          "stroke_width": 3,
+          "dash_pattern": null,
+          "marker": "star"
+        }
+      },
+      "annotations": {
+        "force_labels_include_symbols": true,
+        "use_texture_fills": true
+      }
+    }
+  },
+  "default_style": "exam",
+  "diagram_type_defaults": {
+    "free_body_diagram": {
+      "show_coordinate_system": true,
+      "show_force_labels": true,
+      "show_magnitudes": true,
+      "force_scale_factor": 2.0,
+      "min_force_length": 20,
+      "max_force_length": 100
+    },
+    "energy_diagram": {
+      "use_bar_charts": true,
+      "show_grid": true,
+      "show_equations": true
+    }
+  },
+  "rendering_hints": {
+    "vector_quality": "high",
+    "anti_aliasing": true,
+    "font_rendering": "crisp",
+    "precision": 2
+  }
+}

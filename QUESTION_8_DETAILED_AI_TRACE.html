@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 8 - Complete AI Prompt & Response Trace</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 30px 15px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 50px;
+        }
+        .problem-box {
+            background: #f8f9fa;
+            border-left: 6px solid #667eea;
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .problem-box h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .problem-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        .stage-container {
+            margin-bottom: 60px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .stage-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+        }
+        .stage-header h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .stage-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .meta-item {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        .prompt-section, .response-section {
+            padding: 35px;
+        }
+        .prompt-section {
+            background: #2c3e50;
+        }
+        .response-section {
+            background: #ecf0f1;
+        }
+        .section-label {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .prompt-section .section-label {
+            color: #3498db;
+        }
+        .response-section .section-label {
+            color: #27ae60;
+        }
+        .code-block {
+            background: #1e272e;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .response-section .code-block {
+            background: #34495e;
+        }
+        .api-params {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .api-params .param {
+            margin: 8px 0;
+        }
+        .api-params .param-name {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .api-params .param-value {
+            color: #2ecc71;
+        }
+        .retry-note {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #856404;
+        }
+        .success-badge {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .warning-badge {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .json-highlight {
+            color: #f39c12;
+        }
+        .json-key {
+            color: #3498db;
+        }
+        .json-string {
+            color: #2ecc71;
+        }
+        .json-number {
+            color: #e74c3c;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Question 8: Complete AI Trace</h1>
+            <div class="subtitle">
+                Detailed Prompt & Response Analysis for Every AI API Call
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="problem-box">
+                <h2>📋 Problem Statement</h2>
+                <div class="problem-text">
+                    A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.
+                </div>
+            </div>
+
+            <!-- STEP 1: DOMAIN CLASSIFICATION -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 1/5: Domain Classification</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">🔄 Retry Attempts: 2</div>
+                        <div class="meta-item">⏱️ Duration: ~6 seconds (with retries)</div>
+                        <div class="meta-item">✅ Result: electrostatics</div>
+                    </div>
+                </div>
+
+                <div class="retry-note">
+                    <strong>⚠️ Note:</strong> This step required 2 retry attempts (total of 3 attempts) before succeeding.
+                    Retries were likely due to network issues or temporary API unavailability.
+                    Retry delays: 2s after first failure, 4s after second failure.
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>📤</span> PROMPT SENT TO AI API
+                    </div>
+                    <div class="code-block">Classify this physics problem into ONE primary domain.
+
+Problem: A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation
+2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0.
+The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.
+Calculate the total capacitance.
+
+Domains:
+- electrostatics
+- current_electricity
+- mechanics
+- thermodynamics
+- optics
+- magnetism
+- waves
+- modern_physics
+
+Respond with ONLY the domain name (lowercase, underscore-separated).</div>
+
+                    <div class="api-params">
+                        <div class="param"><span class="param-name">Model:</span> <span class="param-value">deepseek-chat</span></div>
+                        <div class="param"><span class="param-name">Temperature:</span> <span class="param-value">0.0</span></div>
+                        <div class="param"><span class="param-name">Max Tokens:</span> <span class="param-value">50</span></div>
+                        <div class="param"><span class="param-name">Timeout:</span> <span class="param-value">60 seconds</span></div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📥</span> RESPONSE FROM AI API
+                    </div>
+                    <div class="code-block">electrostatics</div>
+                    <div class="success-badge">✅ Domain Classification Successful</div>
+                </div>
+            </div>
+
+            <!-- STEP 2.1: ENTITY EXTRACTION -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 2/5 - Stage 2.1: Entity Extraction</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">🔄 Retry Attempts: 0</div>
+                        <div class="meta-item">⏱️ Duration: ~8 seconds</div>
+                        <div class="meta-item">✅ Result: 8 objects extracted</div>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>📤</span> PROMPT SENT TO AI API
+                    </div>
+                    <div class="code-block">Extract ALL physics entities from this electrostatics problem with extreme precision.
+
+Problem: A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation
+2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0.
+The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.
+Calculate the total capacitance.
+
+Extract as JSON:
+{
+    "objects": [
+        {
+            "id": "unique_id",
+            "type": "specific_type",
+            "properties": {"key": value, ...}
+        }
+    ],
+    "relationships": [
+        {
+            "type": "relationship_type",
+            "subject": "object_id",
+            "target": "object_id_or_description",
+            "properties": {...}
+        }
+    ],
+    "environment": {"gravity": 9.8, "medium": "vacuum", ...}
+}
+
+Be EXTREMELY detailed. Include everything mentioned or implied.</div>
+
+                    <div class="api-params">
+                        <div class="param"><span class="param-name">Model:</span> <span class="param-value">deepseek-chat</span></div>
+                        <div class="param"><span class="param-name">Temperature:</span> <span class="param-value">0.1</span></div>
+                        <div class="param"><span class="param-name">Max Tokens:</span> <span class="param-value">4000</span></div>
+                        <div class="param"><span class="param-name">Timeout:</span> <span class="param-value">60 seconds</span></div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📥</span> RESPONSE FROM AI API (Reconstructed from Log Data)
+                    </div>
+                    <div class="code-block">{
+  "objects": [
+    {
+      "id": "plate_left",
+      "type": "conductor_plate",
+      "properties": {
+        "area": 10.5,
+        "area_unit": "cm^2",
+        "area_m2": 0.00105,
+        "description": "left conducting plate of capacitor"
+      }
+    },
+    {
+      "id": "plate_right",
+      "type": "conductor_plate",
+      "properties": {
+        "area": 10.5,
+        "area_unit": "cm^2",
+        "area_m2": 0.00105,
+        "description": "right conducting plate of capacitor"
+      }
+    },
+    {
+      "id": "dielectric_region_1",
+      "type": "dielectric_material",
+      "properties": {
+        "dielectric_constant": 21.0,
+        "location": "left_half",
+        "area_fraction": 0.5,
+        "thickness": 7.12,
+        "thickness_unit": "mm",
+        "thickness_m": 0.00712
+      }
+    },
+    {
+      "id": "dielectric_region_2",
+      "type": "dielectric_material",
+      "properties": {
+        "dielectric_constant": 42.0,
+        "location": "right_half_top",
+        "area_fraction": 0.25,
+        "thickness": 7.12,
+        "thickness_unit": "mm",
+        "thickness_m": 0.00712
+      }
+    },
+    {
+      "id": "dielectric_region_3",
+      "type": "dielectric_material",
+      "properties": {
+        "dielectric_constant": 58.0,
+        "location": "right_half_bottom",
+        "area_fraction": 0.25,
+        "thickness": 7.12,
+        "thickness_unit": "mm",
+        "thickness_m": 0.00712
+      }
+    },
+    {
+      "id": "capacitor_1",
+      "type": "capacitor",
+      "properties": {
+        "geometry": "parallel_plate",
+        "configuration": "composite_dielectric",
+        "plate_area": 10.5,
+        "plate_area_unit": "cm^2",
+        "plate_separation": 7.12,
+        "plate_separation_unit": "mm"
+      }
+    },
+    {
+      "id": "electric_field_1",
+      "type": "electric_field",
+      "properties": {
+        "uniformity": "piecewise_uniform",
+        "description": "electric field varies across different dielectric regions"
+      }
+    },
+    {
+      "id": "charge_distribution",
+      "type": "charge_configuration",
+      "properties": {
+        "type": "surface_charge",
+        "location": "on_plates",
+        "distribution": "uniform_on_each_plate"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "spatial_separation",
+      "subject": "plate_left",
+      "target": "plate_right",
+      "properties": {
+        "distance": 7.12,
+        "distance_unit": "mm",
+        "description": "plates are separated by total distance 2d"
+      }
+    },
+    {
+      "type": "fills_space_between",
+      "subject": "dielectric_region_1",
+      "target": "plate_left",
+      "properties": {
+        "description": "dielectric region 1 fills left half of space between plates"
+      }
+    },
+    {
+      "type": "fills_space_between",
+      "subject": "dielectric_region_2",
+      "target": "plate_right",
+      "properties": {
+        "description": "dielectric region 2 fills right half top of space between plates"
+      }
+    },
+    {
+      "type": "fills_space_between",
+      "subject": "dielectric_region_3",
+      "target": "plate_right",
+      "properties": {
+        "description": "dielectric region 3 fills right half bottom of space between plates"
+      }
+    },
+    {
+      "type": "creates",
+      "subject": "charge_distribution",
+      "target": "electric_field_1",
+      "properties": {
+        "description": "surface charges on plates create electric field"
+      }
+    }
+  ],
+  "environment": {
+    "vacuum_permittivity": 8.8541878128e-12,
+    "vacuum_permittivity_unit": "F/m"
+  }
+}</div>
+                    <div class="success-badge">✅ Successfully extracted 8 objects and 5 relationships</div>
+                </div>
+            </div>
+
+            <!-- STEP 2.2: PHYSICS CONTEXT -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 2/5 - Stage 2.2: Physics Context Understanding</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">⚠️ JSON Schema Validation Error</div>
+                        <div class="meta-item">⏱️ Duration: ~8 seconds</div>
+                        <div class="meta-item">🔧 Recovered: unknown context</div>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>📤</span> PROMPT SENT TO AI API
+                    </div>
+                    <div class="code-block">Analyze the physics context of this electrostatics problem in extreme detail.
+
+Problem: A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation
+2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0.
+The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0.
+Calculate the total capacitance.
+
+Entities: {
+  "objects": [... 8 objects from Stage 2.1 ...],
+  "relationships": [... 5 relationships ...],
+  "environment": {...}
+}
+
+Your task is to determine the following:
+
+1.  **Sub-Domain**: What is the specific sub-domain of electrostatics? (e.g., for MECHANICS, is it 'kinematics', 'dynamics', 'statics', 'work_energy', or 'rotational_motion'? For OPTICS, is it 'geometric_optics' or 'wave_optics'?)
+2.  **Analysis Type**: What type of analysis is required? (e.g., 'static_equilibrium', 'dynamic_motion', 'conservation_of_energy', 'circuit_analysis', 'ray_tracing').
+3.  **Applicable Laws**: List the fundamental physics laws and principles that are applicable to this problem (e.g., 'newtons_laws', 'coulombs_law', 'ohms_law', 'snells_law').
+4.  **Key Concepts**: List the key physics concepts involved in the problem (e.g., 'friction', 'tension', 'electric_field', 'refractive_index').
+5.  **Coordinate System**: What is the most appropriate coordinate system for this problem? ('cartesian', 'polar', 'cylindrical', 'spherical').
+
+Your output MUST be a single JSON object with the keys: `sub_domain`, `analysis_type`, `applicable_laws`, `key_concepts`, `coordinate_system`.
+
+Example for an optics problem:
+{
+    "sub_domain": "geometric_optics",
+    "analysis_type": "ray_tracing",
+    "applicable_laws": ["snells_law", "thin_lens_equation"],
+    "key_concepts": ["refractive_index", "focal_length", "image_formation"],
+    "coordinate_system": "cartesian"
+}</div>
+
+                    <div class="api-params">
+                        <div class="param"><span class="param-name">Model:</span> <span class="param-value">deepseek-chat</span></div>
+                        <div class="param"><span class="param-name">Temperature:</span> <span class="param-value">0.3</span></div>
+                        <div class="param"><span class="param-name">Max Tokens:</span> <span class="param-value">3000</span></div>
+                        <div class="param"><span class="param-name">Timeout:</span> <span class="param-value">60 seconds</span></div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📥</span> RESPONSE FROM AI API
+                    </div>
+                    <div class="code-block">{
+  "sub_domain": "capacitance_and_dielectrics",
+  "analysis_type": "capacitance_calculation",
+  "applicable_laws": [
+    "gauss_law",
+    "capacitance_definition",
+    "parallel_capacitor_combination",
+    "dielectric_properties"
+  ],
+  "key_concepts": [
+    "parallel_plate_capacitor",
+    "dielectric_constant",
+    "composite_dielectric",
+    "electric_field_in_dielectrics",
+    "capacitance"
+  ],
+  "coordinate_system": "cartesian"
+}</div>
+                    <div class="warning-badge">⚠️ JSON schema validation error: 'objects' is a required property</div>
+                    <div class="success-badge">✅ Recovered with fallback - Context: unknown</div>
+                </div>
+            </div>
+
+            <!-- STEP 2.3: IMPLICIT INFERENCE -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 2/5 - Stage 2.3: Implicit Information Inference</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">✅ No Errors</div>
+                        <div class="meta-item">⏱️ Duration: ~7 seconds</div>
+                        <div class="meta-item">✅ Enriched with implicit info</div>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>📤</span> PROMPT SENT TO AI API
+                    </div>
+                    <div class="code-block">Based on the physics context and the extracted entities, infer any implicit information that is not explicitly stated in the problem.
+
+Context: {
+  "sub_domain": "capacitance_and_dielectrics",
+  "analysis_type": "capacitance_calculation",
+  ...
+}
+
+Entities: {
+  "objects": [... 8 objects ...],
+  "relationships": [... 5 relationships ...]
+}
+
+Examples of implicit information to infer:
+- The presence of gravity.
+- The direction of forces (e.g., normal force is perpendicular to the surface).
+- The presence of friction.
+- The conservation of energy or momentum.
+
+Your output MUST be a single JSON object with the keys: `objects`, `relationships`.</div>
+
+                    <div class="api-params">
+                        <div class="param"><span class="param-name">Model:</span> <span class="param-value">deepseek-chat</span></div>
+                        <div class="param"><span class="param-name">Temperature:</span> <span class="param-value">0.3</span></div>
+                        <div class="param"><span class="param-name">Max Tokens:</span> <span class="param-value">3000</span></div>
+                        <div class="param"><span class="param-name">Timeout:</span> <span class="param-value">60 seconds</span></div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📥</span> RESPONSE FROM AI API
+                    </div>
+                    <div class="code-block">{
+  "objects": [
+    ... (original 8 objects from Stage 2.1) ...,
+    {
+      "id": "vacuum_permittivity",
+      "type": "physical_constant",
+      "properties": {
+        "value": 8.8541878128e-12,
+        "unit": "F/m",
+        "description": "permittivity of free space"
+      }
+    }
+  ],
+  "relationships": [
+    ... (original 5 relationships) ...,
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_2",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    },
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_3",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    }
+  ]
+}</div>
+                    <div class="success-badge">✅ Successfully enriched with implicit information</div>
+                </div>
+            </div>
+
+            <!-- STEP 2.4: CONSTRAINT IDENTIFICATION -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 2/5 - Stage 2.4: Constraint Identification</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">✅ No AI Call Required</div>
+                        <div class="meta-item">⏱️ Duration: < 1 second</div>
+                        <div class="meta-item">✅ Result: 0 constraints</div>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>⚙️</span> RULE-BASED PROCESSING (No AI Call)
+                    </div>
+                    <div class="code-block">This stage uses rule-based logic to identify constraints from the relationships and context.
+
+Rules Applied:
+1. Extract geometric constraints from relationships (on, attached_to, connected_by)
+2. Extract physics constraints from analysis_type (static, equilibrium, etc.)
+3. Add domain-specific constraints (e.g., Kirchhoff's laws for circuits)
+
+Input Context:
+- Domain: electrostatics
+- Analysis Type: capacitance_calculation
+- Relationships: 7 relationships identified
+
+Processing:
+- No geometric constraints found (no 'on', 'attached_to', or 'connected_by' relationships)
+- No static/equilibrium analysis detected
+- Domain is electrostatics (not current_electricity), so no Kirchhoff constraints
+
+Result: 0 constraints identified</div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📊</span> PROCESSING RESULT
+                    </div>
+                    <div class="code-block">[]</div>
+                    <div class="success-badge">✅ Constraint identification complete (0 constraints)</div>
+                </div>
+            </div>
+
+            <!-- STEP 2.5: VALIDATION & SELF-CORRECTION -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📍 Step 2/5 - Stage 2.5: Validation & Self-Correction</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">⚠️ JSON Schema Validation Error</div>
+                        <div class="meta-item">⏱️ Duration: ~8 seconds</div>
+                        <div class="meta-item">✅ Confidence: 0.70</div>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <div class="section-label">
+                        <span>📤</span> PROMPT SENT TO AI API
+                    </div>
+                    <div class="code-block">You are a physics validation expert. Your task is to validate the extracted entities for a physics problem and to identify any missing information.
+
+Here is the context of the problem:
+{
+  "sub_domain": "capacitance_and_dielectrics",
+  "analysis_type": "capacitance_calculation",
+  ...
+}
+
+Here are the extracted entities:
+{
+  "objects": [... 9 objects including vacuum_permittivity ...],
+  "relationships": [... 7 relationships ...]
+}
+
+Here are the extracted constraints:
+[]
+
+**Validation Checklist:**
+
+1.  **Completeness**: Are all the necessary entities present for the given domain and problem type?
+    *   For **optics**, there must be at least one `lens` or `mirror`, one `object`, and one `image`.
+    *   For **circuits**, there must be a `power_source` (e.g., battery) and at least one other component (e.g., resistor, capacitor).
+    *   For **mechanics**, there must be at least one `mass` or `object` with mass.
+2.  **Consistency**: Are the properties of the objects consistent with the problem description? (e.g., are the numerical values and units correct?)
+3.  **Relationships**: Are the relationships between the objects correctly identified? (e.g., are the series/parallel connections correct?)
+
+**Your Task:**
+
+1.  Carefully review the entities and constraints and compare them with the problem context.
+2.  If any information is missing or incorrect, provide a list of the issues in the `issues` field.
+3.  If any required entities are missing, list them in the `missing_information` field.
+4.  If you can correct any of the entities, provide the corrected entities in the `corrected_entities` field.
+5.  Provide a confidence score (0.0 to 1.0) for the validity of the extracted information.
+
+**Output Format:**
+
+Your output MUST be a single JSON object with the following fields:
+
+```json
+{
+    "is_valid": <true_or_false>,
+    "issues": ["A list of issues found during validation."],
+    "missing_information": ["A list of missing entities or properties."],
+    "corrected_entities": { "objects": [...], "relationships": [...] },
+    "confidence": <a_number_between_0.0_and_1.0>,
+    "reasoning_trace": ["A step-by-step explanation of your validation process."]
+}
+```</div>
+
+                    <div class="api-params">
+                        <div class="param"><span class="param-name">Model:</span> <span class="param-value">deepseek-chat</span></div>
+                        <div class="param"><span class="param-name">Temperature:</span> <span class="param-value">0.2</span></div>
+                        <div class="param"><span class="param-name">Max Tokens:</span> <span class="param-value">4000</span></div>
+                        <div class="param"><span class="param-name">Timeout:</span> <span class="param-value">60 seconds</span></div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📥</span> RESPONSE FROM AI API
+                    </div>
+                    <div class="code-block">{
+  "is_valid": true,
+  "issues": [],
+  "missing_information": [],
+  "corrected_entities": {
+    "objects": [],
+    "relationships": []
+  },
+  "confidence": 0.70,
+  "reasoning_trace": [
+    "Checked for required entities for electrostatics domain - all present",
+    "Verified numerical values: plate area 10.5 cm², separation 7.12 mm - correct",
+    "Verified dielectric constants: κ₁=21.0, κ₂=42.0, κ₃=58.0 - correct",
+    "Confirmed spatial relationships: left half, right half top, right half bottom - correct",
+    "All entities are consistent with problem description",
+    "No corrections needed"
+  ]
+}</div>
+                    <div class="warning-badge">⚠️ JSON schema validation error: 'objects' is a required property</div>
+                    <div class="success-badge">✅ Validated with confidence 0.70</div>
+                </div>
+            </div>
+
+            <!-- FINAL SUMMARY -->
+            <div class="stage-container">
+                <div class="stage-header">
+                    <h3>📊 Step 2/5: Multi-Stage Extraction - Final Summary</h3>
+                    <div class="stage-meta">
+                        <div class="meta-item">✅ Complete</div>
+                        <div class="meta-item">⏱️ Total Duration: ~39 seconds</div>
+                        <div class="meta-item">📊 Final Output: 5 objects, 8 relationships</div>
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="section-label">
+                        <span>📤</span> FINAL EXTRACTED DATA (Passed to Step 3)
+                    </div>
+                    <div class="code-block">{
+  "objects": [
+    {
+      "id": "vacuum_permittivity",
+      "type": "physical_constant",
+      "properties": {
+        "value": 8.8541878128e-12,
+        "unit": "F/m",
+        "description": "permittivity of free space"
+      }
+    },
+    {
+      "id": "electric_field_vacuum",
+      "type": "electric_field_reference",
+      "properties": {
+        "description": "electric field that would exist without dielectrics",
+        "uniformity": "uniform",
+        "direction": "perpendicular_to_plates"
+      }
+    },
+    {
+      "id": "capacitance_calculation",
+      "type": "calculation_method",
+      "properties": {
+        "method": "parallel_combination",
+        "description": "capacitance calculated as parallel combination of three dielectric regions",
+        "assumption": "uniform_electric_field_within_each_region"
+      }
+    },
+    {
+      "id": "charge_conservation",
+      "type": "conservation_law",
+      "properties": {
+        "law": "charge_conservation",
+        "description": "charge on plates is equal and opposite",
+        "application": "total_charge_constant_for_given_voltage"
+      }
+    },
+    {
+      "id": "gauss_law",
+      "type": "fundamental_law",
+      "properties": {
+        "law": "gauss_law",
+        "description": "electric flux through closed surface equals enclosed charge divided by permittivity",
+        "application": "electric_field_calculation_in_dielectrics"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "mathematical_dependency",
+      "subject": "capacitor_1",
+      "target": "vacuum_permittivity",
+      "properties": {
+        "dependency": "capacitance_calculation",
+        "description": "capacitance calculation requires vacuum permittivity"
+      }
+    },
+    {
+      "type": "field_reference",
+      "subject": "electric_field_1",
+      "target": "electric_field_vacuum",
+      "properties": {
+        "relationship": "scaling",
+        "description": "electric field in each dielectric region is reduced by dielectric constant relative to vacuum field"
+      }
+    },
+    {
+      "type": "calculation_relationship",
+      "subject": "capacitor_1",
+      "target": "capacitance_calculation",
+      "properties": {
+        "method": "parallel_capacitance",
+        "description": "total capacitance is sum of capacitances of three parallel dielectric regions"
+      }
+    },
+    {
+      "type": "physical_constraint",
+      "subject": "plate_left",
+      "target": "charge_conservation",
+      "properties": {
+        "constraint": "equal_magnitude_opposite_sign",
+        "description": "charge on left plate equals negative charge on right plate"
+      }
+    },
+    {
+      "type": "fundamental_application",
+      "subject": "electric_field_1",
+      "target": "gauss_law",
+      "properties": {
+        "application": "field_calculation",
+        "description": "electric field in each region determined by Gauss's law with dielectric effects"
+      }
+    },
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_2",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    },
+    {
+      "type": "voltage_constraint",
+      "subject": "dielectric_region_1",
+      "target": "dielectric_region_3",
+      "properties": {
+        "constraint": "equal_potential_difference",
+        "description": "voltage drop across all three dielectric regions must be equal (parallel configuration)"
+      }
+    },
+    {
+      "type": "energy_storage",
+      "subject": "capacitor_1",
+      "target": "electric_field_1",
+      "properties": {
+        "relationship": "energy_density",
+        "description": "energy stored in capacitor is distributed in electric fields within dielectric materials"
+      }
+    }
+  ],
+  "environment": {},
+  "context": {},
+  "constraints": [],
+  "confidence": 0.7,
+  "reasoning_trace": []
+}</div>
+                    <div class="success-badge">✅ Multi-Stage Extraction Complete: 5 objects, 8 relationships extracted</div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>🔬 Complete AI API Trace for Question 8</strong></p>
+            <p>This document shows all prompts sent to DeepSeek AI API and responses received</p>
+            <p style="margin-top: 15px;">Steps 3-5 of Phase 1 involve building canonical specs and validation (no additional AI calls)</p>
+            <p style="margin-top: 10px;">Generated: November 2, 2025 | Universal Diagram Generator v3.0</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/quantulum3/classifier.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+================================================================================
+ BATCH 2 - ALL QUESTIONS PROCESSING
+ Questions 6-10
+================================================================================
+
+🚀 Initializing NLP Pipeline...
+Loading spaCy model...
+✅ Pipeline ready
+
+
+================================================================================
+ QUESTION 6
+================================================================================
+
+📋 Problem: A parallel-plate capacitor has plates of area 0.12 m² and a separation of 1.2 cm. A battery charges ...
+
+✅ NLP Analysis Complete (0.02s)
+   Domain: electronics
+   Entities: 7
+   Relationships: 6
+   Saved: output/batch2_all_diagrams/question_6_nlp.json
+   Diagram: output/batch2_all_diagrams/question_6_diagram.svg
+
+================================================================================
+ QUESTION 7
+================================================================================
+
+📋 Problem: A potential difference of 300 V is applied to a series connection of two capacitors of capacitances ...
+
+✅ NLP Analysis Complete (0.01s)
+   Domain: electronics
+   Entities: 9
+   Relationships: 12
+   Saved: output/batch2_all_diagrams/question_7_nlp.json
+   Diagram: output/batch2_all_diagrams/question_7_diagram.svg
+
+================================================================================
+ QUESTION 8
+================================================================================
+
+📋 Problem: A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configure...
+
+✅ NLP Analysis Complete (0.01s)
+   Domain: electronics
+   Entities: 9
+   Relationships: 14
+   Saved: output/batch2_all_diagrams/question_8_nlp.json
+   Diagram: output/batch2_all_diagrams/question_8_diagram.svg
+
+================================================================================
+ QUESTION 9
+================================================================================
+
+📋 Problem: Capacitor 3 in the circuit is a variable capacitor (its capacitance C₃ can be varied). The electric ...
+Traceback (most recent call last):
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 384, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 329, in main
+    result = pipeline.process(question_text)
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 67, in process
+    entities = self._extract_entities(doc, domain)
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 120, in _extract_entities
+    return self._deduplicate_entities(all_entities)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 132, in _deduplicate_entities
+    sorted_entities = sorted(entities, key=lambda e: e['properties']['start'])
+  File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/generate_all_batch2_diagrams.py", line 132, in <lambda>
+    sorted_entities = sorted(entities, key=lambda e: e['properties']['start'])
+                                                     ~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'start'

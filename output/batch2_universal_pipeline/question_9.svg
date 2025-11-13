@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" version="1.1">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="600" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" font-size="24" font-weight="bold" font-family="Arial" fill="#333333">Circuit Diagram</text>
+  <g id="objects">
+    <g id="battery_150_300">
+      <line x1="145" y1="275.0" x2="145" y2="325.0" stroke="#000000" stroke-width="3"/>
+      <line x1="155" y1="285.0" x2="155" y2="315.0" stroke="#000000" stroke-width="2"/>
+      <line x1="110.0" y1="300" x2="145" y2="300" stroke="#000000" stroke-width="2.0"/>
+      <line x1="155" y1="300" x2="190.0" y2="300" stroke="#000000" stroke-width="2.0"/>
+      <text x="130" y="305" text-anchor="middle" font-size="18" font-weight="bold" fill="#000000">+</text>
+      <text x="150" y="260.0" text-anchor="middle" font-size="14" font-family="Arial">V₁</text>
+    </g>
+  </g>
+  <g id="relationships"/>
+  <g id="annotations"/>
+</svg>

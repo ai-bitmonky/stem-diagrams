@@ -1,0 +1,534 @@
+{
+  "request_id": "req_20251112_113242",
+  "timestamp": "2025-11-12T11:32:42.382630",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762927380.035517,
+      "duration_ms": 1.96,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762927380.037617,
+      "duration_ms": 1.47,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "left half",
+              "is filled on",
+              "dielectric \u03ba\u2081"
+            ],
+            [
+              "0 and",
+              "bottom on",
+              "\u03ba\u2083"
+            ],
+            [
+              "12 mm",
+              "is",
+              "configured as"
+            ],
+            [
+              "left half",
+              "is",
+              "filled with"
+            ],
+            [
+              "right half",
+              "is",
+              "divided into"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 9,
+          "edge_count": 5,
+          "connected_components": 4,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 9
+        },
+        "edge_types": {
+          "related_to": 5
+        },
+        "nodes": [
+          {
+            "id": "left half",
+            "type": "object",
+            "label": "left half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "dielectric \u03ba\u2081",
+            "type": "object",
+            "label": "dielectric \u03ba\u2081",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "0 and",
+            "type": "object",
+            "label": "0 and",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "\u03ba\u2083",
+            "type": "object",
+            "label": "\u03ba\u2083",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "12 mm",
+            "type": "object",
+            "label": "12 mm",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "configured as",
+            "type": "object",
+            "label": "configured as",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "filled with",
+            "type": "object",
+            "label": "filled with",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "right half",
+            "type": "object",
+            "label": "right half",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "divided into",
+            "type": "object",
+            "label": "divided into",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "left half",
+            "target": "dielectric \u03ba\u2081",
+            "type": "related_to",
+            "label": "is filled on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "left half",
+            "target": "filled with",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "0 and",
+            "target": "\u03ba\u2083",
+            "type": "related_to",
+            "label": "bottom on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "12 mm",
+            "target": "configured as",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "right half",
+            "target": "divided into",
+            "type": "related_to",
+            "label": "is",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ]
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Problem Understanding + Complexity",
+      "description": "Analyze problem and assess complexity",
+      "start_time": 1762927380.0392058,
+      "duration_ms": 19.34,
+      "input": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+      "output": {
+        "domain": "electrostatics",
+        "object_count": 5,
+        "constraint_count": 5,
+        "complexity_score": 0.345
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762927380.058597,
+      "duration_ms": 0.85,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "capacitor_circuit",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 1.0,
+          "objects": [
+            {
+              "id": "obj_0",
+              "type": "capacitor",
+              "name": "plate capacitor",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_1",
+              "type": "capacitor",
+              "name": "capacitor of",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_2",
+              "type": "capacitor",
+              "name": "parallel-plate capacitor",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_3",
+              "type": "capacitor",
+              "name": "Capacitor",
+              "properties": {},
+              "source": "generic_match"
+            },
+            {
+              "id": "obj_4",
+              "type": "plate",
+              "name": "Plate",
+              "properties": {},
+              "source": "generic_match"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {
+            "domain": "electrostatics",
+            "keywords_found": [
+              "capacitor",
+              "dielectric"
+            ],
+            "quantities_mentioned": []
+          },
+          "applicable_laws": [
+            "Coulomb's Law",
+            "Gauss's Law",
+            "Electric Potential"
+          ],
+          "constraints": [
+            {
+              "type": "equality",
+              "quantity": "A",
+              "value": "10.5",
+              "unit": "cm\u00b2",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "2d",
+              "value": "7.12",
+              "unit": "mm",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2081",
+              "value": "21.0.",
+              "unit": "The",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2082",
+              "value": "42.0",
+              "unit": "and",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2083",
+              "value": "58.0.",
+              "unit": "Calculate",
+              "source": "pattern_match"
+            }
+          ],
+          "geometry": {
+            "type": "unknown",
+            "dimensions": {},
+            "arrangement": "parallel"
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.7999999999999999,
+          "reasoning_trace": [
+            {
+              "stage": "local_analysis",
+              "method": "spacy + rules",
+              "domain": "electrostatics",
+              "objects_found": 5,
+              "relationships_found": 0,
+              "confidence": 0.7999999999999999
+            }
+          ]
+        }
+      },
+      "output": {
+        "object_count": 12,
+        "selected_strategy": "symbolic_physics"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Ontology Validation",
+      "description": "Validate semantic consistency",
+      "start_time": 1762927380.059493,
+      "duration_ms": 0,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "capacitor_circuit",
+          "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+          "complexity_score": 1.0,
+          "objects": [
+            {
+              "id": "obj_0",
+              "type": "capacitor",
+              "name": "plate capacitor",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_1",
+              "type": "capacitor",
+              "name": "capacitor of",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_2",
+              "type": "capacitor",
+              "name": "parallel-plate capacitor",
+              "properties": {},
+              "source": "pattern_match"
+            },
+            {
+              "id": "obj_3",
+              "type": "capacitor",
+              "name": "Capacitor",
+              "properties": {},
+              "source": "generic_match"
+            },
+            {
+              "id": "obj_4",
+              "type": "plate",
+              "name": "Plate",
+              "properties": {},
+              "source": "generic_match"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {
+            "domain": "electrostatics",
+            "keywords_found": [
+              "capacitor",
+              "dielectric"
+            ],
+            "quantities_mentioned": []
+          },
+          "applicable_laws": [
+            "Coulomb's Law",
+            "Gauss's Law",
+            "Electric Potential"
+          ],
+          "constraints": [
+            {
+              "type": "equality",
+              "quantity": "A",
+              "value": "10.5",
+              "unit": "cm\u00b2",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "2d",
+              "value": "7.12",
+              "unit": "mm",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2081",
+              "value": "21.0.",
+              "unit": "The",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2082",
+              "value": "42.0",
+              "unit": "and",
+              "source": "pattern_match"
+            },
+            {
+              "type": "equality",
+              "quantity": "\u03ba\u2083",
+              "value": "58.0.",
+              "unit": "Calculate",
+              "source": "pattern_match"
+            }
+          ],
+          "geometry": {
+            "type": "unknown",
+            "dimensions": {},
+            "arrangement": "parallel"
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.7999999999999999,
+          "reasoning_trace": [
+            {
+              "stage": "local_analysis",
+              "method": "spacy + rules",
+              "domain": "electrostatics",
+              "objects_found": 5,
+              "relationships_found": 0,
+              "confidence": 0.7999999999999999
+            }
+          ]
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "AttributeError",
+        "message": "'OntologyManager' object has no attribute 'add_entity'",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1036, in generate\n    ontology_mgr.add_entity(obj.id, obj.type)\n    ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'OntologyManager' object has no attribute 'add_entity'\n"
+      }
+    }
+  ],
+  "total_duration_ms": 17678.71,
+  "status": "error",
+  "error": "'OntologyManager' object has no attribute 'add_entity'",
+  "input": {
+    "problem_text": "Question 4:A parallel-plate capacitor of plate area A = 10.5 cm\u00b2 and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric \u03ba\u2081 = 21.0. The right half is divided into two regions - top with \u03ba\u2082 = 42.0 and bottom with \u03ba\u2083 = 58.0. Calculate the total capacitance.[Left half: uniform \u03ba\u2081; Right half: top quarter \u03ba\u2082, bottom quarter \u03ba\u2083]",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "Structural Validator",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 369
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "spacy_9_10",
+      "type": "CARDINAL",
+      "text": "0.12",
+      "properties": {
+        "start": 46,
+        "end": 50,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_15_17",
+      "type": "QUANTITY",
+      "text": "1.2 cm",
+      "properties": {
+        "start": 74,
+        "end": 80,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_28_29",
+      "type": "CARDINAL",
+      "text": "120",
+      "properties": {
+        "start": 140,
+        "end": 143,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "connected",
+      "type": "CONNECTION",
+      "label": "Connection",
+      "text": "connected",
+      "properties": {
+        "start": 161,
+        "end": 170,
+        "confidence": 0.9,
+        "method": "pattern_match"
+      }
+    },
+    {
+      "id": "spacy_40_42",
+      "type": "QUANTITY",
+      "text": "4.0 mm",
+      "properties": {
+        "start": 203,
+        "end": 209,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_43_45",
+      "type": "PERSON",
+      "text": "dielectric constant",
+      "properties": {
+        "start": 214,
+        "end": 233,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_47_48",
+      "type": "CARDINAL",
+      "text": "4.8",
+      "properties": {
+        "start": 238,
+        "end": 241,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "INSIDE",
+      "subject": "magnitude",
+      "target": "dielectric",
+      "properties": {
+        "confidence": 0.75,
+        "method": "dependency_parse",
+        "preposition": "in"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_9_10",
+      "target": "spacy_15_17",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A parallel-plate capacitor has plates of area 0.12 m\u00b2 and a separation of 1.2 cm."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_28_29",
+      "target": "connected",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A battery charges the plates to a potential difference of 120 V and is then disconnected."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_40_42",
+      "target": "spacy_43_45",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A dielectric slab of thickness 4.0 mm and dielectric constant \u03ba = 4.8 is then placed symmetrically between the plates."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_43_45",
+      "target": "spacy_47_48",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A dielectric slab of thickness 4.0 mm and dielectric constant \u03ba = 4.8 is then placed symmetrically between the plates."
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03ba",
+      "target": "4.8 is",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "4.8 is"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 7,
+    "num_relationships": 6,
+    "sentence_count": 4,
+    "token_count": 70
+  }
+}

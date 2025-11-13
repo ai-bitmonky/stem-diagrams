@@ -1,0 +1,205 @@
+{
+  "request_id": "req_20251112_191126",
+  "timestamp": "2025-11-12T19:11:26.125509",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762954886.125828,
+      "duration_ms": 0.64,
+      "input": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "a simple",
+              "DC circuit on",
+              "a 12V"
+            ],
+            [
+              "battery connected",
+              "in series on",
+              "a 100"
+            ],
+            [
+              "connected in",
+              "series",
+              "to a"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762954886.126529,
+      "duration_ms": 0.84,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "a simple",
+              "DC circuit on",
+              "a 12V"
+            ],
+            [
+              "battery connected",
+              "in series on",
+              "a 100"
+            ],
+            [
+              "connected in",
+              "series",
+              "to a"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 6,
+          "edge_count": 3,
+          "connected_components": 3,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 6
+        },
+        "edge_types": {
+          "related_to": 3
+        },
+        "nodes": [
+          {
+            "id": "a simple",
+            "type": "object",
+            "label": "a simple",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "a 12V",
+            "type": "object",
+            "label": "a 12V",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "battery connected",
+            "type": "object",
+            "label": "battery connected",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "a 100",
+            "type": "object",
+            "label": "a 100",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "connected in",
+            "type": "object",
+            "label": "connected in",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "to a",
+            "type": "object",
+            "label": "to a",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "a simple",
+            "target": "a 12V",
+            "type": "related_to",
+            "label": "DC circuit on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "battery connected",
+            "target": "a 100",
+            "type": "related_to",
+            "label": "in series on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "connected in",
+            "target": "to a",
+            "type": "related_to",
+            "label": "series",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "saved_to": "output/test_complete/property_graph.json"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1762954886.127421,
+      "duration_ms": 0,
+      "input": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "AttributeError",
+        "message": "type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1081, in generate\n    specs = self._diagram_plan_to_canonical_spec(diagram_plan)\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1810, in _diagram_plan_to_canonical_spec\n    'electronics': PhysicsDomain.ELECTROMAGNETISM,\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'\n"
+      }
+    }
+  ],
+  "total_duration_ms": 2.83,
+  "status": "error",
+  "error": "type object 'PhysicsDomain' has no attribute 'ELECTROMAGNETISM'",
+  "input": {
+    "problem_text": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Z3 Optimization",
+        "LLM Auditor",
+        "Structural Validator",
+        "VLM Validator",
+        "Primitive Library (memory)",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 99
+  }
+}

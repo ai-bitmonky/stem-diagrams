@@ -1,0 +1,21 @@
+{
+  "question_id": 10,
+  "topic": "Capacitance - Safety Engineering",
+  "success": true,
+  "complexity_score": 0.33999999999999997,
+  "selected_strategy": "symbolic_physics",
+  "ontology_validation": {
+    "consistent": null,
+    "errors": [
+      "RDFLib not installed: RDFLib not installed. Install with: pip install rdflib owlrl"
+    ],
+    "warnings": [
+      "Ontology validation skipped - RDFLib not available"
+    ]
+  },
+  "property_graph_nodes": 10,
+  "property_graph_edges": 5,
+  "nlp_tools_used": [
+    "openie"
+  ]
+}

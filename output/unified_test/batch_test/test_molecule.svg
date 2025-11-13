@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" version="1.1">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="600" fill="#FFFFFF"/>
+  <text x="400.0" y="40" text-anchor="middle" font-size="24" font-weight="bold" font-family="Arial" fill="#333333">Molecular Structure</text>
+  <g id="objects">
+    <g id="atom_O_500.0_300.0">
+      <circle cx="500.0" cy="300.0" r="15.0" fill="#FF6B6B" stroke="#333333" stroke-width="2.0"/>
+      <text x="500.0" y="305.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">O</text>
+      <circle cx="500.0" cy="300.0" r="30.0" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="530.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="470.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="500.0" cy="300.0" r="40.0" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="540.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="460.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="500.0" cy="300.0" r="50.0" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="550.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="450.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="500.0" cy="300.0" r="60.00000000000001" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="560.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+      <circle cx="440.0" cy="300.0" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+    </g>
+    <g id="atom_H_350.0_386.6025403784439">
+      <circle cx="350.0" cy="386.6025403784439" r="15.0" fill="#FF6B6B" stroke="#333333" stroke-width="2.0"/>
+      <text x="350.0" y="391.6025403784439" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">H</text>
+      <circle cx="350.0" cy="386.6025403784439" r="30.0" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="380.0" cy="386.6025403784439" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+    </g>
+    <g id="atom_H_349.99999999999994_213.39745962155615">
+      <circle cx="349.99999999999994" cy="213.39745962155615" r="15.0" fill="#FF6B6B" stroke="#333333" stroke-width="2.0"/>
+      <text x="349.99999999999994" y="218.39745962155615" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">H</text>
+      <circle cx="349.99999999999994" cy="213.39745962155615" r="30.0" fill="none" stroke="#333333" opacity="0.3" stroke-width="1"/>
+      <circle cx="379.99999999999994" cy="213.39745962155615" r="4" fill="#4ECDC4" stroke="#333333" stroke-width="1"/>
+    </g>
+  </g>
+  <g id="relationships"/>
+  <g id="annotations"/>
+</svg>

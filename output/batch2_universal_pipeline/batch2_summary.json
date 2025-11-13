@@ -1,0 +1,100 @@
+{
+  "total_questions": 5,
+  "successful": 5,
+  "failed": 0,
+  "success_rate": 100.0,
+  "total_time": 0.06512260437011719,
+  "average_time": 0.013024520874023438,
+  "results": [
+    {
+      "question_id": "question_6",
+      "question_number": 6,
+      "title": "Capacitor with Dielectric",
+      "difficulty": "HARD",
+      "success": true,
+      "domain": "electronics",
+      "num_objects": 3,
+      "num_relationships": 0,
+      "num_annotations": 0,
+      "processing_time": 0.01754283905029297,
+      "svg_length": 2315,
+      "files": {
+        "svg": "output/batch2_universal_pipeline/question_6.svg",
+        "scene_json": "output/batch2_universal_pipeline/question_6_scene.json",
+        "nlp_results": "output/batch2_universal_pipeline/question_6_nlp.json"
+      }
+    },
+    {
+      "question_id": "question_7",
+      "question_number": 7,
+      "title": "Series Capacitors Reconnected",
+      "difficulty": "HARD",
+      "success": true,
+      "domain": "electronics",
+      "num_objects": 3,
+      "num_relationships": 2,
+      "num_annotations": 0,
+      "processing_time": 0.010864973068237305,
+      "svg_length": 2485,
+      "files": {
+        "svg": "output/batch2_universal_pipeline/question_7.svg",
+        "scene_json": "output/batch2_universal_pipeline/question_7_scene.json",
+        "nlp_results": "output/batch2_universal_pipeline/question_7_nlp.json"
+      }
+    },
+    {
+      "question_id": "question_8",
+      "question_number": 8,
+      "title": "Multi-Region Capacitor",
+      "difficulty": "MEDIUM",
+      "success": true,
+      "domain": "electronics",
+      "num_objects": 3,
+      "num_relationships": 0,
+      "num_annotations": 2,
+      "processing_time": 0.009747028350830078,
+      "svg_length": 2504,
+      "files": {
+        "svg": "output/batch2_universal_pipeline/question_8.svg",
+        "scene_json": "output/batch2_universal_pipeline/question_8_scene.json",
+        "nlp_results": "output/batch2_universal_pipeline/question_8_nlp.json"
+      }
+    },
+    {
+      "question_id": "question_9",
+      "question_number": 9,
+      "title": "Variable Capacitor Circuit",
+      "difficulty": "MEDIUM",
+      "success": true,
+      "domain": "electronics",
+      "num_objects": 1,
+      "num_relationships": 0,
+      "num_annotations": 0,
+      "processing_time": 0.010330915451049805,
+      "svg_length": 1323,
+      "files": {
+        "svg": "output/batch2_universal_pipeline/question_9.svg",
+        "scene_json": "output/batch2_universal_pipeline/question_9_scene.json",
+        "nlp_results": "output/batch2_universal_pipeline/question_9_nlp.json"
+      }
+    },
+    {
+      "question_id": "question_10",
+      "question_number": 10,
+      "title": "Cylindrical Container",
+      "difficulty": "HARD",
+      "success": true,
+      "domain": "electronics",
+      "num_objects": 3,
+      "num_relationships": 2,
+      "num_annotations": 3,
+      "processing_time": 0.01663684844970703,
+      "svg_length": 2772,
+      "files": {
+        "svg": "output/batch2_universal_pipeline/question_10.svg",
+        "scene_json": "output/batch2_universal_pipeline/question_10_scene.json",
+        "nlp_results": "output/batch2_universal_pipeline/question_10_nlp.json"
+      }
+    }
+  ]
+}

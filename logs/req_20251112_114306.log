@@ -1,0 +1,108 @@
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | Request ID: req_20251112_114306
+2025-11-12 11:43:06 | INFO     | Problem Text Length: 64 characters
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Problem Text:
+2025-11-12 11:43:06 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:43:06 | INFO     |   A block of mass 5 kg rests on a table. Draw a free body diagram.
+2025-11-12 11:43:06 | INFO     | --------------------------------------------------------------------------------
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Configuration:
+2025-11-12 11:43:06 | INFO     |   canvas_width: 1200
+2025-11-12 11:43:06 | INFO     |   canvas_height: 800
+2025-11-12 11:43:06 | INFO     |   validation_mode: strict
+2025-11-12 11:43:06 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Diagram Planner', 'Model Orchestrator', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'VLM Validator', 'Request/Response Logging']
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | PHASE 2: Problem Understanding + Complexity
+2025-11-12 11:43:06 | INFO     | Description: Analyze problem and assess complexity
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase Input:
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | Summary: Problem text
+2025-11-12 11:43:06 | INFO     |   Type: str
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase Output:
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | Summary: Domain: mechanics, Objects: 3
+2025-11-12 11:43:06 | INFO     |   domain: mechanics
+2025-11-12 11:43:06 | INFO     |   object_count: 3
+2025-11-12 11:43:06 | INFO     |   constraint_count: 0
+2025-11-12 11:43:06 | INFO     |   complexity_score: 0.195
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:43:06 | INFO     | Duration: 5.70ms
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-12 11:43:06 | INFO     | Description: Build scene graph and select strategy
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase Input:
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | Summary: Problem specs with 3 objects
+2025-11-12 11:43:06 | INFO     |   Type: CanonicalProblemSpec
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase Output:
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | Summary: Scene with 12 objects
+2025-11-12 11:43:06 | INFO     |   object_count: 12
+2025-11-12 11:43:06 | INFO     |   selected_strategy: symbolic_physics
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase completed: SUCCESS
+2025-11-12 11:43:06 | INFO     | Duration: 0.32ms
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | PHASE 5: Physics Validation
+2025-11-12 11:43:06 | INFO     | Description: Validate physics constraints and relationships
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Phase Input:
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | INFO     | Summary: Scene with 12 objects
+2025-11-12 11:43:06 | INFO     |   Type: Scene
+2025-11-12 11:43:06 | INFO     | ----------------------------------------
+2025-11-12 11:43:06 | ERROR    | 
+2025-11-12 11:43:06 | ERROR    | ================================================================================
+2025-11-12 11:43:06 | ERROR    | ERROR OCCURRED
+2025-11-12 11:43:06 | ERROR    | ================================================================================
+2025-11-12 11:43:06 | ERROR    | Context: {'domain': 'mechanics', 'phase': 'generation'}
+2025-11-12 11:43:06 | ERROR    | Error: NameError: name 'PrimitiveType' is not defined
+2025-11-12 11:43:06 | ERROR    | 
+2025-11-12 11:43:06 | ERROR    | Traceback:
+2025-11-12 11:43:06 | ERROR    |   Traceback (most recent call last):
+2025-11-12 11:43:06 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1082, in generate
+2025-11-12 11:43:06 | ERROR    |       report, scene = self.validator.validate(scene, specs)
+2025-11-12 11:43:06 | ERROR    |                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-11-12 11:43:06 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 112, in validate
+2025-11-12 11:43:06 | ERROR    |       self._validate_semantic(scene, spec, report)
+2025-11-12 11:43:06 | ERROR    |       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+2025-11-12 11:43:06 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 205, in _validate_semantic
+2025-11-12 11:43:06 | ERROR    |       has_mass = any(obj.type == PrimitiveType.MASS for obj in scene.objects)
+2025-11-12 11:43:06 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_validator.py", line 205, in <genexpr>
+2025-11-12 11:43:06 | ERROR    |       has_mass = any(obj.type == PrimitiveType.MASS for obj in scene.objects)
+2025-11-12 11:43:06 | ERROR    |                                  ^^^^^^^^^^^^^
+2025-11-12 11:43:06 | ERROR    |   NameError: name 'PrimitiveType' is not defined
+2025-11-12 11:43:06 | ERROR    |   
+2025-11-12 11:43:06 | ERROR    | ================================================================================
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | RESPONSE
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | Status: FAILED
+2025-11-12 11:43:06 | INFO     | Total Duration: 8.11ms
+2025-11-12 11:43:06 | ERROR    | Error: name 'PrimitiveType' is not defined
+2025-11-12 11:43:06 | INFO     | 
+2025-11-12 11:43:06 | INFO     | Full trace saved to: logs/req_20251112_114306.log
+2025-11-12 11:43:06 | INFO     | ================================================================================
+2025-11-12 11:43:06 | INFO     | Trace JSON saved to: logs/req_20251112_114306_trace.json

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Physics - Batch 2 (Questions 6-10)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .batch-info {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .question-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            justify-content: center;
+        }
+
+        .question-btn {
+            padding: 12px 24px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .question-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .question-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .question-container {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .problem-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .problem-box h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .problem-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .topic {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .difficulty.EASY, .difficulty.easy {
+            background: #c8e6c9;
+            color: #388e3c;
+        }
+
+        .difficulty.MEDIUM, .difficulty.medium {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .difficulty.HARD, .difficulty.hard {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .problem-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+
+        .problem-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .problem-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .generation-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .generation-badge.ai {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .generation-badge.source {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .generation-badge.placeholder {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .correct-answer-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .correct-answer-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .correct-answer-box .answer {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .strategy-section, .expert-insight-section, .key-facts-section {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .strategy-section h3, .expert-insight-section h3, .key-facts-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .strategy-section h3::before {
+            content: "🎯";
+            font-size: 1.5em;
+        }
+
+        .expert-insight-section h3::before {
+            content: "💡";
+            font-size: 1.5em;
+        }
+
+        .key-facts-section h3::before {
+            content: "📌";
+            font-size: 1.5em;
+        }
+
+        .strategy-section div, .expert-insight-section div, .key-facts-section div {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .batch-nav {
+            background: #e8f5e9;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #2e7d32;
+        }
+
+        .batch-nav a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background: white;
+            display: inline-block;
+        }
+
+        .batch-nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JEE Advanced Physics - Interactive Questions</h1>
+            <p>Batch 2 of 10: Questions 6-10</p>
+            <div class="batch-info">
+                ⚡ Generated with Advanced 9-Stage AI Physics Diagram Pipeline
+            </div>
+        </header>
+
+        <div class="batch-nav">
+            📚 Navigate Between Batches:
+            <a href="batch_1_questions.html">Batch 1</a>
+            <a href="#" style="background: #667eea; color: white;">Batch 2</a>
+            <a href="batch_3_questions.html">Batch 3</a>
+            <a href="batch_4_questions.html">Batch 4</a>
+            <a href="batch_5_questions.html">Batch 5</a>
+            <a href="batch_6_questions.html">Batch 6</a>
+            <a href="batch_7_questions.html">Batch 7</a>
+            <a href="batch_8_questions.html">Batch 8</a>
+            <a href="batch_9_questions.html">Batch 9</a>
+            <a href="batch_10_questions.html">Batch 10</a>
+        </div>
+
+        <div class="question-nav">
+            <button class="question-btn active" onclick="showQuestion(1)">Question 6</button>
+            <button class="question-btn " onclick="showQuestion(2)">Question 7</button>
+            <button class="question-btn " onclick="showQuestion(3)">Question 8</button>
+            <button class="question-btn " onclick="showQuestion(4)">Question 9</button>
+            <button class="question-btn " onclick="showQuestion(5)">Question 10</button>
+        </div>
+
+        <div class="question-container active" id="question-1">
+            <div class="problem-box">
+                <h2>Question 6</h2>
+                <div class="problem-meta">
+                    <span class="meta-badge topic">Capacitance</span>
+                    <span class="meta-badge difficulty hard">HARD</span>
+                </div>
+                <div class="problem-text">A parallel-plate capacitor has plates of area 0.12 m² and a separation of 1.2 cm. A battery charges the plates to a potential difference of 120 V and is then disconnected. A dielectric slab of thickness 4.0 mm and dielectric constant κ = 4.8 is then placed symmetrically between the plates. What is the magnitude of the electric field in the dielectric after insertion?</div>
+                <div class="problem-diagram">
+                    <svg viewbox="0 0 2000 1400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="1400" width="2000"></rect>
+<defs>
+<marker id="arrowRed" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e74c3c"></path>
+</marker>
+<marker id="arrowBlue" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#3498db"></path>
+</marker>
+<marker id="arrowGreen" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#27ae60"></path>
+</marker>
+<marker id="arrowPurple" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#9b59b6"></path>
+</marker>
+<marker id="arrowOrange" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Title -->
+<text fill="#2c3e50" font-size="42" font-weight="bold" text-anchor="middle" x="1000" y="50">A parallel-plate capacitor has plates of area 0.12 m² and a separation of 1.2 cm...</text>
+<!-- Main Diagram Area -->
+<g id="main-diagram">
+<!-- Battery -->
+<line stroke="#2c3e50" stroke-width="4" x1="200" x2="200" y1="560" y2="640"></line>
+<line stroke="#2c3e50" stroke-width="6" x1="215" x2="215" y1="580" y2="620"></line>
+<text fill="#2c3e50" font-size="26" x="170" y="550">+</text>
+<text fill="#2c3e50" font-size="26" x="170" y="665">−</text>
+<circle cx="400" cy="600" fill="#2c3e50" r="8"></circle>
+<circle cx="700" cy="600" fill="#2c3e50" r="8"></circle>
+<!-- Capacitor 1 -->
+<line stroke="#2c3e50" stroke-width="4" x1="520" x2="520" y1="490" y2="590"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="580" x2="580" y1="490" y2="590"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="550" y="470">C_1</text>
+<text fill="#34495e" font-size="26" text-anchor="start" x="650" y="550">C_1</text>
+<!-- Connecting wires -->
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="400" y1="600" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="520" y1="540" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="580" x2="700" y1="540" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="700" y1="540" y2="600"></line>
+<!-- Capacitor 2 -->
+<line stroke="#2c3e50" stroke-width="4" x1="520" x2="520" y1="610" y2="710"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="580" x2="580" y1="610" y2="710"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="550" y="590">C_2</text>
+<text fill="#34495e" font-size="26" text-anchor="start" x="650" y="670">C_2</text>
+<!-- Connecting wires -->
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="400" y1="600" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="520" y1="660" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="580" x2="700" y1="660" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="700" y1="660" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="215" x2="400" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="800" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="800" x2="800" y1="600" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="800" x2="200" y1="800" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="200" x2="200" y1="800" y2="640"></line>
+<text fill="#e74c3c" font-size="28" font-weight="bold" x="250" y="600">120 V</text>
+</g>
+<!-- Given Information -->
+<g id="given-info">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="250">Given Information:</text>
+<text fill="#34495e" font-size="26" x="1020" y="300">• V = 120 V</text>
+</g>
+<!-- Legend -->
+<g id="legend">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="500">Legend:</text>
+<text fill="#34495e" font-size="26" x="1020" y="550">• Capacitor plates shown as parallel lines</text>
+<text fill="#34495e" font-size="26" x="1020" y="590">• +q and −q represent charge on plates</text>
+<text fill="#34495e" font-size="26" x="1020" y="630">• Battery symbol: thick line is positive terminal</text>
+</g>
+</svg>
+                    <div class="generation-badge source">
+                        📄 Source SVG (4,235 bytes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="correct-answer-box">
+                <h3>✓ Correct Answer</h3>
+                <div class="answer">(c) The field does negative work, pulling the dielectric in.</div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Strategy</h3>
+                <div>For dielectric insertion after battery disconnection: (1) Calculate initial capacitance and charge (Q remains constant), (2) Recognize that partial dielectric creates two capacitors in series, (3) Calculate new effective capacitance, (4) Use Q = C_new × V_new to find new voltage, (5) Distribute voltage across air gap and dielectric using individual capacitances, (6) Calculate fields using E = V/d for each region. Key: Charge conservation is crucial when battery is disconnected.</div>
+            </div>
+
+            <div class="expert-insight-section">
+                <h3>Expert Insight</h3>
+                <div>A topper immediately recognizes the critical difference: battery disconnected means CONSTANT CHARGE, not constant voltage. The partially filled capacitor becomes two capacitors in series (air gap + dielectric). The electric field in the dielectric is reduced by factor κ compared to what it would be without the dielectric, but the actual value requires careful series circuit analysis. The voltage redistributes between the two regions.</div>
+            </div>
+
+            <div class="key-facts-section">
+                <h3>Key Facts</h3>
+                <div>• Parallel-plate capacitance: C = ε₀A/d• With dielectric: C = κε₀A/d• Series capacitors: 1/C_eq = 1/C₁ + 1/C₂• Charge conservation: Q_initial = Q_• Electric field: E = V/d = σ/(κε₀)• Voltage division: V_i = Q/C_i</div>
+            </div>
+        </div>
+
+        <div class="question-container " id="question-2">
+            <div class="problem-box">
+                <h2>Question 7</h2>
+                <div class="problem-meta">
+                    <span class="meta-badge topic">Capacitance</span>
+                    <span class="meta-badge difficulty hard">HARD</span>
+                </div>
+                <div class="problem-text">A potential difference of 300 V is applied to a series connection of two capacitors of capacitances C₁ = 2.00 μF and C₂ = 8.00 μF. The charged capacitors are then disconnected from the battery and from each other. They are then reconnected with plates of the same signs wired together (positive to positive, negative to negative). What is the charge on capacitor C₁?</div>
+                <div class="problem-diagram">
+                    <svg viewbox="0 0 2000 1400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="1400" width="2000"></rect>
+<defs>
+<marker id="arrowRed" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e74c3c"></path>
+</marker>
+<marker id="arrowBlue" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#3498db"></path>
+</marker>
+<marker id="arrowGreen" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#27ae60"></path>
+</marker>
+<marker id="arrowPurple" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#9b59b6"></path>
+</marker>
+<marker id="arrowOrange" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Title -->
+<text fill="#2c3e50" font-size="42" font-weight="bold" text-anchor="middle" x="1000" y="50">A potential difference of 300 V is applied to a series connection of two capacit...</text>
+<!-- Main Diagram Area -->
+<g id="main-diagram">
+<!-- Battery -->
+<line stroke="#2c3e50" stroke-width="4" x1="200" x2="200" y1="560" y2="640"></line>
+<line stroke="#2c3e50" stroke-width="6" x1="215" x2="215" y1="580" y2="620"></line>
+<text fill="#2c3e50" font-size="26" x="170" y="550">+</text>
+<text fill="#2c3e50" font-size="26" x="170" y="665">−</text>
+<!-- Capacitor 1 -->
+<line stroke="#2c3e50" stroke-width="4" x1="370" x2="370" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="430" x2="430" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="400" y="530">C_1</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="400" y="700">2.00 μF</text>
+<!-- Capacitor 2 -->
+<line stroke="#2c3e50" stroke-width="4" x1="620" x2="620" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="680" x2="680" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="650" y="530">C_2</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="650" y="700">8.00 μF</text>
+<line stroke="#2c3e50" stroke-width="3" x1="430" x2="620" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="215" x2="370" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="680" x2="750" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="750" y1="600" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="200" y1="800" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="200" x2="200" y1="800" y2="640"></line>
+<text fill="#e74c3c" font-size="28" font-weight="bold" x="250" y="600">300 V</text>
+</g>
+<!-- Given Information -->
+<g id="given-info">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="250">Given Information:</text>
+<text fill="#34495e" font-size="26" x="1020" y="300">• C₁ = 2.00 μF</text>
+<text fill="#34495e" font-size="26" x="1020" y="340">• C₂ = 8.00 μF</text>
+<text fill="#34495e" font-size="26" x="1020" y="380">• V = 300 V</text>
+</g>
+<!-- Legend -->
+<g id="legend">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="500">Legend:</text>
+<text fill="#34495e" font-size="26" x="1020" y="550">• Capacitor plates shown as parallel lines</text>
+<text fill="#34495e" font-size="26" x="1020" y="590">• +q and −q represent charge on plates</text>
+<text fill="#34495e" font-size="26" x="1020" y="630">• Battery symbol: thick line is positive terminal</text>
+</g>
+</svg>
+                    <div class="generation-badge source">
+                        📄 Source SVG (3,641 bytes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="correct-answer-box">
+                <h3>✓ Correct Answer</h3>
+                <div class="answer">(b) The charge redistribution occurs because initially the capacitors had different voltages (240 V vs 60 V). When connected in parallel, charge flows from higher voltage (C₁) to lower voltage (C₂) until </div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Strategy</h3>
+                <div>For capacitor reconnection problems: (1) Calculate initial charges in series (same Q on both), (2) Apply charge conservation when reconnecting, (3) For same-polarity connection (parallel), Q_total = Q₁ + Q₂, voltage equalizes across both, (4) Use Q_new = C × V_common for each capacitor, (5) For opposite-polarity connection, charges partially cancel. Key insight: Series gives same charge on each; reconnection redistributes charge to equalize voltages.</div>
+            </div>
+
+            <div class="expert-insight-section">
+                <h3>Expert Insight</h3>
+                <div>A topper immediately recognizes this as a charge conservation problem. Initial series configuration means both capacitors have identical charge magnitude. When reconnected in parallel (same signs together), total charge is conserved but redistributes according to capacitance ratio. The common voltage is found from Q_total/C_total. For opposite connection, net charge would be zero (since Q₁ = Q₂ initially), resulting in complete discharge. Always track polarity carefully!</div>
+            </div>
+
+            <div class="key-facts-section">
+                <h3>Key Facts</h3>
+                <div>• Series capacitors: Q₁ = Q₂ = C_eq × V, where 1/C_eq = 1/C₁ + 1/C₂• Charge conservation: Q_total = constant• Parallel connection: V₁ = V₂ = V_common• Charge redistribution: Q_i = C_i × V_common• Energy is NOT conserved (lost to heat in wires)</div>
+            </div>
+        </div>
+
+        <div class="question-container " id="question-3">
+            <div class="problem-box">
+                <h2>Question 8</h2>
+                <div class="problem-meta">
+                    <span class="meta-badge topic">Capacitance</span>
+                    <span class="meta-badge difficulty medium">MEDIUM</span>
+                </div>
+                <div class="problem-text">Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]</div>
+                <div class="problem-diagram">
+                    <svg viewbox="0 0 2000 1400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="1400" width="2000"></rect>
+<defs>
+<marker id="arrowRed" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e74c3c"></path>
+</marker>
+<marker id="arrowBlue" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#3498db"></path>
+</marker>
+<marker id="arrowGreen" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#27ae60"></path>
+</marker>
+<marker id="arrowPurple" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#9b59b6"></path>
+</marker>
+<marker id="arrowOrange" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Title -->
+<text fill="#2c3e50" font-size="42" font-weight="bold" text-anchor="middle" x="1000" y="50">Question 4: A parallel-plate capacitor of plate area A = 10.5 cm² and plate sepa...</text>
+<!-- Main Diagram Area -->
+<g id="main-diagram">
+<!-- Battery -->
+<line stroke="#2c3e50" stroke-width="4" x1="200" x2="200" y1="560" y2="640"></line>
+<line stroke="#2c3e50" stroke-width="6" x1="215" x2="215" y1="580" y2="620"></line>
+<text fill="#2c3e50" font-size="26" x="170" y="550">+</text>
+<text fill="#2c3e50" font-size="26" x="170" y="665">−</text>
+<circle cx="400" cy="600" fill="#2c3e50" r="8"></circle>
+<circle cx="700" cy="600" fill="#2c3e50" r="8"></circle>
+<!-- Capacitor 1 -->
+<line stroke="#2c3e50" stroke-width="4" x1="520" x2="520" y1="490" y2="590"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="580" x2="580" y1="490" y2="590"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="550" y="470">C_1</text>
+<text fill="#34495e" font-size="26" text-anchor="start" x="650" y="550">C_1</text>
+<!-- Connecting wires -->
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="400" y1="600" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="520" y1="540" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="580" x2="700" y1="540" y2="540"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="700" y1="540" y2="600"></line>
+<!-- Capacitor 2 -->
+<line stroke="#2c3e50" stroke-width="4" x1="520" x2="520" y1="610" y2="710"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="580" x2="580" y1="610" y2="710"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="550" y="590">C_2</text>
+<text fill="#34495e" font-size="26" text-anchor="start" x="650" y="670">C_2</text>
+<!-- Connecting wires -->
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="400" y1="600" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="400" x2="520" y1="660" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="580" x2="700" y1="660" y2="660"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="700" y1="660" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="215" x2="400" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="700" x2="800" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="800" x2="800" y1="600" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="800" x2="200" y1="800" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="200" x2="200" y1="800" y2="640"></line>
+</g>
+<!-- Given Information -->
+<g id="given-info">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="250">Given Information:</text>
+<text fill="#34495e" font-size="26" x="1020" y="300">• A = 10.5 cm</text>
+<text fill="#34495e" font-size="26" x="1020" y="340">• d = 7.12 mm</text>
+</g>
+<!-- Legend -->
+<g id="legend">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="500">Legend:</text>
+<text fill="#34495e" font-size="26" x="1020" y="550">• Capacitor plates shown as parallel lines</text>
+<text fill="#34495e" font-size="26" x="1020" y="590">• +q and −q represent charge on plates</text>
+<text fill="#34495e" font-size="26" x="1020" y="630">• Battery symbol: thick line is positive terminal</text>
+</g>
+</svg>
+                    <div class="generation-badge source">
+                        📄 Source SVG (4,227 bytes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="correct-answer-box">
+                <h3>✓ Correct Answer</h3>
+                <div class="answer">(a) C = 41.6 pF</div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Strategy</h3>
+                <div>The general approach for solving similar capacitance problems involves breaking down the capacitor into its constituent parts, calculating the individual capacitances, and then combining them to find the total capacitance. First, identify the different dielectric materials and their respective regions within the capacitor. Next, calculate the capacitance for each region using the formula C = (ε₀*κ*A)/d, where ε₀ is the permittivity of free space, κ is the dielectric constant, A is the plate area, and d is the plate separation. Finally, combine the individual capacitances using the rules for series and parallel connections to obtain the total capacitance of the system.</div>
+            </div>
+
+            <div class="expert-insight-section">
+                <h3>Expert Insight</h3>
+                <div>The first thing I would notice is the presence of multiple dielectric materials in the parallel-plate capacitor configuration, which requires a more complex analysis compared to a simple uniform dielectric. I would recognize the pattern of splitting the right half of the capacitor into two regions with different dielectric constants, and I would know to use the formula for capacitance in a parallel arrangement of capacitors. To avoid common mistakes, I would be careful to accurately calculate the effective dielectric constant for each region and the overall capacitance, ensuring that I correctly apply the given dimensions and dielectric constants.</div>
+            </div>
+
+            <div class="key-facts-section">
+                <h3>Key Facts</h3>
+                <div>Capacitance of a parallel-plate capacitor: C = κε₀A/d; Capacitance of capacitors in series: 1/Ctotal = 1/C1 + 1/C2 + ...; Dielectric constant (permittivity) of free space: ε₀ = 8.854 × 10⁻¹² F/m; Dielectric constant of a material: κ.</div>
+            </div>
+        </div>
+
+        <div class="question-container " id="question-4">
+            <div class="problem-box">
+                <h2>Question 9</h2>
+                <div class="problem-meta">
+                    <span class="meta-badge topic">Capacitance</span>
+                    <span class="meta-badge difficulty medium">MEDIUM</span>
+                </div>
+                <div class="problem-text">Question 2:Problem 26 (Modified):Capacitor 3 in the circuit shown below is a variable capacitor (its capacitance C₃ can be varied). The figure shows the electric potential V₁ across capacitor 1 versus C₃.V+−C₁C₂C₃C₃ (μF)V₁ (V)02468100C₃ₛ=12.0Asymptote: V₁→10VThe horizontal scale is set by C₃ₛ = 12.0 μF. Electric potential V₁ approaches an asymptote of 10 V as C₃ → ∞.Circuit Configuration:C₁ is in series with the parallel combination of C₂ and C₃.Determine:(a) The electric potential V across the battery(b) The capacitance C₁(c) The capacitance C₂</div>
+                <div class="problem-diagram">
+                    <svg viewbox="0 0 2000 1400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="1400" width="2000"></rect>
+<defs>
+<marker id="arrowRed" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e74c3c"></path>
+</marker>
+<marker id="arrowBlue" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#3498db"></path>
+</marker>
+<marker id="arrowGreen" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#27ae60"></path>
+</marker>
+<marker id="arrowPurple" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#9b59b6"></path>
+</marker>
+<marker id="arrowOrange" markerheight="5" markerwidth="5" orient="auto" refx="5" refy="2.5">
+<path d="M 0 0 L 5 2.5 L 0 5 z" fill="#e67e22"></path>
+</marker>
+</defs>
+<!-- Title -->
+<text fill="#2c3e50" font-size="42" font-weight="bold" text-anchor="middle" x="1000" y="50">Question 2: Problem 26 (Modified):Capacitor 3 in the circuit shown below is a va...</text>
+<!-- Main Diagram Area -->
+<g id="main-diagram">
+<!-- Battery -->
+<line stroke="#2c3e50" stroke-width="4" x1="200" x2="200" y1="560" y2="640"></line>
+<line stroke="#2c3e50" stroke-width="6" x1="215" x2="215" y1="580" y2="620"></line>
+<text fill="#2c3e50" font-size="26" x="170" y="550">+</text>
+<text fill="#2c3e50" font-size="26" x="170" y="665">−</text>
+<!-- Capacitor 1 -->
+<line stroke="#2c3e50" stroke-width="4" x1="370" x2="370" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="430" x2="430" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="400" y="530">C_1</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="400" y="700">C_1</text>
+<!-- Capacitor 2 -->
+<line stroke="#2c3e50" stroke-width="4" x1="620" x2="620" y1="550" y2="650"></line>
+<line stroke="#2c3e50" stroke-width="4" x1="680" x2="680" y1="550" y2="650"></line>
+<text fill="#2c3e50" font-size="32" font-weight="bold" text-anchor="middle" x="650" y="530">C_2</text>
+<text fill="#34495e" font-size="26" text-anchor="middle" x="650" y="700">C_2</text>
+<line stroke="#2c3e50" stroke-width="3" x1="430" x2="620" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="215" x2="370" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="680" x2="750" y1="600" y2="600"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="750" y1="600" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="750" x2="200" y1="800" y2="800"></line>
+<line stroke="#2c3e50" stroke-width="3" x1="200" x2="200" y1="800" y2="640"></line>
+<text fill="#e74c3c" font-size="28" font-weight="bold" x="250" y="600">. V</text>
+</g>
+<!-- Given Information -->
+<g id="given-info">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="250">Given Information:</text>
+<text fill="#34495e" font-size="26" x="1020" y="300">• V = . V</text>
+</g>
+<!-- Legend -->
+<g id="legend">
+<text fill="#16a085" font-size="32" font-weight="bold" x="1000" y="500">Legend:</text>
+<text fill="#34495e" font-size="26" x="1020" y="550">• Capacitor plates shown as parallel lines</text>
+<text fill="#34495e" font-size="26" x="1020" y="590">• +q and −q represent charge on plates</text>
+<text fill="#34495e" font-size="26" x="1020" y="630">• Battery symbol: thick line is positive terminal</text>
+</g>
+</svg>
+                    <div class="generation-badge source">
+                        📄 Source SVG (3,479 bytes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="correct-answer-box">
+                <h3>✓ Correct Answer</h3>
+                <div class="answer">(b) Equal capacitances: C₁ = C₂ = 5.0 μF ✓</div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Strategy</h3>
+                <div>The universal strategy for solving capacitance problems involves the following steps: 
+1) Analyze the circuit configuration to identify the series and parallel connections of capacitors.
+2) Apply the relevant capacitance formulas (series and parallel) to relate the unknown capacitance values.
+3) Leverage the given information, such as the voltage-capacitance plot or the asymptotic behavior, to determine the unknown capacitance values.
+4) Use the calculated capacitance values to find the requested parameters, such as the battery voltage or the individual capacitance values.</div>
+            </div>
+
+            <div class="expert-insight-section">
+                <h3>Expert Insight</h3>
+                <div>The first thing I would notice is the asymptotic behavior of the graph, indicating that the total capacitance of the circuit approaches infinity as C₃ increases. This pattern suggests that the series combination of C₁ and the parallel combination of C₂ and C₃ determines the overall capacitance. To avoid common mistakes, I would carefully analyze the circuit configuration and the given information to determine the relevant equations and relationships between the circuit parameters. By recognizing these patterns and avoiding common pitfalls, I can efficiently solve this problem and provide the requested information.</div>
+            </div>
+
+            <div class="key-facts-section">
+                <h3>Key Facts</h3>
+                <div>Series capacitance formula: 1/C_total = 1/C₁ + 1/C_parallel; Voltage divider formula: V₁ = V × C_parallel/(C₁ + C_parallel); Asymptote formula: V₁ → 10 V as C₃ → ∞; Parallel capacitance formula: C_parallel = C₂ + C₃.</div>
+            </div>
+        </div>
+
+        <div class="question-container " id="question-5">
+            <div class="problem-box">
+                <h2>Question 10</h2>
+                <div class="problem-meta">
+                    <span class="meta-badge topic">Capacitance</span>
+                    <span class="meta-badge difficulty hard">HARD</span>
+                </div>
+                <div class="problem-text">Problem 36 (Modified):As a safety engineer, you must evaluate the practice of storing flammable conducting liquids in nonconducting containers. The company supplying a certain liquid has been using a squat, cylindrical plastic container of radius r = 0.20 m and filling it to height h = 10 cm, which is not the container's full interior height.−−−−−−−−−−+++++Venting portFull heightConducting liquidSurface charge density:σ = −2.0 μC/m²Your investigation reveals that during handling at the company, the exterior surface of the container commonly acquires a negative charge density of magnitude 2.0 μC/m² (approximately uniform). Because the liquid is a conducting material, the charge on the container induces charge separation within the liquid.Given:Container radius: r = 0.20 mLiquid height: h = 10 cm = 0.10 mSurface charge density: σ = 2.0 μC/m² = 2.0 × 10⁻⁶ C/m²Capacitance of liquid's central portion: C = 35 pF = 35 × 10⁻¹² FMinimum spark energy to ignite: E_min = 10 mJ = 0.010 JDetermine:(a) How much negative charge is induced in the center of the liquid's bulk?(b) What is the potential energy associated with the negative charge in that effective capacitor?(c) Can a spark from the central portion of the liquid ignite the liquid if the spark energy equals the stored potential energy?</div>
+                <div class="problem-diagram">
+                    <svg height="400" width="450" xmlns="http://www.w3.org/2000/svg">
+<!-- Container -->
+<ellipse cx="225" cy="150" fill="none" rx="140" ry="30" stroke="black" stroke-width="2">
+</ellipse>
+<line stroke="black" stroke-width="2" x1="85" x2="85" y1="150" y2="300">
+</line>
+<line stroke="black" stroke-width="2" x1="365" x2="365" y1="150" y2="300">
+</line>
+<ellipse cx="225" cy="300" fill="none" rx="140" ry="30" stroke="black" stroke-width="2">
+</ellipse>
+<!-- Liquid inside -->
+<ellipse cx="225" cy="250" fill="#87CEEB" rx="130" ry="25" stroke="black" stroke-width="1">
+</ellipse>
+<rect fill="#87CEEB" height="45" width="260" x="95" y="250">
+</rect>
+<ellipse cx="225" cy="295" fill="#4682B4" rx="130" ry="25" stroke="black" stroke-width="1">
+</ellipse>
+<!-- Charge symbols on container surface -->
+<text fill="red" font-size="20" x="70" y="170">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="200">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="230">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="260">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="290">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="170">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="200">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="230">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="260">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="290">
+     −
+    </text>
+<!-- Positive charges in liquid (induced) -->
+<text fill="blue" font-size="18" x="215" y="265">
+     +
+    </text>
+<text fill="blue" font-size="18" x="235" y="265">
+     +
+    </text>
+<text fill="blue" font-size="18" x="225" y="280">
+     +
+    </text>
+<text fill="blue" font-size="18" x="210" y="285">
+     +
+    </text>
+<text fill="blue" font-size="18" x="240" y="285">
+     +
+    </text>
+<!-- Venting port -->
+<rect fill="#ddd" height="25" stroke="black" stroke-width="2" width="30" x="210" y="130">
+</rect>
+<text font-size="12" x="165" y="125">
+     Venting port
+    </text>
+<line stroke="black" stroke-width="1" x1="195" x2="210" y1="130" y2="135">
+</line>
+<!-- Dimensions -->
+<line stroke="black" stroke-dasharray="5,5" stroke-width="1" x1="380" x2="380" y1="150" y2="300">
+</line>
+<line stroke="black" stroke-width="2" x1="375" x2="385" y1="150" y2="150">
+</line>
+<line stroke="black" stroke-width="2" x1="375" x2="385" y1="300" y2="300">
+</line>
+<text font-size="14" x="390" y="230">
+     Full height
+    </text>
+<line stroke="black" stroke-dasharray="5,5" stroke-width="1" x1="85" x2="365" y1="310" y2="310">
+</line>
+<line stroke="black" stroke-width="2" x1="85" x2="85" y1="305" y2="315">
+</line>
+<line stroke="black" stroke-width="2" x1="365" x2="365" y1="305" y2="315">
+</line>
+<line stroke="red" stroke-width="2" x1="380" x2="380" y1="250" y2="300">
+</line>
+<line stroke="red" stroke-width="2" x1="375" x2="385" y1="250" y2="250">
+</line>
+<!-- Labels -->
+<text fill="white" font-size="12" font-weight="bold" x="190" y="275">
+     Conducting liquid
+    </text>
+<text font-size="12" x="50" y="350">
+     Surface charge density:
+    </text>
+<text font-size="12" x="50" y="370">
+     σ = −2.0 μC/m²
+    </text>
+</svg>
+                    <div class="generation-badge source">
+                        📄 Source SVG (3,193 bytes)
+                    </div>
+                </div>
+            </div>
+
+            <div class="correct-answer-box">
+                <h3>✓ Correct Answer</h3>
+                <div class="answer">(c) The required ignition energy is about 11 times higher than the available stored energy, indicating a reasonably safe margin under these specific conditions.</div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Strategy</h3>
+                <div>To solve capacitance problems, first identify the capacitor's geometry and the charge distribution. Calculate the capacitance using the appropriate formula. Then, determine the induced charge on one plate and the associated potential energy. Finally, compare the potential energy to the minimum ignition energy to assess the risk of sparking. This universal approach can be applied to any similar capacitance problem, regardless of the specific values involved.</div>
+            </div>
+
+            <div class="expert-insight-section">
+                <h3>Expert Insight</h3>
+                <div>When seeing this problem, I would first notice the setup of a cylindrical container with a conducting liquid inside, and the presence of negative charges on the container's surface. I would recognize the pattern of induced charges within the liquid due to the external charge on the container, which can be used to calculate the potential energy stored in the effective capacitor formed by the liquid. To avoid common mistakes, I would ensure to use the given capacitance value correctly and not confuse the potential energy with the minimum spark energy required for ignition.</div>
+            </div>
+
+            <div class="key-facts-section">
+                <h3>Key Facts</h3>
+                <div>Capacitance of a parallel-plate capacitor: C = ε₀A/d; Coulomb's law: F = kQ₁Q₂/r²; Potential energy stored in a capacitor: U = 1/2CV²; Trigonometry: A = πr²; A = 2πrh; Rearranging equations to solve for variables; Unit conversions.</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🤖 Generated with <a href="https://github.com/ai-bitmonky/stem-diagrams">Advanced 9-Stage AI Pipeline</a></p>
+            <p style="margin-top: 5px;">Batch 2 of 10 | DeepSeek AI Powered</p>
+        </footer>
+    </div>
+
+    <script>
+        function showQuestion(questionNum) {
+            const allQuestions = document.querySelectorAll('.question-container');
+            allQuestions.forEach(q => q.classList.remove('active'));
+
+            const allButtons = document.querySelectorAll('.question-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById('question-' + questionNum).classList.add('active');
+            allButtons[questionNum - 1].classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

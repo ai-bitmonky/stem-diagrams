@@ -1,0 +1,384 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "Four",
+      "properties": {
+        "start": 0,
+        "end": 4,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "15.0",
+      "properties": {
+        "start": 158,
+        "end": 162,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "C\u2081",
+      "properties": {
+        "start": 173,
+        "end": 175,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "15.0",
+      "properties": {
+        "start": 178,
+        "end": 182,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "3.00",
+      "properties": {
+        "start": 192,
+        "end": 196,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "CARDINAL",
+      "text": "C\u2083",
+      "properties": {
+        "start": 201,
+        "end": 203,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "CARDINAL",
+      "text": "6.00",
+      "properties": {
+        "start": 206,
+        "end": 210,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "CARDINAL",
+      "text": "20.0",
+      "properties": {
+        "start": 220,
+        "end": 224,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "MEASUREMENT",
+      "text": "15.0 V",
+      "properties": {
+        "value": 15.0,
+        "unit": "V",
+        "start": 158,
+        "end": 164,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_9",
+      "type": "MEASUREMENT",
+      "text": "15.0 \u03bcF",
+      "properties": {
+        "value": 15.0,
+        "unit": "\u03bcF",
+        "start": 178,
+        "end": 185,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_10",
+      "type": "MEASUREMENT",
+      "text": "3.00 \u03bcF",
+      "properties": {
+        "value": 3.0,
+        "unit": "\u03bcF",
+        "start": 192,
+        "end": 199,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_11",
+      "type": "MEASUREMENT",
+      "text": "6.00 \u03bcF",
+      "properties": {
+        "value": 6.0,
+        "unit": "\u03bcF",
+        "start": 206,
+        "end": 213,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_12",
+      "type": "MEASUREMENT",
+      "text": "20.0 \u03bcF",
+      "properties": {
+        "value": 20.0,
+        "unit": "\u03bcF",
+        "start": 220,
+        "end": 227,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "Four",
+      "target": "15.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "Four",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0",
+      "target": "15.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "15.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "3.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0",
+      "target": "3.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0",
+      "target": "C\u2083",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00",
+      "target": "C\u2083",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00",
+      "target": "6.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2083",
+      "target": "6.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2083",
+      "target": "20.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "6.00",
+      "target": "20.0",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "6.00",
+      "target": "15.0 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "20.0",
+      "target": "15.0 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "20.0",
+      "target": "15.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0 V",
+      "target": "15.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0 V",
+      "target": "3.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0 \u03bcF",
+      "target": "3.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "15.0 \u03bcF",
+      "target": "6.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00 \u03bcF",
+      "target": "6.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "3.00 \u03bcF",
+      "target": "20.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "6.00 \u03bcF",
+      "target": "20.0 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "b",
+      "target": "15",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 13,
+    "num_relationships": 24,
+    "processing_time": 0.007397174835205078,
+    "sentence_count": 2,
+    "token_count": 57
+  },
+  "raw_text": "Four capacitors are connected as shown. (a) Find the equivalent capacitance between\npoints a and b. (b) Calculate the charge on each capacitor, taking V_ab = 15.0 V.\nGiven: C\u2081 = 15.0 \u03bcF, C\u2082 = 3.00 \u03bcF, C\u2083 = 6.00 \u03bcF, C\u2084 = 20.0 \u03bcF"
+}

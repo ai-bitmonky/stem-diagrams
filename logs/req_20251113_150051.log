@@ -1,0 +1,330 @@
+2025-11-13 15:00:51 | INFO     | ================================================================================
+2025-11-13 15:00:51 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 15:00:51 | INFO     | ================================================================================
+2025-11-13 15:00:51 | INFO     | Request ID: req_20251113_150051
+2025-11-13 15:00:51 | INFO     | Problem Text Length: 369 characters
+2025-11-13 15:00:51 | INFO     | 
+2025-11-13 15:00:51 | INFO     | Problem Text:
+2025-11-13 15:00:51 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:00:51 | INFO     |   Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]
+2025-11-13 15:00:51 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:00:51 | INFO     | 
+2025-11-13 15:00:51 | INFO     | Configuration:
+2025-11-13 15:00:51 | INFO     |   canvas_width: 1200
+2025-11-13 15:00:51 | INFO     |   canvas_height: 800
+2025-11-13 15:00:51 | INFO     |   validation_mode: standard
+2025-11-13 15:00:51 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'DeepSeek (Enrichment, Audit, Validation)', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-13 15:00:51 | INFO     | 
+2025-11-13 15:00:51 | INFO     | 
+2025-11-13 15:00:51 | INFO     | ================================================================================
+2025-11-13 15:00:51 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 15:00:51 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 15:00:51 | INFO     | ================================================================================
+2025-11-13 15:00:51 | INFO     | 
+2025-11-13 15:00:51 | INFO     | Phase Input:
+2025-11-13 15:00:51 | INFO     | ----------------------------------------
+2025-11-13 15:00:51 | INFO     | Summary: Problem text (369 chars)
+2025-11-13 15:00:51 | INFO     |   Type: str
+2025-11-13 15:00:51 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Output:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: Extracted data using 6 NLP tools
+2025-11-13 15:01:32 | INFO     |   openie: dict
+2025-11-13 15:01:32 | INFO     |   stanza: dict
+2025-11-13 15:01:32 | INFO     |   scibert: dict
+2025-11-13 15:01:32 | INFO     |   chemdataextractor: dict
+2025-11-13 15:01:32 | INFO     |   mathbert: dict
+2025-11-13 15:01:32 | INFO     |   amr: dict
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:32 | INFO     | Duration: 41222.80ms
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 15:01:32 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Input:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: NLP extraction results
+2025-11-13 15:01:32 | INFO     |   openie: dict
+2025-11-13 15:01:32 | INFO     |   stanza: dict
+2025-11-13 15:01:32 | INFO     |   scibert: dict
+2025-11-13 15:01:32 | INFO     |   chemdataextractor: dict
+2025-11-13 15:01:32 | INFO     |   mathbert: dict
+2025-11-13 15:01:32 | INFO     |   amr: dict
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Output:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: Built graph with 68 nodes from 5 sources
+2025-11-13 15:01:32 | INFO     |   request_id: req_1763026251188_1
+2025-11-13 15:01:32 | INFO     |   summary: dict
+2025-11-13 15:01:32 | INFO     |   node_types: dict
+2025-11-13 15:01:32 | INFO     |   edge_types: dict
+2025-11-13 15:01:32 | INFO     |   nodes: [10 items]
+2025-11-13 15:01:32 | INFO     |   edges: [10 items]
+2025-11-13 15:01:32 | INFO     |   ontology_tags: dict
+2025-11-13 15:01:32 | INFO     |   gap_analysis: dict
+2025-11-13 15:01:32 | INFO     |   disk_persistence: dict
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:32 | INFO     | Duration: 4.95ms
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | PHASE 1: DeepSeek Enrichment
+2025-11-13 15:01:32 | INFO     | Description: Validate and enrich entities with LLM
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Output:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: DeepSeek entity enrichment
+2025-11-13 15:01:32 | INFO     |   error: cannot access local variable 'json' where it is not associated with a value
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase completed: WARNING
+2025-11-13 15:01:32 | INFO     | Duration: 0.17ms
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-13 15:01:32 | INFO     | Description: Create diagram plan from property graph
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Input:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: Original request + Property graph
+2025-11-13 15:01:32 | INFO     |   Type: str
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Output:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-13 15:01:32 | INFO     |   planning_mode: property_graph_driven
+2025-11-13 15:01:32 | INFO     |   domain: current_electricity
+2025-11-13 15:01:32 | INFO     |   entity_count: 8
+2025-11-13 15:01:32 | INFO     |   relation_count: 2
+2025-11-13 15:01:32 | INFO     |   constraint_count: 36
+2025-11-13 15:01:32 | INFO     |   complexity_score: 0.36
+2025-11-13 15:01:32 | INFO     |   z3_used: False
+2025-11-13 15:01:32 | INFO     |   sympy_used: False
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:32 | INFO     | Duration: 1.25ms
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-13 15:01:32 | INFO     | Description: Build scene graph and select strategy
+2025-11-13 15:01:32 | INFO     | ================================================================================
+2025-11-13 15:01:32 | INFO     | 
+2025-11-13 15:01:32 | INFO     | Phase Input:
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:32 | INFO     | Summary: Problem specs with 8 objects
+2025-11-13 15:01:32 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 15:01:32 | INFO     | ----------------------------------------
+2025-11-13 15:01:33 | ERROR    | 
+2025-11-13 15:01:33 | ERROR    | ================================================================================
+2025-11-13 15:01:33 | ERROR    | ERROR OCCURRED
+2025-11-13 15:01:33 | ERROR    | ================================================================================
+2025-11-13 15:01:33 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-13 15:01:33 | ERROR    | Error: ValueError: too many values to unpack (expected 2)
+2025-11-13 15:01:33 | ERROR    | 
+2025-11-13 15:01:33 | ERROR    | Traceback:
+2025-11-13 15:01:33 | ERROR    |   Traceback (most recent call last):
+2025-11-13 15:01:33 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1482, in generate
+2025-11-13 15:01:33 | ERROR    |       scene = self.scene_builder.build(
+2025-11-13 15:01:33 | ERROR    |           specs,
+2025-11-13 15:01:33 | ERROR    |       ...<8 lines>...
+2025-11-13 15:01:33 | ERROR    |           diagram_plan=diagram_plan if diagram_plan else getattr(specs, 'diagram_plan', None)
+2025-11-13 15:01:33 | ERROR    |       )
+2025-11-13 15:01:33 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py", line 119, in build
+2025-11-13 15:01:33 | ERROR    |       scene = self._enrich_with_nlp(scene, spec, nlp_context, property_graph)
+2025-11-13 15:01:33 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py", line 559, in _enrich_with_nlp
+2025-11-13 15:01:33 | ERROR    |       for entity_text, entity_type in entities:
+2025-11-13 15:01:33 | ERROR    |           ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-13 15:01:33 | ERROR    |   ValueError: too many values to unpack (expected 2)
+2025-11-13 15:01:33 | ERROR    |   
+2025-11-13 15:01:33 | ERROR    | ================================================================================
+2025-11-13 15:01:33 | INFO     | 
+2025-11-13 15:01:33 | INFO     | ================================================================================
+2025-11-13 15:01:33 | INFO     | RESPONSE
+2025-11-13 15:01:33 | INFO     | ================================================================================
+2025-11-13 15:01:33 | INFO     | Status: FAILED
+2025-11-13 15:01:33 | INFO     | Total Duration: 42121.72ms
+2025-11-13 15:01:33 | ERROR    | Error: too many values to unpack (expected 2)
+2025-11-13 15:01:33 | INFO     | 
+2025-11-13 15:01:33 | INFO     | Full trace saved to: logs/req_20251113_150051.log
+2025-11-13 15:01:33 | INFO     | ================================================================================
+2025-11-13 15:01:33 | INFO     | Trace JSON saved to: logs/req_20251113_150051_trace.json
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | Request ID: req_20251113_150051
+2025-11-13 15:01:58 | INFO     | Problem Text Length: 369 characters
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Problem Text:
+2025-11-13 15:01:58 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:01:58 | INFO     |   Question 4:A parallel-plate capacitor of plate area A = 10.5 cm² and plate separation 2d = 7.12 mm is configured as follows: The left half is filled with dielectric κ₁ = 21.0. The right half is divided into two regions - top with κ₂ = 42.0 and bottom with κ₃ = 58.0. Calculate the total capacitance.[Left half: uniform κ₁; Right half: top quarter κ₂, bottom quarter κ₃]
+2025-11-13 15:01:58 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Configuration:
+2025-11-13 15:01:58 | INFO     |   canvas_width: 1200
+2025-11-13 15:01:58 | INFO     |   canvas_height: 800
+2025-11-13 15:01:58 | INFO     |   validation_mode: standard
+2025-11-13 15:01:58 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'LLM Planner', 'Model Orchestrator', 'Ontology Validation', 'Z3 Optimization', 'LLM Auditor', 'Structural Validator', 'DeepSeek (Enrichment, Audit, Validation)', 'Primitive Library (memory)', 'Request/Response Logging']
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 15:01:58 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Input:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Problem text (369 chars)
+2025-11-13 15:01:58 | INFO     |   Type: str
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Output:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Extracted data using 6 NLP tools
+2025-11-13 15:01:58 | INFO     |   openie: dict
+2025-11-13 15:01:58 | INFO     |   stanza: dict
+2025-11-13 15:01:58 | INFO     |   scibert: dict
+2025-11-13 15:01:58 | INFO     |   chemdataextractor: dict
+2025-11-13 15:01:58 | INFO     |   mathbert: dict
+2025-11-13 15:01:58 | INFO     |   amr: dict
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:58 | INFO     | Duration: 1.59ms
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | PHASE 1: Property Graph Construction
+2025-11-13 15:01:58 | INFO     | Description: Build knowledge graph from NLP results
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Input:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: NLP extraction results
+2025-11-13 15:01:58 | INFO     |   openie: dict
+2025-11-13 15:01:58 | INFO     |   stanza: dict
+2025-11-13 15:01:58 | INFO     |   scibert: dict
+2025-11-13 15:01:58 | INFO     |   chemdataextractor: dict
+2025-11-13 15:01:58 | INFO     |   mathbert: dict
+2025-11-13 15:01:58 | INFO     |   amr: dict
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Output:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Built graph with 68 nodes from 5 sources
+2025-11-13 15:01:58 | INFO     |   request_id: req_1763026318734_2
+2025-11-13 15:01:58 | INFO     |   summary: dict
+2025-11-13 15:01:58 | INFO     |   node_types: dict
+2025-11-13 15:01:58 | INFO     |   edge_types: dict
+2025-11-13 15:01:58 | INFO     |   nodes: [10 items]
+2025-11-13 15:01:58 | INFO     |   edges: [10 items]
+2025-11-13 15:01:58 | INFO     |   ontology_tags: dict
+2025-11-13 15:01:58 | INFO     |   gap_analysis: dict
+2025-11-13 15:01:58 | INFO     |   disk_persistence: dict
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:58 | INFO     | Duration: 4.75ms
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | PHASE 1: DeepSeek Enrichment
+2025-11-13 15:01:58 | INFO     | Description: Validate and enrich entities with LLM
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Output:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: DeepSeek entity enrichment
+2025-11-13 15:01:58 | INFO     |   error: cannot access local variable 'json' where it is not associated with a value
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase completed: WARNING
+2025-11-13 15:01:58 | INFO     | Duration: 0.39ms
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | PHASE 2: Diagram Planning (Property Graph-Driven)
+2025-11-13 15:01:58 | INFO     | Description: Create diagram plan from property graph
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Input:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Original request + Property graph
+2025-11-13 15:01:58 | INFO     |   Type: str
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Output:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Planning mode: property_graph_driven
+2025-11-13 15:01:58 | INFO     |   planning_mode: property_graph_driven
+2025-11-13 15:01:58 | INFO     |   domain: current_electricity
+2025-11-13 15:01:58 | INFO     |   entity_count: 8
+2025-11-13 15:01:58 | INFO     |   relation_count: 2
+2025-11-13 15:01:58 | INFO     |   constraint_count: 36
+2025-11-13 15:01:58 | INFO     |   complexity_score: 0.36
+2025-11-13 15:01:58 | INFO     |   z3_used: False
+2025-11-13 15:01:58 | INFO     |   sympy_used: False
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase completed: SUCCESS
+2025-11-13 15:01:58 | INFO     | Duration: 1.80ms
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | PHASE 3: Scene Synthesis + Strategic Planning
+2025-11-13 15:01:58 | INFO     | Description: Build scene graph and select strategy
+2025-11-13 15:01:58 | INFO     | ================================================================================
+2025-11-13 15:01:58 | INFO     | 
+2025-11-13 15:01:58 | INFO     | Phase Input:
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:58 | INFO     | Summary: Problem specs with 8 objects
+2025-11-13 15:01:58 | INFO     |   Type: CanonicalProblemSpec
+2025-11-13 15:01:58 | INFO     | ----------------------------------------
+2025-11-13 15:01:59 | ERROR    | 
+2025-11-13 15:01:59 | ERROR    | ================================================================================
+2025-11-13 15:01:59 | ERROR    | ERROR OCCURRED
+2025-11-13 15:01:59 | ERROR    | ================================================================================
+2025-11-13 15:01:59 | ERROR    | Context: {'domain': 'current_electricity', 'phase': 'generation'}
+2025-11-13 15:01:59 | ERROR    | Error: ValueError: too many values to unpack (expected 2)
+2025-11-13 15:01:59 | ERROR    | 
+2025-11-13 15:01:59 | ERROR    | Traceback:
+2025-11-13 15:01:59 | ERROR    |   Traceback (most recent call last):
+2025-11-13 15:01:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py", line 1482, in generate
+2025-11-13 15:01:59 | ERROR    |       scene = self.scene_builder.build(
+2025-11-13 15:01:59 | ERROR    |           specs,
+2025-11-13 15:01:59 | ERROR    |       ...<8 lines>...
+2025-11-13 15:01:59 | ERROR    |           diagram_plan=diagram_plan if diagram_plan else getattr(specs, 'diagram_plan', None)
+2025-11-13 15:01:59 | ERROR    |       )
+2025-11-13 15:01:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py", line 119, in build
+2025-11-13 15:01:59 | ERROR    |       scene = self._enrich_with_nlp(scene, spec, nlp_context, property_graph)
+2025-11-13 15:01:59 | ERROR    |     File "/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py", line 559, in _enrich_with_nlp
+2025-11-13 15:01:59 | ERROR    |       for entity_text, entity_type in entities:
+2025-11-13 15:01:59 | ERROR    |           ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-13 15:01:59 | ERROR    |   ValueError: too many values to unpack (expected 2)
+2025-11-13 15:01:59 | ERROR    |   
+2025-11-13 15:01:59 | ERROR    | ================================================================================
+2025-11-13 15:01:59 | INFO     | 
+2025-11-13 15:01:59 | INFO     | ================================================================================
+2025-11-13 15:01:59 | INFO     | RESPONSE
+2025-11-13 15:01:59 | INFO     | ================================================================================
+2025-11-13 15:01:59 | INFO     | Status: FAILED
+2025-11-13 15:01:59 | INFO     | Total Duration: 67840.55ms
+2025-11-13 15:01:59 | ERROR    | Error: too many values to unpack (expected 2)
+2025-11-13 15:01:59 | INFO     | 
+2025-11-13 15:01:59 | INFO     | Full trace saved to: logs/req_20251113_150051.log
+2025-11-13 15:01:59 | INFO     | ================================================================================
+2025-11-13 15:01:59 | INFO     | Trace JSON saved to: logs/req_20251113_150051_trace.json

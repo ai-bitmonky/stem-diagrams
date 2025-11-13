@@ -1,0 +1,106 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  <text x="700" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Q9: Variable Capacitor Circuit Analysis</text>
+
+  <!-- Battery -->
+  <line x1="80" y1="300" x2="80" y2="380" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="95" y1="320" x2="95" y2="360" stroke="#2c3e50" stroke-width="6"/>
+  <text x="60" y="295" font-size="18" fill="#e74c3c">+</text>
+  <text x="60" y="395" font-size="18" fill="#3498db">−</text>
+  <text x="115" y="345" font-size="16" fill="#2c3e50">V</text>
+
+  <!-- C1 (series) -->
+  <line x1="200" y1="280" x2="200" y2="360" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="240" y1="280" x2="240" y2="360" stroke="#2c3e50" stroke-width="4"/>
+  <text x="220" y="260" text-anchor="middle" font-size="18" font-weight="bold" fill="#3498db">C₁</text>
+  <text x="220" y="400" text-anchor="middle" font-size="14" fill="#7f8c8d">(unknown)</text>
+
+  <!-- Junction point -->
+  <circle cx="320" cy="320" r="5" fill="#2c3e50"/>
+
+  <!-- C2 (parallel branch 1) -->
+  <line x1="400" y1="240" x2="400" y2="300" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="440" y1="240" x2="440" y2="300" stroke="#2c3e50" stroke-width="4"/>
+  <text x="420" y="225" text-anchor="middle" font-size="18" font-weight="bold" fill="#9b59b6">C₂</text>
+  <text x="480" y="275" font-size="14" fill="#7f8c8d">(unknown)</text>
+
+  <!-- C3 (parallel branch 2, variable) -->
+  <line x1="400" y1="340" x2="400" y2="400" stroke="#2c3e50" stroke-width="4"/>
+  <line x1="440" y1="340" x2="440" y2="400" stroke="#2c3e50" stroke-width="4"/>
+  <text x="420" y="430" text-anchor="middle" font-size="18" font-weight="bold" fill="#27ae60">C₃</text>
+  <text x="480" y="375" font-size="14" fill="#e67e22">(variable)</text>
+
+  <!-- Arrow on C3 to show variable -->
+  <path d="M 450 360 L 470 360 L 465 355 M 470 360 L 465 365" stroke="#e67e22" stroke-width="2" fill="none"/>
+  <path d="M 450 380 L 470 380 L 465 375 M 470 380 L 465 385" stroke="#e67e22" stroke-width="2" fill="none"/>
+
+  <!-- Wiring -->
+  <line x1="95" y1="340" x2="200" y2="340" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="240" y1="320" x2="320" y2="320" stroke="#2c3e50" stroke-width="3"/>
+
+  <!-- Parallel branches -->
+  <line x1="320" y1="270" x2="400" y2="270" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="320" y1="370" x2="400" y2="370" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="320" y1="270" x2="320" y2="370" stroke="#2c3e50" stroke-width="3"/>
+
+  <!-- Return path -->
+  <line x1="440" y1="270" x2="520" y2="270" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="520" y1="270" x2="520" y2="450" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="520" y1="450" x2="80" y2="450" stroke="#2c3e50" stroke-width="3"/>
+  <line x1="80" y1="450" x2="80" y2="380" stroke="#2c3e50" stroke-width="3"/>
+  <circle cx="440" cy="270" r="4" fill="#2c3e50"/>
+
+  <!-- V1 measurement -->
+  <text x="250" y="310" font-size="16" fill="#e74c3c" font-weight="bold">V₁</text>
+  <line x1="240" y1="300" x2="290" y2="300" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <defs>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Graph -->
+  <g transform="translate(700, 150)">
+    <rect x="0" y="0" width="600" height="450" fill="white" stroke="#2c3e50" stroke-width="2"/>
+    <text x="300" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">V₁ vs C₃ Graph</text>
+
+    <!-- Axes -->
+    <line x1="60" y1="380" x2="550" y2="380" stroke="#34495e" stroke-width="2"/>
+    <line x1="60" y1="80" x2="60" y2="380" stroke="#34495e" stroke-width="2"/>
+
+    <!-- Labels -->
+    <text x="305" y="420" text-anchor="middle" font-size="14" fill="#34495e">C₃ (μF)</text>
+    <text x="25" y="230" text-anchor="middle" font-size="14" fill="#34495e" transform="rotate(-90 25 230)">V₁ (V)</text>
+
+    <!-- Tick marks -->
+    <text x="50" y="395" text-anchor="end" font-size="12" fill="#7f8c8d">0</text>
+    <text x="170" y="395" text-anchor="middle" font-size="12" fill="#7f8c8d">4</text>
+    <text x="290" y="395" text-anchor="middle" font-size="12" fill="#7f8c8d">8</text>
+    <text x="410" y="395" text-anchor="middle" font-size="12" fill="#e74c3c" font-weight="bold">12</text>
+    <text x="530" y="395" text-anchor="middle" font-size="12" fill="#7f8c8d">16</text>
+
+    <text x="50" y="385" text-anchor="end" font-size="12" fill="#7f8c8d">0</text>
+    <text x="50" y="315" text-anchor="end" font-size="12" fill="#7f8c8d">5</text>
+    <text x="50" y="245" text-anchor="end" font-size="12" fill="#27ae60" font-weight="bold">10</text>
+    <text x="50" y="175" text-anchor="end" font-size="12" fill="#7f8c8d">15</text>
+    <text x="50" y="105" text-anchor="end" font-size="12" fill="#7f8c8d">20</text>
+
+    <!-- Curve (hyperbolic approaching asymptote) -->
+    <path d="M 60 110 Q 150 200, 250 230 T 530 242" stroke="#3498db" stroke-width="3" fill="none"/>
+
+    <!-- Asymptote -->
+    <line x1="60" y1="245" x2="550" y2="245" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="480" y="235" font-size="14" fill="#27ae60" font-weight="bold">V₁ → 10 V</text>
+
+    <!-- C3s marker -->
+    <line x1="410" y1="80" x2="410" y2="380" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="415" y="70" font-size="14" fill="#e74c3c" font-weight="bold">C₃ₛ = 12 μF</text>
+  </g>
+
+  <!-- Key insight -->
+  <rect x="60" y="550" width="580" height="120" fill="#e8f5e9" stroke="#27ae60" stroke-width="2" rx="10"/>
+  <text x="80" y="580" font-size="16" font-weight="bold" fill="#27ae60">💡 Key Insight:</text>
+  <text x="80" y="605" font-size="14" fill="#2c3e50">As C₃ → ∞, parallel combination → ∞, so all voltage drops across C₁</text>
+  <text x="80" y="625" font-size="14" fill="#2c3e50">V₁ → V_battery = 10 V (asymptote)</text>
+  <text x="80" y="645" font-size="14" fill="#2c3e50">Use voltage divider: V₁ = V × C_parallel / (C₁ + C_parallel)</text>
+</svg>

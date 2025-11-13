@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical Problem Specification",
+  "type": "object",
+  "required": ["objects"],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "enum": ["ELECTROSTATICS", "CURRENT_ELECTRICITY", "MECHANICS", "THERMODYNAMICS", "OPTICS", "MAGNETISM", "WAVES", "MODERN_PHYSICS", "UNKNOWN"]
+    },
+    "problem_type": { "type": "string" },
+    "problem_text": { "type": "string" },
+    "complexity_score": { "type": "number" },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "properties"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "properties": { "type": "object" }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "subject", "target"],
+        "properties": {
+          "type": { "type": "string" },
+          "subject": { "type": "string" },
+          "target": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "goal": { "type": "string" },
+    "environment": { "type": "object" },
+    "physics_context": { "type": "object" },
+    "applicable_laws": { "type": "array", "items": { "type": "string" } },
+    "constraints": { "type": "array", "items": { "type": "object" } },
+    "geometry": { "type": "object" },
+    "coordinate_system": { "type": "string" },
+    "subproblems": { "type": "array" },
+    "is_complete": { "type": "boolean" },
+    "missing_information": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "type": "number" },
+    "reasoning_trace": { "type": "array", "items": { "type": "object" } }
+  }
+}

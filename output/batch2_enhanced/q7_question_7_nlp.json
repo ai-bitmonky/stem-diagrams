@@ -1,0 +1,255 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "entity_0",
+      "type": "CARDINAL",
+      "text": "300",
+      "properties": {
+        "start": 26,
+        "end": 29,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_1",
+      "type": "CARDINAL",
+      "text": "two",
+      "properties": {
+        "start": 69,
+        "end": 72,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_2",
+      "type": "CARDINAL",
+      "text": "C\u2081",
+      "properties": {
+        "start": 100,
+        "end": 102,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_3",
+      "type": "CARDINAL",
+      "text": "2.00",
+      "properties": {
+        "start": 105,
+        "end": 109,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_4",
+      "type": "CARDINAL",
+      "text": "8.00",
+      "properties": {
+        "start": 122,
+        "end": 126,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_5",
+      "type": "PRODUCT",
+      "text": "C\u2081",
+      "properties": {
+        "start": 363,
+        "end": 365,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "entity_6",
+      "type": "MEASUREMENT",
+      "text": "300 V",
+      "properties": {
+        "value": 300.0,
+        "unit": "V",
+        "start": 26,
+        "end": 31,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_7",
+      "type": "MEASUREMENT",
+      "text": "2.00 \u03bcF",
+      "properties": {
+        "value": 2.0,
+        "unit": "\u03bcF",
+        "start": 105,
+        "end": 112,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    },
+    {
+      "id": "entity_8",
+      "type": "MEASUREMENT",
+      "text": "8.00 \u03bcF",
+      "properties": {
+        "value": 8.0,
+        "unit": "\u03bcF",
+        "start": 122,
+        "end": 129,
+        "confidence": 0.95,
+        "method": "regex_enhanced"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "RELATED_TO",
+      "subject": "300",
+      "target": "two",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "300",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "two",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "two",
+      "target": "2.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "2.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "8.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.00",
+      "target": "8.00",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.00",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "8.00",
+      "target": "C\u2081",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "8.00",
+      "target": "300 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "300 V",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "C\u2081",
+      "target": "2.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "300 V",
+      "target": "2.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "300 V",
+      "target": "8.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "2.00 \u03bcF",
+      "target": "8.00 \u03bcF",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 9,
+    "num_relationships": 15,
+    "processing_time": 0.010189056396484375,
+    "sentence_count": 4,
+    "token_count": 73
+  },
+  "raw_text": "A potential difference of 300 V is applied to a series connection of two capacitors\nof capacitances C\u2081 = 2.00 \u03bcF and C\u2082 = 8.00 \u03bcF. The charged capacitors are then disconnected from the\nbattery and from each other. They are then reconnected with plates of the same signs wired together\n(positive to positive, negative to negative). What is the charge on capacitor C\u2081?"
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="400" width="450" xmlns="http://www.w3.org/2000/svg">
+<!-- Container -->
+<ellipse cx="225" cy="150" fill="none" rx="140" ry="30" stroke="black" stroke-width="2">
+</ellipse>
+<line stroke="black" stroke-width="2" x1="85" x2="85" y1="150" y2="300">
+</line>
+<line stroke="black" stroke-width="2" x1="365" x2="365" y1="150" y2="300">
+</line>
+<ellipse cx="225" cy="300" fill="none" rx="140" ry="30" stroke="black" stroke-width="2">
+</ellipse>
+<!-- Liquid inside -->
+<ellipse cx="225" cy="250" fill="#87CEEB" rx="130" ry="25" stroke="black" stroke-width="1">
+</ellipse>
+<rect fill="#87CEEB" height="45" width="260" x="95" y="250">
+</rect>
+<ellipse cx="225" cy="295" fill="#4682B4" rx="130" ry="25" stroke="black" stroke-width="1">
+</ellipse>
+<!-- Charge symbols on container surface -->
+<text fill="red" font-size="20" x="70" y="170">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="200">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="230">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="260">
+     −
+    </text>
+<text fill="red" font-size="20" x="70" y="290">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="170">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="200">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="230">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="260">
+     −
+    </text>
+<text fill="red" font-size="20" x="370" y="290">
+     −
+    </text>
+<!-- Positive charges in liquid (induced) -->
+<text fill="blue" font-size="18" x="215" y="265">
+     +
+    </text>
+<text fill="blue" font-size="18" x="235" y="265">
+     +
+    </text>
+<text fill="blue" font-size="18" x="225" y="280">
+     +
+    </text>
+<text fill="blue" font-size="18" x="210" y="285">
+     +
+    </text>
+<text fill="blue" font-size="18" x="240" y="285">
+     +
+    </text>
+<!-- Venting port -->
+<rect fill="#ddd" height="25" stroke="black" stroke-width="2" width="30" x="210" y="130">
+</rect>
+<text font-size="12" x="165" y="125">
+     Venting port
+    </text>
+<line stroke="black" stroke-width="1" x1="195" x2="210" y1="130" y2="135">
+</line>
+<!-- Dimensions -->
+<line stroke="black" stroke-dasharray="5,5" stroke-width="1" x1="380" x2="380" y1="150" y2="300">
+</line>
+<line stroke="black" stroke-width="2" x1="375" x2="385" y1="150" y2="150">
+</line>
+<line stroke="black" stroke-width="2" x1="375" x2="385" y1="300" y2="300">
+</line>
+<text font-size="14" x="390" y="230">
+     Full height
+    </text>
+<line stroke="black" stroke-dasharray="5,5" stroke-width="1" x1="85" x2="365" y1="310" y2="310">
+</line>
+<line stroke="black" stroke-width="2" x1="85" x2="85" y1="305" y2="315">
+</line>
+<line stroke="black" stroke-width="2" x1="365" x2="365" y1="305" y2="315">
+</line>
+<line stroke="red" stroke-width="2" x1="380" x2="380" y1="250" y2="300">
+</line>
+<line stroke="red" stroke-width="2" x1="375" x2="385" y1="250" y2="250">
+</line>
+<!-- Labels -->
+<text fill="white" font-size="12" font-weight="bold" x="190" y="275">
+     Conducting liquid
+    </text>
+<text font-size="12" x="50" y="350">
+     Surface charge density:
+    </text>
+<text font-size="12" x="50" y="370">
+     σ = −2.0 μC/m²
+    </text>
+</svg>

@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Stage 3 Synthesis Schema - Complete Problem Specification",
+  "description": "Schema for multi-stage reasoning - Stage 3 synthesizes entities, relationships, and domain knowledge into complete problem spec",
+  "type": "object",
+  "required": ["objects", "relationships", "domain", "goal"],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "enum": ["ELECTROSTATICS", "CURRENT_ELECTRICITY", "MECHANICS", "THERMODYNAMICS", "OPTICS", "MAGNETISM", "WAVES", "MODERN_PHYSICS", "CHEMISTRY", "BIOLOGY", "MATHEMATICS", "UNKNOWN"]
+    },
+    "problem_type": {
+      "type": "string",
+      "description": "Specific problem type"
+    },
+    "problem_text": {
+      "type": "string",
+      "description": "Original problem text"
+    },
+    "goal": {
+      "type": "string",
+      "description": "What the problem asks to find/determine"
+    },
+    "objects": {
+      "type": "array",
+      "description": "All objects in the problem (entities with complete context)",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "properties"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "name": {"type": "string"},
+          "properties": {
+            "type": "object",
+            "description": "All properties with values and units"
+          },
+          "state": {
+            "type": "object",
+            "description": "Physical state (position, velocity, charge, etc.)"
+          },
+          "ontology_link": {
+            "type": "string",
+            "description": "Link to ontology concept (e.g., Wikidata URI)"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "description": "All relationships between objects",
+      "items": {
+        "type": "object",
+        "required": ["type", "subject", "target"],
+        "properties": {
+          "type": {"type": "string"},
+          "subject": {"type": "string"},
+          "target": {"type": "string"},
+          "properties": {"type": "object"},
+          "ontology_link": {"type": "string"}
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "description": "Environmental context (gravity, temperature, medium, etc.)",
+      "properties": {
+        "gravity": {"type": "number"},
+        "temperature": {"type": "number"},
+        "pressure": {"type": "number"},
+        "medium": {"type": "string"},
+        "boundary_conditions": {"type": "object"}
+      }
+    },
+    "physics_context": {
+      "type": "object",
+      "description": "Physics-specific context",
+      "properties": {
+        "analysis_type": {
+          "type": "string",
+          "enum": ["static", "dynamic", "equilibrium", "transient", "steady_state"]
+        },
+        "reference_frame": {"type": "string"},
+        "time_dependency": {"type": "boolean"},
+        "spatial_dimensions": {"type": "integer"}
+      }
+    },
+    "applicable_laws": {
+      "type": "array",
+      "description": "Physical laws applicable to this problem",
+      "items": {
+        "type": "string",
+        "examples": ["Newton's Second Law", "Kirchhoff's Current Law", "Conservation of Energy"]
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Problem constraints",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"type": "string"},
+          "objects": {"type": "array", "items": {"type": "string"}},
+          "description": {"type": "string"},
+          "mathematical_form": {"type": "string"}
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "description": "Geometric configuration",
+      "properties": {
+        "coordinate_system": {
+          "type": "string",
+          "enum": ["cartesian", "polar", "spherical", "cylindrical"]
+        },
+        "spatial_configuration": {"type": "string"},
+        "symmetries": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "Time-ordered events in the problem",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"type": "string"},
+          "time": {"type": "string"},
+          "description": {"type": "string"},
+          "affected_objects": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "subproblems": {
+      "type": "array",
+      "description": "Decomposed subproblems (if complex problem)",
+      "items": {
+        "type": "object",
+        "description": "Each subproblem follows same schema"
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "description": "Completeness assessment",
+      "required": ["is_complete", "confidence"],
+      "properties": {
+        "is_complete": {"type": "boolean"},
+        "missing_information": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ambiguities": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "reasoning_trace": {
+      "type": "array",
+      "description": "AI reasoning steps (for transparency)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {"type": "string"},
+          "reasoning": {"type": "string"},
+          "decisions": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"type": "number"}
+        }
+      }
+    },
+    "knowledge_graph": {
+      "type": "object",
+      "description": "Optional: RDF property graph representation",
+      "properties": {
+        "triples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject": {"type": "string"},
+              "predicate": {"type": "string"},
+              "object": {"type": "string"}
+            }
+          }
+        },
+        "ontology_mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entity_id": {"type": "string"},
+              "ontology": {"type": "string"},
+              "concept_uri": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "total_processing_time": {"type": "number"},
+        "stages_completed": {"type": "integer"},
+        "tools_used": {"type": "array", "items": {"type": "string"}},
+        "overall_confidence": {"type": "number"}
+      }
+    }
+  }
+}

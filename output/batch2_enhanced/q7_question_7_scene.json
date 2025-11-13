@@ -1,0 +1,171 @@
+{
+  "scene_id": "capacitor_9037",
+  "domain": "electronics",
+  "diagram_type": "circuit_diagram",
+  "title": "Capacitor Circuit",
+  "description": null,
+  "objects": [
+    {
+      "id": "V1",
+      "object_type": "battery",
+      "position": {
+        "x": 125.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 50,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "300 V",
+      "properties": {
+        "value": 300.0,
+        "unit": "V",
+        "component_type": "battery"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C1",
+      "object_type": "capacitor",
+      "position": {
+        "x": 350.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "2.00 \u03bcF",
+      "properties": {
+        "value": 2.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "C2",
+      "object_type": "capacitor",
+      "position": {
+        "x": 575.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "dimensions": {
+        "width": 80,
+        "height": 60,
+        "depth": 0.0,
+        "radius": 0.0
+      },
+      "rotation": 0.0,
+      "style": {
+        "color": "#000000",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 14,
+        "font_family": "Arial",
+        "font_weight": "normal"
+      },
+      "label": "8.00 \u03bcF",
+      "properties": {
+        "value": 8.0,
+        "unit": "\u03bcF",
+        "component_type": "capacitor"
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "wire_1",
+      "relation_type": "connected_to",
+      "source_id": "V1",
+      "target_id": "C1",
+      "properties": {
+        "connection_type": "series"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    },
+    {
+      "id": "wire_2",
+      "relation_type": "connected_to",
+      "source_id": "C1",
+      "target_id": "C2",
+      "properties": {
+        "connection_type": "series"
+      },
+      "bidirectional": false,
+      "strength": 1.0
+    }
+  ],
+  "constraints": [],
+  "annotations": [
+    {
+      "id": "circuit_type",
+      "text": "Series Configuration",
+      "position": {
+        "x": 500.0,
+        "y": 50,
+        "z": 0.0
+      },
+      "target_ids": [],
+      "annotation_type": "label",
+      "style": {
+        "color": "#667eea",
+        "fill_color": null,
+        "stroke_width": 2.0,
+        "opacity": 1.0,
+        "dashed": false,
+        "dash_pattern": null,
+        "font_size": 16,
+        "font_family": "Arial",
+        "font_weight": "bold"
+      },
+      "properties": {}
+    }
+  ],
+  "canvas_width": 1000,
+  "canvas_height": 600,
+  "background_color": "#FFFFFF",
+  "grid_enabled": false,
+  "grid_spacing": 50.0,
+  "physics_data": {},
+  "chemistry_data": {},
+  "biology_data": {},
+  "math_data": {},
+  "metadata": {}
+}

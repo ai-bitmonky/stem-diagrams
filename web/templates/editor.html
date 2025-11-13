@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Diagram Editor</title>
+    <link rel="stylesheet" href="/static/css/editor.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="editor-header">
+        <div class="header-left">
+            <h1>🎨 Interactive Diagram Editor</h1>
+            <span class="subtitle">Create and edit STEM diagrams with drag-and-drop</span>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-primary" onclick="generateFromText()">
+                <span>🤖</span> Generate from Text
+            </button>
+            <button class="btn btn-success" onclick="saveScene()">
+                <span>💾</span> Save
+            </button>
+            <button class="btn btn-info" onclick="loadScene()">
+                <span>📂</span> Load
+            </button>
+            <button class="btn btn-warning" onclick="exportScene()">
+                <span>⬇️</span> Export SVG
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="editor-container">
+        <!-- Left Sidebar - Component Palette -->
+        <aside class="component-palette">
+            <h2>Components</h2>
+
+            <div class="palette-section">
+                <h3>⚡ Electrical</h3>
+                <div class="component-grid">
+                    <div class="component-item" draggable="true" data-type="resistor">
+                        <div class="component-icon">⚡</div>
+                        <div class="component-label">Resistor</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="capacitor">
+                        <div class="component-icon">🔋</div>
+                        <div class="component-label">Capacitor</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="inductor">
+                        <div class="component-icon">🌀</div>
+                        <div class="component-label">Inductor</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="battery">
+                        <div class="component-icon">🔋</div>
+                        <div class="component-label">Battery</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="ground">
+                        <div class="component-icon">⏚</div>
+                        <div class="component-label">Ground</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="switch">
+                        <div class="component-icon">🔀</div>
+                        <div class="component-label">Switch</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="palette-section">
+                <h3>🔗 Connections</h3>
+                <div class="component-grid">
+                    <div class="component-item" draggable="true" data-type="wire">
+                        <div class="component-icon">➖</div>
+                        <div class="component-label">Wire</div>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="node">
+                        <div class="component-icon">⚫</div>
+                        <div class="component-label">Node</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="palette-section">
+                <h3>🛠️ Tools</h3>
+                <div class="tool-buttons">
+                    <button class="tool-btn active" data-tool="select" onclick="selectTool('select')">
+                        <span>👆</span> Select
+                    </button>
+                    <button class="tool-btn" data-tool="connect" onclick="selectTool('connect')">
+                        <span>🔗</span> Connect
+                    </button>
+                    <button class="tool-btn" data-tool="delete" onclick="selectTool('delete')">
+                        <span>🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center - Canvas -->
+        <main class="canvas-area">
+            <div class="canvas-toolbar">
+                <div class="toolbar-left">
+                    <button class="toolbar-btn" onclick="zoomIn()">
+                        <span>🔍+</span>
+                    </button>
+                    <button class="toolbar-btn" onclick="zoomOut()">
+                        <span>🔍-</span>
+                    </button>
+                    <button class="toolbar-btn" onclick="resetZoom()">
+                        <span>⟲</span>
+                    </button>
+                    <button class="toolbar-btn" onclick="autoLayout()">
+                        <span>📐</span> Auto Layout
+                    </button>
+                    <button class="toolbar-btn" onclick="validateDiagram()">
+                        <span>✓</span> Validate
+                    </button>
+                </div>
+                <div class="toolbar-right">
+                    <span id="zoom-level">100%</span>
+                    <span class="separator">|</span>
+                    <span id="object-count">0 objects</span>
+                </div>
+            </div>
+
+            <div class="canvas-wrapper" id="canvas-wrapper">
+                <svg id="canvas" width="1200" height="800" viewBox="0 0 1200 800">
+                    <!-- Grid -->
+                    <defs>
+                        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)"/>
+
+                    <!-- Main content group -->
+                    <g id="diagram-group">
+                        <!-- Connections layer -->
+                        <g id="connections-layer"></g>
+                        <!-- Components layer -->
+                        <g id="components-layer"></g>
+                    </g>
+                </svg>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Properties Panel -->
+        <aside class="properties-panel">
+            <h2>Properties</h2>
+
+            <div id="no-selection" class="empty-state">
+                <p>No object selected</p>
+                <p class="hint">Click on a component to edit its properties</p>
+            </div>
+
+            <div id="properties-content" class="properties-content" style="display: none;">
+                <div class="property-group">
+                    <label>ID</label>
+                    <input type="text" id="prop-id" readonly>
+                </div>
+
+                <div class="property-group">
+                    <label>Type</label>
+                    <input type="text" id="prop-type" readonly>
+                </div>
+
+                <div class="property-group">
+                    <label>Label</label>
+                    <input type="text" id="prop-label" onchange="updateProperty('label', this.value)">
+                </div>
+
+                <div class="property-group">
+                    <label>Position X</label>
+                    <input type="number" id="prop-x" onchange="updateProperty('x', this.value)">
+                </div>
+
+                <div class="property-group">
+                    <label>Position Y</label>
+                    <input type="number" id="prop-y" onchange="updateProperty('y', this.value)">
+                </div>
+
+                <div class="property-group">
+                    <label>Width</label>
+                    <input type="number" id="prop-width" onchange="updateProperty('width', this.value)">
+                </div>
+
+                <div class="property-group">
+                    <label>Height</label>
+                    <input type="number" id="prop-height" onchange="updateProperty('height', this.value)">
+                </div>
+
+                <div class="property-group">
+                    <label>Rotation</label>
+                    <input type="number" id="prop-rotation" min="0" max="360" onchange="updateProperty('rotation', this.value)">
+                </div>
+
+                <div class="property-actions">
+                    <button class="btn btn-danger" onclick="deleteSelected()">
+                        <span>🗑️</span> Delete
+                    </button>
+                    <button class="btn btn-secondary" onclick="duplicateSelected()">
+                        <span>📋</span> Duplicate
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quality Score -->
+            <div class="quality-score" id="quality-score" style="display: none;">
+                <h3>Quality Score</h3>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-value">0</span>
+                        <span class="score-unit">/100</span>
+                    </div>
+                </div>
+                <div class="score-details">
+                    <div class="score-item">
+                        <span>Layout:</span>
+                        <span id="score-layout">-</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Connectivity:</span>
+                        <span id="score-connectivity">-</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Style:</span>
+                        <span id="score-style">-</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Physics:</span>
+                        <span id="score-physics">-</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal: Generate from Text -->
+    <div id="generate-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Generate Diagram from Text</h2>
+                <button class="close-btn" onclick="closeModal('generate-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea id="generate-text" placeholder="Enter problem description...
+
+Example:
+A series circuit with a 12V battery, 100Ω resistor, and 10μF capacitor."></textarea>
+
+                <div class="options-group">
+                    <label>
+                        <input type="checkbox" id="opt-layout" checked> Enable layout optimization
+                    </label>
+                    <label>
+                        <input type="checkbox" id="opt-validation" checked> Enable validation
+                    </label>
+                    <label>
+                        <input type="checkbox" id="opt-force-directed"> Use force-directed layout
+                    </label>
+                </div>
+
+                <div class="style-selector">
+                    <label>Rendering Style:</label>
+                    <select id="render-style">
+                        <option value="modern">Modern</option>
+                        <option value="classic">Classic</option>
+                        <option value="3d">3D</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('generate-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="generateDiagram()">Generate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Loading -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content loading-content">
+            <div class="spinner"></div>
+            <p id="loading-message">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/editor.js"></script>
+</body>
+</html>

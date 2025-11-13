@@ -1,0 +1,2435 @@
+{
+  "request_id": "req_20251113_151759",
+  "timestamp": "2025-11-13T15:17:59.881951",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1763027279.882227,
+      "duration_ms": 109.52,
+      "input": "A simple circuit with battery and resistor",
+      "output": {
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 108.92581939697266,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            },
+            {
+              "text": "resistor",
+              "lemma": "resistor",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "simple",
+              "dependent_pos": "ADJ",
+              "relation": "amod",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            },
+            {
+              "head": "resistor",
+              "head_pos": "NOUN",
+              "dependent": "and",
+              "dependent_pos": "CCONJ",
+              "relation": "cc",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "resistor",
+              "dependent_pos": "NOUN",
+              "relation": "conj",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A simple circuit with battery and resistor",
+            "sentences": [
+              {
+                "text": "A simple circuit with battery and resistor",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "simple",
+                    "lemma": "simple",
+                    "pos": "ADJ",
+                    "xpos": "JJ",
+                    "feats": "Degree=Pos"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "and",
+                    "lemma": "and",
+                    "pos": "CCONJ",
+                    "xpos": "CC",
+                    "feats": null
+                  },
+                  {
+                    "text": "resistor",
+                    "lemma": "resistor",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "simple",
+                    "dependent_pos": "ADJ",
+                    "relation": "amod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "resistor",
+                    "head_pos": "NOUN",
+                    "dependent": "and",
+                    "dependent_pos": "CCONJ",
+                    "relation": "cc",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "resistor",
+                    "dependent_pos": "NOUN",
+                    "relation": "conj",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "simple",
+                "dependent_pos": "ADJ",
+                "relation": "amod",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              },
+              {
+                "head": "resistor",
+                "head_pos": "NOUN",
+                "dependent": "and",
+                "dependent_pos": "CCONJ",
+                "relation": "cc",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "resistor",
+                "dependent_pos": "NOUN",
+                "relation": "conj",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              },
+              {
+                "text": "resistor",
+                "lemma": "resistor",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              }
+            ],
+            "triples": []
+          }
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1763027279.99186,
+      "duration_ms": 1.98,
+      "input": {
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 108.92581939697266,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            },
+            {
+              "text": "resistor",
+              "lemma": "resistor",
+              "pos": "NOUN",
+              "sentence": "A simple circuit with battery and resistor"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "simple",
+              "dependent_pos": "ADJ",
+              "relation": "amod",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            },
+            {
+              "head": "resistor",
+              "head_pos": "NOUN",
+              "dependent": "and",
+              "dependent_pos": "CCONJ",
+              "relation": "cc",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "resistor",
+              "dependent_pos": "NOUN",
+              "relation": "conj",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A simple circuit with battery and resistor",
+            "sentences": [
+              {
+                "text": "A simple circuit with battery and resistor",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "simple",
+                    "lemma": "simple",
+                    "pos": "ADJ",
+                    "xpos": "JJ",
+                    "feats": "Degree=Pos"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "and",
+                    "lemma": "and",
+                    "pos": "CCONJ",
+                    "xpos": "CC",
+                    "feats": null
+                  },
+                  {
+                    "text": "resistor",
+                    "lemma": "resistor",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "simple",
+                    "dependent_pos": "ADJ",
+                    "relation": "amod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "resistor",
+                    "head_pos": "NOUN",
+                    "dependent": "and",
+                    "dependent_pos": "CCONJ",
+                    "relation": "cc",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "resistor",
+                    "dependent_pos": "NOUN",
+                    "relation": "conj",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "simple",
+                "dependent_pos": "ADJ",
+                "relation": "amod",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              },
+              {
+                "head": "resistor",
+                "head_pos": "NOUN",
+                "dependent": "and",
+                "dependent_pos": "CCONJ",
+                "relation": "cc",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "resistor",
+                "dependent_pos": "NOUN",
+                "relation": "conj",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              },
+              {
+                "text": "resistor",
+                "lemma": "resistor",
+                "pos": "NOUN",
+                "sentence": "A simple circuit with battery and resistor"
+              }
+            ],
+            "triples": []
+          }
+        }
+      },
+      "output": {
+        "request_id": "req_1763027279882_1",
+        "summary": {
+          "node_count": 7,
+          "edge_count": 6,
+          "connected_components": 1,
+          "sources_used": [
+            "Stanza"
+          ]
+        },
+        "node_types": {
+          "object": 7
+        },
+        "edge_types": {
+          "related_to": 6
+        },
+        "nodes": [
+          {
+            "id": "circuit",
+            "type": "object",
+            "label": "circuit",
+            "properties": {
+              "ner_type": "OBJECT"
+            },
+            "metadata": {
+              "source": "stanza"
+            }
+          },
+          {
+            "id": "battery",
+            "type": "object",
+            "label": "battery",
+            "properties": {
+              "ner_type": "OBJECT"
+            },
+            "metadata": {
+              "source": "stanza"
+            }
+          },
+          {
+            "id": "resistor",
+            "type": "object",
+            "label": "resistor",
+            "properties": {
+              "ner_type": "OBJECT"
+            },
+            "metadata": {
+              "source": "stanza"
+            }
+          },
+          {
+            "id": "A",
+            "type": "object",
+            "label": "A",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep"
+            }
+          },
+          {
+            "id": "simple",
+            "type": "object",
+            "label": "simple",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep"
+            }
+          },
+          {
+            "id": "with",
+            "type": "object",
+            "label": "with",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep"
+            }
+          },
+          {
+            "id": "and",
+            "type": "object",
+            "label": "and",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "battery",
+            "target": "circuit",
+            "type": "related_to",
+            "label": "nmod",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "resistor",
+            "target": "battery",
+            "type": "related_to",
+            "label": "conj",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "A",
+            "target": "circuit",
+            "type": "related_to",
+            "label": "det",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "simple",
+            "target": "circuit",
+            "type": "related_to",
+            "label": "amod",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "with",
+            "target": "battery",
+            "type": "related_to",
+            "label": "case",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "and",
+            "target": "resistor",
+            "type": "related_to",
+            "label": "cc",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "disk_persistence": {
+          "status": "success",
+          "path": "output/property_graphs/req_1763027279882_1_property_graph.json"
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1763027279.993958,
+      "duration_ms": 1.12,
+      "input": "A simple circuit with battery and resistor",
+      "output": {
+        "planning_mode": "property_graph_driven",
+        "domain": "current_electricity",
+        "entity_count": 3,
+        "relation_count": 2,
+        "constraint_count": 6,
+        "complexity_score": 0.205,
+        "z3_used": false,
+        "sympy_used": false
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1763027279.995167,
+      "duration_ms": 1.05,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "A simple circuit with battery and resistor",
+          "complexity_score": 0.205,
+          "objects": [
+            {
+              "id": "circuit",
+              "type": "object",
+              "label": "circuit",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "circuit",
+              "layout_hint": {
+                "x": 100,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            },
+            {
+              "id": "battery",
+              "type": "object",
+              "label": "battery",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "battery_symbol",
+              "layout_hint": {
+                "x": 250,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              }
+            },
+            {
+              "id": "resistor",
+              "type": "object",
+              "label": "resistor",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "resistor_zigzag",
+              "layout_hint": {
+                "x": 100,
+                "y": 250,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "source": "battery",
+              "target": "circuit",
+              "type": "CONNECTION",
+              "label": "nmod"
+            },
+            {
+              "source": "resistor",
+              "target": "battery",
+              "type": "CONNECTION",
+              "label": "conj"
+            }
+          ],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "no_overlap",
+              "objects": "circuit",
+              "parameters": {
+                "margin": "battery"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "no_overlap",
+              "objects": "circuit",
+              "parameters": {
+                "margin": "resistor"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "no_overlap",
+              "objects": "battery",
+              "parameters": {
+                "margin": "resistor"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "circuit"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "battery"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "resistor"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "circuit": [
+                  100,
+                  100
+                ],
+                "battery": [
+                  250,
+                  100
+                ],
+                "resistor": [
+                  100,
+                  250
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              },
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "resistor": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            }
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "attribute_provenance": {},
+          "analysis_metadata": {},
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.205,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "circuit",
+                    "parameters": {
+                      "margin": "battery"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "circuit",
+                    "parameters": {
+                      "margin": "resistor"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "battery",
+                    "parameters": {
+                      "margin": "resistor"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "circuit"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "battery"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "resistor"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "circuit": [
+                    100,
+                    100
+                  ],
+                  "battery": [
+                    250,
+                    100
+                  ],
+                  "resistor": [
+                    100,
+                    250
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "style_hints": {
+                "circuit": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                },
+                "battery": {
+                  "color": "#2ecc71",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "battery_symbol"
+                },
+                "resistor": {
+                  "color": "#e67e22",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "resistor_zigzag"
+                }
+              },
+              "extracted_entities": [
+                {
+                  "id": "circuit",
+                  "type": "object",
+                  "label": "circuit",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "circuit",
+                  "source": "stanza"
+                },
+                {
+                  "id": "battery",
+                  "type": "object",
+                  "label": "battery",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "battery_symbol",
+                  "source": "stanza"
+                },
+                {
+                  "id": "resistor",
+                  "type": "object",
+                  "label": "resistor",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "resistor_zigzag",
+                  "source": "stanza"
+                }
+              ],
+              "extracted_relations": [
+                {
+                  "source_id": "battery",
+                  "target_id": "circuit",
+                  "type": "CONNECTION",
+                  "label": "nmod",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                },
+                {
+                  "source_id": "resistor",
+                  "target_id": "battery",
+                  "type": "CONNECTION",
+                  "label": "conj",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                }
+              ],
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 3,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 2,
+                    "types": [
+                      "CONNECTION"
+                    ]
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 6,
+                    "types": [
+                      "bounds",
+                      "no_overlap"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 3,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 3
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "A simple circuit with battery and resistor",
+                "domain_hint": "electronics"
+              }
+            }
+          },
+          "diagram_plan_metadata": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "circuit": [
+                  100,
+                  100
+                ],
+                "battery": [
+                  250,
+                  100
+                ],
+                "resistor": [
+                  100,
+                  250
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              },
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "resistor": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            },
+            "planning_trace": [
+              {
+                "step": "entity_extraction",
+                "timestamp": 0,
+                "details": {
+                  "entity_count": 3,
+                  "types": [
+                    "object"
+                  ]
+                }
+              },
+              {
+                "step": "relation_mapping",
+                "timestamp": 1,
+                "details": {
+                  "relation_count": 2,
+                  "types": [
+                    "CONNECTION"
+                  ]
+                }
+              },
+              {
+                "step": "constraint_generation",
+                "timestamp": 2,
+                "details": {
+                  "constraint_count": 6,
+                  "types": [
+                    "bounds",
+                    "no_overlap"
+                  ]
+                }
+              },
+              {
+                "step": "layout_planning",
+                "timestamp": 3,
+                "details": {
+                  "solver_used": "heuristic",
+                  "positions_assigned": 3,
+                  "z3_used": false,
+                  "sympy_used": false
+                }
+              },
+              {
+                "step": "style_assignment",
+                "timestamp": 4,
+                "details": {
+                  "styles_assigned": 3
+                }
+              }
+            ],
+            "strategy": "constraint_based"
+          }
+        }
+      },
+      "output": {
+        "object_count": 7,
+        "selected_strategy": "constraint_based",
+        "domain_modules": 0,
+        "diagram_plan": {
+          "entities": 3,
+          "relations": 2,
+          "constraints": 6,
+          "solver": "heuristic"
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Structural Consistency",
+      "description": "Compare plan vs scene",
+      "start_time": 1763027279.996311,
+      "duration_ms": 0.48,
+      "input": {
+        "entities": 3
+      },
+      "output": {
+        "missing_in_scene": [
+          "circuit",
+          "battery",
+          "resistor"
+        ],
+        "extra_scene_objects": [
+          "plate_top",
+          "plate_bottom",
+          "field_line_0",
+          "field_line_1",
+          "field_line_2",
+          "field_line_3",
+          "field_line_4"
+        ],
+        "label_mismatches": [],
+        "relation_gaps": [
+          "Missing relation battery->circuit",
+          "Missing relation resistor->battery"
+        ],
+        "score": 0.0
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Ontology Validation",
+      "description": "Validate semantic consistency",
+      "start_time": 1763027279.996872,
+      "duration_ms": 27.51,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "A simple circuit with battery and resistor",
+          "complexity_score": 0.205,
+          "objects": [
+            {
+              "id": "circuit",
+              "type": "object",
+              "label": "circuit",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "circuit",
+              "layout_hint": {
+                "x": 100,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            },
+            {
+              "id": "battery",
+              "type": "object",
+              "label": "battery",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "battery_symbol",
+              "layout_hint": {
+                "x": 250,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              }
+            },
+            {
+              "id": "resistor",
+              "type": "object",
+              "label": "resistor",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "resistor_zigzag",
+              "layout_hint": {
+                "x": 100,
+                "y": 250,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "source": "battery",
+              "target": "circuit",
+              "type": "CONNECTION",
+              "label": "nmod"
+            },
+            {
+              "source": "resistor",
+              "target": "battery",
+              "type": "CONNECTION",
+              "label": "conj"
+            }
+          ],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "no_overlap",
+              "objects": "circuit",
+              "parameters": {
+                "margin": "battery"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "no_overlap",
+              "objects": "circuit",
+              "parameters": {
+                "margin": "resistor"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "no_overlap",
+              "objects": "battery",
+              "parameters": {
+                "margin": "resistor"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "circuit"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "battery"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "resistor"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "circuit": [
+                  100,
+                  100
+                ],
+                "battery": [
+                  250,
+                  100
+                ],
+                "resistor": [
+                  100,
+                  250
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              },
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "resistor": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            }
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "attribute_provenance": {},
+          "analysis_metadata": {},
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.205,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "circuit",
+                    "parameters": {
+                      "margin": "battery"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "circuit",
+                    "parameters": {
+                      "margin": "resistor"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "battery",
+                    "parameters": {
+                      "margin": "resistor"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "circuit"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "battery"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "resistor"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "circuit": [
+                    100,
+                    100
+                  ],
+                  "battery": [
+                    250,
+                    100
+                  ],
+                  "resistor": [
+                    100,
+                    250
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "style_hints": {
+                "circuit": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                },
+                "battery": {
+                  "color": "#2ecc71",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "battery_symbol"
+                },
+                "resistor": {
+                  "color": "#e67e22",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "resistor_zigzag"
+                }
+              },
+              "extracted_entities": [
+                {
+                  "id": "circuit",
+                  "type": "object",
+                  "label": "circuit",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "circuit",
+                  "source": "stanza"
+                },
+                {
+                  "id": "battery",
+                  "type": "object",
+                  "label": "battery",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "battery_symbol",
+                  "source": "stanza"
+                },
+                {
+                  "id": "resistor",
+                  "type": "object",
+                  "label": "resistor",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "resistor_zigzag",
+                  "source": "stanza"
+                }
+              ],
+              "extracted_relations": [
+                {
+                  "source_id": "battery",
+                  "target_id": "circuit",
+                  "type": "CONNECTION",
+                  "label": "nmod",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                },
+                {
+                  "source_id": "resistor",
+                  "target_id": "battery",
+                  "type": "CONNECTION",
+                  "label": "conj",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                }
+              ],
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 3,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 2,
+                    "types": [
+                      "CONNECTION"
+                    ]
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 6,
+                    "types": [
+                      "bounds",
+                      "no_overlap"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 3,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 3
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "A simple circuit with battery and resistor",
+                "domain_hint": "electronics"
+              }
+            }
+          },
+          "diagram_plan_metadata": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "circuit": [
+                  100,
+                  100
+                ],
+                "battery": [
+                  250,
+                  100
+                ],
+                "resistor": [
+                  100,
+                  250
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              },
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "resistor": {
+                "color": "#e67e22",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "resistor_zigzag"
+              }
+            },
+            "planning_trace": [
+              {
+                "step": "entity_extraction",
+                "timestamp": 0,
+                "details": {
+                  "entity_count": 3,
+                  "types": [
+                    "object"
+                  ]
+                }
+              },
+              {
+                "step": "relation_mapping",
+                "timestamp": 1,
+                "details": {
+                  "relation_count": 2,
+                  "types": [
+                    "CONNECTION"
+                  ]
+                }
+              },
+              {
+                "step": "constraint_generation",
+                "timestamp": 2,
+                "details": {
+                  "constraint_count": 6,
+                  "types": [
+                    "bounds",
+                    "no_overlap"
+                  ]
+                }
+              },
+              {
+                "step": "layout_planning",
+                "timestamp": 3,
+                "details": {
+                  "solver_used": "heuristic",
+                  "positions_assigned": 3,
+                  "z3_used": false,
+                  "sympy_used": false
+                }
+              },
+              {
+                "step": "style_assignment",
+                "timestamp": 4,
+                "details": {
+                  "styles_assigned": 3
+                }
+              }
+            ],
+            "strategy": "constraint_based"
+          }
+        }
+      },
+      "output": {
+        "source": "property_graph",
+        "input_stats": {
+          "nodes": 7,
+          "edges": 6
+        },
+        "consistent": true,
+        "errors": [],
+        "warnings": [
+          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Entity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#GravitationalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#Charge references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#relatedTo references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#NormalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/stem#Quantity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#domain",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel"
+        ],
+        "inferences": 0
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Physics Validation",
+      "description": "Validate physics constraints and relationships",
+      "start_time": 1763027280.024483,
+      "duration_ms": 0.68,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic"
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 315
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 475
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "errors": 1,
+        "warnings": 12
+      },
+      "logs": [],
+      "status": "success"
+    }
+  ],
+  "total_duration_ms": 144.59,
+  "status": "error",
+  "error": "Validation failed in strict mode: ['Circuit diagram missing power source']",
+  "input": {
+    "problem_text": "A simple circuit with battery and resistor",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "strict",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "Stanza",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Ontology Validation",
+        "Z3 Optimization",
+        "Structural Validator",
+        "VLM Validator (BLIP-2)",
+        "Primitive Library (memory)",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 42
+  }
+}

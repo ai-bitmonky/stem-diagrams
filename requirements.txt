@@ -1,0 +1,102 @@
+# STEM Diagram Generator - Requirements
+# ======================================
+
+# Core NLP
+spacy>=3.7.0
+quantulum3>=0.8.0
+
+# Web Interface
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# HTTP Requests
+requests>=2.31.0
+
+# JSON Schema Validation
+jsonschema>=4.20.0
+
+# LLM Integration (for ACCURATE/PREMIUM modes)
+transformers>=4.35.0
+torch>=2.1.0
+sentence-transformers>=2.2.2
+
+# Chemistry Domain (optional - install if using chemistry diagrams)
+# rdkit>=2023.9.0
+# schemdraw>=0.16.0
+
+# Computer Vision (for VLM validation - PREMIUM mode)
+pillow>=10.1.0
+# opencv-python>=4.8.0  # Optional for image processing
+
+# Graph/Network Diagrams (Phase 1A: Property Graph)
+networkx>=3.2.0
+rdflib>=7.0.0
+owlrl>=6.0.0  # For OWL-RL reasoning (Phase 5A)
+# matplotlib>=3.8.0  # Optional for graph visualization
+
+# Advanced NLP (Phase 2A: Stanza)
+stanza>=1.6.0
+
+# Constraint Solving (Phase 2B: Z3)
+z3-solver>=4.12.0
+
+# Symbolic Mathematics (Phase 3B: SymPy)
+sympy>=1.12.0
+
+# Computational Geometry (Phase 4B: Geometry Engine)
+shapely>=2.0.0
+# rtree>=1.1.0  # Optional - R-tree spatial indexing for faster queries
+
+# LLM Integration (Phase 5B: Auditor LLM)
+anthropic>=0.18.0  # For Claude API
+openai>=1.12.0  # For GPT API
+
+# Development
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.12.0
+mypy>=1.7.0
+ruff>=0.1.8
+
+# Documentation
+# sphinx>=7.2.0  # Optional for docs
+
+# Install language models after pip install:
+#   python -m spacy download en_core_web_sm
+#   python -m stanza download en
+
+# Installation instructions:
+#
+# Minimal (FAST mode only):
+#   pip install spacy numpy flask flask-cors jsonschema requests
+#   python -m spacy download en_core_web_sm
+#
+# Standard (FAST + ACCURATE modes with advanced NLP):
+#   pip install -r requirements.txt
+#   python -m spacy download en_core_web_sm
+#   python -m stanza download en
+#
+# Full (all modes including PREMIUM + constraint solving):
+#   pip install -r requirements.txt
+#   pip install opencv-python matplotlib shapely rtree
+#   python -m spacy download en_core_web_sm
+#   python -m stanza download en
+#
+# Chemistry domain:
+#   pip install rdkit schemdraw
+#
+# New Features (as of November 2025):
+#   - Property Graphs (networkx, rdflib) - graph-based knowledge representation
+#   - Advanced NLP (stanza, dygie++, scibert, openie) - comprehensive NLP pipeline
+#   - Constraint Solving (z3-solver) - SMT-based optimal layout
+#   - Symbolic Physics (sympy) - equation solving and force balance
+#   - Computational Geometry (shapely) - collision detection and bin packing
+#   - Diagram Planning - complexity-driven multi-stage planning
+#   - Auditor LLM (anthropic, openai) - LLM-based quality validation
+#
+# Note: Some packages like RDKit may require conda:
+#   conda install -c conda-forge rdkit

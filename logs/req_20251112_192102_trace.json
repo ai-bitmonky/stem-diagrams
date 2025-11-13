@@ -1,0 +1,408 @@
+{
+  "request_id": "req_20251112_192102",
+  "timestamp": "2025-11-12T19:21:02.183605",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1762955462.184073,
+      "duration_ms": 0.92,
+      "input": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+      "output": {
+        "openie": {
+          "triples": [
+            [
+              "a simple",
+              "DC circuit on",
+              "a 12V"
+            ],
+            [
+              "battery connected",
+              "in series on",
+              "a 100"
+            ],
+            [
+              "connected in",
+              "series",
+              "to a"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1762955462.185287,
+      "duration_ms": 1.33,
+      "input": {
+        "openie": {
+          "triples": [
+            [
+              "a simple",
+              "DC circuit on",
+              "a 12V"
+            ],
+            [
+              "battery connected",
+              "in series on",
+              "a 100"
+            ],
+            [
+              "connected in",
+              "series",
+              "to a"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "summary": {
+          "node_count": 6,
+          "edge_count": 3,
+          "connected_components": 3,
+          "sources_used": [
+            "OpenIE"
+          ]
+        },
+        "node_types": {
+          "object": 6
+        },
+        "edge_types": {
+          "related_to": 3
+        },
+        "nodes": [
+          {
+            "id": "a simple",
+            "type": "object",
+            "label": "a simple",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "a 12V",
+            "type": "object",
+            "label": "a 12V",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "battery connected",
+            "type": "object",
+            "label": "battery connected",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "a 100",
+            "type": "object",
+            "label": "a 100",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "connected in",
+            "type": "object",
+            "label": "connected in",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "to a",
+            "type": "object",
+            "label": "to a",
+            "properties": {},
+            "metadata": {}
+          }
+        ],
+        "edges": [
+          {
+            "source": "a simple",
+            "target": "a 12V",
+            "type": "related_to",
+            "label": "DC circuit on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "battery connected",
+            "target": "a 100",
+            "type": "related_to",
+            "label": "in series on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "connected in",
+            "target": "to a",
+            "type": "related_to",
+            "label": "series",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "saved_to": "output/test_complete/property_graph.json"
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1762955462.1866949,
+      "duration_ms": 0.58,
+      "input": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+      "output": {
+        "planning_mode": "property_graph_driven",
+        "domain": "current_electricity",
+        "entity_count": 1,
+        "relation_count": 0,
+        "constraint_count": 1,
+        "complexity_score": 0.035,
+        "z3_used": false,
+        "sympy_used": false
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1762955462.187347,
+      "duration_ms": 0,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+          "complexity_score": 0.035,
+          "objects": [
+            {
+              "id": "battery connected",
+              "type": "object",
+              "label": "battery connected",
+              "properties": {},
+              "primitive_hint": "battery_symbol"
+            }
+          ],
+          "relationships": [],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "bounds",
+              "objects": [
+                "battery connected"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {},
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.035,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "battery connected"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "battery connected": [
+                    100,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 1,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 0,
+                    "types": []
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 1,
+                    "types": [
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 1,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 1
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+                "domain_hint": "electronics"
+              },
+              "extracted_entities": [
+                {
+                  "id": "battery connected",
+                  "type": "object",
+                  "label": "battery connected",
+                  "properties": {},
+                  "primitive_hint": "battery_symbol",
+                  "source": "unknown"
+                }
+              ],
+              "extracted_relations": [],
+              "style_hints": {
+                "battery connected": {
+                  "color": "#2ecc71",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "battery_symbol"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "running",
+      "error": {
+        "type": "IncompleteSceneError",
+        "message": "Incomplete scene. Missing: power_source, circuit_component",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/unified_diagram_pipeline.py\", line 1155, in generate\n    scene = self.scene_builder.build(\n        specs,\n    ...<6 lines>...\n        strategy=selected_strategy if self.diagram_planner else \"DIRECT\"\n    )\n  File \"/Users/Pramod/projects/STEM-AI/pipeline_universal_STEM/core/universal_scene_builder.py\", line 128, in build\n    raise IncompleteSceneError(missing)\ncore.universal_scene_builder.IncompleteSceneError: Incomplete scene. Missing: power_source, circuit_component\n"
+      }
+    }
+  ],
+  "total_duration_ms": 10.78,
+  "status": "error",
+  "error": "Incomplete scene. Missing: power_source, circuit_component",
+  "input": {
+    "problem_text": "Draw a simple DC circuit with a 12V battery connected in series to a 100-ohm resistor and a switch.",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Z3 Optimization",
+        "LLM Auditor",
+        "Structural Validator",
+        "VLM Validator",
+        "Primitive Library (memory)",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 99
+  }
+}

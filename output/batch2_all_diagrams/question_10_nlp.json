@@ -1,0 +1,329 @@
+{
+  "domain": "electronics",
+  "entities": [
+    {
+      "id": "spacy_10_11",
+      "type": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 53,
+        "end": 57,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_21_23",
+      "type": "QUANTITY",
+      "text": "10 cm",
+      "properties": {
+        "start": 107,
+        "end": 112,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_37_38",
+      "type": "CARDINAL",
+      "text": "2.0",
+      "properties": {
+        "start": 200,
+        "end": 203,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_40_41",
+      "type": "PERSON",
+      "text": "m\u00b2",
+      "properties": {
+        "start": 207,
+        "end": 209,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_61_62",
+      "type": "CARDINAL",
+      "text": "0.20",
+      "properties": {
+        "start": 312,
+        "end": 316,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_69_70",
+      "type": "CARDINAL",
+      "text": "0.10",
+      "properties": {
+        "start": 339,
+        "end": 343,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_78_79",
+      "type": "CARDINAL",
+      "text": "2.0",
+      "properties": {
+        "start": 375,
+        "end": 378,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_83_84",
+      "type": "PERSON",
+      "text": "Capacitance",
+      "properties": {
+        "start": 386,
+        "end": 397,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_87_88",
+      "type": "CARDINAL",
+      "text": "35",
+      "properties": {
+        "start": 403,
+        "end": 405,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    },
+    {
+      "id": "spacy_96_97",
+      "type": "CARDINAL",
+      "text": "10",
+      "properties": {
+        "start": 440,
+        "end": 442,
+        "confidence": 0.85,
+        "method": "spacy_ner"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "INSIDE",
+      "subject": "charge",
+      "target": "bulk",
+      "properties": {
+        "confidence": 0.75,
+        "method": "dependency_parse",
+        "preposition": "in"
+      }
+    },
+    {
+      "type": "INSIDE",
+      "subject": "energy",
+      "target": "capacitor",
+      "properties": {
+        "confidence": 0.75,
+        "method": "dependency_parse",
+        "preposition": "in"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_10_11",
+      "target": "spacy_21_23",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "A squat, cylindrical plastic container of radius r = 0.20 m is filled with conducting liquid to height h = 10 cm."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_37_38",
+      "target": "spacy_40_41",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "The exterior surface of the container acquires a negative charge density of magnitude 2.0 \u03bcC/m\u00b2 (approximately uniform)."
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_61_62",
+      "target": "spacy_69_70",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Container radius: r = 0.20 m, Liquid height: h = 0.10 m, Surface charge density: \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance: C = 35 pF, Minimum spark energy: E_min = 10 mJ. Determine: (a) Induced negative charge in liquid's bulk, (b) Potential energy in the capacitor, (c)"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_69_70",
+      "target": "spacy_78_79",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Container radius: r = 0.20 m, Liquid height: h = 0.10 m, Surface charge density: \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance: C = 35 pF, Minimum spark energy: E_min = 10 mJ. Determine: (a) Induced negative charge in liquid's bulk, (b) Potential energy in the capacitor, (c)"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_78_79",
+      "target": "spacy_83_84",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Container radius: r = 0.20 m, Liquid height: h = 0.10 m, Surface charge density: \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance: C = 35 pF, Minimum spark energy: E_min = 10 mJ. Determine: (a) Induced negative charge in liquid's bulk, (b) Potential energy in the capacitor, (c)"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_83_84",
+      "target": "spacy_87_88",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Container radius: r = 0.20 m, Liquid height: h = 0.10 m, Surface charge density: \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance: C = 35 pF, Minimum spark energy: E_min = 10 mJ. Determine: (a) Induced negative charge in liquid's bulk, (b) Potential energy in the capacitor, (c)"
+      }
+    },
+    {
+      "type": "RELATED_TO",
+      "subject": "spacy_87_88",
+      "target": "spacy_96_97",
+      "properties": {
+        "confidence": 0.5,
+        "method": "proximity",
+        "sentence": "Container radius: r = 0.20 m, Liquid height: h = 0.10 m, Surface charge density: \u03c3 = 2.0 \u03bcC/m\u00b2, Capacitance: C = 35 pF, Minimum spark energy: E_min = 10 mJ. Determine: (a) Induced negative charge in liquid's bulk, (b) Potential energy in the capacitor, (c)"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "r",
+      "target": "0.20 m",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "0.20 m"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "10 cm",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10 cm"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "h",
+      "target": "0.10 m",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "0.10 m"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "\u03c3",
+      "target": "2.0 \u03bcC",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "2.0 \u03bcC"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "C",
+      "target": "35 pF",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "35 pF"
+      }
+    },
+    {
+      "type": "EQUALS",
+      "subject": "E_min",
+      "target": "10 mJ",
+      "properties": {
+        "confidence": 0.95,
+        "method": "pattern_match",
+        "description": "A = B",
+        "value": "10 mJ"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "r",
+      "target": "0.20 m is filled with conducting liquid to height h",
+      "properties": {
+        "equation": "r = 0.20 m is filled with conducting liquid to height h",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "r",
+      "target": "0.20 m",
+      "properties": {
+        "equation": "r = 0.20 m",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "h",
+      "target": "0.10 m",
+      "properties": {
+        "equation": "h = 0.10 m",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "C",
+      "target": "35 pF",
+      "properties": {
+        "equation": "C = 35 pF",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    },
+    {
+      "type": "EQUATION",
+      "subject": "E_min",
+      "target": "10 mJ. Determine",
+      "properties": {
+        "equation": "E_min = 10 mJ. Determine",
+        "confidence": 0.9,
+        "method": "equation_extraction"
+      }
+    }
+  ],
+  "metadata": {
+    "num_entities": 10,
+    "num_relationships": 20,
+    "sentence_count": 5,
+    "token_count": 130
+  }
+}
