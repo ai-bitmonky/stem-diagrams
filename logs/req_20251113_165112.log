@@ -1,0 +1,28 @@
+2025-11-13 16:51:12 | INFO     | ================================================================================
+2025-11-13 16:51:12 | INFO     | NEW DIAGRAM GENERATION REQUEST
+2025-11-13 16:51:12 | INFO     | ================================================================================
+2025-11-13 16:51:12 | INFO     | Request ID: req_20251113_165112
+2025-11-13 16:51:12 | INFO     | Problem Text Length: 56 characters
+2025-11-13 16:51:12 | INFO     | 
+2025-11-13 16:51:12 | INFO     | Problem Text:
+2025-11-13 16:51:12 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 16:51:12 | INFO     |   A parallel plate capacitor with three dielectric regions
+2025-11-13 16:51:12 | INFO     | --------------------------------------------------------------------------------
+2025-11-13 16:51:12 | INFO     | 
+2025-11-13 16:51:12 | INFO     | Configuration:
+2025-11-13 16:51:12 | INFO     |   canvas_width: 1200
+2025-11-13 16:51:12 | INFO     |   canvas_height: 800
+2025-11-13 16:51:12 | INFO     |   validation_mode: standard
+2025-11-13 16:51:12 | INFO     |   active_features: ['Spatial Validation', 'Intelligent Label Placement', 'Property Graph', 'OpenIE', 'Stanza', 'SciBERT', 'ChemDataExtractor', 'MathBERT', 'AMR Parser', 'Diagram Planner', 'Model Orchestrator', 'Primitive Library (memory)', 'Domain Modules (5)', 'Ontology Validation', 'Z3 Optimization', 'Structural Validator', 'Request/Response Logging']
+2025-11-13 16:51:12 | INFO     | 
+2025-11-13 16:51:12 | INFO     | 
+2025-11-13 16:51:12 | INFO     | ================================================================================
+2025-11-13 16:51:12 | INFO     | PHASE 0: NLP Enrichment
+2025-11-13 16:51:12 | INFO     | Description: Extract entities, relations, and scientific concepts
+2025-11-13 16:51:12 | INFO     | ================================================================================
+2025-11-13 16:51:12 | INFO     | 
+2025-11-13 16:51:12 | INFO     | Phase Input:
+2025-11-13 16:51:12 | INFO     | ----------------------------------------
+2025-11-13 16:51:12 | INFO     | Summary: Problem text (56 chars)
+2025-11-13 16:51:12 | INFO     |   Type: str
+2025-11-13 16:51:12 | INFO     | ----------------------------------------

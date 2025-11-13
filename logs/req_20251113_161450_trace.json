@@ -1,0 +1,3585 @@
+{
+  "request_id": "req_20251113_161450",
+  "timestamp": "2025-11-13T16:14:50.487272",
+  "phases": [
+    {
+      "phase_number": 0,
+      "phase_name": "NLP Enrichment",
+      "description": "Extract entities, relations, and scientific concepts",
+      "start_time": 1763030690.4882188,
+      "duration_ms": 368.68,
+      "input": "A circuit with battery",
+      "output": {
+        "openie": {
+          "provenance": "openie",
+          "runtime_ms": 0.8478164672851562,
+          "cached": false,
+          "triples": [
+            [
+              "A",
+              "circuit on",
+              "battery"
+            ]
+          ],
+          "raw_result": {
+            "_type": "OpenIEResult",
+            "_attributes": {
+              "text": "A circuit with battery",
+              "triples": [
+                {
+                  "_type": "Triple",
+                  "_attributes": {
+                    "subject": "A",
+                    "relation": "circuit on",
+                    "object": "battery",
+                    "confidence": 0.7,
+                    "metadata": {}
+                  }
+                }
+              ],
+              "metadata": {
+                "backend": "pattern",
+                "pattern_count": 3
+              }
+            }
+          }
+        },
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 173.34413528442383,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A circuit with battery"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A circuit with battery"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A circuit with battery",
+            "sentences": [
+              {
+                "text": "A circuit with battery",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A circuit with battery"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A circuit with battery"
+              }
+            ],
+            "triples": []
+          }
+        },
+        "scibert": {
+          "provenance": "scibert",
+          "runtime_ms": 117.42091178894043,
+          "cached": false,
+          "embedding_dim": 768,
+          "embedding_sample": [
+            -0.4767102301120758,
+            -0.17285941541194916,
+            0.11717496067285538,
+            0.07000129669904709,
+            0.508137047290802,
+            0.2279723733663559,
+            -0.3360106348991394,
+            -1.0163947343826294,
+            0.1630907505750656,
+            0.16034819185733795
+          ]
+        },
+        "chemdataextractor": {
+          "provenance": "chemdataextractor",
+          "runtime_ms": 0.3039836883544922,
+          "cached": false,
+          "formulas": [],
+          "reactions": 0,
+          "properties": []
+        },
+        "mathbert": {
+          "provenance": "mathbert",
+          "runtime_ms": 75.41990280151367,
+          "cached": false,
+          "variables": [],
+          "expressions": 0,
+          "constants": {
+            "e": 2.71828182846,
+            "c": 299792458,
+            "h": 6.62607015e-34
+          }
+        },
+        "amr": {
+          "provenance": "amr",
+          "runtime_ms": 0.2129077911376953,
+          "cached": false,
+          "concepts": [
+            "circuit",
+            "battery",
+            "at"
+          ],
+          "entities": {
+            "circuit": "circuit",
+            "battery": "battery"
+          },
+          "relations": [
+            [
+              "circuit",
+              "location",
+              "at"
+            ],
+            [
+              "at",
+              "ARG1",
+              "battery"
+            ]
+          ]
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 1,
+      "phase_name": "Property Graph Construction",
+      "description": "Build knowledge graph from NLP results",
+      "start_time": 1763030690.856968,
+      "duration_ms": 2.22,
+      "input": {
+        "openie": {
+          "provenance": "openie",
+          "runtime_ms": 0.8478164672851562,
+          "cached": false,
+          "triples": [
+            [
+              "A",
+              "circuit on",
+              "battery"
+            ]
+          ],
+          "raw_result": {
+            "_type": "OpenIEResult",
+            "_attributes": {
+              "text": "A circuit with battery",
+              "triples": [
+                {
+                  "_type": "Triple",
+                  "_attributes": {
+                    "subject": "A",
+                    "relation": "circuit on",
+                    "object": "battery",
+                    "confidence": 0.7,
+                    "metadata": {}
+                  }
+                }
+              ],
+              "metadata": {
+                "backend": "pattern",
+                "pattern_count": 3
+              }
+            }
+          }
+        },
+        "stanza": {
+          "provenance": "stanza",
+          "runtime_ms": 173.34413528442383,
+          "cached": false,
+          "entities": [
+            {
+              "text": "circuit",
+              "lemma": "circuit",
+              "pos": "NOUN",
+              "sentence": "A circuit with battery"
+            },
+            {
+              "text": "battery",
+              "lemma": "battery",
+              "pos": "NOUN",
+              "sentence": "A circuit with battery"
+            }
+          ],
+          "dependencies": [
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "A",
+              "dependent_pos": "DET",
+              "relation": "det",
+              "confidence": 1.0
+            },
+            {
+              "head": "battery",
+              "head_pos": "NOUN",
+              "dependent": "with",
+              "dependent_pos": "ADP",
+              "relation": "case",
+              "confidence": 1.0
+            },
+            {
+              "head": "circuit",
+              "head_pos": "NOUN",
+              "dependent": "battery",
+              "dependent_pos": "NOUN",
+              "relation": "nmod",
+              "confidence": 1.0
+            }
+          ],
+          "raw_result": {
+            "text": "A circuit with battery",
+            "sentences": [
+              {
+                "text": "A circuit with battery",
+                "tokens": [
+                  {
+                    "text": "A",
+                    "lemma": "a",
+                    "pos": "DET",
+                    "xpos": "DT",
+                    "feats": "Definite=Ind|PronType=Art"
+                  },
+                  {
+                    "text": "circuit",
+                    "lemma": "circuit",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  },
+                  {
+                    "text": "with",
+                    "lemma": "with",
+                    "pos": "ADP",
+                    "xpos": "IN",
+                    "feats": null
+                  },
+                  {
+                    "text": "battery",
+                    "lemma": "battery",
+                    "pos": "NOUN",
+                    "xpos": "NN",
+                    "feats": "Number=Sing"
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "A",
+                    "dependent_pos": "DET",
+                    "relation": "det",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "battery",
+                    "head_pos": "NOUN",
+                    "dependent": "with",
+                    "dependent_pos": "ADP",
+                    "relation": "case",
+                    "confidence": 1.0
+                  },
+                  {
+                    "head": "circuit",
+                    "head_pos": "NOUN",
+                    "dependent": "battery",
+                    "dependent_pos": "NOUN",
+                    "relation": "nmod",
+                    "confidence": 1.0
+                  }
+                ]
+              }
+            ],
+            "dependencies": [
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "A",
+                "dependent_pos": "DET",
+                "relation": "det",
+                "confidence": 1.0
+              },
+              {
+                "head": "battery",
+                "head_pos": "NOUN",
+                "dependent": "with",
+                "dependent_pos": "ADP",
+                "relation": "case",
+                "confidence": 1.0
+              },
+              {
+                "head": "circuit",
+                "head_pos": "NOUN",
+                "dependent": "battery",
+                "dependent_pos": "NOUN",
+                "relation": "nmod",
+                "confidence": 1.0
+              }
+            ],
+            "entities": [
+              {
+                "text": "circuit",
+                "lemma": "circuit",
+                "pos": "NOUN",
+                "sentence": "A circuit with battery"
+              },
+              {
+                "text": "battery",
+                "lemma": "battery",
+                "pos": "NOUN",
+                "sentence": "A circuit with battery"
+              }
+            ],
+            "triples": []
+          }
+        },
+        "scibert": {
+          "provenance": "scibert",
+          "runtime_ms": 117.42091178894043,
+          "cached": false,
+          "embedding_dim": 768,
+          "embedding_sample": [
+            -0.4767102301120758,
+            -0.17285941541194916,
+            0.11717496067285538,
+            0.07000129669904709,
+            0.508137047290802,
+            0.2279723733663559,
+            -0.3360106348991394,
+            -1.0163947343826294,
+            0.1630907505750656,
+            0.16034819185733795
+          ]
+        },
+        "chemdataextractor": {
+          "provenance": "chemdataextractor",
+          "runtime_ms": 0.3039836883544922,
+          "cached": false,
+          "formulas": [],
+          "reactions": 0,
+          "properties": []
+        },
+        "mathbert": {
+          "provenance": "mathbert",
+          "runtime_ms": 75.41990280151367,
+          "cached": false,
+          "variables": [],
+          "expressions": 0,
+          "constants": {
+            "e": 2.71828182846,
+            "c": 299792458,
+            "h": 6.62607015e-34
+          }
+        },
+        "amr": {
+          "provenance": "amr",
+          "runtime_ms": 0.2129077911376953,
+          "cached": false,
+          "concepts": [
+            "circuit",
+            "battery",
+            "at"
+          ],
+          "entities": {
+            "circuit": "circuit",
+            "battery": "battery"
+          },
+          "relations": [
+            [
+              "circuit",
+              "location",
+              "at"
+            ],
+            [
+              "at",
+              "ARG1",
+              "battery"
+            ]
+          ]
+        }
+      },
+      "output": {
+        "request_id": "req_1763030690488_1",
+        "summary": {
+          "node_count": 5,
+          "edge_count": 6,
+          "connected_components": 1,
+          "sources_used": [
+            "OpenIE",
+            "Stanza",
+            "ChemDataExtractor",
+            "MathBERT",
+            "AMR"
+          ]
+        },
+        "node_types": {
+          "object": 4,
+          "concept": 1
+        },
+        "edge_types": {
+          "related_to": 6
+        },
+        "nodes": [
+          {
+            "id": "A",
+            "type": "object",
+            "label": "A",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "battery",
+            "type": "object",
+            "label": "battery",
+            "properties": {},
+            "metadata": {}
+          },
+          {
+            "id": "circuit",
+            "type": "object",
+            "label": "circuit",
+            "properties": {
+              "ner_type": "OBJECT"
+            },
+            "metadata": {
+              "source": "stanza"
+            }
+          },
+          {
+            "id": "with",
+            "type": "object",
+            "label": "with",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep"
+            }
+          },
+          {
+            "id": "at",
+            "type": "concept",
+            "label": "at",
+            "properties": {},
+            "metadata": {
+              "source": "amr"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "battery",
+            "type": "related_to",
+            "label": "circuit on",
+            "properties": {},
+            "metadata": {
+              "source": "openie"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "A",
+            "target": "circuit",
+            "type": "related_to",
+            "label": "det",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "battery",
+            "target": "circuit",
+            "type": "related_to",
+            "label": "nmod",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "circuit",
+            "target": "at",
+            "type": "related_to",
+            "label": "location",
+            "properties": {},
+            "metadata": {
+              "source": "amr"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "with",
+            "target": "battery",
+            "type": "related_to",
+            "label": "case",
+            "properties": {},
+            "metadata": {
+              "source": "stanza_dep",
+              "relation_type": "dependency"
+            },
+            "confidence": 1.0
+          },
+          {
+            "source": "at",
+            "target": "battery",
+            "type": "related_to",
+            "label": "ARG1",
+            "properties": {},
+            "metadata": {
+              "source": "amr"
+            },
+            "confidence": 1.0
+          }
+        ],
+        "disk_persistence": {
+          "status": "success",
+          "path": "output/property_graphs/req_1763030690488_1_property_graph.json"
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 2,
+      "phase_name": "Diagram Planning (Property Graph-Driven)",
+      "description": "Create diagram plan from property graph",
+      "start_time": 1763030690.859235,
+      "duration_ms": 682.43,
+      "input": "A circuit with battery",
+      "output": {
+        "planning_mode": "property_graph_driven",
+        "domain": "current_electricity",
+        "entity_count": 2,
+        "relation_count": 1,
+        "constraint_count": 3,
+        "complexity_score": 0.11,
+        "z3_used": false,
+        "sympy_used": false
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Scene Synthesis + Strategic Planning",
+      "description": "Build scene graph and select strategy",
+      "start_time": 1763030691.5417778,
+      "duration_ms": 72.11,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "A circuit with battery",
+          "complexity_score": 0.11,
+          "objects": [
+            {
+              "id": "battery",
+              "type": "object",
+              "label": "battery",
+              "properties": {},
+              "primitive_hint": "battery_symbol",
+              "layout_hint": {
+                "x": 100,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              }
+            },
+            {
+              "id": "circuit",
+              "type": "object",
+              "label": "circuit",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "circuit",
+              "layout_hint": {
+                "x": 250,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "source": "battery",
+              "target": "circuit",
+              "type": "CONNECTION",
+              "label": "nmod"
+            }
+          ],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "no_overlap",
+              "objects": "battery",
+              "parameters": {
+                "margin": "circuit"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "battery"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "circuit"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "battery": [
+                  100,
+                  100
+                ],
+                "circuit": [
+                  250,
+                  100
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            }
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "attribute_provenance": {},
+          "analysis_metadata": {},
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.11,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "battery",
+                    "parameters": {
+                      "margin": "circuit"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "battery"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "circuit"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "battery": [
+                    100,
+                    100
+                  ],
+                  "circuit": [
+                    250,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "style_hints": {
+                "battery": {
+                  "color": "#2ecc71",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "battery_symbol"
+                },
+                "circuit": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              },
+              "extracted_entities": [
+                {
+                  "id": "battery",
+                  "type": "object",
+                  "label": "battery",
+                  "properties": {},
+                  "primitive_hint": "battery_symbol",
+                  "source": "unknown"
+                },
+                {
+                  "id": "circuit",
+                  "type": "object",
+                  "label": "circuit",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "circuit",
+                  "source": "stanza"
+                }
+              ],
+              "extracted_relations": [
+                {
+                  "source_id": "battery",
+                  "target_id": "circuit",
+                  "type": "CONNECTION",
+                  "label": "nmod",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                }
+              ],
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 2,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 1,
+                    "types": [
+                      "CONNECTION"
+                    ]
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 3,
+                    "types": [
+                      "no_overlap",
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 2,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 2
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "A circuit with battery",
+                "domain_hint": "electronics"
+              }
+            }
+          },
+          "diagram_plan_metadata": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "battery": [
+                  100,
+                  100
+                ],
+                "circuit": [
+                  250,
+                  100
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            },
+            "planning_trace": [
+              {
+                "step": "entity_extraction",
+                "timestamp": 0,
+                "details": {
+                  "entity_count": 2,
+                  "types": [
+                    "object"
+                  ]
+                }
+              },
+              {
+                "step": "relation_mapping",
+                "timestamp": 1,
+                "details": {
+                  "relation_count": 1,
+                  "types": [
+                    "CONNECTION"
+                  ]
+                }
+              },
+              {
+                "step": "constraint_generation",
+                "timestamp": 2,
+                "details": {
+                  "constraint_count": 3,
+                  "types": [
+                    "no_overlap",
+                    "bounds"
+                  ]
+                }
+              },
+              {
+                "step": "layout_planning",
+                "timestamp": 3,
+                "details": {
+                  "solver_used": "heuristic",
+                  "positions_assigned": 2,
+                  "z3_used": false,
+                  "sympy_used": false
+                }
+              },
+              {
+                "step": "style_assignment",
+                "timestamp": 4,
+                "details": {
+                  "styles_assigned": 2
+                }
+              }
+            ],
+            "strategy": "constraint_based",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          }
+        }
+      },
+      "output": {
+        "object_count": 7,
+        "selected_strategy": "constraint_based",
+        "domain_modules": 1,
+        "diagram_plan": {
+          "entities": 2,
+          "relations": 1,
+          "constraints": 3,
+          "solver": "heuristic"
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 3,
+      "phase_name": "Structural Consistency",
+      "description": "Compare plan vs scene",
+      "start_time": 1763030691.613951,
+      "duration_ms": 0.24,
+      "input": {
+        "entities": 2
+      },
+      "output": {
+        "missing_in_scene": [
+          "battery",
+          "circuit"
+        ],
+        "extra_scene_objects": [
+          "plate_top",
+          "plate_bottom",
+          "field_line_0",
+          "field_line_1",
+          "field_line_2",
+          "field_line_3",
+          "field_line_4"
+        ],
+        "label_mismatches": [],
+        "relation_gaps": [
+          "Missing relation battery->circuit"
+        ],
+        "score": 0.0
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 4,
+      "phase_name": "Ontology Validation",
+      "description": "Validate semantic consistency",
+      "start_time": 1763030691.614227,
+      "duration_ms": 31.83,
+      "input": {
+        "_type": "CanonicalProblemSpec",
+        "_attributes": {
+          "domain": {
+            "_type": "PhysicsDomain",
+            "_attributes": {}
+          },
+          "problem_type": "diagram_generation",
+          "problem_text": "A circuit with battery",
+          "complexity_score": 0.11,
+          "objects": [
+            {
+              "id": "battery",
+              "type": "object",
+              "label": "battery",
+              "properties": {},
+              "primitive_hint": "battery_symbol",
+              "layout_hint": {
+                "x": 100,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              }
+            },
+            {
+              "id": "circuit",
+              "type": "object",
+              "label": "circuit",
+              "properties": {
+                "ner_type": "OBJECT"
+              },
+              "primitive_hint": "circuit",
+              "layout_hint": {
+                "x": 250,
+                "y": 100,
+                "anchor": "center"
+              },
+              "style_hint": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "source": "battery",
+              "target": "circuit",
+              "type": "CONNECTION",
+              "label": "nmod"
+            }
+          ],
+          "environment": {},
+          "physics_context": {},
+          "applicable_laws": [],
+          "constraints": [
+            {
+              "type": "no_overlap",
+              "objects": "battery",
+              "parameters": {
+                "margin": "circuit"
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "battery"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            },
+            {
+              "type": "bounds",
+              "objects": [
+                "circuit"
+              ],
+              "parameters": {
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 1200,
+                "max_y": 800
+              },
+              "priority": "required"
+            }
+          ],
+          "geometry": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "battery": [
+                  100,
+                  100
+                ],
+                "circuit": [
+                  250,
+                  100
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            }
+          },
+          "coordinate_system": "cartesian",
+          "subproblems": [],
+          "is_complete": true,
+          "missing_information": [],
+          "confidence": 0.0,
+          "reasoning_trace": [],
+          "attribute_provenance": {},
+          "analysis_metadata": {},
+          "diagram_plan": {
+            "_type": "DiagramPlan",
+            "_attributes": {
+              "original_spec": null,
+              "complexity_score": 0.11,
+              "strategy": {
+                "_type": "PlanningStrategy",
+                "_attributes": {}
+              },
+              "objectives": [],
+              "subproblems": [],
+              "is_decomposed": false,
+              "global_constraints": [
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "no_overlap",
+                    "objects": "battery",
+                    "parameters": {
+                      "margin": "circuit"
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "battery"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                },
+                {
+                  "_type": "LayoutConstraint",
+                  "_attributes": {
+                    "type": "bounds",
+                    "objects": [
+                      "circuit"
+                    ],
+                    "parameters": {
+                      "min_x": 0,
+                      "max_x": 0,
+                      "min_y": 1200,
+                      "max_y": 800
+                    },
+                    "priority": {
+                      "_type": "ConstraintPriority",
+                      "_attributes": {}
+                    },
+                    "tolerance": 0.001
+                  }
+                }
+              ],
+              "local_constraints": {},
+              "canvas_width": 1200,
+              "canvas_height": 800,
+              "margins": [
+                40,
+                40,
+                40,
+                40
+              ],
+              "coordinate_system": "cartesian",
+              "origin": [
+                600,
+                400
+              ],
+              "scale": 100.0,
+              "layout_hints": {
+                "solver": "heuristic",
+                "positions": {
+                  "battery": [
+                    100,
+                    100
+                  ],
+                  "circuit": [
+                    250,
+                    100
+                  ]
+                },
+                "constraints_satisfied": [],
+                "z3_used": false,
+                "sympy_used": false
+              },
+              "style_hints": {
+                "battery": {
+                  "color": "#2ecc71",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif",
+                  "symbol": "battery_symbol"
+                },
+                "circuit": {
+                  "color": "#3498db",
+                  "size": 60,
+                  "shape": "rectangle",
+                  "stroke_width": 2,
+                  "font_size": 14,
+                  "font_family": "Arial, sans-serif"
+                }
+              },
+              "extracted_entities": [
+                {
+                  "id": "battery",
+                  "type": "object",
+                  "label": "battery",
+                  "properties": {},
+                  "primitive_hint": "battery_symbol",
+                  "source": "unknown"
+                },
+                {
+                  "id": "circuit",
+                  "type": "object",
+                  "label": "circuit",
+                  "properties": {
+                    "ner_type": "OBJECT"
+                  },
+                  "primitive_hint": "circuit",
+                  "source": "stanza"
+                }
+              ],
+              "extracted_relations": [
+                {
+                  "source_id": "battery",
+                  "target_id": "circuit",
+                  "type": "CONNECTION",
+                  "label": "nmod",
+                  "properties": {
+                    "source": "stanza_dep",
+                    "relation_type": "dependency"
+                  },
+                  "edge_type": "related_to"
+                }
+              ],
+              "planning_trace": [
+                {
+                  "step": "entity_extraction",
+                  "timestamp": 0,
+                  "details": {
+                    "entity_count": 2,
+                    "types": [
+                      "object"
+                    ]
+                  }
+                },
+                {
+                  "step": "relation_mapping",
+                  "timestamp": 1,
+                  "details": {
+                    "relation_count": 1,
+                    "types": [
+                      "CONNECTION"
+                    ]
+                  }
+                },
+                {
+                  "step": "constraint_generation",
+                  "timestamp": 2,
+                  "details": {
+                    "constraint_count": 3,
+                    "types": [
+                      "no_overlap",
+                      "bounds"
+                    ]
+                  }
+                },
+                {
+                  "step": "layout_planning",
+                  "timestamp": 3,
+                  "details": {
+                    "solver_used": "heuristic",
+                    "positions_assigned": 2,
+                    "z3_used": false,
+                    "sympy_used": false
+                  }
+                },
+                {
+                  "step": "style_assignment",
+                  "timestamp": 4,
+                  "details": {
+                    "styles_assigned": 2
+                  }
+                }
+              ],
+              "metadata": {
+                "planning_mode": "property_graph_driven",
+                "original_request": "A circuit with battery",
+                "domain_hint": "electronics"
+              }
+            }
+          },
+          "diagram_plan_metadata": {
+            "layout_hints": {
+              "solver": "heuristic",
+              "positions": {
+                "battery": [
+                  100,
+                  100
+                ],
+                "circuit": [
+                  250,
+                  100
+                ]
+              },
+              "constraints_satisfied": [],
+              "z3_used": false,
+              "sympy_used": false
+            },
+            "style_hints": {
+              "battery": {
+                "color": "#2ecc71",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif",
+                "symbol": "battery_symbol"
+              },
+              "circuit": {
+                "color": "#3498db",
+                "size": 60,
+                "shape": "rectangle",
+                "stroke_width": 2,
+                "font_size": 14,
+                "font_family": "Arial, sans-serif"
+              }
+            },
+            "planning_trace": [
+              {
+                "step": "entity_extraction",
+                "timestamp": 0,
+                "details": {
+                  "entity_count": 2,
+                  "types": [
+                    "object"
+                  ]
+                }
+              },
+              {
+                "step": "relation_mapping",
+                "timestamp": 1,
+                "details": {
+                  "relation_count": 1,
+                  "types": [
+                    "CONNECTION"
+                  ]
+                }
+              },
+              {
+                "step": "constraint_generation",
+                "timestamp": 2,
+                "details": {
+                  "constraint_count": 3,
+                  "types": [
+                    "no_overlap",
+                    "bounds"
+                  ]
+                }
+              },
+              {
+                "step": "layout_planning",
+                "timestamp": 3,
+                "details": {
+                  "solver_used": "heuristic",
+                  "positions_assigned": 2,
+                  "z3_used": false,
+                  "sympy_used": false
+                }
+              },
+              {
+                "step": "style_assignment",
+                "timestamp": 4,
+                "details": {
+                  "styles_assigned": 2
+                }
+              }
+            ],
+            "strategy": "constraint_based",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          }
+        }
+      },
+      "output": {
+        "source": "property_graph",
+        "input_stats": {
+          "nodes": 5,
+          "edges": 6
+        },
+        "consistent": true,
+        "errors": [],
+        "warnings": [
+          "Instance http://stem-diagrams.org/physics#hasDirection references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/physics#hasMagnitude references undefined class http://www.w3.org/2002/07/owl#DatatypeProperty",
+          "Instance http://stem-diagrams.org/physics#Mass references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#actsOn references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/stem#hasProperty references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/stem#Entity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Object references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#ElectrostaticForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#NormalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Force references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Charge references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Quantity references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#relatedTo references undefined class http://www.w3.org/2002/07/owl#ObjectProperty",
+          "Instance http://stem-diagrams.org/physics#Energy references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/stem#Process references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Tension references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#GravitationalForce references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Instance http://stem-diagrams.org/physics#Friction references undefined class http://www.w3.org/2002/07/owl#Class",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#domain",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://www.w3.org/2000/01/rdf-schema#range",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasProperties",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasLabel",
+          "Use of undefined property http://stem-diagrams.org/stem#hasMetadata"
+        ],
+        "inferences": 0
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Physics Validation",
+      "description": "Validate physics constraints and relationships",
+      "start_time": 1763030691.646101,
+      "duration_ms": 0.6,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 315
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 475
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "errors": 1,
+        "warnings": 12
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 5,
+      "phase_name": "Domain Rule Validation",
+      "description": "Run Kirchhoff/Newton/Geometry checks",
+      "start_time": 1763030691.646741,
+      "duration_ms": 0.25,
+      "input": {
+        "domain": "current_electricity"
+      },
+      "output": {
+        "domain": "current_electricity",
+        "checks": [
+          {
+            "name": "Kirchhoff Loop",
+            "passed": false,
+            "severity": "error",
+            "details": "No power source detected in circuit graph"
+          },
+          {
+            "name": "Power Source Presence",
+            "passed": false,
+            "severity": "error",
+            "details": "No power source objects"
+          }
+        ],
+        "errors": 2,
+        "warnings": 0
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 6,
+      "phase_name": "Layout Optimization + Z3/SymPy",
+      "description": "Compute optimal object positions",
+      "start_time": 1763030691.64703,
+      "duration_ms": 42.58,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 315
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 475
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_0"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_1"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_2"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_3"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_4"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "object_count": 7,
+        "z3_used": false,
+        "sympy_used": false,
+        "pre_solver_positions": 0,
+        "model_strategy": "heuristic",
+        "model_orchestrator": {
+          "model": "heuristic",
+          "complexity": 0.11
+        }
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "Intelligent Label Placement",
+      "description": "Optimize label positions to avoid overlaps",
+      "start_time": 1763030691.689791,
+      "duration_ms": 0.59,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 320
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 480
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_0"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_1"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_2"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_3"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_4"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {},
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 8,
+      "phase_name": "Spatial Validation",
+      "description": "Check for overlaps and positioning errors",
+      "start_time": 1763030691.691034,
+      "duration_ms": 0.67,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 320
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 480
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_0"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_1"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_2"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_3"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_4"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "errors": 0,
+        "warnings": 5,
+        "is_valid": true
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 9,
+      "phase_name": "Rendering",
+      "description": "Generate SVG output",
+      "start_time": 1763030691.6917481,
+      "duration_ms": 2.12,
+      "input": {
+        "_type": "Scene",
+        "_attributes": {
+          "version": "1.0",
+          "metadata": {
+            "domain": "electrostatics",
+            "renderer": "capacitor",
+            "planning_strategy": "constraint_based",
+            "layout_solver": "heuristic",
+            "domain_modules": [
+              {
+                "module_id": "electronics_schemdraw_svg",
+                "title": "Electronics primitives (SVG)",
+                "format": "svg",
+                "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"140\"><g transform=\"translate(20,40) scale(1.0) rotate(0.0)\"><g><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"-10\" y1=\"20\" x2=\"10\" y2=\"20\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"-5\" y1=\"30\" x2=\"5\" y2=\"30\" stroke=\"black\" stroke-width=\"1\"/></g></g><text x=\"10\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">battery</text><g transform=\"translate(160,40) scale(1.0) rotate(0.0)\"><g><path d=\"M 0 0 L 30 15 L 30 -15 Z\" stroke=\"black\" stroke-width=\"2\" fill=\"none\"/><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"-15\" stroke=\"black\" stroke-width=\"2\"/></g></g><text x=\"150\" y=\"130\" font-size=\"14\" fill=\"#2c3e50\">circuit</text></svg>",
+                "description": "SVG assembled from primitive library components (battery, resistor, capacitor, etc.).",
+                "metadata": {
+                  "primitive_matches": 2,
+                  "available": true,
+                  "component_count": 2
+                }
+              }
+            ]
+          },
+          "coord_system": {
+            "frame": "cartesian",
+            "origin": [
+              600,
+              400
+            ],
+            "scale": 100,
+            "extent": [
+              1200,
+              800
+            ],
+            "margins": [
+              40,
+              40,
+              40,
+              40
+            ]
+          },
+          "objects": [
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_top",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "+Q",
+                  "label": "Rectangle: plate_top"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 320
+                },
+                "style": {
+                  "fill": "#ff4444",
+                  "stroke": "#d32f2f",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "plate_bottom",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "width": 300,
+                  "height": 10,
+                  "charge": "-Q",
+                  "label": "Rectangle: plate_bottom"
+                },
+                "position": {
+                  "x": 450,
+                  "y": 480
+                },
+                "style": {
+                  "fill": "#4444ff",
+                  "stroke": "#1976d2",
+                  "stroke_width": 2
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_0",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_0"
+                },
+                "position": {
+                  "x1": 480,
+                  "y1": 345,
+                  "x2": 480,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_1",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_1"
+                },
+                "position": {
+                  "x1": 540,
+                  "y1": 345,
+                  "x2": 540,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_2",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_2"
+                },
+                "position": {
+                  "x1": 600,
+                  "y1": 345,
+                  "x2": 600,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_3",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_3"
+                },
+                "position": {
+                  "x1": 660,
+                  "y1": 345,
+                  "x2": 660,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            },
+            {
+              "_type": "SceneObject",
+              "_attributes": {
+                "id": "field_line_4",
+                "type": {
+                  "_type": "PrimitiveType",
+                  "_attributes": {}
+                },
+                "properties": {
+                  "direction": "down",
+                  "label": "Arrow: field_line_4"
+                },
+                "position": {
+                  "x1": 720,
+                  "y1": 345,
+                  "x2": 720,
+                  "y2": 465,
+                  "y": 0.0
+                },
+                "style": {
+                  "stroke": "#ff6600",
+                  "stroke_width": 2,
+                  "marker_end": "arrowhead"
+                },
+                "layer": {
+                  "_type": "RenderLayer",
+                  "_attributes": {}
+                }
+              }
+            }
+          ],
+          "constraints": [
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": 150,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            },
+            {
+              "_type": "Constraint",
+              "_attributes": {
+                "type": {
+                  "_type": "ConstraintType",
+                  "_attributes": {}
+                },
+                "objects": [
+                  "plate_top",
+                  "plate_bottom",
+                  "field_line_0",
+                  "field_line_1",
+                  "field_line_2",
+                  "field_line_3",
+                  "field_line_4"
+                ],
+                "value": null,
+                "tolerance": 1e-06,
+                "properties": {}
+              }
+            }
+          ],
+          "annotations": []
+        }
+      },
+      "output": {
+        "svg_size": 2762
+      },
+      "logs": [],
+      "status": "success"
+    },
+    {
+      "phase_number": 7,
+      "phase_name": "Validation Refinement",
+      "description": "Iterative quality improvement",
+      "start_time": 1763030691.69392,
+      "duration_ms": 0.47,
+      "input": {
+        "svg_size": 2762
+      },
+      "output": {
+        "refinement_iterations": 1,
+        "overall_confidence": 0.0,
+        "issue_count": 0,
+        "suggestions": 0
+      },
+      "logs": [
+        {
+          "level": "INFO",
+          "message": "Validator error: 'dict' object has no attribute 'color'",
+          "timestamp": 1763030691.694283
+        }
+      ],
+      "status": "success"
+    }
+  ],
+  "total_duration_ms": 1207.16,
+  "status": "success",
+  "error": null,
+  "input": {
+    "problem_text": "A circuit with battery",
+    "config": {
+      "canvas_width": 1200,
+      "canvas_height": 800,
+      "validation_mode": "standard",
+      "active_features": [
+        "Spatial Validation",
+        "Intelligent Label Placement",
+        "Property Graph",
+        "OpenIE",
+        "Stanza",
+        "SciBERT",
+        "ChemDataExtractor",
+        "MathBERT",
+        "AMR Parser",
+        "Diagram Planner",
+        "Model Orchestrator",
+        "Primitive Library (memory)",
+        "Domain Modules (5)",
+        "Ontology Validation",
+        "Z3 Optimization",
+        "Structural Validator",
+        "Request/Response Logging"
+      ]
+    },
+    "text_length": 22
+  },
+  "output": {
+    "svg_size": 2762,
+    "domain": "current_electricity",
+    "total_objects": 7,
+    "complexity_score": 0.11,
+    "selected_strategy": "constraint_based"
+  }
+}

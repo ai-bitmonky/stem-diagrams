@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "A",
+      "type": "object",
+      "label": "A",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "battery",
+      "type": "object",
+      "label": "battery",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "circuit",
+      "type": "object",
+      "label": "circuit",
+      "properties": {
+        "ner_type": "OBJECT"
+      },
+      "metadata": {
+        "source": "stanza"
+      }
+    },
+    {
+      "id": "with",
+      "type": "object",
+      "label": "with",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep"
+      }
+    },
+    {
+      "id": "at",
+      "type": "concept",
+      "label": "at",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "A",
+      "target": "battery",
+      "type": "related_to",
+      "label": "circuit on",
+      "properties": {},
+      "metadata": {
+        "source": "openie"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "A",
+      "target": "circuit",
+      "type": "related_to",
+      "label": "det",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "battery",
+      "target": "circuit",
+      "type": "related_to",
+      "label": "nmod",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "circuit",
+      "target": "at",
+      "type": "related_to",
+      "label": "location",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "with",
+      "target": "battery",
+      "type": "related_to",
+      "label": "case",
+      "properties": {},
+      "metadata": {
+        "source": "stanza_dep",
+        "relation_type": "dependency"
+      },
+      "confidence": 1.0
+    },
+    {
+      "source": "at",
+      "target": "battery",
+      "type": "related_to",
+      "label": "ARG1",
+      "properties": {},
+      "metadata": {
+        "source": "amr"
+      },
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "node_count": 5,
+    "edge_count": 6
+  }
+}

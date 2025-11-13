@@ -320,7 +320,7 @@ class DiagramValidator:
             ))
 
         # Check font consistency
-        font_sizes = [obj.style.font_size for obj in scene.objects if obj.style]
+        font_sizes = [obj.style.get('font_size') for obj in scene.objects if obj.style and isinstance(obj.style, dict) and obj.style.get('font_size')]
         if len(set(font_sizes)) > 3:
             issues.append(ValidationIssue(
                 severity="info",
