@@ -308,7 +308,7 @@ class DiagramValidator:
             ))
 
         # Check color consistency
-        colors = [obj.style.color for obj in scene.objects if obj.style]
+        colors = [obj.style.get('color') for obj in scene.objects if obj.style and isinstance(obj.style, dict) and obj.style.get('color')]
         if len(set(colors)) > 5:
             issues.append(ValidationIssue(
                 severity="info",
