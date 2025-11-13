@@ -85,6 +85,22 @@ The Universal STEM Diagram Pipeline has been successfully brought from **17% wor
 
 ---
 
+### Post-Phase 1 Bugfix: Entity Unpacking Error
+**Problem:** `ValueError: too many values to unpack (expected 2)` in universal_scene_builder.py line 559
+
+**Root Cause:** Task #7 changed entities from 2-tuples to dicts, but scene builder wasn't updated
+
+**Solution:** Modified [core/universal_scene_builder.py](core/universal_scene_builder.py#L559-L580)
+- Handle dict format (primary): `{'text': ..., 'pos': ...}`
+- Maintain backward compatibility with tuple/list formats
+- Skip malformed entities gracefully
+
+**Impact:** NLP enrichment now works correctly with Stanza dict-format entities
+
+**Details:** [ENTITY_UNPACKING_FIX.md](ENTITY_UNPACKING_FIX.md)
+
+---
+
 ## Phase 2: Core Implementation Gaps (100% Complete)
 
 ### Task #6: DiagramPlanner Entity Extraction
@@ -304,18 +320,22 @@ The Universal STEM Diagram Pipeline has been successfully brought from **17% wor
    - Lines 181-216: Lens equation validator
    - Lines 219-272: Chemical equation balancer
 
+8. [core/universal_scene_builder.py](core/universal_scene_builder.py)
+   - Lines 559-580: Fixed entity unpacking for dict-format entities
+
 ### Test Files
-8. [tests/test_domain_rules.py](tests/test_domain_rules.py)
+9. [tests/test_domain_rules.py](tests/test_domain_rules.py)
    - Lines 93-194: Added 3 new tests
 
 ### Documentation Files
-9. [DIAGRAMPLANNER_FIX.md](DIAGRAMPLANNER_FIX.md) - Task #6
-10. [MULTIMODEL_NLP_FIX.md](MULTIMODEL_NLP_FIX.md) - Task #7
-11. [PRIMITIVE_LIBRARY_WIRING_FIX.md](PRIMITIVE_LIBRARY_WIRING_FIX.md) - Task #8
-12. [VLM_MODELS_LOADING_FIX.md](VLM_MODELS_LOADING_FIX.md) - Task #9
-13. [DOMAIN_BUILDERS_FIX.md](DOMAIN_BUILDERS_FIX.md) - Task #10
-14. [DOMAIN_RULES_ENHANCEMENT.md](DOMAIN_RULES_ENHANCEMENT.md) - Task #12
-15. [IMPLEMENTATION_PROGRESS.md](IMPLEMENTATION_PROGRESS.md) - Updated throughout
+10. [DIAGRAMPLANNER_FIX.md](DIAGRAMPLANNER_FIX.md) - Task #6
+11. [MULTIMODEL_NLP_FIX.md](MULTIMODEL_NLP_FIX.md) - Task #7
+12. [PRIMITIVE_LIBRARY_WIRING_FIX.md](PRIMITIVE_LIBRARY_WIRING_FIX.md) - Task #8
+13. [VLM_MODELS_LOADING_FIX.md](VLM_MODELS_LOADING_FIX.md) - Task #9
+14. [DOMAIN_BUILDERS_FIX.md](DOMAIN_BUILDERS_FIX.md) - Task #10
+15. [DOMAIN_RULES_ENHANCEMENT.md](DOMAIN_RULES_ENHANCEMENT.md) - Task #12
+16. [ENTITY_UNPACKING_FIX.md](ENTITY_UNPACKING_FIX.md) - Post-Phase 1 Bugfix
+17. [IMPLEMENTATION_PROGRESS.md](IMPLEMENTATION_PROGRESS.md) - Updated throughout
 
 ---
 
@@ -464,9 +484,10 @@ The Universal STEM Diagram Pipeline has been successfully brought from a **parti
 
 ---
 
-**Total Implementation Time:** ~3-4 hours
-**Lines of Code Modified:** ~800 lines
+**Total Implementation Time:** ~4-5 hours (including entity unpacking fix)
+**Lines of Code Modified:** ~820 lines
 **Files Modified:** 8 core files, 1 test file
-**Documentation Created:** 7 markdown files
+**Documentation Created:** 8 markdown files
+**Bugfixes:** 1 post-implementation fix (entity unpacking)
 
 **Mission Accomplished: The pipeline is fully functional! 🎉**
