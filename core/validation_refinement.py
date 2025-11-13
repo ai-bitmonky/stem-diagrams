@@ -296,7 +296,7 @@ class DiagramValidator:
         issues = []
 
         # Check for labels
-        unlabeled = [obj for obj in scene.objects if not obj.label]
+        unlabeled = [obj for obj in scene.objects if not (obj.properties and obj.properties.get('label'))]
         if unlabeled and len(scene.objects) > 1:
             issues.append(ValidationIssue(
                 severity="info",
