@@ -215,7 +215,10 @@ class DiagramValidator:
         """Validate connectivity and relationships"""
         issues = []
 
-        if not scene.relationships:
+        # Scene may not have relationships attribute (uses constraints instead)
+        relationships = getattr(scene, 'relationships', [])
+
+        if not relationships:
             if len(scene.objects) > 1:
                 issues.append(ValidationIssue(
                     severity="warning",
@@ -229,7 +232,7 @@ class DiagramValidator:
 
         # Check for dangling connections
         object_ids = {obj.id for obj in scene.objects}
-        for rel in scene.relationships:
+        for rel in relationships:
             if rel.source_id not in object_ids:
                 issues.append(ValidationIssue(
                     severity="error",
@@ -253,7 +256,7 @@ class DiagramValidator:
         if scene.domain.value == "electronics":
             obj_dict = {obj.id: obj for obj in scene.objects}
             connected_objs = set()
-            for rel in scene.relationships:
+            for rel in relationships:
                 connected_objs.add(rel.source_id)
                 connected_objs.add(rel.target_id)
 
@@ -270,7 +273,7 @@ class DiagramValidator:
 
         # Check connection distances
         obj_dict = {obj.id: obj for obj in scene.objects}
-        for rel in scene.relationships:
+        for rel in relationships:
             if rel.source_id in obj_dict and rel.target_id in obj_dict:
                 source = obj_dict[rel.source_id]
                 target = obj_dict[rel.target_id]
@@ -361,7 +364,7 @@ class DiagramValidator:
             ))
 
         # Check for closed circuit
-        if scene.relationships:
+        if relationships:
             # Simple check: all components should be in a connected graph
             obj_dict = {obj.id: obj for obj in scene.objects}
             visited = set()
@@ -370,7 +373,7 @@ class DiagramValidator:
                 if obj_id in visited:
                     return
                 visited.add(obj_id)
-                for rel in scene.relationships:
+                for rel in relationships:
                     if rel.source_id == obj_id:
                         dfs(rel.target_id)
                     elif rel.target_id == obj_id:
@@ -395,12 +398,15 @@ class DiagramValidator:
         """Validate chemistry physics"""
         issues = []
 
+        # Scene may not have relationships attribute
+        relationships = getattr(scene, 'relationships', [])
+
         # Check bond valences (simplified)
         atoms = [obj for obj in scene.objects if obj.object_type == ObjectType.ATOM]
 
         for atom in atoms:
             # Count bonds
-            bonds = [rel for rel in scene.relationships
+            bonds = [rel for rel in relationships
                     if (rel.source_id == atom.id or rel.target_id == atom.id)]
 
             # Simple valence check (this is very simplified)
@@ -564,6 +570,9 @@ class DiagramRefiner:
 
     def _apply_auto_fix(self, scene: UniversalScene, issue: ValidationIssue) -> bool:
         """Apply automatic fix for an issue"""
+        # Scene may not have relationships attribute
+        relationships = getattr(scene, 'relationships', [])
+
         if issue.category == "layout":
             if "overlapping" in issue.message or "too close" in issue.message:
                 # Increase spacing between affected objects
@@ -612,7 +621,7 @@ class DiagramRefiner:
         elif issue.category == "connectivity":
             if "dangling" in issue.message or "non-existent" in issue.message:
                 # Remove invalid relationships
-                scene.relationships = [rel for rel in scene.relationships
+                relationships = [rel for rel in relationships
                                       if rel.id not in issue.affected_objects]
                 return True
 
