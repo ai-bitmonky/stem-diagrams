@@ -22,6 +22,12 @@ from pydantic import BaseModel, Field
 
 from unified_diagram_pipeline import PipelineConfig, UnifiedDiagramPipeline
 
+# ---------------------------------------------------------------------------
+# Environment Configuration
+# ---------------------------------------------------------------------------
+
+# Suppress HuggingFace tokenizers parallelism warning
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -85,7 +91,24 @@ def initialize_pipeline() -> UnifiedDiagramPipeline:
     if api_key:
         LOGGER.info("DeepSeek API key detected (prefix=%s)", api_key[:7])
     else:
-        LOGGER.warning("DeepSeek API key missing – LLM features disabled")
+        LOGGER.warning(
+            "DeepSeek API key missing (set DEEPSEEK_API_KEY environment variable). "
+            "Phase 0.6 (hybrid DeepSeek enrichment) will be SKIPPED. "
+            "Pipeline will run in local-only mode with pure NLP extraction."
+        )
+
+    # Property Graph Database Persistence (Optional)
+    # Set NEO4J_URI environment variable to enable Neo4j persistence
+    # Example: export NEO4J_URI="bolt://localhost:7687"
+    neo4j_uri = os.getenv("NEO4J_URI", None)
+    neo4j_username = os.getenv("NEO4J_USERNAME", "neo4j")
+    neo4j_password = os.getenv("NEO4J_PASSWORD", None)
+    neo4j_database = os.getenv("NEO4J_DATABASE", "neo4j")
+
+    if neo4j_uri:
+        LOGGER.info("Neo4j persistence enabled: %s (database=%s)", neo4j_uri, neo4j_database)
+    else:
+        LOGGER.info("Neo4j persistence disabled (graphs saved to disk only)")
 
     config = PipelineConfig(
         api_key=api_key,
@@ -98,18 +121,26 @@ def initialize_pipeline() -> UnifiedDiagramPipeline:
         enable_property_graph=True,
         enable_nlp_enrichment=True,
         enable_nlp_warmup=True,  # CRITICAL: Enable warmup at startup
-        nlp_tools=["openie", "stanza", "dygie", "scibert", "chemdataextractor", "mathbert", "amr"],
+        nlp_tools=["openie", "stanza", "spacy", "scibert", "chemdataextractor"],  # Removed: mathbert (~160s), amr (~60s), dygie (requires torch<1.13, incompatible with torch 2.x)
         enable_llm_planning=bool(api_key),
         llm_planner_api_model="deepseek-chat",
         enable_llm_auditing=bool(api_key),
         auditor_backend="deepseek" if api_key else "mock",
         auditor_api_key=api_key,
-        enable_deepseek_enrichment=bool(api_key),
-        enable_deepseek_audit=bool(api_key),
-        enable_deepseek_validation=bool(api_key),
+        # DeepSeek enrichment flags use PipelineConfig defaults (True for roadmap compliance)
+        # Phase 0.6 enrichment will be skipped if deepseek_api_key is None (logged as warning)
+        # enable_deepseek_enrichment: defaults to True
+        # enable_deepseek_audit: defaults to True
+        # enable_deepseek_validation: defaults to True
         deepseek_api_key=api_key,
         deepseek_model="deepseek-chat",
         deepseek_base_url="https://api.deepseek.com",
+        # Property Graph DB persistence
+        property_graph_graphdb_backend="neo4j" if neo4j_uri else None,
+        property_graph_graphdb_uri=neo4j_uri,
+        property_graph_graphdb_username=neo4j_username,
+        property_graph_graphdb_password=neo4j_password,
+        property_graph_graphdb_database=neo4j_database,
     )
 
     try:

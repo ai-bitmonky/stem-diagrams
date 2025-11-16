@@ -605,8 +605,11 @@ class OntologyManager:
 
             # Add instance
             properties = {}
+            # Skip complex metadata that shouldn't be serialized as simple RDF properties
+            skip_keys = ['type', 'id', 'embedding', 'sources', 'metadata', 'data']
             for key, value in node_data.items():
-                if key not in ['type', 'id']:
+                if key not in skip_keys and not isinstance(value, (dict, list)):
+                    # Only serialize simple types (str, int, float, bool)
                     properties[f"stem:has{key.capitalize()}"] = str(value)
 
             self.add_instance(node_id, class_uri, properties)
