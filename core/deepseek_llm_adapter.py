@@ -18,6 +18,7 @@ Date: November 10, 2025
 
 from typing import Optional, Dict, Any
 import os
+import json
 
 try:
     from openai import OpenAI
@@ -244,7 +245,6 @@ Respond with a JSON object:
                 json_mode=True
             )
 
-            import json
             enrichment_result = json.loads(response['content'])
             enrichment_result['usage'] = response['usage']
             enrichment_result['cost_usd'] = self.estimate_cost(
@@ -322,7 +322,6 @@ Respond with JSON:
                 json_mode=True
             )
 
-            import json
             audit_result = json.loads(response['content'])
             audit_result['usage'] = response['usage']
             audit_result['cost_usd'] = self.estimate_cost(
@@ -412,7 +411,6 @@ Respond with JSON:
                 json_mode=True
             )
 
-            import json
             validation_result = json.loads(response['content'])
             validation_result['usage'] = response['usage']
             validation_result['cost_usd'] = self.estimate_cost(
