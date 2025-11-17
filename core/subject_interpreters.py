@@ -23,6 +23,7 @@ from core.universal_scene_format import (
     DiagramDomain, DiagramType, create_circuit_scene,
     create_molecular_scene, create_cell_scene, create_graph_scene
 )
+from core.pattern_based_extractor import PatternBasedExtractor
 import re
 
 
@@ -73,6 +74,10 @@ class ElectronicsInterpreter(BaseInterpreter):
     Handles capacitors, resistors, inductors, batteries, etc.
     """
 
+    def __init__(self):
+        super().__init__()
+        self.pattern_extractor = PatternBasedExtractor()
+
     def interpret(self, nlp_results: Dict[str, Any], problem_text: str) -> UniversalScene:
         """Convert NLP results to circuit diagram scene"""
         # Create base scene
@@ -80,8 +85,8 @@ class ElectronicsInterpreter(BaseInterpreter):
         scene = create_circuit_scene(scene_id, "Circuit Diagram")
         scene.description = problem_text[:200] + "..." if len(problem_text) > 200 else problem_text
 
-        # Extract component information from entities
-        components = self._identify_components(nlp_results.get('entities', []))
+        # Extract component information using pattern-based extraction + NLP entities
+        components = self._identify_components(nlp_results.get('entities', []), problem_text)
 
         # Layout components
         component_positions = self._layout_components(components)
@@ -100,15 +105,54 @@ class ElectronicsInterpreter(BaseInterpreter):
 
         return scene
 
-    def _identify_components(self, entities: List[Dict]) -> Dict[str, Dict]:
-        """Identify circuit components from entities"""
+    def _identify_components(self, entities: List[Dict], problem_text: str) -> Dict[str, Dict]:
+        """
+        Identify circuit components using pattern-based extraction + NLP entities
+
+        Strategy:
+        1. First try pattern-based extraction (direct from problem text)
+        2. If insufficient, supplement with NLP entity extraction
+        3. If still empty, log warning (no dangerous defaults!)
+        """
+        components = {}
+
+        # Method 1: Pattern-based extraction (PRIMARY METHOD)
+        print("   🔍 Pattern-based component extraction...")
+        pattern_components = self.pattern_extractor.extract_component_objects(problem_text, domain='electronics')
+
+        if pattern_components:
+            components = pattern_components
+            print(f"   ✅ Extracted {len(components)} components via patterns: {list(components.keys())}")
+        else:
+            print("   ⚠️  Pattern extraction found no components")
+
+        # Method 2: NLP entity-based extraction (SUPPLEMENTARY)
+        if not components or len(components) < 2:
+            print("   🔍 Supplementing with NLP entity extraction...")
+            entity_components = self._extract_from_entities(entities)
+
+            if entity_components:
+                # Merge with pattern components (pattern takes precedence)
+                for comp_id, comp_data in entity_components.items():
+                    if comp_id not in components:
+                        components[comp_id] = comp_data
+                print(f"   ✅ Added {len(entity_components)} components from entities")
+
+        # Final check: If still empty, log error (no defaults!)
+        if not components:
+            print("   ❌ WARNING: No components extracted! Check problem text format.")
+            print(f"   Problem: {problem_text[:100]}...")
+
+        return components
+
+    def _extract_from_entities(self, entities: List[Dict]) -> Dict[str, Dict]:
+        """Extract components from NLP entities (fallback method)"""
         components = {}
         component_counter = {'resistor': 0, 'capacitor': 0, 'battery': 0, 'inductor': 0}
 
-        # Look for component keywords
+        # Look for component keywords in entities
         for entity in entities:
             text = entity.get('text', '').lower()
-            entity_type = entity.get('type', '')
 
             comp_type = None
             if 'resistor' in text or 'resistance' in text or 'Ω' in text:
@@ -134,14 +178,6 @@ class ElectronicsInterpreter(BaseInterpreter):
                     'label': entity.get('text', ''),
                     'entity': entity
                 }
-
-        # If no components found, create default ones
-        if not components:
-            components = {
-                'V1': {'type': 'battery', 'value': 10.0, 'unit': 'V', 'label': '10V'},
-                'R1': {'type': 'resistor', 'value': 100.0, 'unit': 'Ω', 'label': '100Ω'},
-                'C1': {'type': 'capacitor', 'value': 10e-6, 'unit': 'μF', 'label': '10μF'}
-            }
 
         return components
 
