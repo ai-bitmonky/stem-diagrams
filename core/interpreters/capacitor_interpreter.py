@@ -192,17 +192,21 @@ class CapacitorInterpreter:
         # Start with simple capacitor
         scene_objects, constraints = self._create_simple_capacitor(objects)
 
-        # Extract capacitor and dielectric properties
+        # Extract capacitor, battery, and dielectric properties
         capacitor = next((obj for obj in objects if 'capacitor' in str(obj.get('type', '')).lower()), None)
+        battery = next((obj for obj in objects if 'battery' in str(obj.get('type', '')).lower()), None)
         dielectric = next((obj for obj in objects if 'dielectric' in str(obj.get('type', '')).lower()), None)
 
         cap_props = capacitor.get('properties', {}) if capacitor else {}
+        bat_props = battery.get('properties', {}) if battery else {}
         di_props = dielectric.get('properties', {}) if dielectric else {}
 
         # Extract physical values
         plate_area = cap_props.get('plate_area', cap_props.get('area', ''))
         plate_sep = cap_props.get('plate_separation', cap_props.get('separation', ''))
-        voltage = cap_props.get('voltage', cap_props.get('initial_potential_difference', ''))
+        # Check battery first, then capacitor for voltage
+        voltage = bat_props.get('voltage', cap_props.get('voltage', cap_props.get('initial_potential_difference', '')))
+        voltage_unit = bat_props.get('voltage_unit', 'V')
         thickness = di_props.get('thickness', 0.004) * 10000  # Convert m to pixels
         thickness = min(max(thickness, 40), 100)  # Clamp
         kappa = di_props.get('dielectric_constant', di_props.get('kappa', di_props.get('k', ''))) if dielectric else 4.0
@@ -273,11 +277,12 @@ class CapacitorInterpreter:
 
         # Add VOLTAGE annotation
         if voltage:
+            voltage_text = f"V = {voltage}{voltage_unit}" if voltage_unit else f"V = {voltage}"
             voltage_label = SceneObject(
                 id="voltage_label",
                 type=PrimitiveType.TEXT,
                 position={"x": self.center_x + 200, "y": self.center_y},
-                properties={"text": f"V = {voltage}", "font_size": 16, "font_weight": "bold"},
+                properties={"text": voltage_text, "font_size": 16, "font_weight": "bold"},
                 style={"fill": "#e65100", "font_family": "Arial"}
             )
             scene_objects.append(voltage_label)
@@ -592,9 +597,18 @@ class CapacitorInterpreter:
         scene_objects = []
         constraints = []
 
+        # Extract component values
+        voltage = 0
+        cap1_value = 0
+        cap2_value = 0
+        cap1_unit = "μF"
+        cap2_unit = "μF"
+        voltage_unit = "V"
+
         # Battery on left
         if battery:
             voltage = battery.get('properties', {}).get('voltage', 0)
+            voltage_unit = battery.get('properties', {}).get('voltage_unit', 'V')
             battery_obj = SceneObject(
                 id="battery",
                 type=PrimitiveType.RECTANGLE,
@@ -604,25 +618,72 @@ class CapacitorInterpreter:
             )
             scene_objects.append(battery_obj)
 
-        # Capacitor 1 (top)
+            # Add battery voltage label
+            if voltage > 0:
+                battery_label = SceneObject(
+                    id="battery_label",
+                    type=PrimitiveType.TEXT,
+                    position={"x": 200, "y": self.center_y - 60},
+                    properties={"text": f"{voltage}{voltage_unit}", "font_size": 16, "font_weight": "bold"},
+                    style={"fill": "#333", "text_anchor": "middle"}
+                )
+                scene_objects.append(battery_label)
+
+        # Capacitor 1
+        if len(capacitors) > 0:
+            cap1_props = capacitors[0].get('properties', {})
+            cap1_value = cap1_props.get('capacitance', 0)
+            cap1_unit = cap1_props.get('capacitance_unit', 'μF')
+            cap1_id = capacitors[0].get('id', 'C1')
+
         cap1_obj = SceneObject(
             id="capacitor_1",
             type=PrimitiveType.RECTANGLE,
             position={"x": 370, "y": 250},
-            properties={"capacitance": capacitors[0].get('properties', {}).get('capacitance', 0)},
+            properties={"capacitance": cap1_value},
             style={"fill": "none", "stroke": "#2c3e50", "stroke_width": 4}
         )
         scene_objects.append(cap1_obj)
 
-        # Capacitor 2 (bottom)
+        # Add capacitor 1 label
+        if cap1_value > 0:
+            cap1_label_text = f"{cap1_id}: {cap1_value}{cap1_unit}" if cap1_id != 'C1' else f"{cap1_value}{cap1_unit}"
+            cap1_label = SceneObject(
+                id="cap1_label",
+                type=PrimitiveType.TEXT,
+                position={"x": 400, "y": 230},
+                properties={"text": cap1_label_text, "font_size": 14, "font_weight": "bold"},
+                style={"fill": "#2c3e50", "text_anchor": "middle"}
+            )
+            scene_objects.append(cap1_label)
+
+        # Capacitor 2
+        if len(capacitors) > 1:
+            cap2_props = capacitors[1].get('properties', {})
+            cap2_value = cap2_props.get('capacitance', 0)
+            cap2_unit = cap2_props.get('capacitance_unit', 'μF')
+            cap2_id = capacitors[1].get('id', 'C2')
+
         cap2_obj = SceneObject(
             id="capacitor_2",
             type=PrimitiveType.RECTANGLE,
             position={"x": 620, "y": 250},
-            properties={"capacitance": capacitors[1].get('properties', {}).get('capacitance', 0) if len(capacitors) > 1 else 0},
+            properties={"capacitance": cap2_value},
             style={"fill": "none", "stroke": "#2c3e50", "stroke_width": 4}
         )
         scene_objects.append(cap2_obj)
+
+        # Add capacitor 2 label
+        if cap2_value > 0:
+            cap2_label_text = f"{cap2_id}: {cap2_value}{cap2_unit}" if cap2_id != 'C2' else f"{cap2_value}{cap2_unit}"
+            cap2_label = SceneObject(
+                id="cap2_label",
+                type=PrimitiveType.TEXT,
+                position={"x": 650, "y": 230},
+                properties={"text": cap2_label_text, "font_size": 14, "font_weight": "bold"},
+                style={"fill": "#2c3e50", "text_anchor": "middle"}
+            )
+            scene_objects.append(cap2_label)
 
         # Add wires connecting them
         wires = [
