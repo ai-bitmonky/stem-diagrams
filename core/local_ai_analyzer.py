@@ -16,12 +16,15 @@ try:
     SPACY_AVAILABLE = True
 except ImportError:
     SPACY_AVAILABLE = False
+    # Define dummy type for type hints
+    Doc = object
 
 from core.problem_spec import (
     CanonicalProblemSpec,
     PhysicsDomain,
     IncompleteSpecsError
 )
+from core.pattern_based_extractor import PatternBasedExtractor
 
 
 class LocalAIAnalyzer:
@@ -45,6 +48,7 @@ class LocalAIAnalyzer:
         """
         self.verbose = verbose
         self.nlp = None
+        self.pattern_extractor = PatternBasedExtractor()  # Initialize pattern extractor
 
         if not SPACY_AVAILABLE:
             raise ImportError("spaCy not available. Install with: pip install spacy")
@@ -213,59 +217,87 @@ class LocalAIAnalyzer:
         return max(domain_scores.items(), key=lambda x: x[1])[0]
 
     def _extract_objects(self, text: str, doc: Doc) -> List[Dict]:
-        """Extract physics objects using NER + patterns"""
+        """
+        Extract physics objects using pattern-based extraction + NER
+
+        Strategy:
+        1. Use pattern-based extractor to get objects with properties (PRIMARY)
+        2. Supplement with spaCy NER for additional context
+        3. Merge results to create comprehensive object list
+        """
         objects = []
-        seen_names = set()
+        seen_ids = set()
 
-        # Extract from spaCy entities
-        for ent in doc.ents:
-            if ent.label_ in ['ORG', 'PRODUCT', 'GPE']:  # Might be object names
-                name = ent.text.strip()
-                if name and name not in seen_names:
-                    objects.append({
-                        'id': f'obj_{len(objects)}',
-                        'type': 'unknown',
-                        'name': name,
-                        'properties': {},
-                        'source': 'spacy_ner'
-                    })
-                    seen_names.add(name)
+        # METHOD 1: Pattern-based extraction (PRIMARY - extracts with properties!)
+        if self.verbose:
+            print("  🔍 Pattern-based object extraction...")
 
-        # Extract using patterns
-        for pattern in self.object_patterns:
-            matches = re.finditer(pattern, text, re.IGNORECASE)
-            for match in matches:
-                name = match.group(0).strip()
-                if name and name not in seen_names:
-                    # Determine type from name
-                    obj_type = self._infer_object_type(name)
-                    objects.append({
-                        'id': f'obj_{len(objects)}',
-                        'type': obj_type,
-                        'name': name,
-                        'properties': {},
-                        'source': 'pattern_match'
-                    })
-                    seen_names.add(name)
+        pattern_objects = self.pattern_extractor.extract(text)
 
-        # Extract generic object mentions
+        for extracted_obj in pattern_objects:
+            obj_id = extracted_obj.identifier
+            obj_type = extracted_obj.category.value
+            props = extracted_obj.properties.copy()
+
+            # Build comprehensive object dict
+            obj = {
+                'id': obj_id,
+                'type': obj_type,
+                'properties': {
+                    k: v for k, v in props.items()
+                    if k not in ['identifier', 'type', 'count']  # Exclude meta fields
+                },
+                'source': 'pattern_extractor'
+            }
+
+            # Add value and unit as properties if present
+            if 'value' in props and props['value'] is not None:
+                # Format depends on object type
+                if obj_type == 'capacitor' and 'unit' in props:
+                    obj['properties']['capacitance'] = props['value']
+                    obj['properties']['capacitance_unit'] = props['unit']
+                elif obj_type == 'battery' and 'unit' in props:
+                    obj['properties']['voltage'] = props['value']
+                    obj['properties']['voltage_unit'] = props['unit']
+                elif obj_type == 'resistor' and 'unit' in props:
+                    obj['properties']['resistance'] = props['value']
+                    obj['properties']['resistance_unit'] = props['unit']
+                elif obj_type == 'dielectric' and 'unit' in props:
+                    obj['properties']['dielectric_constant'] = props['value']
+
+            objects.append(obj)
+            seen_ids.add(obj_id)
+
+        if self.verbose and pattern_objects:
+            print(f"  ✅ Pattern extraction: {len(pattern_objects)} objects with properties")
+
+        # METHOD 2: Generic object detection (SUPPLEMENTARY - for objects missed by patterns)
         generic_objects = ['capacitor', 'resistor', 'battery', 'lens', 'mirror',
                           'magnet', 'spring', 'pulley', 'block', 'ball', 'particle',
-                          'wire', 'plate', 'conductor', 'insulator']
+                          'wire', 'plate', 'conductor', 'insulator', 'dielectric']
 
         for obj_type in generic_objects:
-            pattern = r'\b' + obj_type + r's?\b'
-            if re.search(pattern, text, re.IGNORECASE):
-                name = obj_type.capitalize()
-                if name not in seen_names:
-                    objects.append({
-                        'id': f'obj_{len(objects)}',
-                        'type': obj_type,
-                        'name': name,
-                        'properties': {},
-                        'source': 'generic_match'
-                    })
-                    seen_names.add(name)
+            # Check if we already have this type from pattern extraction
+            has_type = any(obj['type'] == obj_type for obj in objects)
+
+            if not has_type:
+                pattern = r'\b' + obj_type + r's?\b'
+                if re.search(pattern, text, re.IGNORECASE):
+                    obj_id = f'{obj_type}_generic'
+                    if obj_id not in seen_ids:
+                        objects.append({
+                            'id': obj_id,
+                            'type': obj_type,
+                            'properties': {},
+                            'source': 'generic_match'
+                        })
+                        seen_ids.add(obj_id)
+
+        if self.verbose:
+            print(f"  ✅ Total objects extracted: {len(objects)}")
+            for obj in objects:
+                props_summary = ', '.join(f"{k}={v}" for k, v in obj['properties'].items())
+                print(f"     - {obj['id']} ({obj['type']}): {props_summary if props_summary else 'no properties'}")
 
         return objects
 
