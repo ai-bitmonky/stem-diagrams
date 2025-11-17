@@ -56,6 +56,28 @@ class CapacitorInterpreter:
         has_cylinder = 'cylinder' in problem_text or 'cylindrical' in problem_text
         has_variable = 'variable' in problem_text
 
+        # Detect multi-stage problems (disconnected/reconnected scenarios)
+        has_disconnection = any(word in problem_text for word in ['disconnect', 'disconnected', 'removed', 'separate'])
+        has_reconnection = any(word in problem_text for word in ['reconnect', 'reconnected', 'connected again', 'then connected'])
+        is_multistage = has_disconnection and has_reconnection
+
+        # Detect implicit parallel connection (positive-to-positive, negative-to-negative)
+        implicit_parallel_patterns = [
+            'same sign',
+            'positive to positive',
+            'negative to negative',
+            '+ve to +ve',
+            '-ve to -ve',
+            'like charges',
+            'like plates'
+        ]
+        has_implicit_parallel = any(pattern in problem_text for pattern in implicit_parallel_patterns)
+
+        # If reconnected with same signs, it's parallel (overrides series detection)
+        if is_multistage and has_implicit_parallel:
+            has_parallel = True
+            has_series = False  # Final state is parallel, not series
+
         # Detect multiple dielectrics (κ₁, κ₂, κ₃ or kappa1, kappa2, kappa3)
         import re
         kappa_matches = re.findall(r'κ[₁₂₃]|kappa[_\s]*[123]', problem_text)
@@ -64,7 +86,7 @@ class CapacitorInterpreter:
         # Detect regions (left/right, top/bottom, quarters)
         has_regions = any(word in problem_text for word in ['left half', 'right half', 'top', 'bottom', 'quarter'])
 
-        print(f"   📝 Detected: dielectric={has_dielectric}, multi_dielectric={has_multiple_dielectrics}, regions={has_regions}, circuit={has_circuit}, series={has_series}, variable={has_variable}, cylinder={has_cylinder}")
+        print(f"   📝 Detected: dielectric={has_dielectric}, multi_dielectric={has_multiple_dielectrics}, regions={has_regions}, circuit={has_circuit}, series={has_series}, parallel={has_parallel}, variable={has_variable}, cylinder={has_cylinder}, multistage={is_multistage}")
 
         # Choose scene type based on detected features (order matters!)
         if has_cylinder:
@@ -73,6 +95,9 @@ class CapacitorInterpreter:
         elif has_variable:
             # Variable capacitor circuit (check before series!)
             scene_objects, constraints = self._create_variable_capacitor_circuit(objects)
+        elif has_parallel and has_circuit:
+            # Parallel capacitor circuit (e.g., reconnected with same signs)
+            scene_objects, constraints = self._create_parallel_capacitors(objects, relationships)
         elif has_series or (has_circuit and len(objects) >= 10):
             # Series/parallel circuit with multiple capacitors
             scene_objects, constraints = self._create_circuit(objects, relationships)
@@ -624,6 +649,151 @@ class CapacitorInterpreter:
                 style={"stroke": "#2c3e50", "stroke_width": 3}
             )
             scene_objects.append(wire_obj)
+
+        return scene_objects, constraints
+
+    def _create_parallel_capacitors(self, objects: List[Dict], relationships: List[Dict]) -> tuple:
+        """Create two or more capacitors connected in parallel (positive-to-positive, negative-to-negative)
+
+        This represents the FINAL STATE after capacitors are reconnected with plates of same signs together.
+        """
+        scene_objects = []
+        constraints = []
+
+        # Identify capacitors (should be 2 in this case)
+        capacitors = [obj for obj in objects if 'capacitor' in str(obj.get('type', '')).lower()]
+
+        if len(capacitors) < 2:
+            # Fallback to simple capacitor
+            return self._create_simple_capacitor(objects)
+
+        num_caps = len(capacitors)
+
+        # Layout: Capacitors side-by-side, connected at top and bottom rails
+        cap_width = 60
+        cap_height = 150
+        spacing = 100  # Horizontal spacing between capacitors
+
+        # Calculate starting X position to center the array
+        total_width = num_caps * cap_width + (num_caps - 1) * spacing
+        start_x = self.center_x - total_width // 2
+
+        # Create capacitor symbols (vertical parallel plates)
+        for i, cap in enumerate(capacitors):
+            cap_id = f"capacitor_{i+1}"
+            x_pos = start_x + i * (cap_width + spacing)
+
+            # Get capacitance value
+            cap_props = cap.get('properties', {})
+            capacitance = cap_props.get('capacitance', f'C{i+1}')
+
+            # Left plate of capacitor
+            left_plate = SceneObject(
+                id=f"{cap_id}_left_plate",
+                type=PrimitiveType.RECTANGLE,
+                position={"x": x_pos, "y": self.center_y - cap_height//2},
+                properties={"width": 8, "height": cap_height, "charge": "+Q"},
+                style={"fill": "#ff4444", "stroke": "#d32f2f", "stroke_width": 2}
+            )
+
+            # Right plate of capacitor
+            right_plate = SceneObject(
+                id=f"{cap_id}_right_plate",
+                type=PrimitiveType.RECTANGLE,
+                position={"x": x_pos + cap_width - 8, "y": self.center_y - cap_height//2},
+                properties={"width": 8, "height": cap_height, "charge": "-Q"},
+                style={"fill": "#4444ff", "stroke": "#1976d2", "stroke_width": 2}
+            )
+
+            scene_objects.extend([left_plate, right_plate])
+
+            # Add capacitance label below each capacitor
+            label = SceneObject(
+                id=f"{cap_id}_label",
+                type=PrimitiveType.TEXT,
+                position={"x": x_pos + cap_width//2, "y": self.center_y + cap_height//2 + 30},
+                properties={"text": str(capacitance), "font_size": 14, "font_weight": "bold"},
+                style={"fill": "#333", "font_family": "Arial", "text_anchor": "middle"}
+            )
+            scene_objects.append(label)
+
+        # Add top rail (connecting all positive plates)
+        top_rail_y = self.center_y - cap_height//2 - 30
+        top_rail = SceneObject(
+            id="top_rail",
+            type=PrimitiveType.LINE,
+            position={
+                "x": start_x, "y": top_rail_y,
+                "x1": start_x, "y1": top_rail_y,
+                "x2": start_x + total_width, "y2": top_rail_y
+            },
+            properties={},
+            style={"stroke": "#ff4444", "stroke_width": 4}
+        )
+        scene_objects.append(top_rail)
+
+        # Add bottom rail (connecting all negative plates)
+        bottom_rail_y = self.center_y + cap_height//2 + 30
+        bottom_rail = SceneObject(
+            id="bottom_rail",
+            type=PrimitiveType.LINE,
+            position={
+                "x": start_x, "y": bottom_rail_y,
+                "x1": start_x, "y1": bottom_rail_y,
+                "x2": start_x + total_width, "y2": bottom_rail_y
+            },
+            properties={},
+            style={"stroke": "#4444ff", "stroke_width": 4}
+        )
+        scene_objects.append(bottom_rail)
+
+        # Add vertical wires connecting each capacitor to the rails
+        for i in range(num_caps):
+            x_pos = start_x + i * (cap_width + spacing)
+
+            # Wire from top rail to positive plate
+            top_wire = SceneObject(
+                id=f"wire_top_{i+1}",
+                type=PrimitiveType.LINE,
+                position={
+                    "x": x_pos + 4, "y": top_rail_y,
+                    "x1": x_pos + 4, "y1": top_rail_y,
+                    "x2": x_pos + 4, "y2": self.center_y - cap_height//2
+                },
+                properties={},
+                style={"stroke": "#ff4444", "stroke_width": 3}
+            )
+
+            # Wire from bottom rail to negative plate
+            bottom_wire = SceneObject(
+                id=f"wire_bottom_{i+1}",
+                type=PrimitiveType.LINE,
+                position={
+                    "x": x_pos + cap_width - 4, "y": self.center_y + cap_height//2,
+                    "x1": x_pos + cap_width - 4, "y1": self.center_y + cap_height//2,
+                    "x2": x_pos + cap_width - 4, "y2": bottom_rail_y
+                },
+                properties={},
+                style={"stroke": "#4444ff", "stroke_width": 3}
+            )
+
+            scene_objects.extend([top_wire, bottom_wire])
+
+        # Add annotation showing parallel connection
+        parallel_label = SceneObject(
+            id="parallel_label",
+            type=PrimitiveType.TEXT,
+            position={"x": self.center_x, "y": top_rail_y - 30},
+            properties={"text": "Parallel Connection (same signs together)", "font_size": 16, "font_weight": "bold"},
+            style={"fill": "#e65100", "font_family": "Arial", "text_anchor": "middle"}
+        )
+        scene_objects.append(parallel_label)
+
+        # Add constraints
+        constraints.append(Constraint(
+            type=ConstraintType.PARALLEL,
+            objects=[f"capacitor_{i+1}_left_plate" for i in range(num_caps)]
+        ))
 
         return scene_objects, constraints
 
