@@ -28,11 +28,15 @@ import time
 import logging
 import copy
 import uuid
+import re
 from collections import OrderedDict
 from dataclasses import dataclass
 from typing import Dict, Optional, List, Any, Tuple
 from pathlib import Path
 import jsonschema
+
+# Pipeline tracing and logging
+from core.pipeline_tracer import PipelineTracer
 
 # Original pipeline components
 from core.universal_ai_analyzer import (
@@ -358,6 +362,59 @@ class UnifiedDiagramPipeline:
 
     NO silent failures, graceful degradation for optional features
     """
+
+    _SUBSCRIPT_TRANSLATION = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
+    _UNIT_PREFIX_SCALES = {
+        'P': 1e-12,
+        'N': 1e-9,
+        'U': 1e-6,
+        'M': 1e-3,
+        'K': 1e3,
+        'G': 1e9
+    }
+    _UNIT_BASE_MAP = {
+        'F': {'quantity': 'capacitance', 'component_hint': 'capacitor', 'unit': 'F'},
+        'V': {'quantity': 'voltage', 'component_hint': 'battery', 'unit': 'V'},
+        'A': {'quantity': 'current', 'component_hint': 'current_source', 'unit': 'A'},
+        'OHM': {'quantity': 'resistance', 'component_hint': 'resistor', 'unit': 'Ω'},
+        'H': {'quantity': 'inductance', 'component_hint': 'inductor', 'unit': 'H'},
+        'C': {'quantity': 'charge', 'unit': 'C'},
+        'N': {'quantity': 'force', 'unit': 'N'},
+        'KG': {'quantity': 'mass', 'unit': 'kg'},
+        'G': {'quantity': 'mass', 'unit': 'g'},
+        'M': {'quantity': 'distance', 'unit': 'm'},
+        'CM': {'quantity': 'distance', 'unit': 'cm'},
+        'MM': {'quantity': 'distance', 'unit': 'mm'},
+        'S': {'quantity': 'time', 'unit': 's'},
+        'HZ': {'quantity': 'frequency', 'unit': 'Hz'},
+        'J': {'quantity': 'energy', 'unit': 'J'},
+        'W': {'quantity': 'power', 'unit': 'W'},
+        'PA': {'quantity': 'pressure', 'unit': 'Pa'}
+    }
+    _QUANTITY_KEYWORDS = {
+        'potential difference': {'quantity': 'voltage', 'component_hint': 'battery'},
+        'voltage': {'quantity': 'voltage'},
+        'charge': {'quantity': 'charge'},
+        'force': {'quantity': 'force'},
+        'mass': {'quantity': 'mass'},
+        'distance': {'quantity': 'distance'},
+        'separation': {'quantity': 'distance'},
+        'speed': {'quantity': 'speed'},
+        'velocity': {'quantity': 'speed'},
+        'acceleration': {'quantity': 'acceleration'},
+        'current': {'quantity': 'current'},
+        'capacitance': {'quantity': 'capacitance', 'component_hint': 'capacitor'},
+        'resistance': {'quantity': 'resistance', 'component_hint': 'resistor'},
+        'electric field': {'quantity': 'electric_field'}
+    }
+    _TEXT_ASSIGNMENT_PATTERN = re.compile(
+        r'(?P<symbol>[A-Za-z][A-Za-z0-9₀-₉]*)\s*=\s*(?P<value>[-+]?\d+(?:\.\d+)?)\s*(?P<unit>[A-Za-zΩωμµ]+)',
+        re.IGNORECASE
+    )
+    _TEXT_QUANTITY_PATTERN = re.compile(
+        r'(?P<label>[A-Za-z][A-Za-z\s-]{1,40}?)\s+of\s+(?P<value>[-+]?\d+(?:\.\d+)?)\s*(?P<unit>[A-Za-zΩωμµ]+)',
+        re.IGNORECASE
+    )
 
     def __init__(self, config: PipelineConfig):
         """
@@ -852,6 +909,9 @@ class UnifiedDiagramPipeline:
         request_id = self._next_request_id()
         trace['request_id'] = request_id
 
+        # Initialize comprehensive pipeline tracer
+        tracer = PipelineTracer(request_id=request_id, output_dir="logs")
+
         # Track advanced pipeline results
         nlp_results = {}
         complexity_score = None
@@ -868,6 +928,7 @@ class UnifiedDiagramPipeline:
         print("╔" + "═"*78 + "╗")
         print("║" + " "*78 + "║")
         print("║" + "    UNIFIED DIAGRAM GENERATION - V4.0 (ADVANCED)".center(78) + "║")
+        print("║" + "    REQUEST ID: {:<60}".format(request_id) + "║")
         print("║" + " "*78 + "║")
         print("╚" + "═"*78 + "╝")
         print()
@@ -880,6 +941,14 @@ class UnifiedDiagramPipeline:
 
             if self.nlp_tools:
                 stage_start_time = time.time()
+
+                # Start tracer for NLP phase
+                tracer.start_component("NLP Enrichment", "Phase 0", {
+                    'tools': list(self.nlp_tools.keys()),
+                    'problem_length': len(problem_text)
+                })
+                tracer.log_input(problem_text, "problem_text")
+
                 if self.logger:
                     self.logger.start_phase("NLP Enrichment", 0, "Extract entities, relations, and scientific concepts")
                     self.logger.log_phase_input(problem_text, f"Problem text ({len(problem_text)} chars)")
@@ -1063,6 +1132,16 @@ class UnifiedDiagramPipeline:
                             print(f"       - {tool_name}: {tool_time:.0f}ms ({percentage:.1f}%)", flush=True)
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
+
+                # Complete tracer for NLP phase
+                tracer.log_output(nlp_results, "nlp_results")
+                tracer.log_transformation("NLP Extraction", {
+                    'tools_used': list(nlp_results.keys()),
+                    'total_time_ms': total_nlp_time,
+                    'cached': cached_nlp is not None
+                })
+                tracer.complete_component()
+
                 if self.logger:
                     self.logger.log_phase_output(nlp_results, f"Extracted data using {len(nlp_results)} NLP tools")
                     self.logger.end_phase("success")
@@ -1077,6 +1156,13 @@ class UnifiedDiagramPipeline:
             # Phase 0.5: Property Graph Construction (ENHANCED - Multi-source integration)
             if self.property_graph is not None:
                 stage_start_time = time.time()
+
+                # Start tracer for Property Graph phase
+                tracer.start_component("Property Graph Construction", "Phase 0.5", {
+                    'nlp_tools_used': list(nlp_results.keys()) if nlp_results else []
+                })
+                tracer.log_input(nlp_results, "nlp_results")
+
                 if self.logger:
                     self.logger.start_phase("Property Graph Construction", 1, "Build knowledge graph from NLP results")
                     self.logger.log_phase_input(nlp_results, "NLP extraction results")
@@ -1091,6 +1177,80 @@ class UnifiedDiagramPipeline:
                 # Counter for tracking sources
                 sources_used = []
 
+                # Source 0: Direct text parsing for canonical quantities/components
+                text_measurements = self._extract_quantities_from_text(problem_text)
+                if text_measurements:
+                    sources_used.append('text_pattern')
+                    for measurement in text_measurements:
+                        quantity_id = measurement['quantity_id']
+                        text_metadata = {
+                            'sources': ['text_pattern'],
+                            'raw_text': measurement['raw_text'],
+                            'confidence': measurement.get('confidence', 0.95)
+                        }
+
+                        if not self.property_graph.has_node(quantity_id):
+                            quantity_node = GraphNode(
+                                id=quantity_id,
+                                type=NodeType.QUANTITY,
+                                label=measurement['quantity_label'],
+                                properties={
+                                    'quantity_type': measurement['quantity_type'],
+                                    'value': measurement['value'],
+                                    'value_si': measurement['value_si'],
+                                    'unit': measurement['unit_display'],
+                                    'unit_base': measurement.get('unit_base'),
+                                    'symbol': measurement.get('symbol')
+                                },
+                                metadata=text_metadata
+                            )
+                            self.property_graph.add_node(quantity_node)
+
+                        component_id = measurement.get('component_id')
+                        if component_id:
+                            if not self.property_graph.has_node(component_id):
+                                component_node = GraphNode(
+                                    id=component_id,
+                                    type=NodeType.COMPONENT,
+                                    label=measurement['component_label'],
+                                    properties={
+                                        'component_type': measurement['component_type'],
+                                        'symbol': measurement.get('symbol')
+                                    },
+                                    metadata=text_metadata
+                                )
+                                self.property_graph.add_node(component_node)
+
+                            self.property_graph.add_edge(GraphEdge(
+                                source=component_id,
+                                target=quantity_id,
+                                type=EdgeType.HAS_VALUE,
+                                label=f"{measurement['quantity_type']} value",
+                                metadata={'source': 'text_pattern'},
+                                properties={'unit': measurement['unit_display'], 'raw': measurement['raw_text']}
+                            ))
+
+                        unit_base = measurement.get('unit_base')
+                        if unit_base:
+                            unit_node_id = f"unit_{unit_base.lower()}"
+                            if not self.property_graph.has_node(unit_node_id):
+                                unit_node = GraphNode(
+                                    id=unit_node_id,
+                                    type=NodeType.CONCEPT,
+                                    label=unit_base,
+                                    properties={'unit': unit_base},
+                                    metadata={'sources': ['text_pattern']}
+                                )
+                                self.property_graph.add_node(unit_node)
+
+                            self.property_graph.add_edge(GraphEdge(
+                                source=quantity_id,
+                                target=unit_node_id,
+                                type=EdgeType.HAS_UNIT,
+                                label='has_unit',
+                                metadata={'source': 'text_pattern'}
+                            ))
+
                 # ✅ FIX 2: Integrate ALL NLP tool outputs (not just OpenIE)
 
                 # Source 1: OpenIE - Extract subject-relation-object triples
@@ -1101,9 +1261,25 @@ class UnifiedDiagramPipeline:
                         if not self.property_graph.has_node(subject):
                             subj_node = GraphNode(id=subject, type=NodeType.OBJECT, label=subject)
                             self.property_graph.add_node(subj_node)
+                            # Trace entity addition
+                            tracer.log_entity_added(subject, {
+                                'source': 'OpenIE',
+                                'type': 'OBJECT',
+                                'label': subject,
+                                'relation_role': 'subject',
+                                'relation': relation
+                            })
                         if not self.property_graph.has_node(obj):
                             obj_node = GraphNode(id=obj, type=NodeType.OBJECT, label=obj)
                             self.property_graph.add_node(obj_node)
+                            # Trace entity addition
+                            tracer.log_entity_added(obj, {
+                                'source': 'OpenIE',
+                                'type': 'OBJECT',
+                                'label': obj,
+                                'relation_role': 'object',
+                                'relation': relation
+                            })
 
                         # Add edge
                         edge = GraphEdge(
@@ -1373,6 +1549,21 @@ class UnifiedDiagramPipeline:
 
                 print("└───────────────────────────────────────────────────────────────┘\n")
 
+                # Complete tracer for Property Graph phase
+                tracer.log_output(graph_output, "property_graph")
+                tracer.track_entity_flow("Property Graph Construction", [
+                    {'id': node[0], 'label': node[1].get('label', ''), 'type': node[1].get('type', '')}
+                    for node in all_nodes
+                ])
+                tracer.log_transformation("Property Graph Construction", {
+                    'sources_used': sources_used,
+                    'total_nodes': len(all_nodes),
+                    'total_edges': len(all_edges),
+                    'node_types': list(graph_output.get('node_types', {}).keys()),
+                    'edge_types': list(graph_output.get('edge_types', {}).keys())
+                })
+                tracer.complete_component()
+
                 if self.logger:
                     self.logger.log_phase_output(graph_output, f"Built graph with {len(all_nodes)} nodes from {len(sources_used)} sources")
                     self.logger.end_phase("success")
@@ -1556,7 +1747,8 @@ class UnifiedDiagramPipeline:
                         description=problem_text,
                         domain=domain.value if domain else (diagram_plan.metadata.get('domain_hint') if diagram_plan else 'general'),
                         use_local=True,
-                        deepseek_client=self.deepseek_client if getattr(self.config, 'enable_deepseek_audit', False) else None
+                        deepseek_client=self.deepseek_client,
+                        verify_with_deepseek=getattr(self.config, 'enable_deepseek_audit', False)
                     )
                     llm_plan_result = llm_plan.to_dict()
                     llm_plan_result['verifier'] = 'deepseek' if self.deepseek_client else ('api' if self.llm_planner.api_client else 'none')
@@ -2166,6 +2358,12 @@ class UnifiedDiagramPipeline:
             raise
 
         finally:
+            # Export comprehensive trace
+            tracer.print_summary()
+            trace_file = tracer.export_trace()
+            print(f"\n📊 Detailed trace exported to: {trace_file}")
+
+            # Keep original trace for compatibility
             with open('generation_trace.json', 'w') as f:
                 json.dump(trace, f, indent=2)
 
@@ -2677,6 +2875,174 @@ class UnifiedDiagramPipeline:
             return max_domain[0]
         else:
             return None  # Unknown domain
+
+    def _extract_quantities_from_text(self, text: Optional[str]) -> List[Dict[str, Any]]:
+        """Parse raw text for canonical quantities and linked components."""
+
+        if not text:
+            return []
+
+        measurements: List[Dict[str, Any]] = []
+        seen_keys = set()
+
+        def _register(entry: Dict[str, Any]) -> None:
+            key = (entry['quantity_id'], entry['value'], entry.get('unit_base'))
+            if key in seen_keys:
+                return
+            seen_keys.add(key)
+            measurements.append(entry)
+
+        # Explicit symbolic assignments (e.g., "C₁ = 2.00 μF")
+        for match in self._TEXT_ASSIGNMENT_PATTERN.finditer(text):
+            unit_info = self._parse_unit_token(match.group('unit'))
+            if not unit_info:
+                continue
+
+            try:
+                raw_value = float(match.group('value'))
+            except ValueError:
+                continue
+
+            symbol = self._normalize_symbol_token(match.group('symbol'))
+            if not symbol:
+                continue
+
+            quantity_type = unit_info.get('quantity', 'quantity')
+            slug = self._slugify(symbol)
+            quantity_id = f"{quantity_type}_{slug}"
+            component_hint = unit_info.get('component_hint')
+
+            component_id = None
+            component_label = None
+            component_type = None
+            if component_hint:
+                component_id = f"{component_hint}_{slug}"
+                pretty_symbol = symbol.upper()
+                component_label = f"{component_hint.replace('_', ' ').title()} {pretty_symbol}".strip()
+                component_type = component_hint
+
+            entry = {
+                'symbol': symbol,
+                'raw_text': match.group(0).strip(),
+                'quantity_type': quantity_type,
+                'quantity_label': f"{quantity_type.replace('_', ' ').title()} {symbol.upper()}".strip(),
+                'quantity_id': quantity_id,
+                'component_id': component_id,
+                'component_label': component_label or (component_id or symbol.upper()),
+                'component_type': component_type,
+                'unit_display': unit_info.get('unit_display', match.group('unit').strip()),
+                'unit_base': unit_info.get('base_unit'),
+                'value': raw_value,
+                'value_si': raw_value * unit_info.get('scale', 1.0),
+                'confidence': 0.97
+            }
+            _register(entry)
+
+        # Narrative quantities (e.g., "potential difference of 300 V")
+        for match in self._TEXT_QUANTITY_PATTERN.finditer(text):
+            label = match.group('label').strip()
+            normalized_label = re.sub(r'^(?:a|an|the)\s+', '', label, flags=re.IGNORECASE).lower()
+            keyword_info = self._match_quantity_keyword(normalized_label)
+            if not keyword_info:
+                continue
+
+            unit_info = self._parse_unit_token(match.group('unit'))
+            if not unit_info:
+                continue
+
+            try:
+                raw_value = float(match.group('value'))
+            except ValueError:
+                continue
+
+            quantity_type = keyword_info.get('quantity') or unit_info.get('quantity') or 'quantity'
+            slug = self._slugify(normalized_label)
+            quantity_id = f"{quantity_type}_{slug}"
+
+            component_hint = keyword_info.get('component_hint') or unit_info.get('component_hint')
+            component_id = None
+            component_label = None
+            component_type = None
+            if component_hint:
+                component_id = f"{component_hint}_{slug}"
+                component_label = component_hint.replace('_', ' ').title()
+                component_type = component_hint
+
+            entry = {
+                'symbol': normalized_label,
+                'raw_text': match.group(0).strip(),
+                'quantity_type': quantity_type,
+                'quantity_label': normalized_label.replace('_', ' ').title(),
+                'quantity_id': quantity_id,
+                'component_id': component_id,
+                'component_label': component_label or normalized_label.title(),
+                'component_type': component_type,
+                'unit_display': unit_info.get('unit_display', match.group('unit').strip()),
+                'unit_base': unit_info.get('base_unit'),
+                'value': raw_value,
+                'value_si': raw_value * unit_info.get('scale', 1.0),
+                'confidence': 0.9
+            }
+            _register(entry)
+
+        return measurements
+
+    def _normalize_symbol_token(self, token: Optional[str]) -> str:
+        if not token:
+            return ''
+        normalized = token.translate(self._SUBSCRIPT_TRANSLATION)
+        normalized = re.sub(r'\s+', '', normalized)
+        return normalized.strip()
+
+    def _parse_unit_token(self, unit_token: Optional[str]) -> Optional[Dict[str, Any]]:
+        if not unit_token:
+            return None
+
+        cleaned = unit_token.strip()
+        if not cleaned:
+            return None
+
+        normalized = cleaned.replace('µ', 'μ')
+        normalized = normalized.replace('μ', 'U')
+        normalized = normalized.replace('Ω', 'OHM').replace('Ω', 'OHM')
+        normalized = re.sub(r'\s+', '', normalized)
+        normalized = normalized.upper()
+
+        if normalized in self._UNIT_BASE_MAP:
+            info = self._UNIT_BASE_MAP[normalized].copy()
+            info.update({'base_unit': normalized, 'scale': 1.0, 'unit_display': cleaned})
+            return info
+
+        if len(normalized) > 1 and normalized[0] in self._UNIT_PREFIX_SCALES:
+            prefix = normalized[0]
+            remainder = normalized[1:]
+            if remainder in self._UNIT_BASE_MAP:
+                info = self._UNIT_BASE_MAP[remainder].copy()
+                info.update({
+                    'base_unit': remainder,
+                    'scale': self._UNIT_PREFIX_SCALES[prefix],
+                    'prefix': prefix,
+                    'unit_display': cleaned
+                })
+                return info
+
+        return None
+
+    def _slugify(self, value: str) -> str:
+        slug = re.sub(r'[^a-z0-9]+', '_', value.lower())
+        slug = slug.strip('_')
+        return slug or 'value'
+
+    def _match_quantity_keyword(self, label: str) -> Optional[Dict[str, Any]]:
+        lookup = label.strip()
+        if lookup in self._QUANTITY_KEYWORDS:
+            return self._QUANTITY_KEYWORDS[lookup]
+
+        for keyword, info in self._QUANTITY_KEYWORDS.items():
+            if keyword in lookup:
+                return info
+
+        return None
 
     def _diagram_plan_to_canonical_spec(self, diagram_plan) -> CanonicalProblemSpec:
         """
