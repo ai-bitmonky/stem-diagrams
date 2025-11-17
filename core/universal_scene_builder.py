@@ -10,6 +10,7 @@ import json
 
 from core.universal_ai_analyzer import CanonicalProblemSpec, PhysicsDomain
 from core.scene.schema_v1 import Scene, SceneObject, Constraint, PrimitiveType, ConstraintType
+from core.temporal_analyzer import TemporalAnalyzer, TemporalSceneSelector
 
 
 class IncompleteSceneError(Exception):
@@ -44,6 +45,10 @@ class UniversalSceneBuilder:
 
         # Load physics enrichment rules
         self.physics_rules = self._load_physics_rules()
+
+        # Initialize temporal analyzer (generic multi-stage problem detection)
+        self.temporal_analyzer = TemporalAnalyzer()
+        self.temporal_selector = TemporalSceneSelector()
 
         print(f"✅ UniversalSceneBuilder initialized")
         print(f"   Loaded {len(self.interpreters)} domain interpreters")
@@ -88,15 +93,30 @@ class UniversalSceneBuilder:
         print(f"🏗️  UNIVERSAL SCENE BUILDING - Phase 2")
         print(f"{ '='*80}\n")
 
+        # Step 0.5: Temporal Analysis (GENERIC MULTI-STAGE DETECTION)
+        _print_step("Temporal Stage Analysis", leading_newline=False)
+        temporal_analysis = self.temporal_analyzer.analyze(spec.problem_text)
+        if temporal_analysis['is_multistage']:
+            print(f"   🔄 Multi-stage problem detected:")
+            print(f"      Stages: {len(temporal_analysis['stages'])}")
+            print(f"      Target stage: {temporal_analysis['question_target_stage'].value}")
+            print(f"      Transitions: {[t.value for t in temporal_analysis['transitions']]}")
+            if temporal_analysis['implicit_relationships']:
+                print(f"      Implicit relationships: {temporal_analysis['implicit_relationships']}")
+        else:
+            print(f"   ✓ Single-stage problem")
+
         # Step 1: Select interpreter
-        _print_step("Domain Interpreter Selection", leading_newline=False)
+        _print_step("Domain Interpreter Selection")
         interpreter = self._select_interpreter(spec.domain)
         print(f"   ✅ Selected: {spec.domain.value} interpreter")
 
-        # Step 2: Interpret spec to scene (STRATEGY-DRIVEN)
+        # Step 2: Interpret spec to scene (STRATEGY-DRIVEN WITH TEMPORAL CONTEXT)
         _print_step(f"Scene Interpretation ({strategy} strategy)")
         # Convert CanonicalProblemSpec to dict for legacy interpreters
         spec_dict = self._spec_to_dict(spec)
+        # Add temporal analysis to spec for interpreter to use
+        spec_dict['temporal_analysis'] = temporal_analysis
 
         if strategy == "HIERARCHICAL":
             # For complex problems: build hierarchically

@@ -31,6 +31,7 @@ class CapacitorInterpreter:
                 - relationships: Connections between objects
                 - environment: Physical constants
                 - problem_text: Original problem text (for keyword detection)
+                - temporal_analysis: Generic temporal analysis (optional, from TemporalAnalyzer)
 
         Returns:
             Scene with positioned objects and constraints
@@ -44,6 +45,9 @@ class CapacitorInterpreter:
         relationships = spec.get('relationships', [])
         problem_text = spec.get('problem_text', '').lower()
 
+        # Get temporal analysis (generic framework)
+        temporal_analysis = spec.get('temporal_analysis', {})
+
         # Identify problem type from objects AND problem text
         has_capacitor = any('capacitor' in str(obj.get('type', '')).lower() for obj in objects)
         has_dielectric = (any('dielectric' in str(obj.get('type', '')).lower() for obj in objects) or
@@ -56,27 +60,20 @@ class CapacitorInterpreter:
         has_cylinder = 'cylinder' in problem_text or 'cylindrical' in problem_text
         has_variable = 'variable' in problem_text
 
-        # Detect multi-stage problems (disconnected/reconnected scenarios)
-        has_disconnection = any(word in problem_text for word in ['disconnect', 'disconnected', 'removed', 'separate'])
-        has_reconnection = any(word in problem_text for word in ['reconnect', 'reconnected', 'connected again', 'then connected'])
-        is_multistage = has_disconnection and has_reconnection
+        # Use generic temporal analysis (if available)
+        is_multistage = temporal_analysis.get('is_multistage', False)
+        implicit_relationships = temporal_analysis.get('implicit_relationships', {})
 
-        # Detect implicit parallel connection (positive-to-positive, negative-to-negative)
-        implicit_parallel_patterns = [
-            'same sign',
-            'positive to positive',
-            'negative to negative',
-            '+ve to +ve',
-            '-ve to -ve',
-            'like charges',
-            'like plates'
-        ]
-        has_implicit_parallel = any(pattern in problem_text for pattern in implicit_parallel_patterns)
-
-        # If reconnected with same signs, it's parallel (overrides series detection)
-        if is_multistage and has_implicit_parallel:
-            has_parallel = True
-            has_series = False  # Final state is parallel, not series
+        # Check for circuit topology from generic temporal analyzer
+        if 'circuit_topology' in implicit_relationships:
+            topology = implicit_relationships['circuit_topology']
+            if topology == 'parallel':
+                has_parallel = True
+                has_series = False  # Final state is parallel, overrides initial series
+                print(f"   🔄 Temporal analyzer detected final state: PARALLEL connection")
+            elif topology == 'series':
+                has_series = True
+                has_parallel = False
 
         # Detect multiple dielectrics (κ₁, κ₂, κ₃ or kappa1, kappa2, kappa3)
         import re
